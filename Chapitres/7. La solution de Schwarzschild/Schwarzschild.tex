@@ -1,0 +1,1015 @@
+\chapter{La solution de Schwarzschild}
+
+Einstein lui-même, après avoir publié ses équations en 1915, ne fut capable que d'en trouver des solutions approchées non-triviales (i.e. différentes de Minkowski pour $\Lambda = 0$). Il fut donc surpris lorsque \emph{Karl Schwarzschild}, en décembre 1915, lui adressa une lettre du front russe\footnote{il était engagé dans les troupes allemandes au cours de la première guerre mondiale, où il contracta une maladie qui causera sa mort en mai 1916.} lui annonçant avoir trouvé la première solution exacte non-triviale des équations d'Einstein du vide. Il s'agit d'une \emph{solution à symétrie sphérique}, qui correspond en bonne approximation au champ gravitationnel généré par un corps céleste comme le soleil ou la terre. Il s'agit d'une solution \emph{extérieure}, i.e. satisfaisant à $G_{\mu\nu} = 0$ : on considère que l'espace est vide autour d'un corps gravitant à symétrie sphérique.\\
+\\
+En plus de son utilité "pratique" (par exemple, pour déterminer les corrections relativistes aux équations de Newton pour les mouvements des planètes dans le système solaire), cette solution nous permettra de décrire des objets nouveaux d'un très grand intérêt : les \emph{trous noirs}. Ceux-ci seront étudié au prochain chapitre.
+
+\section{La symétrie sphérique}
+La symétrie sphérique à (3+1) dimensions est défini comme la symétrie $SO(3)$ spatiale (de la sphère $S^2$), i.e. les rotations ordinaires de l'espace euclidien à 3 dimensions. Cette symétrie joue un rôle important dans de nombreux problèmes physiques (mécanique classique : problème de Kepler, mécanique quantique : atome d'Hydrogène). La sphère est définie par la contrainte
+\begin{equation}
+    S^2 = \{ (x,y,z) \in \R^3 \mid x^2 +y^2 +z^2 = 1 \}
+\end{equation}
+Et peut être paramétrisée\footnote{presque partout} par
+\begin{align}
+    \left\{ 
+    \begin{array}{l}
+        x = \sin \theta \cos\varphi \\
+        y = \sin \theta \sin \varphi \\
+        z = \cos \theta
+    \end{array}
+    \right.
+\end{align}
+par laquelle on obtient la métrique induite\footnote{induite par l'espace euclidien ambiant.}
+\begin{equation}
+    \label{def:S2}
+    \td s^2 = \td \theta ^2 + \sin ^2 \theta \td \varphi^2 \equiv \td \Omega^2
+\end{equation}
+Les symétries de $S^2$ sont les isométries de cette métrique qui préservent également $x^2 + y^2 +z^2 =1$. Ce sont donc les rotations autour de $x, y$ et $z$. 
+\begin{rmk}
+    L'espace topologique $S^2$ peut admettre des métriques autres que \ref{def:S2}. Nous prendrons dans ce cours comme définition de $S^2$ l'espace muni de $\ref{def:S2}$, i.e. la métrique induite par l'espace euclidien ambiant.
+\end{rmk}
+\subsection{Vecteurs de Killing de $S^2$}
+Prenons premièrement le cas d'une rotation d'un angle $\alpha$ autour de l'axe $Oz$.
+\begin{equation}
+    \begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix} \rightarrow \begin{pmatrix}
+x'\\
+y'\\
+z'
+\end{pmatrix} = \lt\begin{array}{ccc}
+    \cos \alpha & \sin\alpha & 0 \\
+    -\sin\alpha & \cos \alpha & 0 \\
+    0 & 0 & 1 
+\end{array}
+\rt 
+\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}
+\end{equation}
+Quel est le générateur de cette transformation ? La définition d'un générateur est:
+
+\begin{equation}
+    \xi^{\mu} = \left. \frac{\td x'^{\mu}}{\td \alpha}\right|_{\alpha = 0}
+\end{equation}
+Étant donné la transformation considérée, on obtient donc
+\begin{align}
+    \xi^{x} &= (\cos{\alpha}x + \sin{\alpha}y)|_{\alpha = 0} = y\\
+    \xi^{y} &= (-\sin{\alpha}x + \cos{\alpha}y)|_{\alpha = 0} = -x\\
+    \xi^{z} &= 0
+\end{align}
+Qu'on peut écrire sous la forme 
+\begin{equation}
+    \xi = \xi^{\mu}\partial_{\mu} = y\partial_{x} - x\partial_{y} \equiv R
+\end{equation}
+Similairement, on trouve pour des rotations autour de $Ox$ et $Oy$ :
+\begin{align}
+    T \equiv z\partial_{y}-y\partial_{z} \\
+    S \equiv z\partial_{x} - x\partial_{z}
+\end{align}
+On souhaite exprimer ces vecteurs en coordonnées sphériques. Effectuons le calcul pour $R$, et laissons les deux autres comme exercice. On peut convertir $R$ par un calcul brut via la règle de la chaîne
+\begin{equation}
+    \frac{\partial}{\partial x} = \frac{\partial \theta}{\partial x} \partial_{\theta}+ \frac{\partial \varphi}{\partial x}\partial_{\varphi}
+\end{equation}
+Mais exprimer $\frac{\partial \theta}{\partial x} $ et $\frac{\partial \varphi}{\partial x}$ en termes de $\theta$ et de $\varphi$ est compliqué. À la place, on peut calculer le dual de $R$ :
+\begin{equation}
+    \tilde R = R_{\mu}\td x^{\mu} =  g_{\mu \nu}R^{\nu}\td x^{\mu}
+\end{equation}
+Dans notre cas, la métrique en coordonnées sphériques s'écrit
+\begin{align}
+    g_{\mu\nu} = \begin{pmatrix}
+        1 & 0 \\
+        0 & \sin^2\theta
+    \end{pmatrix}
+\end{align}
+Le dual de $R$ s'écrit donc :
+\begin{align}
+    \left\{ \begin{array}{l}
+        R_x = g_{xx} R^x = y = \sin \theta \sin \varphi\\
+        R_y = g_{yy} R^y = -  x = - \sin \theta \cos \varphi
+    \end{array}
+    \right.
+\end{align}
+en coordonnées cartésiennes. On calcule le dual
+\begin{align*}
+    \tilde R &= \,\purple{\sin{\theta}\sin{\varphi}}(\purple{\cos{\theta} \cos{\varphi}\, \td \theta}- \sin{\theta} \sin{\varphi}\, \td \varphi) - \purple{\sin{\theta}\cos{\varphi}}(\purple{\cos{\theta} \sin{\varphi} \, \td \theta} + \sin{\theta} \cos{\varphi} \, \td \varphi)\\ 
+    &= - \sin^2{\theta}\sin^2{\varphi}\, \td \varphi - \sin^2{\theta}\cos^2{\varphi}\, \td \varphi\\
+    &= - \sin^2{\theta}\, \td \varphi
+\end{align*}
+En effectuant la transformation inverse $R^{\mu} = g^{\mu \nu}R_{\nu}$, on obtient (en coordonnées sphériques
+\begin{align}
+    &R^{\theta} = g^{\theta \theta}R_{\theta} = 0\\
+    &R^{\varphi} = g^{\varphi \varphi}R_{\varphi} = -\frac{1}{\sin^2{\theta}}\sin^2{\theta} = -1
+\end{align}
+Ce qui nous donne finalement le vecteur
+\begin{equation}
+    R = -\partial_{\varphi}
+\end{equation}
+Similairement, on aura
+\begin{align}
+    S &= - \cos \varphi \, \pd_\theta +\cot \theta \sin \varphi \, \pd_\varphi \\
+    T &= + \sin \varphi \, \pd_\theta +\cot \theta \cos \varphi \, \pd_\varphi
+\end{align}
+On peut vérifier que les trois vecteurs $R$, $T$ et $S$  sont bien des vecteurs de Killing de la métrique \ref{def:S2} de $S^2$), c'est-à-dire que 
+\begin{equation}
+    \label{eq:sym sphérique killing}
+    \mathcal{L}_{\xi_A}g_{\mu \nu} = 0 \text{ pour } \xi_A = (R, S, T)
+\end{equation}
+\begin{rmk}
+    Ceci est évident pour $R = - \pd_\varphi$ comme la métrique est indépendante de $\varphi$. En effet, par définition, $\xi = R = -\pd_\varphi = (0,-1)$ et donc
+    \begin{align}
+        \mathcal{L}_{\xi}g_{\mu \nu} & = \purple{\pd_\mu R^\rho} g_{\rho \nu} +\purple{\pd_\nu R^\rho} g_{\rho \mu} - R^\rho \pd_\rho g_{\mu\nu} \\ 
+        &= \pd_\varphi g_{\mu\nu} = 0 \iff \text{$R$ est un vecteur de Killing}
+    \end{align}
+\end{rmk}
+Les vecteurs $\xi_A$ satisfont à l'algèbre de so(3) :
+\begin{equation}
+    [R,S]  = T ; \quad [S,T]  = R ; \quad [T,R]  = S
+\end{equation}
+ou encore 
+\begin{equation}
+    [\xi_A,\xi_B] = \epsilon_{ABC} \xi_C
+\end{equation}
+où $[\; , \; ]$ est le crochet de Lie.
+\begin{rmk}
+    Si $u$ et $v$ sont deux vecteurs de Killing, alors leur crochet de Lie (ou commutateur) en est également un.
+\end{rmk}
+\begin{theoremframe}
+    \begin{defi}
+        Une métrique est dite à \emph{symétrie sphérique} si et seulement si elle admet 3 vecteurs de Killing satisfaisant à l'algèbre de so(3).
+    \end{defi}
+\end{theoremframe}
+\section{La solution de Schwarzschild}
+\subsection{Les symétries}
+Pour étudier les conséquences de la symétrie sphérique, on se place dans un système de coordonnées particulier notés $(t,r,\theta,\varphi)$ où $\theta$ et $\varphi$ sont les coordonnées angulaires sur $S^2$ (en relativité générale, par covariance généralisée de la théorie, on est libre de le faire). Une métrique générale s'écrit
+\begin{equation}
+    \td s^2 = g_{\mu\nu}(t,r,\theta,\varphi) \td x^\mu \td x^\nu
+\end{equation}
+On souhaite imposer la symétrie sphérique, via \ref{eq:sym sphérique killing}.
+\begin{theoremframe}
+    \begin{prop}
+        La symétrie sphérique impose que la métrique soit de la forme
+        \begin{equation}
+            \label{def: métrique à symétrie sphérique}
+            \td s^2 = \alpha (r,t)\, \td r^2 + \beta (r,t)\, \td \Omega^2 + \gamma(r,t) \,\td t^2 + \delta (r,t) \, \td t \,\td r
+        \end{equation}
+        où $\td \Omega^2 = \td \theta^2 + \sin^2\theta \, \td \varphi^2$, et $\alpha,\beta,\gamma,\delta$ sont des fonctions arbitraires en $t,r$.
+    \end{prop}
+\end{theoremframe}
+\begin{proof}
+    Cette proposition sera accepté sans démonstration dans ce cours. Un$\cdot$e lecteur$\cdot$ice intéressé$\cdot$e pourra consulter le Carroll p. 198. Notons que cette forme est une conséquence directe du fait que $\td r, \td t$ et $\td\Omega^2$ sont les seules expressions différentielles invariantes sous SO(3), et que les fonctions arbitraires ne peuvent pas dépendre de $\theta$ ou $\varphi$ pour la même raison.
+\end{proof}
+Pour étudier le comportement de cette métrique, intéressons-nous à quelques cas particuliers :
+\begin{enumerate}
+    \item À $(t,r)$ fixés :
+    \begin{equation}
+        \td s^2 (t^*,r^*,\theta,\varphi ) = \beta (t^*,r^*) \td \Omega^2
+    \end{equation}
+    est une sphère à rayon $\beta (t^*,r^*)$. Notons que si $\beta$ dépendait des variables angulaires, nous aurions une sphère imparfaite "cabossée".
+    \item À $(\theta,\varphi)$ fixés :
+    \begin{equation}
+        \td s^2 (t,r,\theta^*,\varphi^*) = \td s^2 (t,r)
+    \end{equation}
+    Autrement dit, la géométrie transverse aux sphères ne dépend pas de $(\theta,\varphi)$ et tous les points de la sphère sont équivalents.
+\end{enumerate}
+On peut encore simplifier la métrique en utilisant ses invariances résiduelles. Définissons une nouvelle coordonnée radiale $\tilde{r}^2(t,r) \equiv \beta (t,r)$ (et $\tilde{t} = t$). Si ce changement de coordonnées est inversible, on a une nouvelle métrique 
+\begin{equation}
+    \td s^2 = \tilde{\alpha} (\tilde{r},t)\, \td \tilde{r}^2 + \tilde{r}^2\, \td \Omega^2 + \tilde{\gamma}(\tilde{r},t) \,\td t^2 + \tilde{\delta} (\tilde{r},t) \, \td t \,\td r
+\end{equation}
+où nous omettrons les  $\tilde \,$  dans la suite. 
+\begin{rmk}
+    Le changement de variables n'est valable que si $\beta (t,r)>0$. Si on suppose que la métrique est asymptotiquement plate, i.e. qu'elle tend vers celle de Minkowski pour $r \to \infty$, alors $\beta \to r^2$ car
+    \begin{equation}
+        \td s_\text{Mink}^2 = -\td t^2 +\td r ^2 + r^2 \td \Omega^2
+    \end{equation}
+    et sous cette hypothèse, on doit donc avoir $\beta > 0 $ au moins dans une région de l'espace-temps. Notons néanmoins que ce système de coordonnées peut ne pas être global (i.e. défini partout), comme nous verrons plus loin. La métrique étant un objet défini localement ne nous donnera qu'une description locale de la géométrie, a priori !
+\end{rmk}
+\begin{rmk}
+    On peut également questionner l'inversibilité de ce changement de variables. Par exemple, si $\beta (t,r) = \beta (t)$, la transformation n'est pas inversible. Cette possibilité est néanmoins exclue par l'hypothèse que $\beta (t,r) \to r^2$ lorsque $r\to \infty$. Sinon, si c'était le cas, nous pourrions aussi simplement renommer $t \longleftrightarrow r$ sans problème\footnote{Voir Blau p. 483 ou Henneaux p. 98 pour détails.}.
+\end{rmk}
+Éliminons à présent le terme croisé en $\td t \, \td r$. On pose :
+\begin{align*}
+    r &= r'\\
+    t &= f(t',r')
+\end{align*}
+avec $\pd_{t'}f \neq 0$ pour que la relation soit inversible et avoir $t' = t'(t,r')$. Infinitésimalement, on a
+\begin{align*}
+    \td r &= \td r' \\
+    \td t &= \frac{\pd f}{\pd r'} \td r' + \frac{\pd f}{ \pd t'} \td t'
+\end{align*}
+Tel que la métrique devient 
+\begin{align}
+    \td s^2 &= \gamma (t,r) \,\td t^2 + \delta (t,r) \, \td t \, \td r + \dots\\
+    &= \td t' \, \td r \lt 2 \gamma \frac{\pd f}{\pd r'} \frac{\pd f}{\pd t'} + \delta \frac{\pd f}{\pd t'}  \rt + \dots
+\end{align}
+On choisira donc le changement de coordonnées tel que 
+\begin{equation}
+    \delta (t',r') + 2 \gamma (t',r') \frac{\pd f}{\pd r'} = 0
+\end{equation}
+\begin{rmk}
+    Ceci nécessite $\gamma(t',r') \neq 0$. Si la métrique est asymptotiquement plate (hypothèse précédente), alors $\gamma \to -1$ lorsque $r\to \infty$, et donc $\gamma \neq 0$ ad minima loin du corps gravitant.
+\end{rmk}
+La symétrie sphérique et les conditions \emph{asymptotiquement plates} évoquées ci-dessus amènent la métrique à la forme
+\begin{equation}
+\label{def: Schwarzschild avant Birkhoff}
+    \boxed{\td s^2 = - e^{\nu(t,r)} \td t^2 + e^{\mu(t,r)} \td r^2 + r^2 \td \Omega^2}
+\end{equation}
+où on a posé $\alpha(t,r) = e^{\mu (t,r)}$ et $\gamma (t,r) = - e^{\nu (t,r)}$ pour des fonctions arbitraires $\mu (t,r), \nu (t,r)$ (à ne pas confondre avec des indices d'espace-temps). Les signes des fonctions $\alpha$ et $\gamma$ ont été choisies afin que la métrique obtenue soit Lorentzienne, consistant avec l'hypothèse de platitude asymptotique (comme la signature de la métrique est un invariant). Notons que la métrique de Minkowski est elle-même à symétrie sphérique, et donc incluse dans \ref{def: Schwarzschild avant Birkhoff} pour $e^\mu = 1 = e^\nu$. On doit donc imposer que dans la limite $r \to \infty$, $e^\mu, e^\nu \to 1$.
+\subsection{Le théorème de Birkhoff}
+On ne peut pas aller plus loin en n'exploitant que les symétries. Nous allons à présent imposer que la métrique \ref{def: Schwarzschild avant Birkhoff} soit solution aux équations d'Einstein dans le vide :
+\begin{align}
+    R_{\mu\nu} - \frac{R}{2} g_{\mu\nu} = 0
+    \intertext{soit, en prenant la trace,}
+    R - \frac{R}{2} 4 = 0 \iff R = 0 \implies R_{\mu\nu} =0
+\end{align}
+On souhaite donc calculer le tenseur de Ricci. Pour ce, nous devons d'abord calculer les symboles de Christoffel, puis le tenseur de Riemann. Plusieurs méthodes existent :
+\begin{itemize}
+    \item Via un logiciel de calcul numérique (Mathematica).
+    \item Via la définition des symboles de Christoffel :
+    \begin{equation}
+        \Gamma^\rho_{\alpha\beta} = \frac{1}{2} g^{\rho \rho} (\pd_\alpha g_{\beta \rho} + \pd_\beta g_{\alpha\rho} - \pd_\rho g_{\alpha \beta} )
+    \end{equation}
+    avec $\td s^2 = g_{\mu\nu} \, \td x^\mu \, \td x^\nu$ donné par \ref{def: Schwarzschild avant Birkhoff}.
+    \item Via l'équation des géodésiques :
+    \begin{equation}
+        \frac{\td^2 x^\rho}{\td \lambda^2} + \Gamma^\rho_{\alpha\beta} \frac{\td x^\alpha}{\td \lambda} \frac{\td x^\beta}{\td \lambda} =0
+    \end{equation}
+\end{itemize}
+C'est cette dernière approche qu'on utilisera ici. Rappelons-nous que l'équation des géodésiques découle d'un principe variationnel à Lagrangien
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} g_{\alpha\beta} \frac{\td x^\alpha}{\td \lambda} \frac{\td x^\beta}{\td \lambda}
+\end{equation}
+tel que l'équation des géodésiques est donné par 
+\begin{equation}
+    \frac{\delta S}{\delta x^\rho} = \frac{\td}{\td \lambda} \frac{\pd \mathcal{L}}{\pd \lt\frac{\td x^\rho}{\td \lambda}\rt} - \frac{\pd \mathcal{L}}{\pd x^\rho} = 0
+\end{equation}
+Développons premièrement le Lagrangien en utilisant $g_{00} = -e^\nu$, $g_{11} = e^\mu$, $g_{22} = r^2$ et $g_{33} = r^2 \sin^2\theta$ :
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} \ltc - e^\nu \lt \frac{\td x^0}{\td \lambda} \rt^2 + e^\mu \lt\frac{\td x^1}{\td \lambda} \rt^2 r^2 \lt \frac{\td x^2}{\td \lambda}\rt ^2 + r^2\sin^2\theta \lt \frac{\td x^3}{\td \lambda}\rt \rtc
+\end{equation}
+Dénotons $\dfrac{\td u}{\td x^0} = \dot{u}$ et $\dfrac{\td u}{\td x^1} = u'$. L'équation du mouvement pour $\rho = 0$ s'écrit
+\begin{align}
+    \frac{\td}{\td \lambda} \left(-\frac{1}{2} e^\nu 2 \frac{\td x^0}{\td \lambda} \right) - \frac{\pd \mathcal{L}}{\pd x^0} = 0 \implies - \frac{\td e^\nu}{\td \lambda} \frac{\td x^0}{\td \lambda} - e^\nu \frac{\td^2 x^0}{\td \lambda^2}- \frac{\pd \mathcal{L}}{\pd x^0} = 0
+\end{align}
+Or, $\dfrac{\td }{\td \lambda} e^\nu = e^\nu \lt \dot{\nu} \dfrac{\td x^0}{\td \lambda}+ \nu' \dfrac{\td x^1}{\td \lambda}\rt$ et donc
+\begin{align}
+    - e^\nu \lt \dot{\nu} \dfrac{\td x^0}{\td \lambda}+ \nu' \dfrac{\td x^1}{\td \lambda}\rt\frac{\td x^0}{\td \lambda} - e^\nu \frac{\td^2 x^0}{\td \lambda^2}- \frac{1}{2} \ltc - \lt \frac{\td x^0}{\td \lambda}\rt^2 e^\nu \dot{\nu} + \lt \frac{\td x^1}{\td \lambda}\rt^2 e^\mu \dot{\mu} \rtc &= 0
+\intertext{En multipliant cette expression par $-e^{-\nu}$,}
+    \frac{\td^2 x^0}{\td \lambda^2} + \purple{\dot{\nu}\lt \frac{\td x^0}{\td \lambda}\rt^2} + \nu' \frac{\td x^1}{\td \lambda} \frac{\td x^0}{\td \lambda} \purple{- \frac{1}{2} \lt \frac{\td x^0}{\td \lambda}\rt^2 \dot{\nu}} + \frac{1}{2} e^{\mu - \nu} \dot{\mu} \lt \frac{\td x^1}{\td \lambda}\rt^2 &= 0 \\
+    \frac{\td^2 x^0}{\td \lambda^2} + \frac{\dot{\nu}}{2}\lt \frac{\td x^0}{\td \lambda}\rt^2 + \nu' \frac{\td x^1}{\td \lambda} \frac{\td x^0}{\td \lambda} + \frac{ \dot{\mu}}{2} e^{\mu - \nu} \lt \frac{\td x^1}{\td \lambda}\rt^2 &= 0
+\end{align}
+En identifiant cette équation avec
+\begin{equation}
+    \frac{\td^2 x^0}{\td \lambda^2} + \Gamma^0_{\alpha\beta} \frac{\td x^\alpha}{\td \lambda} \frac{\td x^\beta}{\td \lambda} =0
+\end{equation}
+On déduit l'expression des symboles de Christoffel
+\begin{align}
+    \begin{dcases}
+        \Gamma^0_{00} = \frac{\dot{\nu}}{2}\\
+        \Gamma^0_{11} = \frac{\dot{\mu}}{2} e^{\mu-\nu} \\
+        \Gamma^0_{01} = \frac{\nu'}{2}
+    \end{dcases}
+\end{align}
+En procédant similairement\footnote{Voir Carroll p. 202 pour détails.} pour $\rho = i$, on identifie tous les symboles de Christoffel non-nuls :
+\begin{align}
+    \begin{dcases}
+        \Gamma^0_{00} = \frac{\dot{\nu}}{2}; \quad \Gamma^0_{11} = \frac{\dot{\mu}}{2} e^{\mu-\nu}; \quad \Gamma^0_{01} = \frac{\nu'}{2}\\
+        \Gamma^1_{00} = \frac{1}{2} e^{\nu - \mu} \nu' ; \quad \Gamma^1_{01} = \frac{\dot{\mu}}{2}; \quad \Gamma^1_{11} = \frac{\mu'}{2}; \quad \Gamma^1_{22} = - e^{-\mu} r; \quad \Gamma^1_{33}  = -e^{-\mu} r \sin^2 \theta\\
+        \Gamma^2_{12} = \frac{1}{r}; \quad \Gamma^2_{33} = -\sin \theta \cos\theta\\
+        \Gamma^3_{13} =\frac{1}{r} ; \quad \Gamma^3_{23} = \cot \theta
+    \end{dcases}
+\end{align}
+Une fois que les symboles de Christoffel sont déterminés, il faut calculer le tenseur de Riemann selon 
+\begin{equation}
+    R\indices{^{\mu}_{\alpha \beta \gamma}} =  \partial_{\beta}\Gamma^{\mu}_{\gamma \alpha} + \Gamma^{\sigma}_{\gamma \alpha} \Gamma^{\mu}_{\beta \sigma} - \partial_{\gamma}\Gamma^{\mu}_{\beta \alpha} - \Gamma^{\sigma}_{\beta \alpha} \Gamma^{\mu}_{\gamma \sigma}
+\end{equation}
+De nouveau, calculons-en un :
+\begin{align}
+    R\indices{^0_{101}} &= \partial_{0}\Gamma^{0}_{11} + \Gamma^{0}_{0 \rho} \Gamma^{\rho}_{11} - \partial_{1}\Gamma^{0}_{01} - \Gamma^{0}_{1\rho} \Gamma^{\rho}_{01}\\
+    & = \pd_0 \lt \frac{\dot{\mu}}{2} e^{\mu-\nu}\rt - \pd_1 \lt \frac{\nu'}{2} \rt + \Gamma^{0}_{0 0}\Gamma^{0}_{11} + \Gamma^{0}_{0 1}\Gamma^{1}_{11} - \Gamma^{0}_{10} \Gamma^{0}_{0 1} - \Gamma^{0}_{11} \Gamma^{1}_{0 1}\\
+    &= \frac{\ddot{\mu}}{2} e^{\mu-\nu} + \frac{\dot{\mu}}{2} (\dot{\mu} - \dot{\nu}) e^{\mu-\nu} - \frac{\nu''}{2}+ \frac{\dot{\nu}}{2} \frac{\dot{\mu}}{2}e^{\mu-\nu} + \frac{\nu'}{2}\frac{\mu'}{2} - \lt \frac{\nu'}{2}\rt^2 - \lt \frac{\dot{\mu}}{2} \rt^2 e^{\mu-\nu} \\
+    & = e^{\mu-\nu} \lt \frac{\ddot{\mu}}{2} + \frac{\dot{\mu}^2}{4} - \frac{\dot{\mu} \dot{\nu}}{4} \rt + \frac{\nu' \mu'}{4} - \frac{\nu'^2}{4}- \frac{\nu''}{2}
+\end{align}
+Les autres composantes (non-nulles) se calculent de la même manière :
+\begin{align}
+    \label{Riemann pour Schwarzschild}
+    \begin{dcases}
+        R\indices{^0_{212}} = - \frac{r}{2} \, \dot{\mu} \,e^{-\nu}  \\
+        R\indices{^0_{313}} = - \frac{r}{2} \, \dot{\mu}\,  e^{-\nu} \sin^2\theta\\
+        R\indices{^0_{202}} = - \frac{r}{2} \, \nu' \,e^{-\mu} \\
+        R\indices{^0_{303}} = - \frac{r}{2} \, \nu' \,e^{-\mu}  \sin^2\theta
+    \end{dcases} 
+    \quad \quad \quad
+    \begin{dcases}
+        R\indices{^1_{212}} = \frac{r}{2}\, \mu' \, e^{-\mu}   \\
+        R\indices{^1_{313}} = \frac{r}{2}\, \mu'\, e^{-\mu} \sin^2\theta   \\
+        R\indices{^2_{323}} = \sin^2\theta (1 - e^{-\mu})
+    \end{dcases}
+\end{align}
+\begin{rmk}
+    Il est également possible de calculer ces composantes dans le formalisme de Cartan via
+    \begin{equation}
+        \Omega\indices{^\mu_\nu} = \td \Gamma\indices{^\mu_\nu} + \Gamma\indices{^\mu_\alpha} \wedge \Gamma\indices{^\alpha_\nu} = \frac{1}{2} R\indices{^\mu_{\nu\alpha\beta}} \td x^\alpha \wedge \td x^\beta
+    \end{equation}
+\end{rmk}
+Donnons également une composante du tenseur de Ricci :
+\begin{align}
+    R_{00} = R\indices{^\alpha_{0\alpha 0}} =  R\indices{^1_{01 0}}+ R\indices{^2_{02 0}}+ R\indices{^\alpha_{03 0}}
+\end{align}
+Or, on avait calculé $ R\indices{^0_{\alpha 0 \alpha}}$ pour $\mu = 0,1,2,3$. On peut convertir ces composantes vers ceux qui interviennent dans le tenseur de Ricci :
+\begin{align}
+     R\indices{^1_{01 0}} = g^{1\rho} R_{\rho 010} &= g^{11} R_{1010}
+     \intertext{comme la métrique est diagonale.}
+     & = g^{11}R_{0101} (-1) (-1) \\
+     & = g^{11} g_{0\sigma} R\indices{^\sigma_{101}} = g^{11} g_{00} R\indices{^0_{101}}
+\end{align}
+Comme la métrique est diagonale, $g^{11} = 1/g_{11}$ et on trouve finalement 
+\begin{equation}
+    R\indices{^1_{01 0}} = \frac{g_{00}}{g_{11}}R\indices{^0_{101}} = - \, e^{\nu-\mu} R\indices{^0_{101}}
+\end{equation}
+La première composante du tenseur de Ricci est donc égale à
+\begin{align}
+    R_{00} &=\frac{g_{00}}{g_{11}}R\indices{^0_{101}} + \frac{g_{00}}{g_{22}}R\indices{^0_{202}} + \frac{g_{00}}{g_{33}}R\indices{^0_{303}}\\
+    & = - \, e^{\nu-\mu} R\indices{^0_{101}} - \frac{e^\nu}{r^2}R\indices{^0_{202}} - \frac{e^\nu}{r^2 \sin^2\theta}R\indices{^0_{303}} \\
+    \label{eq: ricci schw1}
+    & = \blue{- \, \frac{\ddot{\mu}}{2} - \frac{\dot{\mu}}{4}(\dot{\mu} - \dot{\nu})} + e^{\nu-\mu} \lt \purple{\frac{\nu''}{2} - \frac{\mu' \nu'}{2} + \frac{\nu'^2}{4}} +\frac{\nu'}{2}\rt
+\end{align}
+De même, on calcule
+\begin{align}
+    \label{eq: ricci schw2}
+    \begin{dcases}
+        R_{01} = \frac{\dot{\mu}}{r} \\
+        R_{11} = \blue{\frac{\dot{\mu}}{4} ( \dot{\mu} - \dot{\nu} )} \, e^{\mu-\nu} + \blue{\frac{\ddot{\mu}}{2}}\,  e^{\mu-\nu} \purple{- \frac{\nu''}{2} + \frac{\nu' \mu'}{4}} - \frac{\nu'^2}{4} + \frac{\mu'}{r} \\
+        R_{22} = e^{-\mu} \lt e^\mu - 1 + \frac{r}{2} (\mu' - \nu') \rt \\
+        R_{33} = R_{22} \sin^2 \theta 
+    \end{dcases}
+\end{align}
+On peut à présent résoudre les équations d'Einstein, $R_{\mu\nu} = 0$. Premièrement, on trouve
+\begin{equation}
+    R_{01} = \frac{\dot{\mu}}{r} = 0 \iff \dot{\mu} = 0 \iff \mu(t,r) = \mu(r)
+\end{equation}
+en particulier, $\ddot{\mu} = 0$. Remarquons que par les équations d'Einstein, la combinaison suivante s'annule :
+\begin{equation}
+    R_{00} + e^{\nu-\mu} R_{11} = 0
+\end{equation}
+Dans ce terme, les contributions colorées de \ref{eq: ricci schw1} et \ref{eq: ricci schw2} s'annulent mutuellement. Il reste alors :
+\begin{equation}
+    e^{\nu-\mu} \frac{\nu'}{r} + e^{\nu-\mu} \frac{\mu'}{r} = 0
+\end{equation}
+Comme $r$ et l'exponentielle s'annulent pas, on obtient $\nu' + \mu' = 0$ soit
+\begin{equation}
+    \nu (t,r) = - \mu(r) + \lambda (t)
+\end{equation}
+pour une fonction arbitraire $\lambda (t)$. La métrique devient donc
+\begin{equation}
+    \td s^2 = - e^{\mu(r)} e^{\lambda (t)} \td t^2 + e^{\mu(r)} \td r^2 + r^2 \td \Omega^2
+\end{equation}
+Notons que comme la fonction $\lambda$ n'intervient que dans la composante temporelle de la métrique, et dépend uniquement de $t$, on peut s'en débarrasser par le changement de variable 
+\begin{equation}
+    e^{\lambda(t)} \td t^2 \to \td t^2
+\end{equation}
+d'après lequel la métrique s'écrit finalement
+\begin{equation}
+    \label{eq: schw1}
+    \boxed{\td s^2 = - e^{\mu(r)} \td t^2 + e^{\mu(r)} \td r^2 + r^2 \td \Omega^2}
+\end{equation}
+Cette métrique possède une propriété remarquable : elle ne dépend plus du temps !
+\begin{theoremframe}
+    \begin{defi}
+        Une métrique est dite \emph{statique} s'il existe un système de coordonnées tel que la métrique est
+        \begin{enumerate}
+            \item[(i).] indépendante du temps,
+            \item[(ii).] invariante sous inversion du temps $t \to -t$.
+        \end{enumerate}
+    \end{defi}
+\end{theoremframe}
+Une telle métrique peut toujours s'écrire 
+\begin{equation}
+    \td s^2 = g_{00}(x^k) \td t^2 + g_{ij} (x^k) \td x^i \td x^j
+\end{equation}
+\begin{rmk}
+    Si la seconde condition n'est pas satisfaite, la métrique peut avoir des termes croisés $g_{0i} (x^k) \td t \td x^i$ et elle est alors dite \emph{stationnaire}.
+\end{rmk}
+La différence entre ces deux notions est subtile mais importante : un système stationnaire peut évoluer, mais évolue de la même manière à tout instant (comme par exemple un système en rotation constante). La condition statique est plus forte, et peut être vue comme un système qui n'évolue pas. En aboutissant à la métrique \ref{eq: schw1}, nous avons démontré le \emph{théorème de Birkhoff} : toute solution asymptotiquement plate à symétrie sphérique des équations d'Einstein du vide est statique.
+\begin{rmk}
+    Une solution extérieure à symétrie sphérique étant nécessairement indépendante du temps exclut l'existence de rayonnement monopolaire : une étoile qui pulse sphériquement ne donne pas lieu à des ondes gravitationnelles autour d'elle dans le vide : la géométrie reste indépendante du temps et ne change pas
+\end{rmk}
+Nous avons pour le moment utilisé $R_{00}$, $R_{01}$ et $R_{11}$. Nous pouvons donc a priori encore contraindre la solution en utilisant $R_{22}$ (mais $R_{33}$ ne fournira pas d'information supplémentaire). Par notre choix de coordonnées, $\nu + \mu = 0$ et donc
+\begin{align}
+    0 = R_{22} &= e^{-\mu} \lt e^\mu - 1 + \frac{r}{2} (\mu' - \nu')\rt \\
+    \implies 0 & =  e^\mu -1 + r \mu'
+\end{align}
+Or, $\lt r e^{-\mu}\rt' = e^{-\mu} \lt 1 - r \mu'\rt$ et on peut donc identifier
+\begin{equation}
+    e^\mu + e^\mu \lt -r e^{-\mu} \rt' = 0
+\end{equation}
+Soit
+\begin{equation}
+    \lt r e^{-\mu} \rt' = 1
+\end{equation}
+En intégrant, on arrive à 
+\begin{equation}
+    r e^{-\mu} = r - r_0
+\end{equation}
+où nous poserons la constante d'intégration $r_0 = 2 m$. Pour injecter ce résultat dans la métrique, on remarque que
+\begin{equation}
+    e^{-\mu} = e^\nu = 1 - \frac{2m}{r}
+\end{equation}
+ce qui permet finalement d'écrire la \emph{métrique de Schwarzschild} :
+\begin{align}
+    \label{métrique de Schwarzschild}
+    \boxed{\td s^2 = - \lt 1 - \frac{2m}{r} \rt \td t^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \td r^2 + r^2 \td \Omega^2}
+\end{align}
+\subsection{Complément sur le théorème de Birkhoff}
+Le théorème de Birkhoff (1923) aurait été établi pour la première fois en 1921 par Jelsen. La littérature est un peu confuse sur l'énoncé précis du théorème. Nous avons utilisé l'hypothèse que l'espace-temps était asymptotiquement plat, mais on peut en fait prouver que cette hypothèse n'était pas nécessaire. Un énoncé précis est\footnote{Voir Hawking-Ellis p. 371, MTW section 32.2 pour détails.}
+\begin{theoremframe}
+    \begin{theorem}[de Birkhoff]
+        Toute métrique à symétrie sphérique, solution des équations d'Einstein dans le vide est nécessairement (une partie de) la géométrie de Schwarzschild.
+    \end{theorem}
+\end{theoremframe}
+Hawking et Ellis montrent que toute métrique à symétrie sphérique peut s'écrire
+\begin{equation}
+    \td s^2 = - e^{\mu(t,r)} \td t^2 + e^{\mu(t,r)} \td r^2 + Y^2(t,r) \td \Omega^2
+\end{equation}
+pour $Y^2(t,r) >0$. Notons que cela suppose également que la métrique soit Lorentzienne. 
+\begin{exerc}
+    Que devient le théorème précédent si on relaxe cette condition, par exemple pour admettre une signature $(-,-,+,+)$ ou encore une métrique qui passerait de $(-,+,+,+)$ dans une partie de l'espace-temps à $(-,+,-,-)$ dans une autre partie ?
+\end{exerc}
+La condition \emph{asymptotiquement plate} garantissait que le changement de coordonnées $\tilde{r}^2 = Y^2(t,r)$ était inversible. On peut montrer que ce n'est pas nécessaire pour se ramener à la métrique de Schwarzschild. Les différents cas de figure sont classifiés par le signe de $\pd_\mu Y \pd^\mu Y$ ($Y = \text{cste}$ est de genre temps, nul ou espace)\footnote{Voir MTW, EH pour détails.}.
+Par exemple, si $Y(t,r) = t$, on se ramène à la solution "intérieure à l'horizon" de Schwarzschild (c.f. début du prochain chapitre). On peut également vérifier explicitement que $Y(t,r) = R = \text{cste}$ ne satisfait pas aux équations d'Einstein.
+\begin{rmk}
+    Si $\gamma = 0$ dans l'équation \ref{def: métrique à symétrie sphérique} (et $\delta \neq 0$, sinon la métrique est dégénérée), on se ramène à Schwarzschild en coordonnées d'Eddington-Finkelstein - voir le prochain chapitre également.
+\end{rmk}
+
+\section{Singularités de la métrique de Schwarzschild}
+\subsection{Interprétation de la constante : le rayon gravitationnel}
+La métrique de Schwarzschild tend asymptotiquement vers la métrique de Minkowski pour $r \to \infty$. Loin du corps gravitant, on retrouve l'espace-temps plat :
+\begin{equation}
+    \td s^2 \underset{r \to \infty}{\longrightarrow} \td s^2_\text{Mink} = - \td t^2 + \td r^2 + r^2 \td \Omega^2
+\end{equation}
+Mais dans cette limite, la métrique de Schwarzschild s'approxime au premier ordre comme
+\begin{equation}
+    \td s^2 = - \lt 1 - \frac{2m}{r} \rt \td t^2 + \lt 1 + \frac{2m}{r} \rt \td r^2 + r^2 \td \Omega^2 + \mathcal{O}\lt \frac{1}{r^2} \rt
+\end{equation}
+On peut combiner cette forme avec le résultat trouvé dans la limite Newtonienne de l'équation des géodésiques :
+\begin{equation}
+    g_{00} = - \lt 1 + \frac{2 \Phi}{c^2} \rt
+\end{equation}
+avec $\Phi = -\frac{GM}{r}$ et $M$ la masse totale du corps générant le champ de gravitation. En identifiant les deux expressions :
+\begin{equation}
+    \boxed{m = \frac{GM}{c^2}}
+\end{equation}
+Cette constante est appelée \emph{rayon gravitationnel} du corps et a des unités de longueur, $[m] = L$. Notons qu'il s'agit précisément de la masse du corps dans des unités où $G = 1 =c$.
+\begin{rmk}
+    Jusqu'à présent, rien ne nous interdisait d'avoir $m<0$. On verra dans la suite que ce cas doit être rejeté, comme $r = 0$ constitue une \emph{singularité pure}.
+\end{rmk}
+\subsection{Singularités et rayon de Schwarzschild}
+La forme \ref{métrique de Schwarzschild} de la métrique de Schwarzschild suggère que quelque chose de spécial se passe aux valeurs $r = 0$ et $r = 2m$ de la coordonnée radiale. En effet, certains coefficients de la métrique y divergent ou s'annulent. Bien-sûr, nous savons que les coefficients $g_{\mu\nu}$ de la métrique sont dépendants du choix de coordonnées, et n'ont donc pas de signification intrinsèque (il se pourrait donc que dans un autre système de coordonnées, ces points ne posent aucun problème). Il n'est par ailleurs pas rare qu'une métrique apparaisse singulière pour certaines valeurs de coordonnées, mais que ceci traduise en fait une défaillance du système de coordonnées plutôt qu'un comportement de la variété elle-même. 
+\begin{exmp}
+    La métrique usuelle d'un espace euclidien en coordonnées sphériques s'écrit $\td s^2 = \td r^2 + r^2 \td \Omega^2$ dégénère en $r=0$. En effectuant le changement de variable $r = \frac{1}{\rho - 2m}$, cette métrique devient
+    \begin{equation}
+        \td s^2 = \frac{\td \rho^2}{(\rho - 2m)^4} + \frac{\td \theta^2}{(\rho -2m)^2}
+    \end{equation}
+    qui diverge à présent pour $\rho=2m$. Bien-sûr, ce comportement est dû au fait que les coordonnées polaires pour l'espace plat euclidien ne sont pas bien définies en $r=0$. Ce point n'est pas différent des autres, c'est seulement que le système de coordonnées n'est pas approprié pour y décrire la variété. En effet, rien de spécial s'y passe lorsqu'on considère les coordonnées cartésiennes usuelles.
+\end{exmp}
+Pour déterminer si un point (ou une région) représente une véritable pathologie, on doit se fier à des quantités scalaires : par exemple, une quantité scalaire qui diverge dans \emph{un} système de coordonnées en un point divergera en un point dans \emph{tout} système de coordonnées (comme $f'(x') = f(x)$). Si une quantité scalaire associée à la métrique devient infinie en un point donné, et que ce point peut être atteint en voyageant une distance finie le long d'une courbe (i.e. le point est physiquement atteignable), alors ce point sera appelé une singularité.\\
+\\
+Concentrons-nous sur les singularités potentielles de la forme \ref{métrique de Schwarzschild} de la métrique de Schwarzschild. On souhaite construire des quantités scalaires non-triviales. Comme \ref{métrique de Schwarzschild} est une solution des équations d'Einstein, $R = 0$ et $R_{\mu\nu} R^{\mu\nu} = 0$. Le tenseur de Ricci n'étant pas utile, nous devons recourir au tenseur de Riemann pour construire le \emph{scalaire de Kretschmann} comme contraction de ce dernier :
+\begin{equation}
+    K = R_{\lambda \mu \alpha \beta} R^{\lambda\mu\alpha\beta}
+\end{equation}
+Cette contraction contient a priori $4^4 = 3.600$ termes. Pour la calculer, il faudra donc utiliser au plus possibles les propriétés de symétrie et les relations \ref{Riemann pour Schwarzschild} en décomposant incrémentalement les contractions.
+\begin{align}
+    K = R_{\lambda\mu\alpha\beta} R^{\lambda\mu\alpha\beta} &= R_{0 \mu \alpha\beta} R^{0\mu\alpha\beta} + R_{i\mu\alpha\beta} R^{i\mu\alpha\beta}\\
+    &= \purple{R_{00\alpha\beta} R^{00\alpha\beta}} + R_{0i\alpha\beta} R^{0i\alpha\beta} + R_{i0\alpha\beta} R^{i0\alpha\beta} + R_{ij\alpha\beta} R^{ij\alpha\beta}
+\end{align}
+Le premier terme s'annule par anti-symétrie du tenseur de Riemann en les deux premiers indices. Le second et le troisième sont égaux, comme on rajoute deux signes $(-1)$ en permutant les deux indices $i$. On obtient donc :
+\begin{align}
+    K =& \, 2 R_{0 i\alpha\beta} R^{0 i\alpha\beta} + R_{ij\alpha\beta} R^{ij\alpha\beta}\\
+    =& \,  2 \lt R_{0 i 0\beta} R^{0 i0\beta} + R_{0 ij\beta} R^{0 ij\beta} \rt  + R_{ij0\beta} R^{ij0\beta} + R_{ijk\beta} R^{ijk\beta} \\
+    =& \,2 \lt \purple{R_{0 i 00} R^{0 i00}} +  R_{0 i 0j} R^{0 i0j} + R_{0 ij0} R^{0 ij0} + R_{0 ijk} R^{0 ijk}\rt \\
+    &+ \purple{R_{ij00} R^{ij00}} + R_{ij0k} R^{ij0k} + R_{ijk0} R^{ijk0} + R_{ijkl} R^{ijkl} 
+\end{align}
+En réarrangeant les indices (comme ceux-ci apparaissent en paires, le signe ne changera pas), on arrive à :
+\begin{align}
+    K =& \, 4  R_{0 i 0j} R^{0 i0j} + 4 R_{0 ijk} R^{0 ijk} + R_{ijkl} R^{ijkl} \\
+    =& \, 4  R\indices{^0_{i 0j}} R\indices{_0^{ i0j}} + 4 \purple{R\indices{^0_{ ijk}} R\indices{_0^{ ijk}}} + R\indices{^i_{jkl}} R\indices{_i^{jkl}}
+\end{align}
+Quelles sont les contributions non-nulles ? En utilisant $\dot{\mu} = 0$, on a
+\begin{itemize}
+    \item Premier terme : $R\indices{^0_{1 01}}$, $R\indices{^0_{2 02}}$ et $R\indices{^0_{3 03}}$.
+    \item Deuxième terme : ne contribue pas car $R\indices{^0_{212}} =0 = R\indices{^0_{313}}$ pour $\dot{\mu} = 0$ (selon \ref{Riemann pour Schwarzschild})
+    \item Troisième terme :
+    \begin{align}
+        \begin{dcases}
+            R\indices{^1_{212}} \; , \; R\indices{^1_{221}} \; \text{et permutations $1 \leftrightarrow 2$} \\
+            R\indices{^1_{313}} \; , \; R\indices{^1_{331}} \; \text{et permutations $1 \leftrightarrow 3$}\\
+            R\indices{^2_{323}} \; , \; R\indices{^2_{332}} \; \text{et permutations $2 \leftrightarrow 3$}
+        \end{dcases}
+    \end{align}
+\end{itemize}
+Notons que ces termes ne sont pas nécessairement distincts, les permutations donneront par exemple un facteur numérique en plus. Le scalaire de Kretschmann s'écrit alors
+\begin{align}
+    \nonumber
+    K=& \, 4 R\indices{^0_{101}} R\indices{_0^{101}} + 4 R\indices{^0_{202}} R\indices{_0^{202}} + 4 R\indices{^0_{303}} R\indices{_0^{303}}\\
+    \label{eq: Kretschmann intermediaire}
+    &+ 4 R\indices{^1_{212}} R\indices{_1^{212}} + R\indices{^1_{313}} R\indices{_1^{313}} + R\indices{^2_{323}} R\indices{_2^{323}}
+\end{align}
+On sait que pour la solution de Schwarzschild :
+\begin{align}
+    \label{propris schw pour kretschmann}
+    \begin{dcases}
+        \mu = -\nu \\
+        \dot{\nu} = \ddot{\nu} = 0 = \ddot{\mu} = \dot{\mu}\\
+        e^\nu = e^{-\mu} = 1 - \frac{2m}{r}\\
+        \nu' e^\nu = \lt e^\nu \rt' = \frac{2m}{r^2}
+    \end{dcases}
+\end{align}
+Ainsi, calculons chaque terme :
+\begin{align}
+    R\indices{_0^{101}} = g_{0\alpha}\, g^{1\beta}\, g_{0\gamma} \, g^{1 \delta} \, R\indices{^\alpha_{\beta \gamma \delta}} & = \purple{g_{00}}\,  g^{11} \, \purple{g^{00}}\,  g^{11}\,  R\indices{^0_{101}} \\
+    &= e^{-2\mu} \,  R\indices{^0_{101}}
+\end{align}
+Similairement, on obtient :
+\begin{align}
+    \begin{dcases}
+        R\indices{_0^{202}} = \frac{1}{(g_{22})^2} R\indices{^0_{202}} = r^{-4} \,R\indices{^0_{202}}\\
+        R\indices{_0^{303}} = r^{-4} \sin^{-4} \theta \, R\indices{^0_{303}} \\
+        R\indices{_1^{212}} = r^{-4} \, R\indices{^1_{212}}\\
+        R\indices{_1^{313}} = r^{-4} \sin^{-4} \theta \, R\indices{^1_{313}} \\
+        R\indices{_2^{323}} = r^{-4} \sin^{-4} \theta \, R\indices{^2_{323}}
+    \end{dcases}
+\end{align}
+En remplaçant les expressions obtenues dans \ref{eq: Kretschmann intermediaire} :
+\begin{align*}
+    K=& \, 4 \ltc e^{-2\nu} (R\indices{^0_{101}})^2 + r^{-4} (R\indices{^0_{202}})^2 + r^{-4} \sin^{-4} \theta (R\indices{^0_{303}})^2 \rtc \\
+    &+ 4 \ltc r^{-4} (R\indices{^1_{212}})^2 + r^{-4} \sin^{-4} \theta (R\indices{^1_{313}})^2 + r^{-4} \sin^{-4} \theta (R\indices{^2_{323}})^2 \rtc\\
+    =& \, 4 \ltc e^{-2\mu} \left(-\frac{\nu''}{2} + \frac{\mu' \nu'}{4} - \frac{\nu'^2}{4} \right)^2 + r^{-4} \left( - \frac{r}{2} \nu' \, e^{-\mu}\right)^2 + r^{-4}\, \purple{\sin^{-4} \theta} \lt - \frac{r}{2} \nu' \,e^{-\mu} \, \purple{\sin^2\theta}  \rt^2 \rtc \\
+    & + 4 \ltc r^{-4} \left( \frac{r}{2}\mu'\, e^{-\mu} \right)^2 + r^{-4} \,\purple{\sin^{-4}\theta} \left( \frac{r}{2} \mu' \, e^{-\mu} \, \purple{\sin^2 \theta} \right)^2 + r^{-4} \,\purple{\sin^{-4} \theta} \left( \purple{\sin^2\theta}\, (1- e^{-\mu}) \right)^2 \rtc \\
+    &= 4 \, e^{-2\mu} \left( -\frac{\nu''}{2} + \frac{\mu'\nu'}{4} - \frac{\nu'^2}{4} \right)^2 + \frac{4}{2} \frac{1}{r^2} (e^{-\mu} \nu')^2 + \frac{8}{4} \frac{1}{r^2} (\mu' e^{-\mu})^2 + \frac{4}{r^4} (1 - e^{-\mu})^2
+\end{align*}
+Comme cette métrique est une solution des équations d'Einstein, $R_{00} = 0$ et on obtient selon \ref{eq: ricci schw1} :
+\begin{align*}
+    \frac{\nu ''}{2} - \frac{\mu ' \nu '}{4} + \frac{\nu'^2}{4} + \frac{\nu '}{r} = 0 \iff -\frac{\nu ''}{2} + \frac{\mu ' \nu '}{4} - \frac{\nu'^2}{4} = \frac{\nu '}{r}
+\end{align*}
+Et avec la première ligne de \ref{propris schw pour kretschmann}, on obtient finalement
+\begin{align*}
+    K= 4 e^{-2\mu} \left( \frac{\nu'}{r} \right)^2 + \frac{4}{r^2} (e^{\nu} \nu')^2 + \frac{4}{r^4} (r - e^{\nu})^2
+\end{align*}
+Ce qui donne avec les dernières lignes de \ref{propris schw pour kretschmann}
+\begin{align*}
+&= \frac{4}{r^2} \left( e^\nu \nu' \right)^2 + \frac{4}{r^2} (e^{\nu} \nu')^2 + \frac{4}{r^4} (1 - e^\nu)^2 \\
+&= \frac{8}{r^2} \left( \frac{2m}{r^2} \right)^2 + \frac{4}{r^4} \left( \frac{2m}{r} \right)^2 = \frac{48 \, m^2}{r^6}
+\end{align*}
+On obtient donc finalement
+\begin{equation}
+    \label{Kretschmann}
+    \boxed{K \equiv R_{\lambda \mu \alpha \beta} R^{\lambda\mu\alpha\beta} = \frac{48 \, m^2}{r^6}}
+\end{equation}
+On en conclut qu'en $r = 0$, la métrique est bel et bien \emph{singulière}. Rappelons-nous que le tenseur de Riemann était responsable de l'accélération relative entre géodésiques, en d'autres termes, responsable de \emph{forces de marée}. L'équation \ref{Kretschmann} indique qu'en $r=0$, l'amplitude des forces de marées devient infinie, cela pose problème, surtout si la singularité peut être atteinte en un temps fini.\\
+\\
+Mais qu'en est-il de $r = 2m$ ? Le scalaire de Kretschmann $K$ y est tout à fait régulière. Cela n'indique néanmoins pas qu'il n'y a pas de singularité : il faudrait montrer que tout scalaire y est régulier, ce qui s'avère être possible. Ceci nous apprend que $r=2m$ n'est pas une singularité, mais décrit qu'un comportement pathologique de la métrique de Schwarzschild. Autrement, la dégénérescence résulte d'un mauvais choix de coordonnées. Cela ne devrait pas nous surprendre, on suspectait de toute de façon que la métrique obtenue ne serait pas forcément valable globalement. \\
+\\
+Ceci amène la question suivante : la métrique de Schwarzschild est-elle néanmoins utile (bien qu'elle présente des pathologies en $r=2m$) ? Premièrement, évaluons $r_\text{Schw}=2m $ (appelé \emph{rayon de Schwarzschild}) pour certains corps célestes familiers.
+\begin{itemize}
+    \item Soleil : $r_\text{Schw} \sim 3$km, à comparer avec son rayon $R_\odot \sim 700.000$km.
+    \item Terre : $r_\text{Schw} \sim 3$km, à comparer avec son rayon $R_\oplus \sim 6370$km.
+\end{itemize}
+Donc, ici et pour la plupart des corps célestes, le rayon de Schwarzschild est bien inférieure au rayon de l'astre. Or, comme la solution de Schwarzschild n'est que valable à l'extérieur de l'astre et donc la métrique de Schwarzschild est parfaitement valable pour décrire la géométrie à l'extérieur d'astres qui ont $R \gg 2m$. Notons également que les coordonnées $t$ et $r$ de la métrique de Schwarzschild correspondent aux temps et rayons usuels observés par un observateur lointain ($r \sim \infty$), pratique pour les situations réalistes.
+\section{Géodésiques de la métrique de Schwarzschild}
+Des particules-test se déplaçant dans le champ de gravitation d'un corps gravitant à symétrie sphérique (par exemple, des planètes se déplaçant dans le champ de gravitation dû au soleil) vont suivre des géodésiques temporelles de la métrique de Schwarzschild, dont les symboles de Christoffel ont été calculés précédemment :
+\begin{equation}
+    \label{eq: géodésiques pour la métrique de Schw}
+    \frac{\td^2 x^\alpha}{\td \lambda^2} + \Gamma^\alpha_{\beta\gamma} \frac{\td x^\beta}{\td \lambda} \frac{\td x^\gamma}{\td \lambda} = 0
+\end{equation}
+Ceci nous fournira la généralisation relativiste du déplacement dans un potentiel central (à symétrie sphérique) en mécanique newtonienne.
+\subsection{Rappel : Système Newtonien}
+Soit une planète de masse $m$ dans le champ de gravitation d'un corps de masse $M$ (générant un potentiel central). Les équations du mouvement sont 
+\begin{equation}
+    \frac{\td^2 \vect{x}}{\td t^2} = - \vect{\nabla} \Phi, \quad \Phi = - \frac{GM}{r}
+\end{equation}
+On peut supposer que le mouvement se fait dans le plan $\theta = \frac{\pi}{2}$. En effet, la planète étant soumis à une accélération centrale, on a la conservation de la direction du moment angulaire. Le mouvement s'effectue donc dans un plan, qu'on choisi être $\frac{\pi}{2}$. Le système possède deux intégrales premières :
+\begin{enumerate}
+    \item Conservation de l'amplitude du moment angulaire :
+    \begin{equation}
+        r^2 \dot{\varphi} \equiv a = \text{cste}
+    \end{equation}
+    C'est la deuxième loi de Kepler (loi des aires).
+    \item Conservation de l'énergie totale :
+    \begin{equation}
+        \frac{1}{2} mv^2 - \frac{GMm}{r} = \mathcal{E} \equiv Em
+    \end{equation}
+    où $E$ est l'énergie par unité de masse. 
+\end{enumerate}
+Comme $\vect{v} = \dot{r} \vect{u}_r + r \dot{\varphi} \vect{u}_\varphi$, on obtient
+\begin{equation}
+    \frac{1}{2} (\dot{r}^2+r^2\dot{\varphi}^2) - \frac{GM}{r} = E
+\end{equation}
+Par la première constante du mouvement, $r^2 \dot{\varphi}^2 = a^2/r^2$, on obtient l'équation
+\begin{equation}
+    \frac{1}{2} \dot{r}^2 = E - V_\text{eff}(r), \quad V_\text{eff}(r) \equiv \frac{a^2}{2r^2} - \frac{GM}{r}
+\end{equation}
+le premier terme étant associé au potentiel centrifuge et le deuxième au potentiel gravitationnel. Les trajectoires possibles d'une particule sont obtenues en comparant l'énergie $E$ à $V_\text{eff}(r)$, dont la forme dépend de $a$. En effet, si pour $r=\mathfrak{r}$, $E < V_\text{eff}(\mathfrak{r})$ alors $\dot{\mathfrak{r}}^2 < 0$ : la trajectoire est impossible.\\
+\\
+Les orbites circulaires sont les géodésiques vérifiant $r = $ cste et $\dot{r} = 0$ correspondent aux solutions de $V'_\text{eff}(r) = 0$
+\begin{equation}
+    - a^2 r^{-3} + \frac{GM}{r^2} = 0 \to r_c = \frac{a^2}{GM}
+\end{equation}
+Elles existent donc pour tout $a\neq 0$.\\
+\\
+Que devient cette analyse en relativité générale ? L'ensemble d'équations différentielles \ref{eq: géodésiques pour la métrique de Schw} couplées du second ordre. Heureusement, dans le cas de Schwarzschild (et aussi pour d'autres métriques avec un certain degré de symétrie), on peut exploiter les symétries du problème pour en tirer des \emph{constantes du mouvement}. Les équations des géodésiques dérivent d'un principe variationnel pour
+\begin{equation}
+    S = \int \td \lambda \, \mathcal{L}(x^\mu,\dot{x}^\mu); \quad \mathcal{L} = \frac{1}{2} g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu
+\end{equation}
+pour un paramètre affine $\lambda$. \ref{eq: géodésiques pour la métrique de Schw} est équivalent aux équations d'Euler-Lagrange pour $\mathcal{L}$ :
+\begin{equation}
+    \frac{\delta S}{\delta x^\mu} = \frac{\td}{\td \lambda} \frac{\pd \mathcal{L}}{\pd \dot{x}^\mu} - \frac{\pd \mathcal{L}}{\pd x^\mu} = 0
+\end{equation}
+\subsection{Les constantes du mouvement des géodésiques de Schwarzschild}
+\subsubsection{4.2.1 Longueur du vecteur tangent}
+Pour une géodésique de genre temps paramétrisée par le temps propre (temps mesuré par un observateur attaché à la trajectoire, i.e. tel que $\td x^i = 0$) on a
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} g_{\mu\nu} \frac{\td x^\mu}{\td \tau} \frac{\td x^\nu}{\td \tau} = \frac{1}{2} \frac{\td s^2}{\td \tau^2} = - \frac{1}{2} \quad \lt = \frac{1}{2} \lVert U \rVert^2 \rt
+\end{equation}
+Ceci fournit la première constante du mouvement
+\subsubsection{4.2.2 Métrique statique}
+Comme la métrique est indépendante de $t$, $\mathcal{L}$ est indépendant de $t$ et l'équation du mouvement associée s'écrit
+\begin{equation}
+    \frac{\td}{\td \lambda} \frac{\pd \mathcal{L}}{\pd \dot{t}} - \purple{\frac{\pd \mathcal{L}}{\pd t}} = 0 \implies \frac{\pd \mathcal{L}}{\pd \dot{t}} = \text{cste}
+\end{equation}
+Comme la métrique s'écrit
+\begin{align}
+    g_{\mu\nu} = \begin{pmatrix}
+        - e^\nu & & & \\
+        & e^{-\nu} & & \\
+        & & r^2 & \\
+        & & & r^2 \sin^2 \theta
+    \end{pmatrix}
+\end{align}
+le Lagrangien s'écrit
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} \lt - e^\nu \dot{t}^2 + e^{-\nu} \dot{r}^2 + r^2 \dot{\theta}^2 +r^2 \sin^2 \theta \dot{\varphi}^2\rt
+\end{equation}
+et donc 
+\begin{equation}
+    \frac{\pd \mathcal{L}}{\pd \dot{t}} = - e^\nu \dot{t} \equiv - b
+\end{equation}
+ce qui nous apporte une deuxième équation du mouvement :
+\begin{equation}
+    \boxed{e^\nu \dot{t} = \lt 1 - \frac{2m}{r} \rt \dot{t} = b}
+\end{equation}
+\subsubsection{4.2.3 Symétrie sphérique}
+Si la métrique est indépendante d'une coordonnée ($t$, ci-dessus), ceci fournit immédiatement une quantité conservée le long des géodésiques. Ceci se généralise à tout vecteur de Killing de la métrique (pas nécessairement de la forme simple $\xi = \pd_t$).
+\begin{theoremframe}
+    \begin{propri}
+        Soit $\xi$ un champ de vecteurs de Killing et $U^\alpha$ le champ de vecteurs tangents à une géodésique. Alors la quantité $\xi^\mu U_\mu$ est conservée le long de la géodésique (i.e. est une constante du mouvement).
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+    Suit d'un calcul direct :
+    \begin{align}
+        \frac{\td}{ \td \lambda} (U^\mu \xi_\mu) &= U^\rho \pd_\rho (U^\mu \xi_\mu)\\
+        &= U^\rho \nabla_\rho (U^\mu \xi_\mu)\\
+        &= U^\rho (\nabla_\rho U^\mu \xi_\mu + U^\mu \nabla_\rho \xi_\mu) \\
+        &=  \nabla_U U^\mu \xi_\mu + U^\rho U^\mu \nabla_\rho \xi_\mu
+    \end{align}
+    Le premier terme s'annule par définition de la géodésique, alors que le second terme s'annule par l'équation de Killing :
+    \begin{equation}
+        U^\rho U^\mu \nabla_\rho \xi_\mu = U^\rho U^\mu \nabla_{(\rho} \xi_{\mu)} = 0
+    \end{equation}
+    Ainsi, $U^\mu \xi_\mu$ est une constante le long de la géodésique.
+\end{proof}
+La métrique de Schwarzschild est à symétrie sphérique. Elle possède donc 3 vecteurs de Killing formant so(3). Ceux-ci fournissent 3 constantes du mouvement supplémentaires : deux combinaisons linéaires indépendantes de ces constantes du mouvement impliquent que le mouvement s'effectue dans un plan : $\dot{\theta} = 0$. Vous aurez l'honneur de prouver cette conséquence en séance d'exercices. On choisira un système de coordonnées tel que $\theta  = \frac{\pi}{2}$. Ceci correspond en mécanique newtonienne à la conservation de la direction du moment angulaire.\\
+La conservation de l'amplitude du moment angulaire est quant à elle une conséquence de l'indépendance de $\mathcal{L}$ en la coordonnée $\varphi$ (en effet, $\pd_\varphi$ est un vecteur de Killing) :
+\begin{equation}
+    \frac{\pd \mathcal{L}}{\pd \dot{\varphi}} = r^2 \dot{\phi} = a
+\end{equation}
+Ces constantes du mouvement sont des équations du premier ordre, mais on peut montrer qu'elles impliquent les équations des géodésiques (du second ordre).
+\subsection{Étude du potentiel effectif}
+Déterminons les géodésiques (de genre temps). La première constante du mouvement s'écrit 
+\begin{equation}
+    \frac{1}{2} \lt - e^\nu \dot{t}^2 + e^{-\nu} \dot{r}^2 + r^2 \dot{\theta}^2 +r^2 \sin^2 \theta \dot{\varphi}^2\rt = - \frac{1}{2}
+\end{equation}
+En utilisant $\theta = \frac{\pi}{2}$ et les deux autres constantes du mouvement, on obtient
+\begin{equation}
+    - \frac{b^2}{1 - \frac{2m}{r}} + \frac{\dot{r}^2}{1 - \frac{2m}{r}} + \frac{a^2}{r^2} = -1
+\end{equation}
+Soit, en l'écrivant sous la même forme que sa contrepartie newtonienne
+\begin{align}
+    \label{géodésiques de Schwarzschild}
+    \boxed{\frac{\dot{r}^2}{2} = \frac{b^2}{2} - V_\text{eff} (r), \quad V_\text{eff} (r) = \frac{1}{2} - \frac{m}{r} + \frac{a^2}{2r^2} - \frac{ma^2}{r^3}}
+\end{align}
+Cette équation, qui va déterminer les mouvements possibles, est la contrepartie relativiste de l'équation. Le terme $b^2/2$ est la quantité à laquelle répond le potentiel effectif. Hormis ce terme constant, on trouve à côté des termes newtoniens $-m/r$ (gravitationnel) et $a^2/2r^2$ (centrifuge) une correction relativiste attractive $-ma^2/r^3$, négligeable loin de la source. Pour $a \neq 0$ (moment cinétique non-nul), le terme supplémentaire apporte une correction de l'ordre de
+\begin{equation}
+    \frac{m/r^3}{1/r^2} \sim \frac{m}{r}
+\end{equation}
+Pour Mercure (étoile la plus proche du soleil, dont la correction serait la plus grande), on trouve
+\begin{equation}
+    \begin{dcases}
+        m = \frac{GM_\odot}{c^2} \sim 1.5\text{km} = 1.5 \cdot 10^5\text{cm} \\
+        r_\text{\mercury}\sim 5 \cdot 10^{12}\text{cm} \\
+    \end{dcases}
+    \quad\implies \frac{m}{r} \sim 10^{-7}
+\end{equation}
+C'est un effet très petit, mais néanmoins observable si cumulatif (voir plus loin, avance du périhélie).
+\begin{rmk}
+    Dans l'équation \ref{géodésiques de Schwarzschild}, chacun des termes est sans dimensions (à cause du $\frac{1}{2}$). En particulier, $[\dot{r}] = 1$ car
+    \begin{equation*}
+        \dot{r} = \frac{\td r}{c \td \tau}
+    \end{equation*}
+    On rétablit les unités dans cette équation en multipliant par $c^2$. Alors, le terme $c^2b^2/2$ est bien une énergie par unité de masse (car $c^2 = E/m$) et
+    \begin{equation*}
+        c^2 \frac{m}{r} = \frac{GM}{r}
+    \end{equation*}
+    est bien le potentiel gravitationnel
+\end{rmk}
+Étudions à présent le potentiel $V_\text{eff} (r)$ et les orbitales possibles. notons déjà qu'à l'infini, le potentiel ne s'annule pas :
+\begin{equation}
+    \lim_{r\to \infty} V_\text{eff} (r) = \frac{1}{2}
+\end{equation}
+Mais par contre, il s'annule systématiquement pour $r = 2m$:
+\begin{equation}
+    V_\text{eff} (r = 2m) = \frac{1}{2} - \frac{1}{2} + \frac{a^2}{8m^2} - \frac{ma^2}{8m^3} = 0
+\end{equation}
+Les orbites circulaires sont donnés par la condition
+\begin{equation}
+    V'_\text{eff} (r) = \frac{m}{r^2} - \frac{a^2}{r^3} + \frac{3ma^2}{r^4} = 0 \iff mr^2 - a^2 r + 3ma^2 = 0
+\end{equation}
+Donnant les racines
+\begin{equation}
+    r_\pm = \frac{a^2 \pm \sqrt{a^2(a^2-12m^2)}}{2m}
+\end{equation}
+dont l'analyse dépendra du signe de $a^2 - 12m^2$ :
+\begin{enumerate}
+    \item Si $a^2<12m^2$, il n'y a pas de racine réelle. Aucune orbite circulaire (libre) ne sera donc possible, pas de périastre. Cette situation est analogue au cas $a=0$ dans l'analyse newtonienne. En relativité générale, l'attraction gravitationnelle est \emph{plus forte} : si le moment angulaire $a$ sur une trajectoire n'est pas suffisant, la force centrifuge ne peut pas contrebalancer l'attraction gravitationnelle.
+    \item Si $a^2=12m^2$, il y a une racine réelle double. Il y aura donc une orbite circulaire en $r = \frac{a^2}{2m} = 6m$.
+    \item Si $a^2>12m^2$, il y aura deux racine réelles et donc deux orbites circulaires possibles, l'une stable et l'autre instable (déterminé en calculant $V''_\text{eff} (r)$). On trouve que $r_\text{instable}<6m$ et que $r_\text{stable}>6m$.
+\end{enumerate}
+On remarque donc que $r=6m$ est le rayon minimal pour avoir une orbite circulaire stable (également appelé ISCO, innermost stable circular orbit). En effet, $V''_\text{eff} (r=6m) =0$ et $V'''_\text{eff} (r=6m)>0$. En théorie newtonienne, ces orbites existaient pour tout $a$.\\
+\\
+Étudions les zéros de $V_\text{eff} (r) - \frac{1}{2}$ : 
+\begin{align}
+    -\frac{m}{r} +\frac{a^2}{2r^2} - \frac{ma^2}{r^3} &= 0 \iff mr^2 - \frac{a^2}{2}r +ma^2 =0\\
+    \implies r_{1,2} = \frac{a^2/2 \pm \sqrt{a^2/4 (a^2 -16m^2)}}{2m}
+\end{align}
+Ainsi, 
+\begin{enumerate}
+    \item Pour $a^2<16m^2$, il n'y a pas de zéros.
+    \item Pour $a^2 = 16m^2$, il y a un zéro double en $r = \frac{a^2}{4m} = 4m$ (périhélie minimum (en ayant un aphélie).
+    \item Pour $a^2 > 16 m^2$, il y a deux zéros.
+\end{enumerate}
+\begin{rmk}
+    Comme en théorie newtonienne, il existe des orbites non-bornées.
+\end{rmk}
+\begin{rmk}
+    Il existe des orbites bornées oscillantes autour de l'orbite circulaire stable correspondante pour $a^2>12m^2$ et $b^2<1$. Ce sont les contreparties des ellipses newtoniennes, mais nous verrons qu'en relativité générale, les orbites ne sont pas fermées, contrairement au cas keplérien. Pour cela, nous devrons également étudier l'équation de $\dot{\varphi}$.
+\end{rmk}
+\begin{rmk}
+    Quand $a^2>12m^2$, on a des orbites stables et instable. Il existe une valeur minimale de l'orbite circulaire instable :
+    \begin{equation}
+        \lim_{a\to \infty} \frac{a^2 - \sqrt{a^2(a^2-12m^2)}}{2m} =\lim_{a\to \infty} \frac{a^2 - a^2(1-\frac{12m^2}{2a^2})}{2m} = 3m
+    \end{equation}
+    Il n'existe pas d'orbite géodésique circulaire pour $r<3m$. Il peut néanmoins y exister des trajectoires géodésiques non-circulaires (plongeantes), ou des trajectoires accelérées (non-géodésiques) circulaires.
+\end{rmk}
+L'analyse présente ne dit pas ce qu'il se passe pour $r \leq 2m$ car la métrique y est mal définie. En particulier, elle ne nous dit pas si cette région peut être atteinte, i.e. si elle se trouve à l'extérieur de l'astre gravitant.\\
+\\
+\subsection{Approche par orbites circulaires}
+Pour s'approcher d'un astre gravitant en passant d'une orbite circulaire à l'autre chez Newton, il suffit de diminuer son moment angulaire (en boostant à contre-sens le long de l'orbite par exemple). La même chose se produit en relativité générale si l'on part de $r^c_1$ et que l'on s'approche jusqu'à $r^c_4 = 6m \equiv$ ISCO. À cet endroit, pour passer vers une orbite circulaire de rayon plus petit, il faut augmenter $a$ : on passe à $r^c_5$. Comme il s'agit d'une orbite instable, si on diminue $r$ en conservant $a$, on \emph{chute}. On peut alors, en augmentant $a$, passer par des orbites de rayons de plus en plus petits jusqu'à approcher $r=3m$, que l'on ne pourra jamais atteindre avec une orbite circulaire car cela nécessiterait $a = \infty$. On peut explorer $r<3m$ en suivant une géodésique, mais celle-ci ne pourra pas être circulaire : on plonge.
+\subsection{Les géodésiques nulles}
+La section précédente s'intéressait aux trajectoires de particules massives en chute libre, suivant donc des géodésiques de genre temps. Un autre cas intéressant est l'étude des trajectoires suivies par des particules sans masse en chute libre : les géodésiques nulles. Dans ce cas, comme $\td s^2 = 0$, on obtient comme première équation du mouvement
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} g_{\mu\nu} \frac{\td x^\mu}{\td \lambda} \frac{\td x^\nu}{\td \lambda} = 0
+\end{equation}
+Pour un paramètre affine $\lambda$. Attention que $\lambda \neq a\tau +b$ dans ce cas, comme le temps propre s'annule identiquement et n'est donc pas un paramétrage adéquat. Les autres constantes du mouvement restent inchangés, c'est à dire :
+\begin{align}
+    \begin{dcases}
+        \dot{\theta} = 0 \\
+        e^\nu \dot{t} = b \\
+        r^2 \dot{\varphi} = a
+    \end{dcases}
+\end{align}
+L'équation résultante est alors
+\begin{align}
+    \label{Géodésiques nulles de Schwarzschild}
+    \boxed{\frac{\dot{r}^2}{2} = \frac{b^2}{2} - V_\text{eff} (r), \quad V_\text{eff} (r) = \frac{a^2}{2r} - \frac{ma^2}{r^3}}
+\end{align}
+où l'on remarque donc qu'en plus de la pseudo-force centrifuge, il y a la même correction relativiste attractive $-ma^2/r^3$ que dans le cas massif. Dans la théorie d'Einstein, une particule sans masse subit donc tout de même une force attractive, bien qu'elle soit plus faible.
+\begin{exerc}
+    Nous proposons de faire dans le cas des géodésiques nulles une analyse équivalente des orbites circulaires.
+    \begin{enumerate}
+        \item[a.] Déterminer la seule orbite circulaire possible pour un photon. Cette orbite est-elle stable ou instable ? Est-elle observable dans le système solaire ? Cette région est appelée \emph{photon sphere}.
+        \item[b.] Pour $a \neq 0$ fixé, quelles sont les trajectoires possibles en fonction de $b$ ? Faites une analyse cas par cas à l'aide d'un graphique de $b^2/2 - V_\text{eff}(r)$.
+    \end{enumerate}
+\end{exerc}
+\section{Avance du périhélie de mercure}
+Il s'agit de l'un des tests/applications les plus célèbres de la relativité générale. Dans cette dernière, les orbites non-circulaires ne sont pas des ellipses fermées parfaites comme en théorie newtonienne. En bonne approximation, elles représentent des ellipses qui sont en \emph{précession} (pivotent dans le plan). L'amplitude de cet effet ne pouvait être capturé en théorie newtonienne, même en tenant compte des corrections newtoniennes (effets des autres planètes, forces fictives d'inertie), ce qui amena à postuler l'existence d'une nouvelle planète entre le soleil et Mercure, baptisée Vulcain. Celle-ci ne fut bien-sûr jamais observée.\\
+Nous allons déterminer l'amplitude de cet effet en relativité générale. Pour ce faire, nous allons exprimer $r = r(\varphi)$ à partir de l'équation des géodésiques. Pour une ellipse parfaite, $r(\varphi)$ serait une ellipse parfaite :
+\begin{equation}
+    \label{équation ellipse parfaite}
+    u(\varphi) \equiv \frac{1}{r(\varphi)} = \frac{1 + e\cos \varphi}{\alpha (1 - e^2)}
+\end{equation}
+Pour une ellipse à grand axe $\alpha$, petit axe $\beta$, distance focale $f \sqrt{\alpha^2-\beta^2}$ et $e = f/\alpha^2$ l'excentricité. Notons que :
+\begin{itemize}
+    \item Si $0\leq e< 1$ : trajectoire elliptique,
+    \item Si $e=1$ : trajectoire parabolique,
+    \item Si $e>1$ : trajectoire forme une branche d'hyperbole.
+\end{itemize}
+Pour un cercle, $\alpha = \beta$ et donc $f = 0 = e$ et $u(\varphi) = 1/\alpha$.
+\subsection{L'équation newtonienne}
+Les équations du mouvement découlent des intégrales premières\footnote{Où $\dot{x}$ correspond à une dérivée temporelle.} : 
+\begin{align}
+    \begin{dcases}
+        \frac{1}{2} (\dot{r}^2 + r^2 \dot{\varphi}^2 ) - \frac{GM}{r} = \text{cste, \quad (Conservation de l'énergie)} \\
+        r^2 \dot{\varphi} \equiv a_N = \text{cste, \quad (loi des aires, conservation du moment cinétique)}
+    \end{dcases}
+\end{align}
+\begin{rmk}
+    Alors qu'en relativité générale, $[a] = L$ (vérifiez-le !), la contrepartie newtonienne a comme unités $[a_N] = L^2 T^{-1}$. On peut donc lier ces constantes via $a_N = c\cdot a$.
+\end{rmk}
+Par la règle de la chaîne :
+\begin{equation}
+    \dot{r} \equiv \frac{\td r}{ \td t} = \frac{\td r}{\td \varphi} \dot{\varphi} = \frac{\td r}{\td \varphi} \frac{c a}{r^2}
+\end{equation}
+Par conservation de l'énergie, on obtient :
+\begin{equation}
+    \frac{1}{2} \ltc \lt \frac{\td r}{\td \varphi}\rt^2 \frac{c^2a^2}{r^4} + \frac{c^2a^2}{r^2} \rtc - \frac{GM}{r} = \text{cste} 
+\end{equation}
+On pose $u = \frac{1}{r}$ et donc $\frac{\td u}{\td \varphi} = - \frac{1}{r^2} \frac{\td r}{\td \varphi}$ :
+\begin{equation}
+    \frac{1}{2} \ltc \lt \frac{\td u}{\td \varphi}\rt^2 c^2 a^2 + c^2a^2 u^2 \rtc - GM u = \text{cste} 
+\end{equation}
+En différenciant par rapport à $\varphi$ :
+\begin{equation}
+    c^2 a^2 \frac{\td u}{\td \varphi} \frac{\td^2 u}{\td \varphi^2} + c^2 a^2 u \frac{\td u}{\td \varphi} - GM \frac{\td u}{\td \varphi}  =0
+\end{equation}
+On obtient finalement l'\emph{équation de Binet},
+\begin{align}
+    \label{équation de Binet}
+    \boxed{\frac{\td^2u}{\td \varphi^2} + u = \frac{m}{a^2}}
+\end{align}
+pour $m = GM/c^2$.
+\subsection{Contrepartie relativiste}
+Voyons ce qu'il en est en relativité générale. On s'intéresse aux orbites avec $b^2/2 <1/2$ (voir \ref{géodésiques de Schwarzschild}) et l'analyse sur les orbites oscillantes. Comme précédemment remarqué, en relativité également, les équations des géodésiques (du mouvement) sont équivalentes aux constantes du mouvement, soit
+\begin{equation}
+    - \lt 1 - \frac{2m}{r} \rt ^{-1} b^2 + \lt 1-\frac{2m}{r} \rt ^{-1} \dot{r}^2 + \frac{a^2}{r^2} = - 1
+\end{equation}
+Muni des deux autres constantes du mouvement 
+\begin{equation}
+    \lt 1- \frac{2m}{r} \rt \dot{t} = b ; \quad r^2\dot{\varphi} = a
+\end{equation}
+On cherche $r(\varphi)$ :\footnote{Où $\dot{x}$ correspond à une dérivée par rapport au paramètre de la géodésique.}
+\begin{equation}
+    \dot{r} \equiv \frac{\td r}{\td \lambda}= \dot{\varphi} \frac{\td r}{ \td \varphi} =\frac{a}{r^2} \frac{\td r}{\td \varphi}
+\end{equation}
+On obtient donc
+\begin{align}
+    - \lt 1 - \frac{2m}{r} \rt^{-1} b^2 + \lt 1- \frac{2m}{r}\rt^{-1} \frac{a^2}{r^4} \lt \frac{\td r}{\td \varphi} \rt^2
+    + \frac{a^2}{r^2} &= -1 \\
+    \implies -b^2 + \lt \frac{\td r}{\td \varphi} \rt^2 \frac{a^2}{r^4} + \lt 1 - \frac{2m}{r} \rt \frac{a^2}{r^2} &= -1 + \frac{2m}{r}
+ \end{align}
+En posant $u = 1/r$ :
+\begin{align}
+     a^2\lt \frac{\td u}{\td \varphi} \rt^2  + a^2u^2 &= b^2 -1 + 2mu +2ma^2u^3
+\end{align}
+Comme on peut prendre $a\neq 0$, 
+\begin{align}
+     \lt \frac{\td u}{\td \varphi} \rt^2  + ^2 &= \frac{b^2 -1}{a^2} + \frac{2m}{a^2}u +2mu^3
+\end{align}
+En différenciant par rapport à $\varphi$, on obtient finalement
+\begin{align}
+    \label{équation de Binet RG}
+    \boxed{\frac{\td^2 u}{\td \varphi^2} + u = \frac{m}{a^2} + 3m u^2}
+\end{align}
+En comparant cette expression à \ref{équation de Binet}, on voit que les deux équations diffèrent par le terme $3mu^2$. Quel est l'ordre de cette correction pour Mercure ? Par rapport au terme linéaire en $u$, on a
+\begin{equation}
+    \frac{3m/r^2}{1/r} \sim \frac{m}{r} \sim \frac{GM_\odot}{Rc^2} \sim 10^{-7}
+\end{equation}
+Comme la distance Soleil - Mercure est approximativement $0.4$UA $\sim 0.4 \cdot 150 \cdot 10^6$km (1UA = distance Terre - Soleil).
+\subsection{Résolution de l'équation différentielle}
+Comme \ref{équation de Binet RG} ne diffère de l'équation de Binet \ref{équation de Binet} que d'une petite correction, les solutions de \ref{équation de Binet RG} doivent pouvoir être trouvées en perturbant la solution newtonienne. Ceux-ci sont les équations d'une ellipse parfaite
+\begin{equation}
+    \label{Périhélie : sol newtonienne}
+    u_0 = \frac{m}{a^2} (1 +e \cos\varphi)
+\end{equation}
+\begin{exerc}
+    Vérifiez que $u_0$ est bien solution de l'équation de Binet \ref{équation de Binet}.
+\end{exerc}
+On s'intéresse au cas $e<1$, i.e. aux orbites elliptiques. On écrit donc la solution générale comme
+\begin{equation}
+    u = u_0 +u_1, \quad u_1 \ll u_0
+\end{equation}
+En injectant cette forme dans \ref{équation de Binet RG}, on obtient au premier ordre en $u_1$
+\begin{align}
+    \frac{\td^2 u_0}{\td \varphi^2} +\frac{\td^2 u_1}{\td \varphi^2} + u_0 + u_1 = \frac{m}{a^2} + 3m \lt u_0^2 + 2u_0u_1 +u_1^2 \rt + \mathcal{O}(u_1^2) \\
+    \implies \frac{\td^2 u_1}{\td \varphi^2} + u_1 = + 3m \lt u_0^2 +2u_0u_1 \rt + \mathcal{O}(u_1^2)
+\end{align}
+Où on a utilisé le fait que $u_0$ est solution de l'équation de Binet et en négligeant le terme en $u_1^2$. On peut effectuer une autre simplification en réécrivant l'équation sous la forme suivante :
+\begin{equation}
+    \frac{\td^2 u_1}{\td \varphi^2} + u_1 \lt 1 - 6m u_0 \rt = 3m  u_0^2
+\end{equation}
+En effet, selon \ref{Périhélie : sol newtonienne}, comme $(1+ e\cos \varphi) < 2$ et que $a^2/m \sim R$, 
+\begin{equation}
+    m u_0 \sim \frac{m^2}{a^2} \sim \frac{m}{R} \sim 10^{-7} \implies 1- 6mu_0 \simeq 1
+\end{equation}
+et on obtient l'expression
+\begin{equation}
+    \frac{\td^2 u_1}{\td \varphi^2} + u_1  = \frac{3m^3}{a^4} (1 +e \cos\varphi)^2
+\end{equation}
+Par l'identité trigonométrique $\cos^2\varphi = \frac{1 + \cos 2\varphi}{2}$, on peut distribuer le carré et obtenir l'expression finale
+\begin{align}
+    \label{Périhélie équation perturbative}
+    \frac{\td^2 u_1}{\td \varphi^2} + u_1  = \frac{3m^3}{a^4} \ltc \lt 1+ \frac{e^2}{2} \rt + 2e \cos\varphi + \frac{e^2}{2} \cos 2\varphi \rtc
+\end{align}
+On s'intéresse à la correction $u_1$ qui sera responsable de la non-périodicité de l'orbite. La solution générale de \ref{Périhélie équation perturbative} est donnée par la combinaison d'une solution générale de l'équation homogène (SGEH) et d'une solution particulière de la solution périodique $\sim \cos$ non-homogène (SPENH). Une telle solution particulière est donnée par
+\begin{equation}
+    \label{Périhélie solution perturbative}
+    u_1 = \frac{3m^3}{a^4} \ltc \lt 1 + \frac{e^2}{2} \rt - \frac{e^2}{6} \cos 2 \varphi + e \varphi \sin \varphi \rtc
+\end{equation}
+En effet,
+\begin{align}
+    \begin{dcases}
+        \frac{\td^2}{\td\varphi^2} (\cos 2 \varphi) + \cos 2\varphi = -3 \cos 2 \varphi \to \text{terme $\sim \cos 2 \varphi$ de \ref{Périhélie équation perturbative}}\\
+        \frac{\td^2}{\td\varphi^2} (\varphi \cos \varphi) + \varphi\cos \varphi = 2 \cos 2 \varphi \to \text{terme $\sim \cos \varphi$ de \ref{Périhélie équation perturbative}}\\
+    \end{dcases}
+\end{align}
+Cette solution doit être ajoutée à la solution non-perturbée $u_0$. Les termes constants et $2\pi$-périodiques de \ref{Périhélie solution perturbative} (premier et second termes du côté droit) sont négligeables par rapport au termes constants et $2\pi$-périodiques de $u_0$ : comme $u_0 \propto m/a^2$ et $u_1 \propto m^3/a^4$ on trouve
+\begin{equation}
+    \frac{m^3/a^4}{m/a^2} = \frac{m^2}{a^2} \sim \frac{m}{R} \sim 10^{-7} \ll 1
+\end{equation}
+On peut donc ignorer les deux premiers termes de \ref{Périhélie solution perturbative}. La solution générale approchée $u_0+u_1$ s'écrit alors
+\begin{align}
+    \label{Périhélie solution générale}
+    \boxed{u = \frac{m}{a^2} (1+ e\cos \varphi ) + \frac{3m^3e}{a^4}\varphi \sin \varphi}
+\end{align}
+\begin{rmk}
+    Notons que la trajectoire perturbée n'est plus à strictement parler une ellipse à cause du terme en $\cos 2 \varphi$, même si à l'exception du terme $\varphi \sin\varphi$ elle reste périodique. Les paramètres de cette "ellipse" ont également des corrections de l'ordre de $10^{-7}$.
+\end{rmk}
+On se concentrera sur le dernier terme qui, bien qu'également petit est \emph{non-périodique} : son effet sera cumulatif !
+\subsection{Application numérique}
+Réécrivons \ref{Périhélie solution générale} : 
+\begin{align}
+    u &= \frac{m}{a^2} + \frac{me}{a^2} \cos \varphi + \frac{3m^2}{a^4} \varphi \sin \varphi \\
+    &= \frac{m}{a^2} + \frac{me}{a^2} \lt \cos \varphi + \frac{2m^2}{a^2} \varphi \sin \varphi \rt
+\end{align}
+Or, $\cos [ \varphi (1-\varepsilon)] = \cos \varphi \cos (\varphi \varepsilon ) + \sin \varphi \sin (\varphi \varepsilon ) = \cos \varphi + \varphi \varepsilon \sin\varphi + \mathcal{O}(\varepsilon^2)$ et donc, comme $3m^2/a^2 \ll 1$, on a
+\begin{equation}
+    u \simeq \frac{m}{a^2} \ltc 1 + e \cos \left[ \varphi \lt 1 - \frac{2m^2}{a^2} \rt\right] \rtc
+\end{equation}
+Le périhélie correspond à la plus grande valeur de $u = 1/r$. Il est atteint pour 
+\begin{equation}
+    \cos \left[ \varphi \lt 1 - \frac{2m^2}{a^2} \rt\right] = 1 \iff \varphi_n \lt 1 - \frac{2m^2}{a^2} \rt = 2\pi n, \quad n \in \nu
+\end{equation}
+Les valeurs correspondantes de $\varphi$ sont
+\begin{equation}
+    \varphi_0 = 0, \quad \varphi_1 = \frac{2\pi}{1- \frac{3m^2}{a^2}},\quad \varphi_2 = \frac{4\pi}{1- \frac{3m^2}{a^2}}, \quad \varphi_n = n \varphi_1
+\end{equation}
+Puisque $\varphi_1 > 2\pi$, il faut plus qu'un tour complet pour repasser au périhélie. A chaque orbite de la planète, le périhélie avance d'un angle $\Delta \varphi \equiv \varphi_1 - 2\pi$ : 
+\begin{align}
+    \Delta \varphi = \frac{2\pi}{1- \frac{3m^2}{a^2}} - 2\pi \simeq 2\pi \lt 1 + \frac{3m^2}{a^2}\rt - 2 \pi
+\end{align}
+On obtient donc finalement 
+\begin{align}
+    \boxed{\Delta \varphi = \frac{6\pi m^2}{a^2}}
+\end{align}
+Utilisons les orbites newtoniennes pour convertir le moment angulaire $a$ en quantités observables. Pour une ellipse selon la solution de Binet \ref{Périhélie : sol newtonienne} et l'équation d'une ellipse parfaite \ref{équation ellipse parfaite} :
+\begin{equation}
+    r = \frac{a^2}{m} \frac{1}{1 +e \cos\varphi} = \frac{\alpha (1-e^2)}{1 + e \cos \varphi}
+\end{equation}
+on obtient
+\begin{equation}
+    a^2 = \frac{GM}{c^2} \alpha (1-e^2)
+\end{equation}
+Et donc une avance du périhélie
+\begin{equation}
+    \boxed{\Delta \varphi = \frac{6\pi m}{\alpha (1- e^2}}
+\end{equation}
+Pour le système Mercure - Soleil, on a les données numériques
+\begin{equation}
+    \begin{dcases}
+        m = \frac{GM_\odot}{c^2} = 1.48 \cdot 10^5\text{cm} = 1.5\text{km}\\
+        \alpha = 5.79 \cdot 10^{12}\text{cm} \\
+        e = 0.2056
+    \end{dcases}
+\end{equation}
+On obtient donc 
+\begin{equation}
+    \Delta \varphi = 5.01 \cdot 10^{-7}\text{rad/orbite} = 0.1033\text{''/orbite}
+\end{equation}
+Où $1° = 60' = 3600''$ (arc secondes). En un siècle, Mercure effectue environ 400 orbites autour du Soleil : une année sur Mercure est environ $0.24$ ans terrestres soit environ $88$ jours. En un siècle, Mercure parcourt $100/0.24 \simeq 417$ orbites. L'avance du périhélie de Mercure en 100 ans est donc $\Delta_\varphi \cdot 417$ soit
+\begin{equation}
+    \boxed{\Delta \varphi_\text{RG} = 43.07\text{''/siècle}}
+\end{equation}
+La précession mesurée du périhélie de Mercure est de $5601$'' dont $5025$'' sont dues au fait que le référentiel terrestre est non-inertiel (précession des équiaxes), $532$'' sont attribuées aux perturbations de l'orbite de Mercure causées par l'attraction gravitationnelle (Newtonienne) des autres planètes du système solaire (principalement Venus, la Terre et Jupiter). Ce qui laissait une avance inexpliquée du périhélie de
+\begin{equation}
+    \Delta \varphi_\text{obs} = (43.11'' \pm 0.45'')\text{/siècle}
+\end{equation}
+Qui est parfaitement prise en compte par la correction relativiste. Notons que d'autre observations, notamment d'étoiles en orbite autour de notre centre galactique, ont également permis de confirmer cette prédiction de la relativité générale.
+
+
+
+
+

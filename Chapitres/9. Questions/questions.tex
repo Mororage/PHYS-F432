@@ -1,0 +1,59 @@
+\chapter{Questions}
+Questions que j'ai (Moritz) pour le moment.
+\begin{quest}
+    Hypersurfaces de Cauchy. J'ai rien capté
+\end{quest}
+\begin{quest}
+    Voir comment on pourrait introduire introduire la connexion affine via la non-covariance de $\partial_\mu X^\nu$. cf. Ch. 4, section 6.1 (actuellement page 61). Pas très clair de ce que je veux faire actuellement, mais une piste serait l'introduction utilisée dans le cours de géométrie riemannienne via les surfaces plongées dans $\R^3$ (en voyant la partie non-tensorielle comme la composante normale et la dérivée covariante comme la partie tangente).
+\end{quest}
+\begin{quest}
+    Preuve du théorème suivant : Si $(M,g)$ est une variété pseudo-Riemannienne (simplement connexe), alors $g$ peut être ramenée globalement à $\eta$ si et seulement si le tenseur de Riemann s'annule identiquement (p. 78)
+\end{quest}
+\begin{proof}
+    J'ai trouvé trois preuves, dont une du Carroll utilisant les formes différentielles. Elle est assez cool et illustre l'intégration sur une variété mais comme ça n'a pas été vu en cours, elle n'est pas adaptée. Une deuxième via la déviation des géodésiques (\href{https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2013.00012/full}{source}) et finalement, celle remarquée en cours, utilisant les coordonnées normales de Riemann. C'est cette dernière que j'aimerai bien utiliser, comme il y a un intérêt pédagogique secondaire d'illustrer les 20 degrés de liberté non-prises en compte dans les RLI (de la preuve, impossibilité d'annuler le second ordre). Pour ce, j'arrive à montrer que localement, la métrique peut s'écrire
+    \begin{equation}
+        g_{\mu\nu} = \eta_{\mu\nu} - \frac{1}{3} R_{\mu \alpha\nu \beta}(0) \xi^\alpha \xi^\beta + \mathcal{O}(\xi^3) 
+    \end{equation}
+    A partir de ce, il faut montrer que soit il existe un référentiel dans lequel ceci est vrai à tout point, soit montrer qu'en un point, les ordres supérieurs s'annulent également. C'est cette voie qui est souvent prise, mais en remarquant simplement "qu'il est possible de mq les ordres supérieurs dépendent des dérivées covariantes de $R$ et s'annulent donc", qui n'est pas satisfaisant. Soit, expliquer un peu plus en détail comment obtenir les ordres supérieurs, soit faire un argument de degrés de liberté fixé à partir de l'ordre 2. 
+\end{proof}
+\begin{rmk}
+    Formulation du théorème : globalement ou il existe localement un voisinage isométrique ? Est-ce équivalent ?
+\end{rmk}
+\begin{quest}
+    on n'a en fait pas du tout fait le cas des géodésiques de lumière/spatiales, ni montré si l'équation des géodésiques s'y applique.
+    $dU^2/dt = 0$ : Nous montrons que ceci n'est que le cas pour un paramétrage affine. Or, celui-ci n'est défini que pour une courbe de genre temps. Il s'agit donc d'une tautologie. Pour passer de temporel à spatial il faut passer par la courbe nulle. Or, le paramètrage pour une courbe nulle est fondamentalement différente des autres (<0 : temps propre, >0 : distance propre, =0 : abstrait).
+\end{quest}  
+\begin{quest}
+    Principe variationnel : comment formuler le paramétrage affine ? Comment généraliser au cas général ?
+    Les points stationnaires de $f$: et si f est impaire -> n'a pas les mêmes points stationnaires que $\tau$ ? 
+\end{quest}
+\begin{quest}
+    Principe variationnel pour les autres types de géodésiques ?
+\end{quest}
+\begin{quest}
+    Lien déviation des géodésiques et preuve PE géodésique. (je ne sais plus ce que je voulais dire)
+\end{quest}
+\begin{quest}
+    Tmunu : pourquoi introduire la notion mésoscopique avec les flux si au final ce qui nous intéressera est la définition via l'action électromagnétique ? Les versions microscopiques se ramènent-ils à la formulation mésoscopique ?
+\end{quest}
+\begin{quest}
+    Le tenseur des torsions est-il un tenseur ? (du tenseur EI, pas des symbole de Christoffel)
+\end{quest}
+\begin{quest}
+    Dans la définition du tenseur d'énergie-impulsion canonique : pourquoi utilise-on la métrique plate ?
+\end{quest}
+\begin{quest}
+    Dérivée de Lie -> pourquoi remplacer g -> g' à la fin de raison. N'est-ce pas contraire à ce qu'on veut aboutir ?
+\end{quest}
+\begin{quest}
+    Killing: quelle est la différence entre isométrie et vecteur de Killing (cf notes) ?
+\end{quest}
+\begin{proof}
+    R : isométries = transformations, VK = champs de vecteurs dans direction des isométries à chaque point ?
+\end{proof}
+\begin{quest}
+    Notes p. 239 : je n'arrive pas à lire la référence; [Schonblond p12] ?
+\end{quest}
+\begin{quest}
+    Au début du cours, nous utilisons souvent le terme "invariant" concernant p.ex. les éq. de Maxwell. S'agit-il d'un choix pédagogique, étant donné que la covariance n'a pas encore été introduite ?
+\end{quest}

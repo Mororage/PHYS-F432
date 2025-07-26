@@ -1,0 +1,459 @@
+\chapter{Trous Noirs}
+La géométrie générée à l'extérieur d'un corps massif à symétrie sphérique est la métrique de Schwarzschild :
+\begin{align}
+    \label{TN:métrique schw}
+    \td s^2 = - \lt 1 - \frac{2m}{r} \rt \td t^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \td r^2 + r^2 \td \theta^2 + r^2 \sin^2\theta \td \varphi^2
+\end{align}
+Nous avons vu qu'elle permettait de décrire notamment certains phénomènes dans le système solaire, comme l'avance du périhélie de Mercure. Nous avons déjà observé plus haut que la métrique de Schwarzschild semblait présenter une singularité au rayon de Schwarzschild $r=2m$, mais nous avions conclut qu'il s'agissait d'une singularité du système de coordonnées plutôt que d'une vraie singularité physique (contrairement à $r =0$, comme le montrait le scalaire de Kretschmann). En général, pour des astres usuels (planètes, soleil, etc.), $r=2m$ est bien inférieur à leur rayon, et donc cette singularité dans le système de coordonnées n'est pas un obstacle à l'utilisation de la métrique (qui n'est valable qu'à l'extérieur de l'astre dans tous les cas). Nous allons à présent étudier ce qui se passe pour des sources gravitationnelles où le rayon de Schwarzschild se trouve à l'extérieur du corps gravitant et peut donc (en principe) être bel et bien atteint. Nous allons mettre en évidence certains phénomènes se produisant à l'approche de $r=2m$ et en conclure que la métrique sous la forme \ref{TN:métrique schw} n'est pas adaptée à la description de la région dans un voisinage de $r=2m$. Nous introduirons ensuite un autre système de coordonnées qui permettra d'obtenir une description globale de la géométrie et de faire la connaissance avec le \emph{trou noir}.
+\section{L'approche de l'horizon des évènements selon Schwarzschild}
+\subsection{Orientation des cônes de lumière}
+Étudions les cônes de lumière dans le demi-plan $(t,r)$, limités par des géodésiques radiales ($\dot{\theta} = 0 = \dot{\varphi}$) nulles ($\td s^2$) :
+\begin{align}
+    \td s^2 = 0 = - \lt 1 - \frac{2m}{r} \rt \td t^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \td r^2\\
+    \label{eq:géodésiques radiales nulles}
+    \implies \frac{\td r}{\td t} = \pm \lt 1-\frac{2m}{r} \rt
+\end{align}
+A $r$ fixé, c'est l'équation de deux demi-droites de pentes $\lt 1- \frac{2m}{r}\rt$. De plus, on peut analyser les cas asymptotiques suivants :
+\begin{itemize}
+    \item Pour $r\to \infty$ : $\frac{\td r}{\td t} \to \pm 1$. On obtient donc des cônes à 45° comme en espace-temps plat (qui est lé résultat attendu loin du corps gravitant, la métrique se ramenant alors à celle de Minkowski).
+    \item Pour $r \to 2m$ : $\frac{\td r}{\td t} \to 0$. Dans le plan $(t,r)$, l'ouverture des cônes de lumière tend vers $0$.
+\end{itemize}
+Que se passe-t-il au délà de $r = 2m$ ? Les trajectoires $r = $cste ont pour équation 
+\begin{equation}
+    \td s^2 - \lt 1 - \frac{2m}{r} \rt \td t^2
+\end{equation}
+Elles sont donc de genre temps pour $r>2m$ \emph{mais de genre espace pour $r<2m$} : $\td s^2$ implique que pour suivre cette trajectoire, il faudrait se déplacer à un vitesse supérieure à $c$. Il est donc impossible de maintenir l'orbite circulaire pour $r<2m$.
+\begin{rmk}
+    En traversant l'horizon $r=2m$, la signature de la métrique change : $r$ devient une coordonnée de genre temps.
+\end{rmk}
+\subsection{Observateurs statiques près de $r=2m$}
+Un observateur statique dans la métrique de Schwarzschild se trouve à des valeurs fixes de $(r,\theta, \varphi)$. Il s'agit d'un observateur accéléré, puisqu'il n'est clairement pas en chute libre (comme nous, à la surface de la terre). Il ne suit donc pas une géodésique, et sa quadri-accélération est non-nulle. Calculons-là. Comme l'observateur est statique, son vecteur tangent vaut
+\begin{equation}
+    U^\alpha = \frac{\td x^\alpha}{\td \lambda} = (U^0,0,0,0)
+\end{equation}
+Si la courbe est paramétrée par le temps propre, 
+\begin{align}
+    \lVert U \rVert^2 &= -1\\
+    &= g_{\alpha\beta} U^\alpha U^\beta = - \lt 1 - \frac{2m}{r} \rt (U^0)^2\\
+    \implies U &= \lt \frac{1}{\sqrt{1 - \frac{2m}{r}}},0,0,0 \rt
+\end{align}
+Où le signe est choisi pour obtenir un vecteur tangent orienté futur. L'accélération est donné par
+\begin{align}
+    a^alpha (\nabla_U U)^\alpha &= U^\beta \nabla_\beta U^\alpha = U^\beta \lt \pd_\beta U^\alpha + \Gamma^\alpha_{\beta \gamma} U^\gamma \rt\\
+    &= U^0 \pd_0 U^\alpha + U^0 \Gamma^\alpha_{00}U^0\\
+    &= \lt 1 - \frac{2m}{r} \rt^{-1} \Gamma^\alpha_{00}
+\end{align}
+Le seul symbole de Christoffel $\Gamma^\alpha_{00}$ non-nul pour la métrique de Schwarzschild est 
+\begin{equation}
+    \Gamma^1_{00} = \frac{m}{r^2} \lt 1 - \frac{2m}{r} \rt 
+\end{equation}
+Ce qui nous donne une accélération de
+\begin{equation}
+    a^\alpha = (0, \frac{m}{r^2},0,0)
+\end{equation}
+Pour maintenir un objet de masse $M$ statique dans un champ de gravitation, il faut lui appliquer une force $F = M \frac{m}{r^2}$ (ou de manière équivalente une accélération $a = \frac{m}{r^2}$) dans la direction radiale pour compenser l'attraction gravitationnelle (résultat newtonien). Néanmoins, cette expression de l'accélération n'est valable que dans le référentiel propre de l'objet. Une quantité invariante est la norme de ce vecteur : 
+\begin{equation}
+    \lVert a \rVert^2 = g_{\mu\nu} a^\mu a^\nu = \lt 1 - \frac{2m}{r} \rt^{-1} \frac{m^2}{r^4} \implies \lVert a \rVert = \lt 1 - \frac{2m}{r} \rt^{-1/2} \frac{m}{r^2}
+\end{equation}
+Cette quantité approche bien la valeur newtonienne pour $r\to \infty$, mais \emph{diverge} pour $r \to 2m$ : des observateurs ont de plus en plus de mal à rester statiques lorsque $r \to 2m$ !\footnote{Voir Blau p.525}
+\subsection{Redshift gravitationnel}
+Nous avons déjà rencontré le phénomène de redhsift gravitationnel : pour $T = \lambda/c$,
+\begin{equation}
+    \frac{T_E}{T_R} = \frac{\td z_E}{\td z_R} = \sqrt{\frac{-g_{00}(z_E)}{-g_{00}(z_R)}} = \sqrt{\frac{1 - \frac{2m}{z_E}}{1 - \frac{2m}{z_R}}} = \frac{\lambda_E}{\lambda_R}
+\end{equation}
+Dans la limite newtonienne ($\frac{m}{z} = \frac{GM}{zc^2} \ll 1$), on avait vu que ceci se ramenait à
+\begin{equation}
+    \frac{\lambda_E}{\lambda_R} \simeq 1 - \frac{\Delta \Phi}{c^2}
+\end{equation}
+où $\Phi = - \frac{GM}{r}$ et $\Delta \Phi \simeq gz$ avec $g = \frac{GM}{R^2}$. Supposons à présent qu'on ait un émetteur proche de $r = 2m$ et un récepteur loin du corps gravitant ($r\to \infty$). Alors, la fréquence $\nu = c/\lambda$ 
+\begin{equation}
+    \frac{\nu_E}{\nu_R} = \frac{\lambda_R}{\lambda_E} = \sqrt{\frac{1 - \frac{2m}{r_\infty}}{1 - \frac{2m}{r}}} \to \infty
+\end{equation}
+pour $r \to 2m$. Ainsi, 
+\begin{equation}
+    \label{TN: signal vers infini}
+    \boxed{\frac{\nu_{R,\infty}}{\nu_E} \to 0 \quad \text{pour } r \to 2m}
+\end{equation}
+Lorsque l'émetteur s'approche de $r=2m$, la fréquence perçue par un observateur à l'infini tend vers 0 : \emph{le signal n'arrive plus en} $r = \infty$.
+\begin{rmk}
+Ce phénomène nous indique que loin de $r=2m$, on a indirectement accès à des phénomènes à très hautes énergies se produisant en $r = 2m$ ($\nu_E$ doit être très grand en $r \geq 2m$ pour donner un effet mesurable, comme $\nu \approx 0$, en $r = \infty$.
+\begin{equation}
+    \nu_\infty
+    = \underbrace{\sqrt{1 - \frac{2m}{r}}}_{\to 0 \text{ pour } r \to 2m} \nu_r
+ \end{equation}
+Ainsi, pour que $\nu_\infty \neq 0$, il faut que $\nu_r \to \infty$ : la région $r \simeq 2m$ est perçue en $r=\infty$ comme une région à basse énergie (tous les signaux qui en viennent ont une fréquence très basse).
+\end{rmk}
+\subsection{Chute libre perçue par un observateur distant}
+Soit un observateur se situant à $r = r_\infty$ fixe, observant un corps en chute libre radiale, donc suivant une géodésique. Si $r_\infty\gg 2m$, son temps propre coïncidera approximativement avec le temps coordonnée $t$ : 
+\begin{equation}
+    \td s^2 = - \td \tau^2 = - \lt 1 - \frac{2m}{r} \rt \td t^2 \simeq - \td t^2
+\end{equation}
+Prenons un objet tombant radialement ($\dot{\varphi} = 0$) en chute libre dans la région $r=2m$. Par les constantes des mouvement de l'équation des géodésiques \ref{géodésiques de Schwarzschild}, on obtient donc que $a=0$ :
+\begin{align}
+    - \lt 1 - \frac{2m}{r} \rt \dot{t}^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \dot{r}^2 = - \lt 1 - \frac{2m}{r} \rt^2 b^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \dot{r}^2 =-1
+\end{align}
+Soit, en isolant à nouveau $\dot{r}^2$,
+\begin{equation}
+    \dot{r}^2 = b^2 - \lt 1-\frac{2m}{r} \rt
+\end{equation}
+Comme on s'intéresse à des corps tombant dans le trou noir, $\dot{r}<0$ :
+\begin{equation}
+    \label{Ch8: chute libre r}
+    \frac{\td r}{\td \lambda} = - \sqrt b^2 - \lt 1 - \frac{2m}{r} \rt
+\end{equation}
+Par l'équation de $b$ (qu'on a déjà utilisé pour se débarasser de $\dot{t}$ ci-dessus)
+\begin{equation}
+    b = \dot{t} \lt 1 - \frac{2m}{r} \rt
+\end{equation}
+On obtient directement
+\begin{equation}
+    \label{Ch8: chute libre t}
+    \frac{\td t}{\td \lambda} = \frac{b}{1 - \frac{2m}{r}}
+\end{equation}
+En combinant \ref{Ch8: chute libre r} avec \ref{Ch8: chute libre t} :
+\begin{align}
+    \frac{\td r}{\td t} = - b^{-1} \lt 1 - \frac{2m}{r} \rt \ltc b^2 - \lt 1 - \frac{2m}{r} \rt \rtc^{1/2}
+\end{align}
+Dans la limite où $r \to 2m$, on peut simplifier au premier ordre
+\begin{align}
+    \frac{\td r}{\td t} &= - b^{-1} \frac{r - 2m}{r} b + \mathcal{O}(\frac{r-2m}{r})^2 \simeq - \frac{r-2m}{2m}\\
+    \frac{\td }{\td t}(r-2m) \simeq - \frac{1}{2m} (r-2m)
+\end{align}
+Dont les solutions sont de la forme
+\begin{equation}
+    (r-2m)(t) \propto e^{-t/2m}
+\end{equation}
+Du point de vue de l'observateur à l'infini, le corps en chute libre n'atteint $r=2m$ que pour $t \to \infty$. Il ne verrai jamais le corps traverser $r=2m$ ! Le corps restera figé vu de l'infini, comme le suggère également \ref{TN: signal vers infini}.\\
+\\
+Nous venons de voir avec ces quatre points que la région $r=2m$ de la géométrie de Schwarzschild semble posséder des propriétés surprenantes. D'autre part, nous savons que la métrique de Schwarzschild n'est pas adaptée pour décrire ce qui s'y passe, comme elle diverge en $r=2m$ : c'est une singularité de coordonnées de la métrique (mais pas une singularité physique, comme les invariants de la courbure y sont réguliers). En particulier le temps $t$ "s'écoule trop rapidement" lorsqu'on approche $r=2m$ (car alors, $t\to\infty$). \\
+Si un émetteur en chute libre vers $r=2m$ émettait des signaux à intervalles de temps propre régulier (dans son référentiel propre), les signaux seraient perçus à des intervalles de temps de plus en plus longs pour un observateur lointain.\\
+\\
+Aussi, on a vu que du point de vue d'un observateur lointain, un corps en chute libre n'est jamais perçu comme atteignant $r=2m$. Par contre, du point de vue d'un observateur en chute libre, $r=2m$ est atteint en un temps fini. En effet, considérons un observateur en chute libre radiale à partir d'un rayon initial $r = r_0$. En supposant une chute libre sans vitesse initiale, $\dot{r}_0 = 0$. L'équation des géodésiques au moment initial s'écrit alors
+\begin{equation}
+    0 = b^2 - \lt 1 - \frac{2m}{r_0} \rt \implies b = \sqrt{1 - \frac{2m}{r_0}}
+\end{equation}
+L'équation de la trajectoire s'écrit alors
+\begin{align}
+    \begin{dcases}
+        \dot{r}^2 = \frac{2m}{r} - \frac{2m}{r_0}\\
+        \dot{t} = \lt 1 - \frac{2m}{r} \rt^{-1} \sqrt{1 - \frac{2m}{r_0}}
+    \end{dcases}
+\end{align}
+Ces équations peuvent être résolues pour trouver les équations paramétriques de la géodésique\footnote{Référence illisible}, $(r(\tau),t(\tau))$. Par exemple, si $r_0 = \infty$, $b = 1$ alors
+\begin{equation}
+    \dot{r}^2 = \frac{2m}{r} \iff \frac{\td r}{\td \tau} = - \sqrt{\frac{2m}{r}}
+\end{equation}
+Qu'on peut intégrer sans problème :
+\begin{align}
+    \int_{r_0}^r \sqrt{r}\, \td r = - \sqrt{2m} \int_0^\tau \td \tau\\
+    \implies \frac{2}{3} \lt r^{3/2} - r_0^{3/2} \rt = - \sqrt{2m} \tau
+\end{align}
+L'observateur en chute libre atteint donc $r=2m$ en un temps (propre) fini (ainsi qu'en $r=0$).
+\begin{equation}
+    \boxed{\tau (r) = \frac{1}{3} \sqrt{\frac{2}{m}} \lt r_0^{3/2} -r^{3/2}\rt}
+\end{equation}
+\section{La structure globale de la métrique de Schwarzschild}
+Pour pouvoir analyser ce qui se passe au passage du rayon de Schwarzschild $r=2m$, nous allons introduire de nouvelles coordonnées qui seront régulières à cet endroit. Ceci nous permettra d'avoir accès à la \emph{structure globale de la géométrie de Schwarzschild}.
+\subsection{Coordonnées d'Eddington-Finkelstein}
+Nous avions vu que les géodésiques radiales nulles étaient données par \ref{eq:géodésiques radiales nulles} :
+\begin{equation}
+    \frac{\td r}{\td t} = \pm \lt 1 - \frac{2m}{r} \rt
+\end{equation}
+Définissons une nouvelle coordonnée
+\begin{align}
+    \td r* \equiv \pm \td t = \frac{\td r}{1 - \frac{2m}{r}}
+\end{align}
+On peut également l'écrire
+\begin{equation}
+    \td r* = \frac{r \td r}{r - 2m} = \lt 1 + \frac{2m}{r - 2m} \rt \td r
+\end{equation}
+D'où on peut tirer une expression explicite de cette nouvelle coordonnée :
+\begin{equation}
+    r* = r + 2m \log \lt \frac{r}{2m} - 1 \rt + \text{cste}
+\end{equation}
+Cette coordonnée est appelée \emph{tortoise coordinate}. Ce changement de coordonnées n'est valable que pour $r>2m$. Dans ces coordonnées, la métrique s'écrit
+\begin{equation}
+    \td s^2 = \lt 1 - \frac{2m}{r}\rt \lt - \td t^2 + \td r*^2 \rt + r^2(r*) \td \Omega^2
+\end{equation}
+Et les cônes de lumière sont donnés par 
+\begin{equation}
+    \td t^2 = \pm \td r*^2
+\end{equation}
+se comportent bien dans ces coordonnées et ont une ouverture constante. Par contre, bien qu'aucune composante de la métrique ne diverge, la métrique est toujours dégénérée en $r=2m$ et cette région se trouve à présent en $r* = -\infty$. \\
+Pour aller plus loin, on introduit de nouvelles coordonnées adaptées aux géodésiques nulles, qui ont pour équation $\td t = \pm \td r*$ ou encore
+\begin{equation}
+    t = \pm r* + \text{cste}
+\end{equation}
+On remarque que si le signe est choisi positivement, alors le rayon augmente avec le temps : il s'agit d'une géodésique sortante. Inversement, un signe négatif donne lieu à une géodésique entrante. On pose donc :
+\begin{equation}
+    \begin{dcases}
+        v = t + r* \\
+        u = t - r*
+    \end{dcases}
+\end{equation}
+Notons que par conséquence,
+\begin{equation}
+    \begin{dcases}
+        v = \text{cste correspond à des géodésiques entrantes}\\
+        u = \text{cste correspond à des géodésiques sortantes}
+    \end{dcases}
+\end{equation}
+Celles-ci définissent les \emph{coordonnées d'Eddington-Finkelstein} entrantes $(v,r,\theta,\varphi)$ ou sortantes $(u,r,\theta,\varphi)$.
+\begin{rmk}
+    Dans ces coordonnées, les courbes orientés futur ont un temps $t$ croissant, et donc également $u$ et $v$ croissants.
+\end{rmk}
+Ecrivons la métrique dans ces coordonnées :
+\begin{align}
+    \td t = \td v - \td r*& = \td v - \frac{\td r}{1 - \frac{2m}{r}}\\
+    \td s^2 &= - \lt 1 - \frac{2m}{r} \rt \td t^2 + \frac{\td r^2}{1 -\frac{2m}{r}} +r^2\td \Omega^2\\
+    & = - \lt 1 - \frac{2m}{r} \rt \lt \td v^2 - - \frac{2\td v \td r}{1 - \frac{2m}{r}} + \purple{\frac{\td r^2}{\lt 1 - \frac{2m}{r} \rt^2}} \rt + \purple{\frac{\td r^2}{1 - \frac{2m}{r}}} + r^2 \td \Omega^2
+\end{align}
+Les termes en $\td r^2$ s'annulent et on obtient donc la métrique pour les coordonnées d'Eddington-Finkelstein entrantes
+\begin{equation}
+    \label{métrique EF entrant}
+    \boxed{\td s^2  = - \lt 1 - \frac{2m}{r} \rt \td v^2 + 2 \td v \td r + r^2 \td \Omega^2}
+\end{equation}
+Similairament, on obtient la métrique pour les coordonnées d'Eddington-Finkelstein sortantes
+\begin{equation}
+    \label{métrique EF sortant}
+    \boxed{\td s^2  = - \lt 1 - \frac{2m}{r} \rt \td u^2 - 2 \td u \td r + r^2 \td \Omega^2}
+\end{equation}
+On voit que dans ces coordonnées, même si $g_{uu} = 0 = g_{vv}$ lorsque $r=2m$, la métrique est finie et non-dégénérée (son déterminant est non-nul). C'était aussi le cas pour la métrique de Schwarzschild, mais on avait $g_{rr} = \infty$. Ceci confirme que $r=2m$ était une simple singularité de coordonnées dans le système $(t,r,\theta,\varphi)$ original, puisque nous avons trouvé un autre système de coordonnées dans lequel $r=2m$ est parfaitement régulier. \\
+\\
+Il est intéressant d'étudier en détail les cônes de lumières dans ces coordonnées. Ceux-ci sont définis par la condition
+\begin{align}
+    \td s^2 = 0 &\iff \lt 1 - \frac{2m}{r} \rt \td v^2 = 2 \td v \td r\\
+    & \iff \lt 1 - \frac{2m}{r} \rt \lt \frac{\td v}{\td r} \rt^2 = 2 \frac{\td v}{\td r}\\
+    & \iff \frac{\td v}{\td r} = 0 \quad \textbf{ou} \quad \frac{\td v}{\td r} = \frac{2}{1 - \frac{2m}{r}}
+\end{align}
+Dans ces coordonnées, les cônes de lumière se comportent bien en $r=2m$ et cette surface se trouve à une valeur finie des coordonnées.\\
+\\
+Il n'y a donc pas d'obstruction, dans ces coordonnées, à tracer les trajectoires de type temps ou nulles traversant $r=2m$. Mais on observe néanmoins un phénomène intéressant. Bien que les cônes de lumière ne se referment pas (c'était un artefact de la non-validité des coordonnées de Schwarzchild en $r=2m$), les cônes de lumière \emph{basculent}, de sorte que toutes les trajectoires causales (de genre temps ou lumière, orientés futur) se font dans la direction des $r$ décroissants. La surface $r=2m$, bien que localement parfaitement régulière, agit globalement comme une \emph{surface de non-retour}. Elle constitue un \emph{horizon des évènements}, une surface au-délà de laquelle des particules ne peuvent s'échapper à l'infini. Il faut noter que bien que les coordonnées d'Eddington-Finkelstein furent introduites par Eddington en 1924, l'interprétation du rayon de Schwarzschild $r=2m$ comme un horizon des évènements ne fut comprise que bien plus tard par Finkelstein en 1958.
+
+\subsection{Coordonnées de Kruskal-Szerekes}
+L'utilisation des coordonnées d'Eddington-Finkelstein entrantes nous a permis, à partir de la région $r=2m$, de la géométrie Schwarzschild, d'explorer la région $r<2m$ en suivant des géodésiques nulles entrantes (à rayon décroissant pour un temps croissant, $v =$cste et $\td r* = - \td t$). Que se passe-t-il si on utilise les coordonnées d'Eddington-Finkelstein sortantes ? Dans ces coordonnées, les cônes de lumière se présentent comme :\\
+Image
+Remarquons que dans ces coordonnées, la surface $r=2m$ peut être atteinte et franchise, à partir de $r>2m$, uniquement par des courbes orientées vers le passé (à $u$ décroissant). Or, la même surface ne peut à la fois se trouver dans futur et dans le passé d'un observateur $P$. Cela signifie qu'à partir de $P$, on peut suivre des courbes (de genre temps ou nulles) dirigées soit vers le futur, soit vers le passé, mais que l'on arrivera à des régions différentes (bien que représentées toutes deux par $r=2m$ dans les coordonnées de Schwarzschild, inadaptées à décrire cette région) : lorsque $r\to 2m$, $r* \to - \infty$. Si l'on tend vers $r=2m$ le long de :
+\begin{itemize}
+    \item $v = $cste, on a $t \to + \infty$ : c'est ce qu'on appellera la \emph{région} \RNum{1}.
+    \item $u = $cste, on a $t \to - \infty$ : c'est ce qu'on appellera la \emph{région} \RNum{2}.
+\end{itemize}
+Avec $r>2m$ étant la \emph{région} \RNum{1}. Nous avons étendu la géométrie de Schwarzschild originale dans deux directions, une vers le futur et l'autre vers le passé, le long de géodésiques nulles. En fait, il est également possible d'étendre encore plus l'espace-temps, le long de géodésiques spatiales, et de trouver un système de coordonnées qui couvre toutes les régions. Celles-ci permettront de mettre en évidence la \emph{structure globale} et d'aboutir à la notion de \emph{trou noir}. Ce sont les \emph{coordonnées de Kruskal-Szerekes} : on définit pour $r>2m$ (région \RNum{1})
+\begin{align}
+    \label{coordonnées KS 1}
+    \begin{dcases}
+        \mathfrak{u} = \lt \frac{r}{2m} -1 \rt^{1/2} e^{r/4m} \cosh \frac{t}{4m}\\
+        \mathfrak{v} = \lt \frac{r}{2m} -1 \rt^{1/2} e^{r/4m} \sinh \frac{t}{4m}
+    \end{dcases}
+\end{align}
+et pour $r<2m$ (région \RNum{2})
+\begin{align}
+    \label{coordonnées KS 2}
+    \begin{dcases}
+        \mathfrak{u} = \lt 1 - \frac{r}{2m} \rt^{1/2} e^{r/4m} \sinh \frac{t}{4m}\\
+        \mathfrak{v} = \lt 1 - \frac{r}{2m}\rt^{1/2} e^{r/4m} \cosh \frac{t}{4m}
+    \end{dcases}
+\end{align}
+avec $\theta$ et $\varphi$ inchangés. Notons que ce changement de coordonnées n'est pas défini en $r=2m$ (tout comme l'est le changement de coordonnées cartésiennes vers polaires en $r=0$). Analysons ces coordonnées. Pour tout $r>0$, on a
+\begin{equation}
+    \label{coordonnées KS 3}
+    \mathfrak{u}^2 - \mathfrak{v}^2 = \lt \frac{r}{2m} - 1 \rt e^{r/2m}
+\end{equation}
+Le côté droit est une fonction monotone croissante variant de $-1$ (en $r=0$) à $+\infty$. On obtient donc :
+\begin{equation}
+    \boxed{\mathfrak{u}^2 -\mathfrak{v}^2 \geq -1}
+\end{equation}
+On observe également que $r=2m$ si et seulement si $\mathfrak{u} = \pm \mathfrak{v}$. D'autre part, on a 
+\begin{equation}
+    \label{coordonnées KS 4}
+    \begin{dcases}
+        \frac{\mathfrak{u}}{\mathfrak{v}} = \coth \frac{t}{4m} \quad \text{pour } r>2m \\
+        \frac{\mathfrak{u}}{\mathfrak{v}} = \tanh \frac{t}{4m} \quad \text{pour } r<2m
+    \end{dcases}
+\end{equation}
+\subsubsection{2.2.1 Région \RNum{1}}
+Par définition des coordonnées de Kruskal-Szerekes, on obtient que si $t<0$ alors $\mathfrak{v}<0$. Ainsi, par la propriété de la fonction $\coth x$ pour $x$ négatif, on obtient
+\begin{equation}
+    \frac{\mathfrak{u}}{\mathfrak{v}} < -1 \implies \mathfrak{u} > - \mathfrak{v}
+\end{equation}
+Similairement, $t>0$ implique $\mathfrak{v}>0$ et donc $\mathfrak{u}>\mathfrak{v}$. Dans le plan $(\mathfrak{u},\mathfrak{v})$, la région $r>2m$ est envoyée sur le quadrant $\mathfrak{u} > - \mathfrak{v}$ et $\mathfrak{u} > \mathfrak{v}$.
+
+\subsubsection{2.2.2 Région \RNum{2}}
+On obtient que pour tout $t$,
+\begin{equation}
+    - 1 < \frac{\mathfrak{u}}{\mathfrak{v}} <1 \,  \text{ et } \, \mathfrak{v}>0
+\end{equation}
+Cette région correspond donc au quadrant $\mathfrak{u} < \mathfrak{v}$ et $\mathfrak{u}> - \mathfrak{v}$.\\
+\\
+L'image de $\{r>2m\} \bigcup \{r <2m \}$ est l'union de ces deux régions. Un point $(\mathfrak{u},\mathfrak{v})$ de cette région correspond à un point $(t,r)$ où $r$ s'obtient en résolvant \ref{coordonnées KS 3} et $t$ s'obtient en résolvant \ref{coordonnées KS 4} (l'une des deux équations, en fonction de la valeur de $r$). Les courbes $r = $cste forment des branches d'hyperboles d'après \ref{coordonnées KS 3}. Les courbes $t=$cste forment des droites par l'orgine d'après \ref{coordonnées KS 4}.\\
+\\
+Exprimons la métrique dans les coordonnées $(\mathfrak{u},\mathfrak{v},\theta,\varphi)$. Par \ref{coordonnées KS 3} :
+\begin{align}
+    2 \mathfrak{u} \,\td \mathfrak{u} - 2 \mathfrak{v} \,\td \mathfrak{v} = \frac{r}{2m} \frac{e^{r/2m}}{2m} \td r\\
+    \label{coordonnées KS 5}
+    \,\td r = \frac{8m^2}{r} e^{-r/2m} (\mathfrak{u} \,\td \mathfrak{u} - \mathfrak{v}\, \td \mathfrak{v})
+\end{align}
+Pour $r>2m$, on obtient par \ref{coordonnées KS 4} :
+\begin{align}
+    \frac{\mathfrak{v} \,\td \mathfrak{u} - \mathfrak{u} \, \td \mathfrak{v}}{\mathfrak{v}^2} &= - \frac{\td t}{4m} \frac{1}{\sinh^2 \lt \frac{t}{4m}\rt}\\
+    & = - \frac{\td t}{4m} \lt \frac{r}{2m} - 1 \rt \frac{e^{r/2m}}{\mathfrak{v}^2}\\
+    & = - \frac{\td t}{4m} \lt \mathfrak{u}^2 - \mathfrak{v}^2 \rt e^{-r/2m}\, \frac{e^{r/2m}}{\mathfrak{v}^2}
+\end{align}
+On obtient alors en isolant $\td t$ :
+\begin{equation}
+    \label{coordonnées KS 6}
+    \td t = 4m \frac{\mathfrak{u} \, \td \mathfrak{v} - \mathfrak{v} \, \td \mathfrak{u}}{\mathfrak{u}^2 - \mathfrak{v}^2} 
+\end{equation}
+Par un raisonnement similaire pour $r<2m$, on obtient :
+\begin{equation}
+    \td t = - 4m \frac{\mathfrak{u} \, \td \mathfrak{v} - \mathfrak{v} \, \td \mathfrak{u}}{\mathfrak{u}^2 - \mathfrak{v}^2} 
+\end{equation}
+La métrique s'écrit alors
+\begin{align*}
+    \td s^2 &= - \lt 1 - \frac{2m}{r} \rt \td t^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \td r^2 + r^2 \td \Omega^2 \\
+    &= - \frac{2m}{r} (\mathfrak{u}^2 - \mathfrak{v}^2) e^{-r/2m} 16 m^2 (\mathfrak{u}^2 - \mathfrak{v}^2 )^{-2} (\mathfrak{u} \, \td \mathfrak{v} - \mathfrak{v} \, \td \mathfrak{u})^2 \\
+    & \quad + \frac{r}{2m} (\mathfrak{u}^2 - \mathfrak{v}^2)^{-1} e^{r/2m} \frac{64m^4}{r^2} e^{-r/m} (\mathfrak{u}^2 - \mathfrak{v}^2 )^{-2} (\mathfrak{u} \, \td \mathfrak{v} - \mathfrak{v} \, \td \mathfrak{u})^2 + r^2 \td \Omega^2\\
+    &= \frac{32 m^3}{r} \frac{e^{-r/2m}}{\mathfrak{u}^2 - \mathfrak{v}^2} \lt - \mathfrak{u}^2 \, \td \mathfrak{v}^2 + \purple{2 \mathfrak{u} \mathfrak{v} \, \td \mathfrak{u} \, \td \mathfrak{v}} - \mathfrak{v}^2 \, \td \mathfrak{u}^2 + \mathfrak{u}^2 \, \td \mathfrak{u}^2 - \purple{ 2 \mathfrak{u} \mathfrak{v} \, \td \mathfrak{u} \, \td \mathfrak{v}} + \mathfrak{v}^2 \, \td \mathfrak{v}^2 \rt + r^2 \td \Omega^2
+\end{align*}
+On obtient l'expresion finale pour la métrique dans les coordonnées de Kruskal-Szerekes :
+\begin{align}
+    \label{métrique KS}
+    \boxed{\td s^2 = \frac{32 m^3}{r} e^{-r/2m} ( \td \mathfrak{u}^2 - \td \mathfrak{v}^2) + r^2 \td \Omega^2 }
+\end{align}
+avec $r = r(\mathfrak{u},\mathfrak{v})$ donné implicitement via l'équation \ref{coordonnées KS 3}. Cette métrique est régulière en $r=2m$, sa seule singularité étant $r=0$ (la \emph{vraie} singularité).\\
+Dans le plan $(\mathfrak{u},\mathfrak{v})$, les rayons lumineux sont donnés par $\td \mathfrak{u}^2 = \td \mathfrak{v}^2$ donc $\td \mathfrak{u} = \pm \td \mathfrak{v}$ comme pour la métrique de Minkowski à deux dimensions ! La métrique y est conformément plate (i.e. plate à un facteur près). Cette propriété est très utile pour étudier la structure causale de l'espace-temps.\\
+\\
+On a vu que $\mathfrak{u} + \mathfrak{v}>0$ couvrait les régions I et II. Mais la métrique est régulière en $\mathfrak{u} + \mathfrak{v} = 0$ : on peut l'étendre pour des valeurs $\mathfrak{u} + \mathfrak{v}<0$ des coordonnées : ce sont les régions \RNum{3} et \RNum{4}. On avait pressenti l'existence de \RNum{3}, atteignable à partir de \RNum{1} en traversant $r=2m$ avec des géodésiques temporelles dirigées vers le passé, et qui finissent en $r=0$ (voir figure).
+\begin{rmk}
+    On peut se rendre compte de l'existence de \RNum{4} en étudiant des géodésiques spatiales ($\td s^2 >0$, $v>c$) et en demandant que celles-ci soient complètes, i.e. existent pour toute valeur de paramètre affin. La région \RNum{4} est une autre région asymptotiquement plate (comme un autre Univers), mais aucun observateur physique ne peut y accéder. Elle est connectée à \RNum{1} par le \emph{Einstein-Rosen bridge}.
+\end{rmk}
+\begin{rmk}
+    La région \RNum{3} n'est pas physique non-plus. Si on part de \RNum{1} (région asymptotiquement plate, loin du corps gravitant), on ne peut atteindre \RNum{3} qu'avec des géodésiques temporelles/rayons lumineux dirigés vers le passé. En théorie, la région \RNum{2} constitue un \emph{trou blanc} : des choses s'en échappent mais on ne peut pas y accéder. Néanmoins, dans des scénarios réalistes qui permettent d'obtenir la géométrie de Schwarzschild, cette région est exclue (voir \emph{effondrement gravitationnel} plus loin).
+\end{rmk}
+\begin{rmk}
+    Il existe un changement de coordonnées qui amène \ref{métrique KS} à la forme de Schwarzschild aussi dans la régions \RNum{3} :
+    \begin{equation}
+        \begin{dcases}
+            \mathfrak{u} =  -\lt 1 - \frac{r}{2m} \rt^{1/2} e^{r/4m} \sinh \frac{t}{4m}\\
+        \mathfrak{v} = - \lt 1 - \frac{r}{2m}\rt^{1/2} e^{r/4m} \cosh \frac{t}{4m}
+        \end{dcases}
+    \end{equation}
+    et la région IV :
+    \begin{equation}
+        \begin{dcases}
+            \mathfrak{u} = - \lt \frac{r}{2m} -1 \rt^{1/2} e^{r/4m} \cosh \frac{t}{4m}\\
+            \mathfrak{v} = - \lt \frac{r}{2m} -1 \rt^{1/2} e^{r/4m} \sinh \frac{t}{4m}
+        \end{dcases}
+    \end{equation}
+\end{rmk}
+\begin{rmk}
+    L'union de ces régions, \RNum{1} $\cup$ \RNum{2} $\cup$ \RNum{3} $\cup$ \RNum{4} est l'extension maximale de la géométrie de Schwarzschild, ayant une topologie $\R^2 \times S^2$ (soit $(\mathfrak{u},\mathfrak{v}) \times (\theta,\varphi) \sim 2 \times$ Schwarzschild où $r\in \R^+$).
+\end{rmk}
+\subsection{Horizon et trou noir}
+Un observateur en orbite circulaire ($r>2m$) dans la géométrie de Kruskal-Szerekes ressemble fortement à l'observateur accéléré en espace-temps plat (l'observateur de Rindler). \RNum{1} $\cup$ \RNum{2} est son futur causal $\mathcal{J}^+(\mathcal{S})$, i.e. l'ensemble des évènements qu'il peut influencer. Le bord de $\mathcal{J}^+(\mathcal{S})$ est l'horizon passé pour $\mathcal{S}$. \\
+Considérons à présent un évènement $O$ dans la région \RNum{2} : son futur est complètement limité par la singularité. Toute courbe causale passant par $O$ aboutit nécessairement à la singularité $r=0$ où règnent des forces de marée infinies (mesurée par le scalaire de Kretschmann $K \propto \frac{1}{r^6} \to \infty$ lorsque $r\to 0$). Rien ne peut s'échapper de la région \RNum{2} vers l'infini (i.e. retourner dans la région \RNum{1}). Un observateur dans \RNum{1} n'a aucun moyen de savoir ce qui se passe dans \RNum{2} (aucun signal ne peut lui parvenir), en particulier il ne peut pas \emph{voir} la singularité future $r=0$. 
+\begin{theoremframe}
+    \begin{defi}
+        La région $r<2m$ définit un \emph{trou noir}, c'est-à-dire un région de l'espace-temps causalement déconnectée de la région asymptotique $r \to \infty$. La surface limite \emph{de non-retour} $r=2m$ est appellée \emph{horizon des évènements}.
+    \end{defi}
+\end{theoremframe}
+Notons que l'horizon des évènements d'un trou noir, contrairement à l'horizon de Rindler, est une propriété de l'espace-temps lui-même, et pas d'une classe d'observateurs particuliers (comme les observateurs uniforméments accélérés dans le cas de Rindler).
+\section{Effondrement gravitationnel et formation des trous noirs}
+La structure globale de la géométrie de Schwarzschild nous a permis de définir la notion de trou noir. Elle a également mis en évidence des régions encore plus surprenantes : un \emph{trou blanc} (région \RNum{3}) et un \emph{univers miroir} (région \RNum{4}). L'existence de ces deux dernières régions nécessite un trou noir éternel (en particulier, éternel dans le passé) dans une région asymptotiquement plate, ce qui n'est pas très réaliste. Bien qu'on puisse strictement pas les exclure, on n'a pas d'évidence pour leur existence. Si ceci représentait la seule façon d'obtenir des trous noirs, on pourrait alors sans doute simplement les considérer comme des curiosités mathématiques, sans réalité physique, ce qui fut d'ailleurs longtemps le cas. Néanmoins, il est désormais admis que des trous noirs non-éternels existent, et que ceux-ci peuvent notamment se former par effondrement gravitationnel d'une étoile ayant épuisé son combustible nucléaire. Nous allons évoquer certains de ces aspects de manière sommaire.
+\subsection{Solution intérieure de Schwarzschild et théorème de Buchdahl}
+Avant d'analyser l'effondrement gravitationnel vers un trou noir, il est intéressant d'étudier les configurations statiques décrivant l'intérieur d'étoiles à symétrie sphérique. Il existe plusieurs façons de modéliser l'intérieur d'une étoile, la plus simple étant de considérer qu'elle est constituée d'un fluide parfait (pas de cisaillement) caractérisé par une densité $\rho$ et une pression $P$. On peut alors écrire les équations d'Einstein
+\begin{equation}
+    G_{\mu\nu} = 8 \pi G T_{\mu\nu} \neq 0
+\end{equation}
+sous les hypothèses de la symétrie sphérique.
+\begin{theoremframe}
+    \begin{theorem}[de Buchdahl (1959)]
+        Pour une étoile de masse totale $M$ et à rayon $R$, l'équilibre n'est possible que si 
+        \begin{equation}
+            M < \frac{4}{9}R
+        \end{equation}
+    \end{theorem}
+\end{theoremframe}
+Notons que l'équilibre est garanti par la pression (vers l'extérieur) qui s'oppose à l'attraction gravitationnelle (vers l'intérieur). Lorsque cette condition n'est pas vérifiée, la pression au centre de la solution statique à symétrie sphérique doit être plus grande que l'infini pour que l'équilibre soit satisfait, ce qui est impossible. \\
+Ceci signifie que des corps statiques à symétries sphérique avec
+\begin{equation}
+    R < \frac{9}{4} M = \frac{9}{8} R_\text{Schw}
+\end{equation}
+ne peuvent pas exister.
+\subsection{Effondrement gravitationnel et évolution stellaire}
+La plupart des objets astrophysiques ne vont pas s'effondrer jusqu'à $R = \frac{9}{4} M$ et former un trou noir. Une planète ordinaire, supportée par des pressions matérielles, existent essentiellement pour toujours. Mais le destin des étoiles, en particulier les étoiles massives, est une autre histoire.\\
+\\
+Sans entrer dans les détails de la description du collapse gravitationnel ou de l'évolution stellaire (qui est laissé aux cours d'astrophysique) on peut mentionner les stades d'évolution suivants. Du cours de son existence, une étoile va évoluer en brûlant ses constituants nucléaires en étapes successives et commençant par les éléments les plus légers; Notre Soleil par exemple est en phase de combustion d'Hydrogène, phase appelée \emph{séquence principale}. La chaleur/rayonnement produits par la fusion d'éléments légers en éléments plus lourds donne lieu à une pression de rayonnement qui contrebalance l'attraction gravitationnelle. \\
+lorsque ces processus de fusion se terminent, l'étoile finit par s'effondrer sous sa propre attraction gravitationnelle. Ceci peut être arrêté par la \emph{pression de dégénérescence des électrons} qui se manifeste lorsque les densités et pressions mises en jeu deviennent très élevées : la matière se comporte comme un gaz et le principe d'exclusion se manifeste au niveau macroscopique, les électrons s'opposent à se trouver dans le même état quantique ce qui implique une répulsion entre atomes voisins. Pour une étoile ayant une masse $M< 1.4 M_\odot$ en fin de vie (limite de Chandrasekkar)\footnote{L'étoile peut néanmoins être beaucoup plus massif en début de vie, comme une partie de sa masse sera éjectée en cours de vie.}, l'effondrement s'arrête et l'astre résultant est une \emph{naine blanche}. La densité d'une telle étoile est de l'ordre de $\rho \sim 1000$kg/cm$^3$, à comparer avec la densité de l'eau $\rho \sim 1$g/cm$^3$ et celle du Soleil $\rho \sim 150$g/cm$^3$.\\
+Si $M> 1.4 M_\odot$, l'effondrement continue et les conditions deviennent telles que la désintégration $\beta$ inverse (p$^+$ + e$^- \to$ n + $\nu_e$) est favorisé et une \emph{étoile à neutrons} se forme, dans laquelle la pression de dégénérescence des neutrons peut contrebalancer la force gravitationnelle tant que $M \lesssim 3 M_\odot$ (limite d'Oppenheimer-Volkar). Une telle étoile possède un rayon de l'ordre des $10$km (Bruxelles), une densité de $\rho \sim 10^12$kg/cm$^3$ et une masse de $2-3M_\odot$.
+\begin{rmk}
+    Si $M > 3 M_\odot$ en fin de vie, rien (de connu) ne peut empêcher l'effondrement gravitationnel. On imagine que l'effondrement ne s'arrête plus jusqu'à former un trou noir ($R<2m$) et se contracter pour former une singularité en $R=0$.
+\end{rmk}
+Revenons à l'effondrement gravitationnel. Si on l'idéalise en supposant qu'il se fait en respectant la symétrie sphérique, alors la métrique à l'extérieur de l'étoile sera celle de Schwarzschild. Le diagramme représentant l'effondrement est alors :\\
+\\
+Où $A_t$ est la surface de l'étoile à un instant donné. Si la configuration ne varie que lentement dans le temps, la géométrie à l'extérieur est approximativement celle de Schwarzschild. Sous l'effet de sa propre gravitation, la surface de l'étoile collapse en suivant une géodésique temporelle (si les forces autres que gravitationnelles peuvent être négligées)\footnote{Voir Blau p. 602 pour régime de validité.}. Si la masse de $A$ reste approximativement constante au cours de l'effondrement, la géométrie reste toujours décrite par Schwarzschild à l'extérieur de l'étoile, à $r> R(t)$. Par contre, pour $r<R(t)$, la géométrie n'est pas celle de Schwarzschild puisque dans cette région, $T_{\mu\nu} \neq 0$ ! Les régions \RNum{3} et \RNum{4} n'existent donc pas au cours d'un collapse gravitationnel. \\
+À un moment, la surface de l'étoile entre dans son rayon de Schwarzschild et plus aucun rayon lumineux ne peut nous arriver. Notons que du point de vue d'un observateur à l'infini, la surface de l'étoile ne pénètre jamais dans $r=2m$.\\
+\\
+Il a longtemps été pensé que la formation d'une singularité était un artefact de certaines approximations (symétrie sphérique, effondrement radial). Penrose prouva néanmoins en 1965 que, moyennant certaines hypothèses raisonnables, dès qu'un horizon se forme il est impossible dans le cadre de la relativité générale d'empêcher un effondrement vers une singularité. Ceci lui valut le Prix Nobel de Physique en 2020. Penrose généralisera ce résultat avec l'aide d'un jeune étudiant en thèse (Stephen Hawking) pour prouver qu'une singularité est inévitable dans le modèle du Big Bang.
+\section{Observations de trous noirs}
+Comment détecter un trou noir, puisqu'aucun rayonnement n'en échappe\footnote{Voir radiation de Hawking plus loin.} ? On peut les observer de manière indirecte, de par leur influence sur leur environnement.
+\subsection{Systèmes binaires ou multiples}
+Classiquement, la troisième loi de Kepler s'écrit
+\begin{equation}
+    \frac{a^3}{T^2} = \frac{G (M+m)}{4 \pi^2}
+\end{equation}
+Si $M$ est invisible et est mesuré à $M > 3M_\odot$, celle-ci étant un trou noir est suggéré. Un premier tel candidat a été \textsc{Cyg X-1} (Webster, Murdin, Bolton en 1972) situé à 6700 années-lumière du soleil et ayant une masse de $M = 14.8 M_\odot$.\\
+Au centre de la Voie Lactée : des observations depuis le milieu des années 90' suggèrent la présence d'un trou noir supermassif à masse $M = 4 \cdot 10^6 M_\odot$, appelé \textsc{Sgr A*} situé à 25 000 années-lumières du Soleil (Prix Nobel 2010 à Genzel et Ghez, avec Penrose). Remarquons sur le passage que l'avance du périhélie des étoiles proches de ce trou noir est en parfait accord avec la relativité générale.
+\subsection{Trous noirs en rotation et disque d'accrétion}
+Un trou noir faisant partie d'un système binaire peut par exemple accréter de la matière d'un compagnon, formant un disque d'accrétion autour du trou noir qui lui peut être très lumineux. La position de ce disque d'accrétion (de son bord intérieur) permet de déterminer la masse du trou noir : $r_\text{ISCO} = 6m$ pour Schwarzschild (sans rotation) et $2m<r_\text{ISCO}<6m$ pour un trou noir en rotation. \\
+Différentes images possibles en en fonction de l'angle de visée. Ce disque d'accrétion permet de "voir" le trou noir, comme montré sur la célèbre photographie du trou noir \textsc{M87*} par l'\textsc{Event Horizon Telescope} en 2019. Il s'agit du trou noir supermassif au centre de la galaxie elliptique supergéante \textsc{Messia 87}, situé à $50 \cdot 10^6$ années lumières du Soleil, ayant une masse $M = 6.5 \cdot 10^9 M_odot$ et un rayon $R_\text{Schw} \simeq 20 \cdot 10^9$km, soit d'environ 3 fois le rayon de l'orbite moyenne de Pluton. Vue de Terre, ce trou noir possède une taille angulaire comparable à une orange à la surface de la lune.
+\subsection{Ondes gravitationnelles}
+LIGO : première détection de la fusion de deux trous noirs le 14 septembre 2015 (\textsc{GW150914}) à masses $36 M_\odot + 29M_\odot \to 62 M_\odot +$ ondes gravitationnelles. Prix Nobel en 2017 pour Weiss, Barish et Thorne.
+\section{Problèmes ouverts}
+\begin{enumerate}
+    \item \textbf{Singularités} : une singularité ne peut être physiquement correcte. Or,
+    \begin{equation}
+        K \equiv R_{\mu\nu \alpha\beta} R^{\mu\nu\alpha\beta} \sim \frac{1}{r^6} \to \infty \, \text{ lorsque } r\to 0
+    \end{equation}
+    La relativité générale cesse donc d'être applicable en $r=0$.
+    \item \textbf{Problème d'entropie des trous noirs} (Bekenstein, Hawking, Carter, ...) : Les trous noirs ont une température
+    \begin{equation}
+        T = \frac{\hbar c^3}{8\pi k_B GM}
+    \end{equation}
+    et une entropie
+    \begin{equation}
+        S = \frac{k_B c^3}{4 \hbar G}A
+    \end{equation}
+    où $A$ est l'aire de l'horizon du trou noir. Or, l'entropie s'écrit via la formule de Boltzmann comme
+    \begin{equation}
+        S = k_B \log \Omega
+    \end{equation}
+    où $\Omega$ est le nombre de micro-états du système. Une entropie non-nulle impliquerait donc que le trou noir est désordonné, mais une interprétation de ce résultat reste inconnue.
+    \item \textbf{Paradoxe de l'information}, Théorie d'unicité (Hawking, Carter, Robin, ...) : le résultat de l'effondrement gravitationnel est unique, et est donné par la métrique de Kerr (métrique généralisant Schwarzschild à un corps en rotation : solution axisymétrique et stationnaire) 
+    \begin{align*}
+    \td s^{2} =& -\left( 1 - \frac{2m r}{\Sigma} \right) c^{2} \td t^{2} + \frac{\Sigma}{\Delta} \td r^{2} + \Sigma \td \theta^{2} \\
+    & \,+ \left(r^2+ a^2 + \frac{2m r a^{2}}{\Sigma} \sin^{2}\theta \right) \sin^{2}\theta \ \td \varphi^{2} - \frac{4m ra \sin^{2} \theta}{\Sigma} c \, \td t \, \td \varphi
+    \end{align*}
+    En coordonnées
+    \begin{equation}
+        \begin{dcases}
+            x = \sqrt{r^2 + a^2} \sin \theta \cos\varphi\\
+            y = \sqrt{r^2 +a^2} \sin \theta \sin \varphi \\
+            z = r \cos\theta
+        \end{dcases}
+    \end{equation}
+    et où
+    \begin{align}
+        a &= \frac{J}{Mc}\\
+        \Sigma &= r^2 + a^2 \cos^2 \theta\\
+        \Delta &= r^2 - 2m r + a^2
+    \end{align}
+    Cette métrique est donc caractérisée par deux paramètres : sa masse $M$ et son moment angulaire $J$. Deux étoiles à même $M$ et $J$ mais complètement différents en composition résulteraient en le même trou noir de Kerr (No hair theorem). \\
+    Après la formation du trou noir, l'information sur ce dont le trou noir a été faite est perdue.\\
+    \\
+    Autre formulation : la radiation de Hawking a pour effet que le trou noir s'évapore. Elle a pour caractéristique d'être complètement thermale, i.e. complètement caractérisée par sa température. Supposons que l'on parte à un instant initial d'une étoile dans un état pur $\rho = \ket{\varphi} \bra{\varphi}$ (très compliqué). Celle-ci forme un trou noir et commence à s'évaporer. Quand il est complètement évaporé, il subsiste seulement la radiation thermale, dans un état
+    \begin{equation}
+        \rho_f = \sum_i e^{iE_i/T} \ket{i}\bra{i} 
+    \end{equation}
+    pour des états propres  $H \ket{i} = E_i \ket{i}$. Un état est pur si et seulement si $\rho^2 = \rho$ et $\mathrm{Tr} \rho = 1$. Or, sous évolution unitaire, $\mathrm{Tr} \rho^2 (t_f) = \mathrm{Tr} \rho^2(t_i)$. Mais $\mathrm{Tr} \rho_f \neq 1$ : c'est un état mixte. Donc l'évolution semble ne pas être unitaire, de l'information est perdue ?
+\end{enumerate}

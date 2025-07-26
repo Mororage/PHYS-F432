@@ -1,0 +1,100 @@
+% Legacy
+\renewcommand{\thesection}{\arabic{section}}
+
+% Propositions de macros:
+% 1. Raccourcis lettres (p.ex. R)
+% 2. Raccourcis symboles de math (p.ex. () )
+% 3. Autres
+
+
+% 1. Raccourcis lettres
+\newcommand{\td}{\mathrm{d}} % le petit d de dérivé totale
+\newcommand{\pd}{\partial} % d rond de dérivé partielle
+\newcommand{\R}{\mathbb{R}} % Le joli R réels
+\newcommand{\N}{\mathbb{N}} % Le joli N naturels
+\newcommand{\Z}{\mathbb{Z}} % Le joli Z entiers
+\newcommand{\Q}{\mathbb{Q}} % Le joli Q rationnels
+\renewcommand{\C}{\mathbb{C}} % Le joli courps C complexe
+\newcommand{\K}{\mathbb{K}} % Le joli K (corps arbitraire)
+\renewcommand{\H}{\mathrm{H}} % Un H droit pour l'Hamiltonien
+\newcommand{\Hd}{\mathcal{H}} % Un H caligraphique (Hilbert)
+\renewcommand{\L}{\mathrm{L}} % Un L droit (Lagrangien)
+\newcommand{\Ld}{\mathcal{L}} % Densité lagrangienne
+\renewcommand{\S}{\mathrm{S}} % Action
+\newcommand{\F}{\mathcal{F}} % F caligraphique (usages variés)
+\newcommand{\E}{\mathcal{E}} % E caligraphique (énergies, ...)
+\renewcommand{\U}{\mathcal{U}} % U caligraphique (énergies, ...)
+\newcommand{\cRM}[1]{\MakeUppercase{\romannumeral #1}}	% Chiffre romain en majuscule
+\DeclareMathOperator{\sgn}{sgn}
+%\newcommand{\Zhe}{\mbox{\usefont{T2A}{\rmdefault}{m}{n}\CYRZH}}
+\newcommand{\Zhe}{\mathfrak{X}} %Champ de vecteurs
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+% Decorum break : 
+\newcommand{\cutebreak}{\begin{center} \textcolor{gray}{\musSegno \quad \musSegno\quad \musSegno\quad \musSegno\quad \musSegno }\end{center}}
+
+% 2. Raccourcis symboles
+
+\newcommand{\desp}{\mathrm{d}^3x} % Element de vomlume infinit. d'espace
+\newcommand{\dest}{\mathrm{d}^4x} % Volume infinit. d'espace-temps
+\newcommand{\dtem}{\mathrm{dt}} % Volume infinit. de temps
+\newcommand{\deq}{~\overset{\wedge}{=}~} % Défini égal notation FF
+\newcommand{\vect}[1]{\bm{\mathrm{#1}}} % Notation vectorielle (gras+flèche)
+
+
+\newcommand{\ltc}{\left\{} % parenthèses adaptées.
+\newcommand{\rtc}{\right\}}
+\newcommand{\ltb}{\left\[} % parenthèses adaptées.
+\newcommand{\rtb}{\right\]}
+\newcommand{\lt}{\left(} % parenthèses adaptées.
+\newcommand{\rt}{\right)}
+\newcommand{\atP}[1]{\left. #1 \right|_P}
+\newcommand{\dt}{\frac{d}{dt}} % Dérivé totale
+\newcommand{\vide}{\emptyset} % Le VIDE
+\newcommand{\nc}{\framebox[1cm][c]{$\boldsymbol{\La}$}\quad} % Preuve: sens inverse
+\renewcommand{\sc}{\framebox[1cm][c]{$\boldsymbol{\Ra}$}\quad} % Preuve: sens direct
+\newcommand{\ser}[1]{\sum_{#1 = 0}^{\infty}} % Somme infinie sur N
+\newcommand{\seri}[1]{\sum_{#1 = -\infty}^{\infty}} % Somme infinie sur Z
+\newcommand{\st}{\boldsymbol{(\star)}} % Une étoile (pourquoi pas)
+\newcommand{\serr}[1]{\sum_{#1 = 1}^{\infty}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\gray}[1]{\textcolor{darkgray}{#1}}
+
+% Autres
+% Opérateurs
+\DeclareMathOperator{\ISO}{ISO}
+\DeclareMathOperator{\IO}{IO}
+
+
+% Environnements théorème
+\newmdenv[
+  linecolor=black,
+  linewidth=2pt,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftline=true,
+  skipabove=5ptpt,
+  skipbelow=0pt,
+]{theoremframe}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}[chapter]
+\newtheorem{lemme}[theorem]{Lemme}
+\newtheorem{corol}[theorem]{Corollaire}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{law}[theorem]{Loi}
+\newtheorem{post}[theorem]{Postulat}
+\newtheorem{propri}[theorem]{Propriété}
+\newtheorem{exmp}[theorem]{Exemple}
+\newtheorem{obs}[theorem]{Observation}
+
+\theoremstyle{definition}
+\newtheorem{defi}[theorem]{Définition}
+\newtheorem{rmk}[theorem]{Remarque}
+\newtheorem{notat}[theorem]{Notation}
+\newtheorem{rap}[theorem]{Rappel}
+\newtheorem{expe}[theorem]{Expérience}
+\newtheorem{exerc}[theorem]{Exercice}
+\newtheorem{quest}[theorem]{Question}

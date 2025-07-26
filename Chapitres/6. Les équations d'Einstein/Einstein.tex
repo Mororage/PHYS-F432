@@ -1,0 +1,1246 @@
+\chapter{Les équations d'Einstein}
+Mentionnons à nouveau la citation de \emph{Wheeler} :
+\begin{center}
+    \emph{Matter tells space-time how to bend, space-time tells matter how to move.}
+\end{center}
+Dans le chapitre précédent, nous avons étudié comment des \emph{particules-test} se déplacent dans un champ gravitationnel (manifesté par une métrique non-triviale et régi par l'équation des géodésiques). Étant donné une métrique, nous pouvons donc calculer la trajectoires de particules soumis à la force gravitationnelle résultante de cette métrique. Au chapitre présent, nous nous intéresserons à la première partie de la citation de \emph{Wheeler} : quelle est la forme de la métrique pour une distribution d'énergie (de masse) donnée.\footnote{Il s'agit de l'analogue gravitationnel des équations de Maxwell, alors que l'équation des géodésiques était l'analogue de la force de Lorentz.}\\
+\\
+Le principe fondamental de la relativité générale est que l'interaction gravitationnelle se manifeste par la courbure de l'espace-temps et que les corps soumis uniquement au champ gravitationnel (dits "en chute libre") suivent des géodésiques de cet espace-temps courbe. Ainsi, l’interaction gravitationnelle n'est pas vue comme une force, mais plutôt comme l'effet de la courbure de l'espace-temps. Dans le chapitre précédent, on a retrouvé les équations du mouvement Newtoniennes d'un champ de gravitation à partir de l'équation des géodésiques pour une métrique telle que $g_{00} = -\left(1 + \frac{2\Phi}{c^2}\right)$ dans la limite Newtonienne :
+
+\begin{equation}
+    \frac{\td^2x^{i}}{\td t^2} = -\partial^i \Phi
+\end{equation}
+
+où $\Phi = -\frac{GM}{r} $ pour un champ dû à une particule à masse ponctuelle $M$, avec la constante gravitationnelle $G = 6,67.10^{-11} \frac{\text{m}^3}{\text{kg} \text{ s}^2}$. 
+
+Nous allons exposer deux méthodes pour dériver les équations d'Einstein : 
+\begin{enumerate}
+    \item L'approche historique "\emph{heuristique}" suivie par Einstein.
+    \item Une dérivation par un principe variationnel.
+\end{enumerate}
+Nous souhaitons imposer que dans la limite des champs faibles, ces équations se réduisent à l'équation du potentiel gravitationnel de la théorie de Newton (l'équation de Poisson) :
+\begin{equation}
+    \Delta \Phi = 4\pi G\rho
+    \label{eq:Poisson}
+\end{equation}
+où $\rho$ est la densité de masse. C'est ce que nous montrerons dans la première approche. Nous allons ensuite montrer que ces mêmes équations dérivent également d'un principe variationnel.
+
+Pour généraliser l'équation de Poisson, nous aimerions réécrire cette équation sous forme tensorielle. Pour le membre de gauche de l'équation de Poisson, on a vu en étudiant les géodésiques et leur limite newtonienne que le rôle du potentiel gravitationnel $\Phi$ devrait être joué par la métrique (via le principe d'équivalence). On s'attend donc à ce qu'une généralisation covariante de $\Delta \Phi$ impliquera des dérivées seconde de la métrique. L'objet tensoriel le plus simple faisant intervenir les dérivées secondes de la métrique est de la forme
+\begin{equation}
+    \nabla_{\alpha}\nabla_{\beta}g_{\mu \nu}
+\end{equation}
+mais celui-ci est automatiquement nul partout en considérant notre choix de connexion. Néanmoins, nous avions vu qu'il existait d'autres quantités tensorielles construites à partir des dérivées secondes de la métriques comme le tenseurs de Riemann, le tenseur de Ricci et la courbure scalaire. 
+
+Mais avant de nous intéresser à la généralisation du membre de gauche, penchons-nous sur le membre de droite, i.e. à la généralisation de la densité de masse.
+
+\section{Le tenseur d'énergie-impulsion en relativité restreinte}
+
+\subsection{Rappel: le quadrivecteur impulsion}
+
+Considérons une particule massive de masse $m$, suivant donc une trajectoire de genre temps $x^{\mu}(\tau)$, où on a choisi une paramétrisation par le temps propre qui, pour rappel, est défini selon
+
+\begin{equation}
+    \td \tau ^2 = -\td s^2 = -g_{\mu \nu}\td x^{\mu}\td x^{\nu}
+\end{equation}
+\begin{theoremframe}
+    \begin{defi}
+        Le quadrivecteur vitesse de la particule est le vecteur tangent à la trajectoire dans la paramétrisation avec le temps propre. Celui-ci est donc donné par
+        \begin{equation}
+            U^{\alpha} = \frac{\td x^{\mu}}{\td \tau}
+        \end{equation}
+        qui vérifie la relation de normalisation $U^{\alpha}U_{\alpha} = -1$
+    \end{defi}
+\end{theoremframe}
+
+\begin{theoremframe}
+    \begin{defi}
+        Le quadrivecteur impulsion de la particule est défini comme
+        \begin{equation}
+            P^{\mu} = mU^{\mu} = (\frac{E}{c^2}, \vect{P})
+        \end{equation}
+        où nous avons temporairement réintroduit la constante $c$.
+        \end{defi}
+\end{theoremframe}
+L’énergie de la particule est la première composante du quadrivecteur impulsion :
+\begin{equation}
+    E \equiv P^{0} c^2
+\end{equation}
+En tant que composante d'un quadrivecteur, l'énergie n'est pas une quantité scalaire, mais dépend de l'observateur, car la loi de transformation mélange l'énergie avec les autres composantes du vecteur. Autrement dit, l'énergie n'est pas une quantité invariante sous changement général de coordonnées. 
+\begin{exmp}
+    Dans les coordonnées d'un observateur $O$ au repos par rapport à la particule (observateur co-mobile), le vecteur tangent de la trajectoire de la particule est donné par
+    \begin{equation}
+        U^{\mu} = (1,0,0,0)
+    \end{equation}
+    et donc l'impulsion est $P^{\mu} = (m,0,0,0)$. L'énergie vaut alors
+    \begin{align}
+        &P^0 = \frac{E}{c^2}=m\\
+        \implies &E = mc^2
+    \end{align}
+    L'expression $E = mc^2$ est l'énergie au repos de la particule. Néanmoins, dans un autre référentiel $O'$ se déplaçant à une vitesse $v$ dans la direction $x$ par rapport au référentiel $O$ n'observera pas la même énergie. En effet, la transformation de Lorentz s'écrit :
+    \begin{equation}
+        \left\{
+        \begin{array}{l}
+            t' = \gamma (t + vx)\\
+            x' = \gamma (x + vt)
+        \end{array}
+        \right.
+    \end{equation}
+    L'impulsion mesurée dans le référentiel $O'$ est alors obtenu via 
+    \begin{equation}
+        P'^{\alpha} = \frac{\partial x'^{\alpha}}{\partial x^{\beta}} P^{\beta}
+    \end{equation}
+    L'énergie est alors donnée par
+    \begin{equation}
+        E' = P'^{0}c^2 = \frac{\partial x'^{0}}{\partial x^{0}} P^{0}c^2 = \frac{\partial x'^{0}}{\partial x^{0}}m c^2= \gamma m c^2
+    \end{equation}
+    Lorsque $v\ll c$, nous pouvons développer le facteur de Lorentz en premier ordre :
+    \begin{align}    
+        E = mc^2 + \frac{1}{2}mv^2 + \mathcal{O}\left(\frac{v}{c}\right)^2
+    \end{align}
+    où le premier terme correspond à l'énergie au repos et le second terme à l'énergie cinétique. 
+\end{exmp}
+\subsection{Le tenseur d'énergie-impulsion mésoscopique}
+Bien que le (quadrivecteur) impulsion contient toute l'information nécessaire à la description de l'énergie et de l'impulsion d'une particule individuelle, il n'est pas approprié pour décrire des systèmes étendus constitués d'un grand nombre de particules. Dans ce cas, plutôt que de spécifier les impulsions individuelles de chaque particule, on préférera de décrire le système à une échelle mésoscopique, comme un fluide (c'est-à-dire comme une distribution continue caractérisé par des quantités macroscopique comme la densité, la pression, l'entropie, la viscosité, etc...). Le comportement de ce fluide ne dépend que des propriétés moyennes d'une grande collection de particules et pas des propriétés individuelles. Ces propriétés moyennes peuvent varier d'un point à l'autre du fluide. En pratique cela revient à sous-diviser le système en "élément de fluide" suffisamment grands pour que les propriétés individuelles des particules ne jouent pas, mais assez petits que pour pouvoir capturer le comportement local du fluide (l'échelle \emph{mésoscopique}). 
+
+L'objet qui capture les propriétés d'un fluide (au sein duquel règne un champ $P^{\mu}$ de quadrivecteurs impulsion) est le tenseur énergie-impulsion.
+\begin{theoremframe}
+    \begin{defi}
+        Le tenseur énergie-impulsion est un tenseur $(0,2)$ tel que $T^{\mu \nu} $ est le flux d'impulsion $P^{\mu}$ à travers la surface $x^{\nu} = \text{cste}$.
+    \end{defi}
+\end{theoremframe}
+C'est un tenseur symétrique qui contient toute l'information sur l'énergie d'un système. Par convention, ses unités sont fixés à $[T^{\mu\nu}] = E/L^3$.
+\subsection{Interprétation des composantes du tenseur $T^{\mu\nu}$}
+Interpréter de cette définition n'est, à première vue, pas évident : qu'entend-on par flux à travers la surface $t = \text{cste}$ ? \\
+Rappelons d'abord la définition du flux à travers la surface $\mathcal{S}=\{x=\text{cste}\}$. Celui-ci est défini comme le nombre de particules (i.e. lignes d'Univers) qui traversent cette surface $\mathcal{S}$ par unité de temps. Mais nous avons deux dimensions($y$ et $z$) en plus. Si on veut calculer le flux en un point, il faut s'intéresser à un cube unité $\Delta t= \Delta y = \Delta z = 1$ et à $x$ fixé.
+\begin{theoremframe}
+    \begin{defi}
+        Le flux à travers $x=\text{ cste}$ est le nombre de particules (ou lignes d'Univers) qui traversent $\mathcal{S}$ par unité de temps et par unité de surface transverse. 
+    \end{defi}
+\end{theoremframe}
+Ceci nous permet d'apporter une interprétation similaire au flux à travers  $t=\text{ cste}$: il faut mesurer le nombre de particules qui se trouvent dans le cube unité $\Delta x= \Delta y = \Delta z = 1$ et à $t$ fixé. Ceci est le flux temporel par unité de volume : il s'agit d'une densité.
+
+\begin{theoremframe}
+    \begin{defi}
+        Le flux à travers $t=\text{ cste}$ ou flux temporel correspond à une densité spatiale. 
+    \end{defi}
+\end{theoremframe}
+En particularisant pour le flux de $P^0$, on trouve immédiatement
+\begin{theoremframe}
+    \begin{propri}
+        La composante $T^{00}$ est une densité d'énergie :
+        \begin{equation}
+            T^{00}= \rho c^2
+        \end{equation}
+    \end{propri}
+\end{theoremframe}
+Similairement, pour $P^i$, on trouve \\
+\\
+\begin{theoremframe}
+    \begin{propri}
+        Le tenseur $T^{0i} $ est le flux d'énergie à travers $x^{i}=\text{ cste}$ :
+        \begin{equation}
+            T^{0i} =\frac{1}{c} \times (\text{Flux d'énergie à travers } \; \mathcal{S}) = \frac{1}{c} \rho c^2 v^i = \rho c v^i
+        \end{equation}
+    \end{propri}
+\end{theoremframe}
+où le facteur $1/c$ est imposé par notre choix d'unités.
+\begin{theoremframe}
+    \begin{defi}
+        Le tenseur $T^{i0}$ est une densité d'impulsion $P^{i}$ :
+        \begin{equation}
+            T^{i0} = c \frac{m v^i}{V} = \rho v^i c
+        \end{equation}
+    \end{defi}
+\end{theoremframe}
+où à nouveau, le facteur $c$ apparaît par notre choix d'unités. On remarque donc qu'on a bien $T^{i0} = T^{0i}$.
+
+\begin{theoremframe}
+    \begin{defi}
+    L'objet $T^{ij}$, appelé tenseur des torsions, représente les forces entre des éléments infinitésimaux de fluide voisins.
+    \begin{equation}
+        T^{ij} = \rho v^i v^j
+    \end{equation}
+    \end{defi}
+\end{theoremframe}
+En considérant deux volumes de fluides infinitésimaux voisins séparés par la surface $z = \text{cste}$, la force de pression exercée par $A$ sur $B$ est $\vect{F} = \frac{\td\vect{P}}{\td t}$. Le flux d'impulsion à travers $z = \text{cste}$ est $\frac{\vect{F}}{\mathcal{S}}$ où $\mathcal{S}$ est une surface séparant $A$ et $B$. Ainsi, $\frac{\vect{F}^{i}}{\mathcal{S}}$ correspond au flux de la composante $P^{i}$ à travers $z = \text{cste}$.
+
+Or, comme la composante $x^{i}$ du flux à travers $z = \text{cste}$ pour l'élément $A$ est 
+
+\begin{equation}
+    T^{iz} = \frac{\vect{F}^{i}}{\mathcal{S}}
+\end{equation}
+
+\begin{theoremframe}
+    \begin{defi}
+        Les composantes $T^{xz}$ et $T^{yz}$ mesurent le frottement (viscosité) entre éléments fluides, c'est-à-dire qu'ils mesurent les forces de cisaillement. 
+
+        La composante $T^{zz}$ mesure la pression selon $z$. 
+    \end{defi}
+\end{theoremframe}
+\begin{theoremframe}
+    \begin{propri}
+        Le tenseur des torsion est symétrique : $T^{ij} = T^{ji}$.
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+    Exercice.
+\end{proof}
+\begin{rmk}
+    La description ci-dessus est une description phénoménologique. Dans certains cas, on dispose d'une description microscopique de la matière en question, sous la forme d'un Lagrangien (champ scalaire, électromagnétique, modèle standard, ...). Il eciste une procédure canonique pour construire le tenseur d'énergie-impulsion à partir du théorème de Noether.
+\end{rmk}
+\begin{theoremframe}
+    \begin{propri}
+        Le tenseur d'énergie-impulsion est \emph{conservé} :
+        \begin{equation}
+            \pd_\mu T^{\mu\nu} = 0
+        \end{equation}
+        pour un fluide dans un référentiel inertiel soumis à aucune force extérieure (c'est-à-dire que $T^{\mu \nu}$ comprend toutes les contributions à l'énergie et à l'impulsion - matérielle, électromagnétique,...).
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+L'énergie d'un fluide dans un volume $V$ (qui est défini dans un référentiel inertiel dans lequel le fluide est au repos) est définie comme
+    \begin{equation}
+        E = \int_{V} T^{00} \td^3 x
+    \end{equation}
+La variation d'énergie dans le temps est donc
+\begin{align}
+    \frac{\td E}{\td x^{0}} &= \int_{V}\partial_{0}T^{00} \td^3 x \\
+    &= - \int_{\partial V} T^{ok}\td ^{2}\Sigma_{k}
+\end{align}
+car la variation d'énergie de $V$ correspond au flux entrant d'énergie à travers le bord de $V$ (le signe négatif vient alors de l'orientation sortante du bord).
+\begin{theoremframe}
+    \begin{lemme}[Théorème de Gauss]
+        Soit un volume $V$ et un champ de vecteurs $\vect{X}$. Alors, l'intégrale de ce champ de vecteur sur le volume se ramène à une intégrale sur le bord de ce volume $\pd V$
+        \begin{equation}
+            \int_{\partial V} \vect{X} \cdot \vect{n} \, \td \Sigma = \int_{V} \mathrm{div}\vect{X} \,\td V
+        \end{equation}
+    \end{lemme}
+\end{theoremframe}
+En utilisant ce théorème, nous avons également
+\begin{align}
+    \frac{\td E}{\td x^{0}} &=-\int_{V}\partial_{k}T^{0k} \td V
+\end{align}
+Ô surprise :
+\begin{align}
+    0 &= \frac{\td E}{\td x^{0}} -\frac{\td E}{\td x^{0}} \\
+      &= \int_{V}\partial_{0}T^{00} \td V + \int_{V}\partial_{k}T^{0k} \td V\\
+      &= \int_{V}(\partial_{0}T^{00} +\partial_{k}T^{0k} )\td ^{3}x\\
+      &= \int_{V} \partial_{\mu}T^{0\mu} \td^3 x
+\end{align}
+Comme ceci tient pour tout volume $V$, on peut conclure pour $\nu = 0$ par symétrie du tenseur énergie-impulsion. Pour $\nu = k$, on procède similairement. L'impulsion totale d'un fluide dans un volume $V$ est définie comme
+    \begin{equation}
+        P^{k} = \int_{V} T^{k0}\td ^3x
+    \end{equation}
+La variation d'impulsion est similairement calculée par
+\begin{align}
+    \frac{\td P^k}{\td x^{0}} &=\int_{V}\partial_{0}T^{k0} \td V\\
+    &=- \int_{\partial V}T^{ki} \td ^2\Sigma_{i}\\
+    &= - \int_{V}\partial_{i}T^{ki} \td V\\
+\end{align}
+Le même argument montrera alors que
+\begin{equation}
+    \pd_\mu T^{\mu k} = 0
+\end{equation}
+\end{proof}
+L'équation de conservation $\partial_{\mu}T^{\mu \nu} = 0$ n'est valable que dans un référentiel inertiel en relativité restreinte. Mais par le principe d'équivalence, elle est également valable en présence de gravitation, dans un référentiel localement inertiel. Par le procédé usuel en généralisant l'expression obtenue dans un référentiel quelconque via $\partial_{\mu} \to \nabla_{\mu}$, on trouve alors
+\begin{equation}
+    \nabla_{\mu}T^{\mu \nu} = 0
+\end{equation}
+Qui décrit l'équation de conservation du tenseur d'énergie-impulsion en présence d'un champ de gravitation (forces fictives d'inertie).
+\section{Les équations d'Einstein}
+\subsection{Approche historique}
+Revenons à présent au membre de gauche de l'équation de Poisson
+\begin{equation}
+    \Delta\Phi = 4\pi G\rho
+\end{equation}
+On avait vu que $T^{00} \sim \rho$ (densité d'énergie ou de masse). Mais $T^{00}$ n'est qu'une composante d'un tenseur, et ne se transforme donc pas de tensoriellement. Elle ne peut donc apparaître toute seule dans une équation qui se veut tensorielle. Ceci amena Einstein à postuler que la source du champ gravitationnel (et donc de la courbure) devrait être $T^{\mu \nu}$ tout entier : les impulsions, tensions, pressions agissent comme des sources.
+
+Pour que l'égalité ait du sens, il faut que le membre de gauche soit également un tenseur de rang $2$, symétrique (comme $T^{\mu\nu} = T^{\nu\mu}$) et conservé (comme $\nabla_\mu T^{\mu\nu} = 0$). Le tenseur composé de dérivées secondes de la métrique qui vérifie également ces relations est le tenseur d'Einstein défini comme
+\begin{align}
+    G_{\mu \nu} = R_{\mu \nu} - \frac{R}{2}g_{\mu \nu}
+\end{align}
+dont nous avons déjà prouvé les propriétés désirés. Notons que nous pouvons toujours trivialement rajouter un terme symétrique à divergence nulle sans altérer les propriétés ces propriétés. Un exemple d'un tel terme supplémentaire est $\Lambda g_{\mu\nu}$ où la constante $\Lambda$ s'appelle la \emph{constante cosmologique}. Les équations du champ gravitationnel s'écriraient alors
+\begin{equation}
+    \label{eq: einstein FE}
+    \boxed{R_{\mu\nu} - \frac{R}{2} g_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}}
+\end{equation}
+Ce sont les \emph{équations de champ d'Einstein} obtenues en 1915 par Einstein 8 ans après le principe d'équivalence.
+\begin{theoremframe}
+    \begin{theorem}[de Lovelock]
+        Dans un espace-temps 4-dimensionnel, un tenseur $A^{\mu\nu}$ fonction de $g_{\mu \nu}$, sa dérivée et sa dérivée seconde, linéaire en la dérivée seconde de la métrique, symétrique et à divergence nulle est nécessairement de la forme
+        \begin{equation}
+            A^{\mu\nu} = a G^{\mu\nu} + b g^{\mu\nu}
+        \end{equation}
+        où $a$ et $b$ sont des constantes.
+    \end{theorem}
+\end{theoremframe}
+\begin{rmk}
+    Le théorème précédent peut être vu comme un théorème d'unicité des équations de champ d'Einstein. 
+\end{rmk}
+Le terme de la constante cosmologique a été introduit par Einstein lorsqu'il s'est rendu compte que les équations pour $\Lambda = 0$ ne prédisaient pas de solution cosmologique statique : les Univers obtenus étaient soit en contraction ou en expansion. L'inclusion d'une constante cosmologique positive produit une répulsion qui permettait pour une valeur de $\Lambda$ bien choisie de produire un Univers statique. Einstein qualifiera ceci de 
+\begin{center}
+    \emph{"Biggest blunder of my whole life"}
+\end{center}
+puisque celle-ci lui empêcha de prédire l'expansion de l'Univers ! Celle-ci ne sera proposée théoriquement (notamment) par Georges Lemaître en 1927 et confirmé expérmentalement 2 ans plus tard par Edwin Hubble, qui observa que la vitesse de récession d'un certain nombre de galaxies est approximativement proportionnelle à leur distance à la Terre pour des galaxies à une distance d'environ $10$ Mpc ($1$ Mpc $ = 3 \cdot 10^{19}$ km). Ce terme $\Lambda g_{\mu\nu}$ fût abandonné lorsqu'il fût accepté que l'Univers n'était pas statique.\\
+\\
+Ironiquement, des observateurs en 1998 ont mis en évidence une expansion accelérée de l'Univers à laquelle l'explication la plus simple est une constante cosmologique positive\footnote{Voir Prix Nobel de Physique 2011, Perlmutter, Schmidt, Riess} ! Sa valeur moyenne mesurée est $\Lambda \sim 10^{-52}$ m$^{-2}$. Aucun modèle théorique ne permet actuellement d'expliquer cette valeur (si faible) : c'est le \emph{problème de la constante cosmologique}. Notons que ce terme est négligeable à l'échelle du système solaire ou même de la galaxie, mais devient important à l'échelle de l'Univers. On pose donc généralement $\Lambda = 0$ sauf en cosmologie.
+
+\begin{rmk}
+    Initialement, Einstein aurait proposé des équations de la forme
+    \begin{equation}
+        R_{\mu \nu} = \alpha T^{\mu \nu}
+    \end{equation}
+    avant qu'on lui fasse observer l'incohérence de celle-ci. En effet si $R_{\mu \nu} = \alpha T^{\mu \nu}$ il faudra que $\nabla_{\mu}R^{\mu \nu} = 0$ ce qui donne :
+    \begin{align}
+        0 & = \nabla_{\mu} (R^{\mu \nu }  -\frac{R}{2}g^{\mu \nu})\\
+        &=\nabla_{\mu} R^{\mu \nu } - \nabla_{\mu} \frac{R}{2}g^{\mu \nu}
+    \intertext{soit}
+        &\nabla_{\mu} R^{\mu \nu } = \nabla_{\mu} \frac{R}{2}g^{\mu \nu}\\
+        &\nabla_{\mu} R^{\mu \nu } = \frac{1}{2}\nabla^{\nu}R
+    \end{align}
+    en contractant la dérivée covariante avec la métrique. Or, en contractant l'équation $R_{\mu \nu} = \alpha T_{\mu \nu}$, 
+    \begin{equation}
+        R = \alpha T
+    \end{equation}
+    et donc imposer $\nabla_{\mu} R^{\mu \nu } = 0$ implique
+    \begin{equation}
+        \nabla_{\mu} R^{\mu \nu } =  \frac{1}{2}\nabla^{\nu}R = \frac{\alpha}{2}\nabla^{\nu}T = 0
+    \end{equation}
+    Comme $T$ est un scalaire, $\nabla_\mu T = \pd_\mu T$. La conclusion serait que $T$ est constant dans tout l'espace-temps ce qui est impossible puisque $T=0$ dans le vide et $T \neq 0$ dans la matière en général. Ainsi, $R_{\mu \nu} = \alpha T^{\mu \nu}$ ne peut pas définir le champ de gravitation.
+\end{rmk}
+Retournons à l'équation d'Einstein et considérons une constante cosmologique nulle. La constante $\kappa$ est choisie pour que les équations d'Einstein se ramènent aux équations de Newton dans la limite appropriée. On trouvera que 
+\begin{equation}
+    \label{eq: constante Einstein}
+    \boxed{\kappa = \frac{8\pi G}{c^4}}
+\end{equation}
+\begin{exerc}
+    Vérifiez par analyse dimensionnelle qu'avec cette constante, les unités des deux côtés de l'équation d'Einstein sont consistantes.
+\end{exerc}
+
+\begin{rmk}
+    En passant la constante cosmologique de l'autre côté des équations d'Einstein \ref{eq: einstein FE}, on obtient dans le vide ($T^{\mu\nu} = 0$) :
+    \begin{equation}
+        G_{\mu\nu} = -\Lambda g_{\mu\nu}
+    \end{equation}
+    On remarque qu'on peut interpréter cette contribution comme une source d'énergie : 
+    \begin{equation}
+        T^\Lambda_{\mu\nu} \equiv - \frac{\Lambda c^4}{8 \pi G} g_{\mu\nu}
+    \end{equation}
+    qui est un tenseur d'énergie-impulsion effectif représentant un fluide parfait à densité $\rho = \frac{\Lambda c^4}{8 \pi G}$ et à pression $P = - \frac{\Lambda c^4}{8 \pi G}$. Un tel tenseur énergie-impulsion peut apparaître en théorie des champs comme une énergie du vide\footnote{Argument original de Yakov Zeldovich.}.
+\end{rmk}
+\subsection{Limite Newtonienne}
+Dérivons la valeur de la constante $\kappa$ en se plaçant dans la limite Newtonienne. Pour rappel, celle-ci impose que
+\begin{theoremframe}
+\begin{enumerate}
+    \item $\dfrac{\td x^{i}}{\td t} = v^i \ll c$
+    \item $g_{\mu \nu} = \eta_{\mu \nu} + h_{\mu \nu} + O(h^2)$. On a vu que $h_{00} \sim \frac{\Phi}{c^2} \sim \frac{GM}{R c^2}$. Avec les données de la terre $M_{\text{Terre}} = 6 \cdot10^{24}$ kg et $R = 6.4 \cdot 10^6$ m, on trouve à sa surface
+    \begin{equation}
+        \frac{\Phi}{c^2} \sim 0.7 \cdot 10^{-9}
+    \end{equation}
+    et pour le soleil, $\frac{\Phi}{c^2} \sim 10^{-6}$. Ainsi, l'approximation Newtonienne est acceptable.
+    \item Statique : $\partial_0 g_{\mu \nu} = 0$ 
+    \item Comme $T^{00} = \rho c^2$, on a :
+    \begin{equation}
+        \left\{
+        \begin{array}{l}
+            \vert T^{0i} \vert = \vert\rho v^i c \vert=\left| T^{00} \dfrac{v^i}{c} \right|\ll \vert T^{00}\vert   \\
+            \vert T^{ij}\vert = \vert\rho v^i v^j\vert =\left| T^{00} \dfrac{v^i}{c}\dfrac{v^j}{c} \right|\ll \vert T^{00} \vert
+        \end{array}
+        \right.
+    \end{equation}
+\end{enumerate}
+\end{theoremframe}
+En considérant l'équation d'Einstein, 
+\begin{equation}
+    R_{\mu \nu} - \frac{R}{2}g_{\mu \nu} = \kappa T_{\mu \nu}
+    \label{eq:Einstein pour kappa}
+\end{equation}
+on peut prendre la trace de celle-ci, ce qui revient à la contracter avec la métrique 
+\begin{equation}
+    g^{\mu \nu}\left(R_{\mu \nu} - \frac{R}{2}g_{\mu \nu}\right) = g^{\mu \nu}\kappa T_{\mu \nu}
+    \label{eq:Einstein pour trouver kappa 1}
+\end{equation}
+Comme $g^{\mu \nu}g_{\mu \nu} \delta^{\mu}_{\mu} = 4$ (en 4 dimensions), on obtient
+\begin{align}
+    R - \frac{R}{2}g^{\mu \nu}g_{\mu \nu} &= \kappa T\\
+    R - 2R &= \kappa T\\
+     -R &= \kappa T
+    \label{eq:Einstein pour trouver kappa 2}
+\end{align}
+Or, le scalaire $T$ peut s'écrire dans la limite considérée comme
+\begin{align}
+    T & \equiv g^{\mu \nu}T_{\mu \nu}\\
+    &= (\eta^{\mu \nu} - h^{\mu \nu} )T_{\mu \nu}\\
+\end{align} 
+Par la propriété précédemment remarquée que $|T^{0i}|,|T^{ij}| \ll |T^{00}|$, on peut simplifier l'équation ci-dessus comme
+\begin{align}
+    T& \simeq \eta^{00}T_{00} + \cdots\\
+    &\simeq - T_{00}
+\end{align}
+En remplaçant ce résultat dans l'équation \ref{eq:Einstein pour trouver kappa 2}, on obtient
+\begin{equation}
+    R = \kappa T^{00}
+\end{equation}
+On peut alors prendre la composante $(0,0)$ de l'équation d'Einstein \ref{eq:Einstein pour kappa} qui s'écrit donc en négligeant l'ordre $h_{00}$ de la métrique :
+\begin{align}
+    R_{00} - \frac{R}{2}(\eta_{00} + h_{00}) &= \kappa T_{00}\\
+     &\simeq R_{00} - \frac{R}{2} \eta_{00} \simeq R_{00} + \frac{\kappa}{2} T_{00}
+\end{align}
+On arrive donc à l'équation
+\begin{align}
+\label{eq: kappa intermediar}
+    R_{00} = \frac{1}{2}\kappa T_{00}
+\end{align}
+Nous devons donc calculer $R_{00}$. Pour ce, nous passerons par les symboles de Christoffel et le tenseur de Riemann. On sait que
+\begin{equation}
+    R_{00} = R^{\mu}_{0\mu 0} = R^{i}_{0 i 0}
+\end{equation}
+
+Par définition du tenseur de Riemann 
+\begin{equation}
+    R^{\mu}_{\alpha \beta \gamma} = \partial_{\beta}\Gamma^{\mu}_{\alpha \gamma} - \partial_{\gamma} \Gamma^{\mu}_{\alpha \beta} + \Gamma^{\lambda}_{\alpha \gamma}\Gamma^{\mu}_{\beta \lambda} - \Gamma^{\lambda}_{\alpha \beta}\Gamma^{\mu}_{\gamma \lambda}
+\end{equation}
+Donc les composantes qui nous intéressent s'écrivent
+\begin{equation}
+    R^{i}_{0 j 0} = \partial_{j}\Gamma^{i}_{00} + \partial_{0} \Gamma^{i}_{0 j} + \Gamma^{\lambda}_{00}\Gamma^{i}_{j \lambda} - \Gamma^{\lambda}_{0 j}\Gamma^{i}_{0 \lambda}
+    \label{eq:Tenseur de Riemman pour kappa}
+\end{equation}
+Par le fait que le champ est statique, on a $\partial_{0} \Gamma^{i}_{0 j} = 0$, et par définition des symboles de Christoffel,
+
+\begin{align}
+    \Gamma^{\alpha}_{\beta \gamma} = \frac{1}{2}g^{\alpha \mu}(\partial_{\beta}g_{\gamma \mu} +\partial_{\gamma}g_{\beta \mu} - \partial_{\mu}g_{\beta \gamma})
+\end{align}
+Remarquons que $\Gamma$ est nécessairement d'ordre 1 en $h$ (il n'y a pas de termes d'ordre $0$). Ainsi, les termes en $\Gamma \Gamma$ sont nécessairement d'ordre supérieur $\mathcal{O}(h^2)$ et peuvent être négligés. On trouve donc finalement que le tenseur de Riemann s'écrit
+\begin{equation}
+    R^{i}_{0j0} \simeq \partial_{j}\Gamma^{i}_{00}
+\end{equation}
+On développe : 
+\begin{align}
+    R_{00}= R^{i}_{0i0} &= \partial_{i}\Gamma^{i}_{00}\\
+    &= \partial_{i}\left(\frac{1}{2}\eta^{i \mu}(\partial_{0}h_{0 \mu} + \partial_{0}h_{\mu 0} - \partial_{\mu}h_{00})\right)\\
+    &= -\frac{1}{2}\partial_{i}\eta^{i \mu}\partial_{\mu}h_{00})\\
+    & = -\frac{1}{2}\Delta(-\frac{2 \Phi}{c^2})\\
+    & = \frac{1}{c^2}\Delta(\Phi)
+\end{align}
+car comme le champ est statique, $\partial_{0}h_{\mu 0} = 0$ et $\partial_{i}\eta^{i \mu}\partial_{\mu} h_{00}= \partial_{i}\eta^{i j}\partial_{j} h_{00}=\Delta h_{00}$.\\
+\\
+Par \ref{eq: kappa intermediar}, on a finalement :
+\begin{equation}
+    \frac{1}{c^2}\Delta(\Phi) = \frac{1}{2}\kappa T^{00} = \frac{1}{2}\kappa \rho c^2
+\end{equation}
+L'équation obtenue dans la limite newtonienne est donc
+\begin{equation}
+    \Rightarrow \Delta(\Phi) =  \frac{\kappa}{2} \rho c^4
+\end{equation}
+Pour retrouver l'équation de Poisson, il faut imposer que
+ \begin{equation}
+      \frac{\kappa}{2} \rho c^4 = 4 \pi G\rho
+ \end{equation}
+soit
+\begin{equation}
+    \kappa = \frac{2}{c^4}4\pi G = \frac{8 \pi G}{c^4}
+\end{equation}
+On vient de monter qu'à la limite newtonienne l'équation d'Einstein peut se réécrire comme l'équation de Poisson en choisissant une constante $\kappa$ adéquate. Avec cette constante, l'équation d'Einstein s'écrit
+\begin{equation}
+    G_{\mu \nu} = \frac{8 \pi G}{c^4}T_{\mu \nu}
+\end{equation}
+
+
+\section{Équations d'Einstein et principe variationnel}
+\subsection{Rappel : théorie classique des champs}
+Une théorie de champ est une théorie qui dépend de variables dynamiques appelées champs et dont la dynamique est décrite un lagrangien ou une action à partir desquels les équations du mouvement pour le champ sont obtenues par le principe variationnel: la configuration classique du champ est celle qui extrémise l'action. \\
+En théorie de champ, la variable dynamique a une infinité de degrés de liberté, usuellement la donnée d'une valeur en chaque point de l'espace-temps. La variable dynamique "recouvre" donc l'espace en entier, contrairement à la variable de la trajectoire d'une particule $q(t)$, qui ne prend qu'une valeur en un point particulier de l'espace. Un exemple de théorie des champs est l'électromagnétisme, et qui est classiquement représenté par les champs $\vect{E}$ et $\vect{B}$ et l'action
+\begin{equation}
+    S_{\text{EM}}[A_\mu] = \int \td^4 x \lt - \frac{1}{4} F^{\mu\nu} F_{\mu\nu} \rt 
+\end{equation}
+où $A_\mu(x)$ est le potentiel vecteur. Nous reviendrons sur cette théorie plus tard dans ce chapitre.\\
+\\
+La relativité générale est une théorie classique des champs dont la variable dynamique fondamentale est la métrique $g_{\mu \nu}$. Avant de s'intéresser à l'action du champ gravitationnel, rappelons quelques notions de la théorie classique des champs.
+
+Regardons un instant la situation en mécanique classique par une particule à une dimension de coordonnée $q(t)$. Les équations du mouvement de cette particule peuvent être obtenues par un principe de moindre action.
+
+En mécanique classique d'une particule à une dimension et de coordonnée $q(t)$, l'action s'écrit
+
+\begin{equation}
+    S[q(t)] = \int \td t \, L(q(t), \dot q(t); t)
+\end{equation}
+où $L(q(t), \dot q (t); t)$ est le Lagrangien de la particule 
+\begin{equation}
+    L(q(t), \dot q(t); t) = \frac{1}{2}\dot q^2(t) - V(q(t); t)
+\end{equation}
+où $V$ est le potentiel dans lequel se trouve la particule\footnote{Nous considérerons uniquement les potentiels analytiques, i.e. développables en série de puissances en $q$.} Les équations du mouvement s'obtiennent alors en extrémisant l'action, i.e. une trajectoire telle que pour une petite variation du champ
+\begin{equation}
+\left\{
+\begin{array}{l}
+q(t) \rightarrow q(t) + \delta q(t)\\
+\overset{.}{q}(t) \rightarrow \overset{.}{q}(t) + \delta \overset{.}{q} (t)
+\end{array}
+\right.
+\end{equation}
+la variation d'action $\delta S = S[q(t) + \delta q(t)] -S[q(t)]$ s'annule. En termes du lagrangien, cette condition donne lieu aux équations d'Euler-Lagrange :
+
+\begin{equation}
+    \delta S = 0 \iff \frac{\td }{\td t}\frac{\partial L}{\partial \overset{.}{q}} - \frac{\partial L}{\partial q} = 0
+\end{equation}
+
+Par exemple, $\overset{..}{q} = -\frac{\td V}{\td q}$ pour l'exemple utilisé. On peut généraliser ceci à $n$ degrés de libertés, telles que $q(t) \to q_{i}(t)$, $i = 1, ..., n$. 
+
+La théorie de champ s'obtient dans la limite $n \to \infty$. Les variables s'écrivent alors $q_x(t) = \phi (x, t) $ où $x$ est à présent un paramètre continu. De manière générale, une théorie des champs peut avoir plusieurs variables dynamiques $\phi^{i}(x^{\mu})$ où $x^{\mu} = (t, \vect{x})$ et l'action s'écrit comme une fonctionelle de ces champs comme :
+\begin{align}
+    S[\phi^i(x^\mu)] = \int \td t\, L = \int \td t \int \td ^3x \,\mathcal{L}(\phi^{i}, \partial_{\mu} \phi^{i};t) = \int \td ^4x \,\mathcal{L}(\phi^{i}, \partial_{\mu} \phi^{i};t)
+\end{align}
+où $L$ est le Lagrangien (global) et $\mathcal{L}$ est la densité lagrangienne (locale). Les équations du mouvements s'obtiennent à nouveau en variant l'action et en imposant que $\delta S = 0$. Ceux-ci s'écrivent alors:
+\begin{equation}
+   \boxed{\frac{\delta S}{\delta \phi^i} \equiv \partial_{\mu}\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi^{i})} - \frac{\partial \mathcal{L}}{\partial \phi^{i}} = 0}
+\end{equation}
+
+où nous avons introduit la notation de \emph{dérivée fonctionnelle} de l'action, agissant essentiellement comme une dérivée ordinaire. Il est intéressant de dériver ces équations à partir du principe de moindre action, comme il est souvent plus simple de varier l'action que de se souvenir des équations d'Euler-Lagrange (notamment pour des actions plus compliquées).
+\begin{proof}
+    Sous variation infinitésimale des champs
+    \begin{equation}
+        \left\{
+        \begin{array}{rl}
+            \phi^{i} &\to \phi^{i} + \delta \phi^{i}\\
+            \partial_{\mu}\phi^{i} &\to \partial_{\mu}\phi^{i} + \delta (\partial_{\mu}\phi^{i}) = \partial_{\mu}\phi^{i} + \partial_{\mu}\delta \phi^{i}
+        \end{array}
+        \right.
+    \end{equation}
+    La variation de la densité lagrangienne (qu'on confondera dans la suite avec le Lagrangien) s'écrit sous ces variations comme 
+    \begin{align}
+        \mathcal{L}(\phi^{i} , \partial_{\mu}\phi^{i};t) &\rightarrow \mathcal{L}(\phi^{i} + \delta \phi^{i}, \partial_{\mu}\phi^{i} + \partial_{\mu}\delta \phi^{i};t)\\
+        & =\mathcal{L}(\phi^{i} , \partial_{\mu}\phi^{i};t) + \frac{\partial \mathcal{L}}{\partial \phi^{i}}\delta \phi^{i} + \frac{\partial \mathcal{L}}{\partial( \partial_{\mu}\phi^{i})}\delta (\partial_{\mu}\phi^{i})\\
+        &= \mathcal{L}(\phi^{i} , \partial_{\mu}\phi^{i};t) + \frac{\partial \mathcal{L}}{\partial \phi^{i}}\delta \phi^{i} + \frac{\partial \mathcal{L}}{\partial( \partial_{\mu}\phi^{i})} \partial_{\mu}\delta \phi^{i}
+    \end{align}
+    La variation d'action est donc
+    \begin{align}
+        \delta S &= \int \td ^4x \ltc \frac{\partial \mathcal{L}}{\partial \phi^{i}}\delta \phi^{i} + \frac{\partial \mathcal{L}}{\partial( \partial_{\mu}\phi^{i})} \partial_{\mu}(\delta \phi^{i})\rtc
+        \intertext{En intégrant le deuxième terme par parties :}
+        &= \int \td ^4x \ltc \frac{\partial \mathcal{L}}{\partial \phi^{i}}- \partial_{\mu}\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi^{i})}) \rtc \delta \phi^{i}
+    \end{align}
+    En effet, on considère que les variations $\delta \phi^i$ s'annulent au bord du volume (ceci peut être vu comme les conditions au bord fixes de la solution\footnote{Classiquement, ceci revient à chercher la trajectoire "idéale" d'une particule à position initiale $q_i$ en $t_i$ et position finale $q_f$ en $t_f$. La trajectoire peut varier mais les points extrémaux sont fixés.}) :
+
+    \begin{equation}
+        \int_V \td ^4x \, \partial_{\mu} \ltc \delta \phi^{i}\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi^{i})} \rtc = \int_{\partial V} \td ^3x \, n_{\mu} \ltc  \delta \phi^{i}\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi^{i})}\rtc
+    \end{equation}
+    où $n_{\mu}$ est le champ de vecteurs normal sortant du bord du domaine. On remarque que ce terme s'annule effectivement si les variations aux bord du domaine s'annulent. Finalement, on obtient bien que si
+    \begin{align}
+        \delta S &= \int_{V} \td ^4x \, \ltc \frac{\partial \mathcal{L}}{\partial \phi^{i}} - \partial_{\mu}\lt\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi^{i})}\rt \rtc \delta \phi^{i} 
+        \intertext{s'annule pour toute variation $\delta \phi^i$ si et seulement si}
+        \frac{\delta S}{\delta \phi^i} &\equiv \frac{\partial \mathcal{L}}{\partial \phi^{i}} - \partial_{\mu}\lt\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi^{i})}\rt = 0
+    \end{align}
+    qui correspond effectivement à l'équation d'Euler-Lagrange précédemment annoncée. 
+\end{proof}
+\begin{exmp}
+    Donnons quelques exemples de théories de champ :
+    \begin{enumerate}
+        \item La théorie du champ scalaire a comme variable dynamique un unique champ $\phi$ et dont le Lagrangien s'écrit
+        \begin{equation}
+            \mathcal{L}[\phi(x)] = \frac{1}{2} \pd_\mu \phi \pd^\mu \phi -V [\phi(x)]
+        \end{equation}
+        par exemple, pour le champ scalaire libre, $V = \frac{1}{2} m \phi^2$. Pour ce champ, les équations du champ sont
+        \begin{equation}
+            (\pd_\mu \pd^\mu + m)\phi = 0
+        \end{equation}
+        qui s'appelle l'équation de Klein-Gordon.
+        \item La théorie du champ vectoriel (libre et sans masse) prend comme variables dynamiques le quadrivecteur potentiel $A_\mu$ dont le Lagrangien peut s'écrire
+        \begin{equation}
+            \mathcal{L}[A_\mu(x)] = -\frac{1}{4} F^{\mu\nu} F_{\mu\nu}
+        \end{equation}
+        où $F_{\mu\nu} = \pd_\mu A_\nu - \pd_\nu A_\mu$ est le tenseur de Faraday. Les équations du champ sont
+        \begin{equation}
+            \pd_\mu F^{\mu\nu} = 0
+        \end{equation}
+        qui correspondent bien aux équations de Maxwell du champ électromagnétique précédemment vues.
+    \end{enumerate}
+\end{exmp}
+Revenons à présent au champ gravitationnel. On cherche à trouver une action dont les équations de champ d'Einstein découlent (par un principe variationnel). Pourquoi une telle formulation est-elle importante ?
+\begin{enumerate}
+    \item L'ensemble des équations du mouvements sont déterminées à partir d'une seule fonction scalaire $\mathcal{L}$. 
+    \item Les symétries du systèmes sont facilement implémentées : imposer que l'action soit invariante sous une transformation de symétrie garantit que la dynamique qui en découle est invariante aussi.
+    \item Le terme de Noether permet d'associer des courants conservés aux symétries globales de $\mathcal{L}$. 
+    \item C'est le point de départ pour une quantification de la gravitation.
+\end{enumerate}
+
+\subsection{Action d'Einstein-Hilbert}
+Pour l'instant, plaçons-nous dans le vide. On cherche une action $S[g_{\mu \nu}]$ qui reproduit les équations d'Einstein :
+\begin{equation}
+    \label{eq:action einstein vide}
+    \frac{\delta S}{\delta g^{\mu \nu}} = 0 \iff G_{\mu \nu} = 0
+\end{equation}
+\begin{theoremframe}
+    \begin{theorem}
+        L'action recherchée est
+        \begin{equation}
+            S_{\text{EH}} = \int \td ^4x \, \sqrt{-g}R
+        \end{equation}
+        et porte le nom de \textbf{action d'Einstein-Hilbert}. 
+    \end{theorem}
+\end{theoremframe}
+
+
+\subsubsection{3.2.1 Commentaires sur la forme générale de l'action:}
+Comme introduit à l'exercice 4.11 (nous recommandons de relire la section associée sur les densités tensorielles), l'intégration dans un espace-temps courbe ne se fait pas de la même manière que dans un espace-temps plat. En effet, nous aimerions que le choix du paramètre d'intégration ne change pas l'intégrale résultante, autrement dit, l'intégrale ne peut pas différer sous changement de coordonnées.\\
+\\
+\begin{theoremframe}
+    \begin{propri}
+        En relativité restreinte, l'intégrale d'une fonction scalaire $f(x)$ de la forme $$\int \td ^4x f(x)$$ est indépendante du système de coordonnées inertiel utilisé : $$\int \td ^4x' f'(x') = \int \td ^4x f(x)$$
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+    Soient $O$ et $O'$ deux observateurs inertiels
+    \begin{enumerate}
+        \item $f$ est une fonction scalaire, donc par définition $f'(x') = f(x)$.
+        \item L'élément de mesure $\td ^4x' = |det \frac{\partial x'}{\partial x}|\td ^4x$ où $|det \frac{\partial x'}{\partial x}|$ est le déterminant de la jacobienne de la transformation. Or pour une transformation de Poincaré, $x' = \Lambda x + b$ où $\Lambda$ vérifie $\det \Lambda = \pm 1$. 
+        \item Pour cette transformation, on a donc $|det \frac{\partial x'}{\partial x}| = |det \Lambda| = 1$, ce qui conclut la preuve.
+\end{enumerate}
+\end{proof}
+En relativité générale, pour un changement général de coordonnées,
+\begin{equation}
+    \int \td ^4x' f'(x') = \int \td ^4x f(x)
+\end{equation}
+ne sera pas vrai car  $|\det \frac{\partial x'}{\partial x}| = 1$ ne tiendra pas en général. Par contre, la métrique $g_{\mu \nu}(x)$ se transforme sous un changement de coordonnées $x^{\mu} \rightarrow y^{\alpha}(x^{\mu})$ comme
+\begin{equation}
+    g_{\mu \nu}(x) \rightarrow g'_{\mu \nu}(y) = \frac{\partial x^{\alpha}}{\partial y^{\mu}}\frac{\partial x^{\beta}}{\partial y^{\nu}}g_{\alpha \beta}(x)
+\end{equation}
+Le déterminant $g$ de la métrique se transforme comme
+\begin{equation}
+    g \rightarrow g' = \left|\det \frac{\partial y}{\partial x}\right|^{-2}g
+\end{equation}
+Comme l'élément de mesure est une densité tensorielle à poids $+1$, on peut construire un scalaire :
+\begin{align}
+    \td ^4x' \sqrt{-g'} &= \left| \det \frac{\partial y}{\partial x} \right| \td ^4x \sqrt{-g'}\\
+    & = \left| \det \frac{\partial y}{\partial x}\right| \td ^4x \left|\det \frac{\partial y}{\partial x}\right|^{-1}\sqrt{-g}\\
+    & =\td ^4x \sqrt{-g}
+\end{align}
+Ce nouveau élément de mesure est donc indépendant du choix de coordonnées. Par conséquent l'action d'Einstein-Hilbert définit bien une quantité invariante sous changement général de coordonnées.
+\begin{rmk}
+    Ceci fournit une méthode très simple pour déterminer l'élément de volume dans des coordonnées quelconques. 
+
+    Par exemple, en coordonnées sphériques, la métrique s'écrit
+    \begin{align}
+        \td s^2 &= \td r^2 + r^2(\td \theta ^2 + \sin^2{\theta} \td \varphi^2)
+        \intertext{Son déterminant est}
+         g &= r^4 \sin^2{\theta}
+        \intertext{Et l'élément de volume est donc}
+         \td V &= \sqrt{g}\td r \td \theta \td \varphi\\
+        & = \sqrt{r^4 \sin^2{\theta}}\td r \td \theta \td \varphi\\
+        & =r^2 \sin{\theta} \td r \td \theta \td \varphi
+    \end{align}
+\end{rmk}
+\subsection{Résultats intermédiaires}
+Avant de dériver les équations du mouvement de l'action d'Einstein-Hilbert, il est utile de commencer par énoncer une série de lemmes.
+\begin{theoremframe}
+    \begin{lemme}
+        Soit une matrice carrée $M$. On a l'identité
+        \begin{equation}
+            \det e^M = e^{\mathrm{Tr}\, M}
+        \end{equation}
+    \end{lemme}
+\end{theoremframe}
+\begin{proof}
+    La preuve ne sera pas traitée dans ce cours. Elle peut être faite en diagonalisant $M$. Pour $n=2$, en notant les valeurs propres $\lambda_1$ et $\lambda_2$, on obtient que le côté gauche vaut
+    \begin{equation}
+        e^{\lambda_1} e^{\lambda_2}
+    \end{equation}
+    Alors que le côté droit donne
+    \begin{equation}
+        e^{\lambda_1 + \lambda_2}
+    \end{equation}
+    Cet argument se généralise facilement aux matrices $n \times n$.
+\end{proof}
+Notons que ce lemme implique directement
+\begin{equation}
+    \lvert \det M \rvert = e^{\mathrm{Tr}\, \log M}
+\end{equation}
+\begin{theoremframe}
+    \begin{lemme}
+        Sous une variation infinitésimale $\delta M$ des éléments de $M$, la variation de $\log |\det M|$ est donnée par 
+        \begin{equation}
+            \delta \log|\det M| = \mathrm{Tr} \, (M^{-1}\delta M)
+        \end{equation}
+    \end{lemme}
+\end{theoremframe}
+\begin{proof}
+    En utilisant le lemme précédent,  
+    \begin{align}
+        \delta \log|\det M| &= \frac{\delta |\det M| }{|\det M|}\\
+        & = \frac{\delta e^{\mathrm{Tr}\, \log M}}{e^{\mathrm{Tr}\, \log M}}\\
+        &=  \delta \mathrm{Tr}\, \log M
+        \intertext{Comme la trace est linéaire, on peut rentrer la variation dans celle-ci :}
+        &=\mathrm{Tr}\, M^{-1}\delta M
+        \label{eq:reltaion lemme}
+    \end{align}
+\end{proof}
+Notons que cette propriété permet de rapidement calculer certains symboles de Christoffel :
+\begin{theoremframe}
+    \begin{propri}
+        \label{prop: variations de métrique}
+        En particularisant $M = g_{\mu\nu}$, on obtient
+        \begin{equation}
+            \label{eq:valeur de delta -g^(1/2)}
+            \boxed{\delta \sqrt{-g} = \frac{1}{2} \sqrt{-g} g^{\mu\nu} \delta g_{\mu\nu}}
+        \end{equation}
+        Ce qui permet de facilement calculer certains symboles de Christoffel selon
+        \begin{equation}
+            \Gamma^\alpha_{\lambda\alpha} = \frac{1}{\sqrt{-g}} \pd_\lambda \sqrt{-g}
+        \end{equation}
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+En particularisant $M = g_{\mu\nu}$, d'après le lemme précédent,
+\begin{equation}
+    \delta \log(-g) = \frac{\delta (-g)}{(-g)} =\text{Tr }(-g)^{-1}\delta (-g)= g^{\mu \nu}\delta g_{\nu \mu} = g^{\mu \nu}\delta g_{\mu \nu}
+\end{equation}
+Par conséquent,
+\begin{align}
+    \delta \sqrt{-g} &= \frac{1}{2}\frac{1}{\sqrt{-g}}\delta (-g)\\
+    &= \frac{1}{2}\frac{1}{\sqrt{-g}}(-g)g^{\mu \nu}\delta g_{\mu \nu}\\
+    &= \frac{1}{2}\sqrt{-g}g^{\mu \nu}\delta g_{\mu \nu}
+\end{align}
+En divisant par $\delta x^\lambda$, on obtient finalement
+\begin{equation}
+    \label{eq: métrique dérivée}
+    \pd_\lambda \sqrt{-g} =  \frac{1}{2}\sqrt{-g}g^{\mu \nu}\pd_\lambda g_{\mu \nu}
+\end{equation}
+Intéressons-nous à présent aux symbole de Christoffel
+\begin{align}
+    \Gamma^{\alpha}_{\lambda \alpha} &= \frac{1}{2}g^{\alpha \mu}(\partial_{\alpha} g_{ \mu \lambda} + \partial_{\lambda}g_{\mu\alpha} - \partial_{\mu}g_{\alpha \lambda})
+    \intertext{Or, par symétrie de la métrique on peut renommer les indices $\alpha,\mu$ du premier terme}
+    &= \frac{1}{2}g^{\alpha \mu}(\purple{\partial_{\mu} g_{ \alpha \lambda}} + \partial_{\lambda}g_{\mu\alpha} \purple{- \partial_{\mu}g_{\alpha \lambda}})\\
+    &=\frac{1}{2}g^{\alpha \mu}\partial_{\lambda}g_{\mu\alpha}
+\end{align}  
+Par le premier résultat \ref{eq: métrique dérivée}, on peut directement conclure
+\begin{align}
+    \Gamma^{\alpha}_{\lambda \alpha} &= \frac{1}{\sqrt{-g}}\partial_{\alpha}\sqrt{-g}
+\end{align}
+\end{proof}
+\subsection{Les équations du mouvement}
+De retour sur l'action d'Einstein-Hilbert
+\begin{equation}
+    S_{E-H} = \int \td ^4x \sqrt{-g}R
+    \label{eq:action d'Einstein-Hilbert 2}
+\end{equation}
+Dérivons les équations du mouvement. Notons qu'on ne peut pas utiliser directement les équations d'Euler-Lagrange avec $\Phi^{i} = g^{\mu \nu}$ car le lagrangien $\mathcal{L} = R\sqrt{-g}$ n'est pas une forme $\mathcal{L} = \mathcal{L}(\Phi^{i}, \partial_{\mu} \Phi^{i})$ : il contient des dérivées secondes du champ dynamique $g_{\mu \nu}$. Nous devons donc procéder en variant $S_{E-H}$ par des perturbations de la métrique
+\begin{equation}
+    g_{\mu \nu} \rightarrow g_{\mu \nu} + \delta g_{\mu \nu}
+\end{equation}
+Celle-ci s'écrit
+\begin{equation}
+    \delta S = \int \td ^4x (\delta \sqrt{-g}R + \sqrt{-g}\delta R)
+\end{equation}
+On doit donc premièrement trouver une expression des variations $\delta \sqrt{-g}$ et $\delta R$ comme fonctions de la variation $ \delta g_{\mu\nu}$. Pour $\delta \sqrt{-g}$, nous avons déjà une expression d'après la propriété \ref{prop: variations de métrique} :
+\begin{equation}
+    \delta \sqrt{-g} = \frac{1}{2} \sqrt{-g} g^{\mu\nu} \delta g_{\mu\nu}
+\end{equation}
+Mais nous n'avons pas encore d'expression pour $\delta R$. La courbure de scalaire est construite comme une contraction du tenseur de Riemann, qui lui-même est constitué des symboles de Christoffel $\Gamma^\alpha_{\beta\gamma}$.
+
+\subsubsection{3.4.1 Variation des symboles de Christoffel}
+On souhaite calculer
+\begin{equation}
+    \delta \Gamma^{\alpha}_{\beta \gamma} = \Gamma^{\alpha}_{\beta \gamma}(g + \delta g) - \Gamma^{\alpha}_{\beta \gamma}
+\end{equation}
+Or, les coefficients de connexion ne sont pas des objets tensoriels ni des composantes d'un tenseur. On ne peut donc pas trouver une équation tensorielle dans un système de coordonnée simple et la généraliser facilement à un système de coordonnées quelconque. La loi de transformation de ceux-ci a été dérivée précédemment :
+\begin{equation}
+    \Gamma^{\alpha '}_{\beta ' \gamma '} = \frac{\partial x^{\alpha '}}{\partial x^{\alpha}}\frac{\partial x^{\beta }}{\partial x^{\beta '}}\frac{\partial x^{\gamma }}{\partial x^{\gamma '}}\Gamma^{\alpha}_{\beta \gamma} + \frac{\partial x^{\alpha '}}{\partial x^{\alpha}}\frac{\partial^2 x^{\alpha}}{\partial x^{\beta '} \partial x^{\gamma '}}
+\end{equation}
+Par contre la différence de deux coefficients de connexion (arbitraires) se transforme bien comme un tenseur : 
+\begin{equation}
+    \Delta \Gamma^{\alpha}_{\beta \gamma} = \Gamma^{\alpha}_{\beta \gamma} - \hat{\Gamma}^{\alpha}_{\beta \gamma} 
+\end{equation}
+se transforme bien selon
+\begin{equation}
+    \Delta^{\alpha '}_{\beta' \gamma'} = \frac{\partial x^{\alpha '}}{\partial x^{\alpha}}\frac{\partial x^{\beta }}{\partial x^{\beta '}}\frac{\partial x^{\gamma }}{\partial x^{\gamma '}}\Delta^{\alpha}_{\beta \gamma}
+\end{equation}
+car le terme non-tensoriel de la loi de transformation ne dépend que de la transformation, et pas du coefficient de connexion lui-même. Ainsi, $\Delta \Gamma^{\alpha}_{\beta \gamma}$ est un tenseur $(1,2)$. 
+
+La pertinence de cette observation est qu'à présent, on peut déterminer $\delta \Gamma^{\alpha}_{\beta \gamma}$ dans un système de coordonnée localement inertiel, et l'expression résultante sera valable dans n'importe quel système de coordonnée. 
+\begin{theoremframe}
+    \begin{propri}
+        La variation des symboles de Christoffel vaut
+        \begin{equation}
+        \delta \Gamma^{\alpha}_{\beta \gamma} = \frac{1}{2}g^{\alpha \mu}(\nabla_{\beta} \delta g_{ \mu \gamma} + \nabla_{\gamma} \delta g_{\mu\beta} - \nabla_{\mu} \delta g_{\beta \gamma})
+        \end{equation}
+    \end{propri}    
+\end{theoremframe}
+\begin{proof}
+    Par définition, les symboles de Christoffel s'écrivent
+    \begin{equation}
+        \Gamma^{\alpha}_{\beta \gamma} = \frac{1}{2}g^{\alpha \mu}(\partial_{\beta} g_{ \mu \gamma} + \partial_{\gamma}g_{\mu\beta} - \partial_{\mu}g_{\beta \gamma})
+    \end{equation}
+    En variant la métrique, on obtient
+    \begin{equation}
+        \delta \Gamma^{\alpha}_{\beta \gamma} = \frac{1}{2}\delta g^{\alpha \mu}(\partial_{\beta} g_{ \mu \gamma} + \partial_{\gamma}g_{\mu\beta} - \partial_{\mu}g_{\beta \gamma}) + \frac{1}{2}g^{\alpha \mu}(\partial_{\beta} \delta g_{ \mu \gamma} + \partial_{\gamma} \delta g_{\mu\beta} - \partial_{\mu} \delta g_{\beta \gamma})
+    \end{equation}
+    Dans un référentiel localement inertiel, $\partial_{\beta} g_{ \mu \gamma} = 0$ et la variation s'écrit
+    \begin{equation}
+        \delta \Gamma^{\alpha}_{\beta \gamma} = \frac{1}{2}g^{\alpha \mu}(\partial_{\beta} \delta g_{ \mu \gamma} + \partial_{\gamma} \delta g_{\mu\beta} - \partial_{\mu} \delta g_{\beta \gamma})
+    \end{equation}
+    Comme il s'agit d'une relation tensorielle, nous pouvons la généraliser à un système de coordonnées quelconque en remplaçant $\pd$ par $\nabla$ :
+    \begin{equation}
+        \delta \Gamma^{\alpha}_{\beta \gamma} = \frac{1}{2}g^{\alpha \mu}(\nabla_{\beta} \delta g_{ \mu \gamma} + \nabla_{\gamma} \delta g_{\mu\beta} - \nabla_{\mu} \delta g_{\beta \gamma})
+    \end{equation}
+    Qui est une relation tensorielle, donc valable dans tout référentiel.
+\end{proof}
+\begin{rmk}
+    Notons que $\partial_{\beta} g_{ \mu \gamma} = 0$ n'implique pas $\partial_{\beta} \delta g_{ \mu \gamma} = 0$. En effet, la variation infinitésimale peut changer la métrique tel que le référentiel localement inertiel initialement adapté ne donne plus $\eta_{\mu\nu}$ et une dérivée nulle (néanmoins un autre référentiel peut toujours être trouvé tel que pour cette variation de la métrique en particulier, on se trouve dans un RLI).
+\end{rmk}
+\subsubsection{3.4.2 Variation du tenseur de Riemann}
+Continuons avec le tenseur de Riemann
+\begin{theoremframe}
+    \begin{propri}
+        La variation du tenseur de Riemann vaut
+        \begin{equation}
+            \delta R\indices{^{\alpha}_{\beta \gamma \nu}} = \nabla_{\gamma}\delta\Gamma^{\alpha}_{\beta \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\beta \gamma}
+        \end{equation}
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+    Par définition, le tenseur de Riemann est donné par
+    \begin{equation}
+        R\indices{^{\alpha}_{ \beta \gamma \nu}} = \partial_{\gamma}\Gamma^{\alpha}_{\beta \nu} - \partial_{\nu} \Gamma^{\alpha}_{\beta \gamma} + \Gamma^{\lambda}_{\beta \nu}\Gamma^{\alpha}_{\gamma \lambda} - \Gamma^{\lambda}_{\beta \gamma}\Gamma^{\alpha}_{\nu \lambda}
+    \end{equation}
+    Sa variation est donc
+    \begin{align}
+        \delta R\indices{^{\alpha}_{\beta \gamma \nu}} = \partial_{\gamma}\delta\Gamma^{\alpha}_{\beta \nu} - \partial_{\nu} \delta \Gamma^{\alpha}_{\beta \gamma} + \delta\Gamma^{\lambda}_{\beta \nu}\Gamma^{\alpha}_{\gamma \lambda} + \Gamma^{\lambda}_{\beta \nu}\delta\Gamma^{\alpha}_{\gamma \lambda}- \delta\Gamma^{\lambda}_{\beta \gamma}\Gamma^{\alpha}_{\nu \lambda} - \Gamma^{\lambda}_{\beta \gamma}\delta\Gamma^{\alpha}_{\nu \lambda}
+    \end{align}
+    En se plaçant dans un référentiel localement inertiel, $\Gamma^{\alpha}_{\beta \gamma} = 0$ donc
+    \begin{equation}
+        \delta R\indices{^{\alpha}_{\beta \gamma \nu}} = \partial_{\gamma}\delta\Gamma^{\alpha}_{\beta \nu} - \partial_{\nu} \delta \Gamma^{\alpha}_{\beta \gamma}
+    \end{equation}
+    En généralisant cette expression à un référentiel quelconque, on obtient effectivement
+    \begin{equation}
+        \delta R\indices{^{\alpha}_{\beta \gamma \nu}} = \nabla_{\gamma}\delta\Gamma^{\alpha}_{\beta \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\beta \gamma}
+    \end{equation}
+\end{proof}
+\begin{theoremframe}
+    \begin{propri}
+        La variation de la courbure scalaire vaut
+        \begin{equation}
+            \label{eq:valeur de delta R}
+            \boxed{\delta R = -R^{\mu \nu}\delta g_{\mu \nu} + g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\mu \alpha})}
+        \end{equation}
+    \end{propri}
+\end{theoremframe}
+\begin{proof}
+    Par définition du tenseur de Ricci, $R_{\beta \nu} = R^{\alpha}_{\beta \alpha \nu}$ sa variation vaut
+    
+    \begin{align}
+        \delta R_{\mu \nu} &= \delta R\indices{^{\alpha}_{\mu \alpha \nu}}\\
+        &= \nabla_{\alpha}\delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\mu \alpha}
+    \end{align}
+    La courbure scalaire $ R= g^{\mu \nu}R_{\mu \nu}$ varie donc selon 
+    \begin{align}
+        \delta R &= \delta (g^{\mu \nu}R_{\mu \nu})\\
+        &= (\delta g^{\mu \nu})R_{\mu \nu} + g^{\mu \nu}(\delta R_{\mu \nu})
+        \label{eq:variation de R}
+    \end{align}
+    Notons que comme $g^{\mu\nu}$ \emph{n'est pas} la métrique deux fois contractée pour monter les indices, mais la métrique inverse (ce n'est pas équivalent !), la variation $\delta g^{\mu\nu}$ est a priori relié non-trivialement à $\delta g^{\mu\nu}$. Pour trouver une relation entre ces deux variations, on utilise la définition de la métrique inverse $g^{\mu \alpha} g_{\alpha \nu} = \delta^{\mu}_{\nu}$ et donc $\delta(g^{\mu \alpha} g_{\alpha \nu}) = 0$. Par la règle de Leibniz :
+    \begin{align}
+        & \delta(g^{\mu \alpha}) g_{\alpha \nu} + g^{\mu \alpha} (\delta g_{\alpha \nu}) = 0 
+    \intertext{En contractant une fois avec $g^{\nu \gamma}$}
+        &g^{\nu \gamma}(\delta(g^{\mu \alpha}) g_{\alpha \nu} + g^{\mu \alpha} (\delta g_{\alpha \nu})) = 0\\
+        &\delta ^{\gamma}_{\alpha }\delta(g^{\mu \alpha}) = - g^{\nu \gamma}g^{\mu \alpha} (\delta g_{\alpha \nu}) \\
+        & \boxed{\delta g^{\mu \nu} =   -g^{\mu \alpha} g^{\nu \beta} \delta g_{\alpha \beta}}
+    \end{align}
+
+    Remplaçant ce résultat dans l'équation \ref{eq:variation de R}, on obtient
+    \begin{align}
+        \delta R &= -g^{\mu \alpha}g^{\nu \beta} \delta g_{\mu \nu}R_{\alpha \beta} + g^{\mu \nu}(\delta R_{\mu \nu})\\
+        &= -R^{\mu \nu}\delta g_{\mu \nu} + g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\mu \alpha})
+    \end{align}
+\end{proof}
+\subsubsection{3.4.3 La variation de l'action}
+En combinant les variations obtenues à \ref{eq:valeur de delta R} et \ref{eq:valeur de delta -g^(1/2)},
+\begin{align}
+    \delta(R\sqrt{-g}) &= \delta R\sqrt{-g} + R\delta(\sqrt{-g})\\
+    &= \sqrt{-g}( -R^{\mu \nu}\delta g_{\mu \nu} + g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\mu \alpha})) +\frac{R}{2}\sqrt{-g}g^{\mu \nu}\delta g_{\mu \nu}\\
+    &= \sqrt{-g} \, \delta g_{\mu \nu}( -R^{\mu \nu} + \frac{R}{2}g^{\mu \nu}) + \sqrt{-g} \, g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\mu \alpha})
+    \label{eq:valeur delta(R(-g)^1/2)}
+\end{align}
+Comme la connexion est métrique, on peut rentrer la métrique dans la dérivée covariante :
+\begin{align}
+    g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\nu} \delta \Gamma^{\alpha}_{\mu \alpha}) &= \nabla_{\alpha} g^{\mu \nu} \delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\textcolor{blue}{\nu}} g^{\mu \textcolor{blue}{\nu}} \delta \Gamma^{\textcolor{red}{\alpha}}_{\mu \textcolor{red}{\alpha}}\\
+    &= \nabla_{\alpha} g^{\mu \nu} \delta\Gamma^{\alpha}_{\mu \nu} - \nabla_{\textcolor{blue}{\alpha}} g^{\mu \textcolor{blue}{\alpha}} \delta \Gamma^{\textcolor{red}{\nu}}_{\mu \textcolor{red}{\nu}}\\
+    &= \nabla_{\alpha}(g^{\mu \nu} \delta\Gamma^{\alpha}_{\mu \nu} -g^{\mu \alpha} \delta \Gamma^{\nu}_{\mu \nu}) \equiv \nabla_{\alpha} V^{\alpha}
+\end{align}
+notons que le vecteur $V^\alpha$ est bien un tenseur. On obtient donc finalement la variation d'action suivante :
+\begin{align}
+    \delta S &= \int \td ^4x\, (\delta \sqrt(-g)R + \sqrt{-g}\delta R)\\
+    &= \int \td ^4x \, (\sqrt{-g}\delta g_{\mu \nu}( -R^{\mu \nu} +\frac{R}{2}g^{\mu \nu}) + \sqrt{-g}\nabla_{\alpha} V^{\alpha})\\
+    &= \int \td ^4x \, (\sqrt{-g}\delta g_{\mu \nu}( -G^{\mu \nu})+ \sqrt{-g}\nabla_{\alpha} V^{\alpha})\\
+\end{align}
+
+Si on oublie le terme $\sqrt{-g}\nabla_{\alpha} V^{\alpha}$ , on obtient que 
+\begin{equation}
+    \frac{\delta S}{\delta g_{\mu \nu}} = -\sqrt{-g}G^{\mu \nu}
+\end{equation}
+Les équations du mouvement s'écrivent donc
+\begin{equation}
+    \frac{\delta S}{\delta g_{\mu \nu}} = 0 \iff G^{\mu \nu} = 0
+\end{equation}
+On retrouve donc l'équation d'Einstein dans le vide.
+
+\subsubsection{3.4.4 Le terme de bord}
+Pourquoi peut-on oublier le terme $\sqrt{-g}\nabla_{\alpha} V^{\alpha}$ ? 
+\begin{theoremframe}
+    \begin{lemme}
+        Pour un champ de vecteurs $V^\alpha$ arbitraire, on a l'identité
+        \begin{equation}
+            \sqrt{-g}\nabla_{\alpha} V^{\alpha} = \partial_{\alpha}( \sqrt{-g}V^{\alpha})
+        \end{equation}
+    \end{lemme}
+\end{theoremframe}
+\begin{proof}
+    Par définition de la dérivée covariante
+    \begin{align}
+       \nabla_{\alpha}V^{\alpha} = \partial_{\alpha}V^{\alpha} + \Gamma^{\alpha}_{\lambda \alpha}V^{\lambda}
+    \end{align}
+    Ce symbole de Christoffel a précédemment été calculé (voir propriété \ref{prop: variations de métrique}) :
+    \begin{align}
+        \Gamma^{\alpha}_{\lambda \alpha} &= \frac{1}{\sqrt{-    g}}\partial_{\alpha}\sqrt{-g}
+    \end{align}
+    En injectant ce résultat, on trouve
+    \begin{align}
+        \nabla_{\alpha}V^{\alpha} &= \partial_{\alpha}V^{\alpha} + \frac{1}{\sqrt{-g}}(\partial_{\lambda}\sqrt{-g})V^{\lambda}\\
+        &= \frac{1}{\sqrt{-g}}\partial_{\alpha}(\sqrt{-g}V^{\alpha})
+    \end{align}
+\end{proof}
+Le terme $\partial_{\alpha}( \sqrt{-g}V^{\alpha})$ est donc un terme au bord tel que 
+\begin{equation}
+    \int_{V} \td ^4x \, \sqrt{-g} \nabla_{\alpha}V^{\alpha} = \int_{V} \td ^4x \, \partial_{\alpha}( \sqrt{-g}V^{\alpha}) = \int_{\partial V} \td ^3x \, n_{\alpha}\sqrt{-g}V^{\alpha} = 0
+\end{equation}
+où $n_{\alpha}$ est la normale sortante au bord. Le terme supplémentaire s'annule donc pour les variations telles que $V^\alpha =0$ sur le bord du domaine d'intégration.
+\begin{rmk}
+    Ce terme s'annulera par exemple au bord pour des variations telles que $\delta g_{\mu\nu} = 0$ au bord (comme nous avions argumenté pour une théorie des champs classique en $\phi^i$) \emph{et} telles que $\pd_\alpha \delta g_{\mu\nu} = 0$ au bord, car $V^\alpha$ contient du $\delta \Gamma^\alpha_{\beta\gamma}$, qui lui-même contient du $\nabla_\alpha \delta g_{\mu\nu}$ et donc à la fois du $\pd_\alpha g_{\mu\nu}$ et $\Gamma^\alpha_{\beta \gamma} \delta g_{\alpha \mu}$. Ce type de condition au bord s'appelle conditions de Dirichlet usuelles.\\
+    Pour annuler ce terme en n'impliquant que $\delta g_{\mu\nu} = 0$ au bord, on doit rajouter à l'action $S_\text{EH}$ un terme supplémentaire dit de \emph{Gibbons-Hawking}, qui ne modifie pas les équations du mouvement mais annule le \emph{terme en trop} pour des conditions au bord de type Dirichlet\footnote{Voir Wald p. 453-459 ou Blau 360-371 pour détails.}. Nous l'omettrons dans ce qui suit et supposerons que l'intégrale du bord s'annule.
+\end{rmk}
+
+Pour conclure, on a montré que les équations d'Einstein découlent bien d'un principe variationnel dont la variation d'action s'écrit
+\begin{equation}
+    \delta S = \int \td ^4x (\sqrt{-g}\delta g_{\mu \nu}( -G^{\mu \nu}))
+\end{equation}
+\subsection{Inclusion de la constant cosmologique et de la matière}
+
+\subsubsection{3.5.1 Inclusion d'une constante cosmologique}
+Si on rajoute un terme constant à l'action
+\begin{equation}
+    S = \int \td ^4x \sqrt{-g}(R - 2\Lambda)
+\end{equation}
+pour une $\Lambda \in \R$, alors
+\begin{align}
+    \delta S &= \int \td ^4x [\delta (R \sqrt{-g}) -2  \Lambda \delta (\sqrt{-g})]\\
+    &= \int \td ^4x [-G^{\mu \nu} \sqrt{-g} \delta g_{\mu \nu} - \Lambda \sqrt{-g} g^{\mu \nu}\delta g_{\mu \nu}]
+\end{align}
+Et l'équation du mouvement s'écrit
+\begin{equation}
+   \Rightarrow G^{\mu \nu} + \Lambda g^{\mu \nu} = 0
+\end{equation}
+\subsubsection{3.5.2 Inclusion de la matière}
+De manière générale, l'inclusion de la matière donne une action totale de la forme
+\begin{equation}
+    S_{\text{tot}} = \frac{1}{16\pi G} \int \td ^4x \sqrt{-g}R + S_{\text{Mat}}(\phi^i , \nabla \phi^i, g_{\mu \nu})
+\end{equation}
+De manière générale, le tenseur d'énergie-impulsion vu précédemment ne découle pas d'un principe variationnel : il faut préciser la \emph{source} de cette énergie, comme par exemple l'électromagnétisme :
+\begin{equation}
+    S_{\text{Maxwell}} = -\frac{1}{4} \int \td ^4x  F^{\mu \nu}F_{\mu\nu}\sqrt{-g}
+\end{equation}
+où $F^{\mu \nu}$ contient implicitement du $g_{\mu \nu}$ à travers les contractions. Les équations du mouvement par rapport au champ dynamique source $A_\mu$ donne toujours les équations de Maxwell :
+\begin{equation}
+    \frac{\delta S_{\text{Maxwell}}}{\delta A^{\mu}} = 0 \iff \nabla_{\mu} F^{\mu \nu} = 0
+\end{equation}
+Le tenseur d'énergie-impulsion est alors obtenu en variant l'action \emph{matière} par rapport à la métrique :
+\begin{equation}
+    T^{\mu\nu}_\text{Mat} \equiv \frac{\delta S_\text{Mat}}{\delta g_{\mu\nu}}
+\end{equation}
+Ce tenseur énergie-impulsion dit \emph{microscopique} et est nécessairement conservé (comme $G^{\mu\nu}$ l'est via l'identité de Bianchi).
+\begin{rmk}
+    Ce tenseur énergie-impulsion ne coïncide pas nécessairement avec celui apparaissant via le théorème de Noether (qui associe à tout symétrie globale et continue d'une action un courant et charge conservé). Le courant conservé associé à l'invariance sous translations est le \emph{tenseur énergie-impulsion canonique} noté $\mathcal{T}^{\mu\nu}$. Pour un Lagrangien donné, il est défini par
+    \begin{equation}
+        \mathcal{T}^{\mu\nu} = - \frac{\pd \mathcal{L}}{\pd (\pd_\mu \phi^i} \pd^\nu \phi^i + \eta^{\mu\nu}
+    \end{equation}
+    et est également conservé lorsque les équations du mouvement sont satisfaites
+    \begin{equation}
+        \pd_\mu \mathcal{T}^{\mu\nu} \approx 0 \quad \text{(on-shell)}
+    \end{equation}
+    Remarquons également que celui-ci ne sera pas nécessairement symétrique ni invariant de jauge(bien qu'il puisse être modifié pour le devenir en rajoutant des termes de bord), on lui préfère donc souvent $T^{\mu\nu}$.\footnote{Voir Blau p.170-182, Caroroll p.165, Di Francesco "Conformal Field Theory" p. 46 pour détails.}
+\end{rmk}
+\begin{rmk}
+    On considère les unités tel que $\hbar = 1$, $c = 1$. La dimension de l'action $[S]$ est $\hbar$. Comme $\hbar = 1$, l'action est sans unités. 
+    \begin{align}
+        [\hbar] =  J.s = E.T \implies E = T^{-1}
+\end{align}
+Similairement via $c = 1$, on obtient $L = T$. L'énergie à comme unités
+
+\begin{equation}
+    [E] = [mc^2] = [M]
+\end{equation}
+On obtient finalement
+\begin{align}
+    &E = M\\
+    &E = T^{-1}\\
+    &E = L^{-1}
+\end{align}
+Étant donné ce choix d'unité et l'action
+\begin{equation}
+    S_{\text{tot}} = C \int \td ^4x \sqrt{-g}R,
+\end{equation}
+quels unités doit avoir $C$ pour que $[S_\text{tot}] = 1$. Comme $[\td^4x] = L^4$ et pour $[R] = L^{-2}$ (dérivée seconde de la métrique, qui elle-même n'a pas d'unités). Ce qui implique que$[S_{totale}] = L^2$. Le terme $C$ doit donc être proportionnel à un terme de dimension $L^{-2}$. Quels sont les unités du couplage gravitationnel $G$ ?
+\begin{align}
+    F = &ma = G\frac{M^2}{r^2}\\
+    \implies &MLT^{-1} = [G]M^{2}L^{-2}
+\end{align}
+Et donc, en unités naturelles,
+\begin{align}
+    [G] = L^{2}
+\end{align}
+On aura donc nécessairement $C \propto G^{-1}$. Par convention, on notera $C = \dfrac{1}{16 \pi G}$.
+\end{rmk}
+\section{Difféomorphismes et identités de Bianchi}
+
+Nous allons montrer qu'un des avantages du principe variationnel pour les équations d'Einstein est qu'il permet d'implémenter les symétries de la théorie et ses conséquences. En particulier, nous allons analyser les conséquences de la covariance de $S_{EH}$ (et dans certain cas, de son invariance). 
+
+Nous avons vu que pour une variation arbitraire de la métrique, l'action variait comme 
+
+\begin{equation}
+    \delta S = \int \td ^4x \sqrt{-g}\delta g_{\mu \nu}( -G^{\mu \nu})
+    \label{eq:variation de l'action d'Einstein-Hilbert}
+\end{equation}
+
+Nous allons particulariser cette équation pour des variations sous difféomorphismes. 
+On va particulariser cette relation à une transformation $g_{\mu \nu}$ induit par un difféomorphisme suivant
+
+\begin{equation}
+\left\{
+\begin{array}{rl}
+x^{\mu} &\to x^{\mu} + \epsilon \xi^{\mu}\\
+g_{\mu \nu} &\to g_{\mu \nu} + \delta_{\xi}g_{\mu \nu} \\
+S &\to S + \delta_{\xi}S
+\end{array}
+\right.
+\end{equation}
+Avant de s'attaquer à ce problème, nous devons d'abord introduire quelques notions préliminaires.
+\subsection{La dérivée de Lie}
+Sous les transformations $x^{\alpha } \to x'^{\alpha }$ des coordonnées, on a les transformations tensorielles correspondantes sur les champs, comme par exemple
+\begin{enumerate}
+    \item Un champ scalaire $\phi(x)$ se transforme comme
+    \begin{equation}
+        \phi(x) \to \phi'(x')
+    \end{equation}
+    \item Un tenseur $(0,2)$ se transforme comme
+    \begin{equation}
+        g_{\mu \nu}(x) \rightarrow g'_{\mu \nu}(x)= \frac{\partial x^{\alpha}}{\partial x^{\mu}}\frac{\partial x^{\beta}}{\partial x^{\nu}}g_{ \alpha \beta}(x)
+    \end{equation}
+\end{enumerate}
+Nous sommes familiers avec ces transformations. Néanmoins, elles relient des champs et leur transformés en des points différents: $\phi$ à $x$ et $\phi'$ à $x'$. Dans l'action variée \ref{eq:variation de l'action d'Einstein-Hilbert}, on intègre sur les coordonnées $x$. Nous voudrions donc comparer les champs et leurs transformés au même point pour pouvoir étudier le comportement de l'action sous variation par difféomorphisme. En effet, la variation \ref{eq:variation de l'action d'Einstein-Hilbert}, particularisée à une variation sous difféomorphisme s'écrit 
+
+\begin{equation}
+    \delta_{\xi}S = - \int \td ^4x \sqrt{-g}G^{\mu \nu}\delta_{\xi}g_{\mu \nu}(x)
+\end{equation}
+Où $\delta_\xi$ est défini comme
+\begin{equation}
+    \delta_{\xi}g_{\mu \nu}(x) = g_{\mu \nu}(x) - g'_{\mu \nu}(x)
+\end{equation}
+Pour un difféomorphisme $x^{\mu} \to x'^{\mu}$ s'écrivant infinitésimalement comme 
+\begin{equation}
+    x^{\mu} \to x'^{\mu} = x^{\mu} + \epsilon\xi^{\mu} + \mathcal{O}(\epsilon^2)
+\end{equation}
+Le vecteur tangent à la courbe $x'^{\mu}$ en $\epsilon = 0$ est 
+\begin{equation}
+    \xi ^{\mu} = \left. \frac{\td x'^{\mu}}{\td \epsilon}\right|_{\epsilon = 0}
+\end{equation}
+Cette équation est dite \emph{générateur du difféomorphisme} c'est-à-dire qu'il \emph{génère la transformation} $x^{\mu} \rightarrow x'^{\mu}$. En effet, pour une transformation active, le champ de vecteurs $\xi^\mu$ exprime comment les points sont déplacés sur la variété. Trouvons une expression explicite de la variation par difféomorphisme pour la métrique. Premièrement, un développement au premier ordre montre 
+\begin{equation}
+    g'_{\alpha \beta}(x') = g'_{\alpha \beta}(x) + \epsilon \xi^{\rho}\partial_{\rho}g'_{\alpha \beta}(x)
+\end{equation}
+Par la loi de transformation on obtient :
+\begin{align}
+    g_{\mu \nu}(x) &= \frac{\partial x'^{\alpha}}{ \partial x^{\mu}}\frac{\partial x'^{\beta}}{\partial x^{\nu}}g'_{\alpha \beta}(x')\\
+    &= \frac{\partial}{\partial x^{\mu}}(x^{\alpha} + \epsilon \xi^{\alpha})\frac{\partial}{\partial x^{\mu}}(x^{\beta} + \epsilon \xi^{\beta})g'_{\alpha \beta}(x + \epsilon\xi)\\
+    &= (\delta^{\alpha}_{\mu} + \epsilon \partial_{\mu}\xi^{\alpha})(\delta^{\beta}_{\nu} + \epsilon\partial_{\nu}\xi^{\nu})(g'_{\alpha \beta}(x) + \epsilon \xi^{\rho}\partial_{\rho}g'_{\alpha \beta}(x))\\
+    &= g'_{\mu \nu}(x) + \epsilon(\partial_{\mu}\xi^{\alpha}g'_{\alpha \nu} + \partial_{\nu}\xi^{\beta}g'_{\mu \beta} + \xi^{\rho}\partial_{\rho}g'_{\mu \nu}) + O(\epsilon^2)
+\end{align}
+Comme $g_{\mu\nu}$ et $g'_{\mu\nu}$ sont reliés par une loi de transformation de second ordre en $\xi^\alpha$, on a au premier ordre $g_{\mu\nu}(x) = g'_{\mu\nu}(x) + \mathcal{O}(\epsilon^2)$ :
+\begin{equation}
+     g_{\mu \nu}(x) = g_{\mu \nu}(x) + \epsilon(\partial_{\mu}\xi^{\alpha}g_{\alpha \nu} + \partial_{\nu}\xi^{\beta}g_{\mu \beta} + \xi^{\rho}\partial_{\rho}g_{\mu \nu}) + O(\epsilon^2)
+\end{equation}
+On obtient finalement que 
+\begin{equation}
+    \delta_{\xi}g_{\mu \nu} = \epsilon(\partial_{\mu}\xi^{\alpha}g_{\alpha \nu} + \partial_{\nu}\xi^{\beta}g_{\mu \beta} + \xi^{\rho}\partial_{\rho}g_{\mu \nu}) 
+\end{equation}
+
+\begin{theoremframe}
+    \begin{defi}
+        La dérivée de Lie de la métrique $g_{\mu \nu}$ le long de $\xi$ est définie comme
+        \begin{align}
+            \mathcal{L}_{\xi}g_{\mu \nu} &\equiv \lim_{\epsilon \rightarrow 0} \frac{\delta_{\xi}g_{\mu \nu}(x)}{\epsilon}\\
+            &= \lim_{\epsilon \rightarrow 0} \frac{g_{\mu \nu}(x) - g'_{\mu \nu}(x)}{\epsilon}
+        \end{align}
+    \end{defi}
+\end{theoremframe}
+
+Dans notre cas, la dérivée de Lie s'écrit
+\begin{equation}
+    \boxed{\mathcal{L}_{\xi}g_{\mu \nu} = \partial_{\mu}\xi^{\alpha}g_{\alpha \nu} + \partial_{\nu}\xi^{\alpha}g_{\mu \alpha} + \xi^{\alpha}\partial_{\alpha}g_{\mu \nu}}
+\end{equation}
+
+Cette définition se généralise facilement à d'autres tenseurs.
+\begin{exmp}
+    Pour un champ scalaire $\phi$, considérons une transformation $\phi(x) \to \phi'(x')$. En développant cette expression au premier ordre, on obtient
+    \begin{equation}
+        \phi (x) = \phi '(x) + \epsilon \xi^{\rho}\partial_{\rho}\phi(x)
+    \end{equation}
+    Donc
+    \begin{align}
+        \delta_{\xi}\phi(x) \equiv \phi(x) - \phi'(x) = \epsilon\xi^{\rho}\partial_{\rho}\phi(x)\implies \mathcal{L}_{\xi}\phi(x) = \xi^{\rho}\partial_{\rho}\phi(x)
+    \end{align}
+
+La dérivée de Lie scalaire est la dérivée directionnelle de la transformation considérée. 
+\end{exmp}
+\subsection{Vecteurs de Killing et isométries}
+Soit un difféomorphisme $\xi$.
+\begin{theoremframe}
+    \begin{defi}
+        Le difféomorphisme $\xi$ est dit \emph{de Killing} si 
+        \begin{equation}
+            \mathcal{L}_{\xi}g_{\mu \nu} = 0 \iff  g_{\mu \nu}(x) = g'_{\mu \nu}(x) \quad \text{pour tout $x$}
+        \end{equation}
+        Autrement dit, la transformation $x\to x'$ est une isométrie, et est dite générée par le champ de Killing $\xi$.
+    \end{defi}
+\end{theoremframe}
+\begin{exmp}
+    Les isométries de la métrique plate sont les transformations du groupe de Poincaré (boosts, rotations, inversions et translations). Soit un espace-temps plat $1+1$ dimensionnel 
+    \begin{equation}
+        \td s^2 = -\td t^2 + \td x^2
+    \end{equation}  
+    et considérons la translation temporelle $t \to t' + \alpha$. Le vecteurs tangent est définit comme
+    \begin{equation}
+        \xi^{\mu} = \left. \frac{\td x'^{\mu}}{\td \alpha}\right|_{\alpha = 0}
+    \end{equation}
+    Dans la base locale, $\xi = \xi^{\mu}\partial_{\mu}$ et donc  $\xi = \partial_{t}$ pour la transformation considérée
+
+    Donc $\xi = \partial_{t}$ génère les translations dans le plan. 
+
+    En résumé, $\xi = \partial_{t}$ génère  $t \rightarrow t' + \alpha$ qui laisse $\td s^2 = -\td t^2 + \td x^2$ invariant. 
+\end{exmp}
+\begin{exerc}
+    Quel est le vecteur de Killing qui génère la boost selon $x$ ? R : $\xi = y\partial_{x} - x\partial_{y}$.
+\end{exerc}
+
+\begin{theoremframe}
+    \begin{propri}
+        La dérivée de Lie pour métrique peut se réécrire
+        \begin{equation}
+            \mathcal{L}_{\xi}g_{\mu \nu} = \nabla_{\mu}\xi_{\nu} + \nabla_{\nu}\xi_{\mu} = 2\nabla_{(\mu}\xi_{\nu)}
+        \end{equation}
+        Pour un champ de vecteurs de Killing, cette expression est appelée l'\emph{équation de Killing} :
+        \begin{equation}
+            \boxed{\nabla_{(\mu}\xi_{\nu)} = 0}
+        \end{equation}
+    \end{propri}
+\end{theoremframe}
+
+\begin{proof}
+    Par définition de la dérivée de Lie pour la métrique 
+    \begin{equation}
+        \mathcal{L}_{\xi}g_{\mu \nu} = \partial_{\mu}\xi^{\alpha}g_{\alpha \nu} + \partial_{\nu}\xi^{\beta}g_{\mu \beta} + \xi^{\rho}\partial_{\rho}g_{\mu \nu}
+        \label{eq:dérivée de Lie}
+    \end{equation}
+    On se place dans un système de coordonnées localement inertiel, dans lequel le dernier terme tombe. 
+    \begin{align}
+        \mathcal{L}_{\xi}g_{\mu \nu} &= \partial_{\mu}\xi^{\alpha}g_{\alpha \nu} + \partial_{\nu}\xi^{\beta}g_{\mu \beta}
+        &=\nabla_{\mu}\xi^{\alpha}g_{\alpha \nu} + \nabla_{\nu}\xi^{\beta}g_{\mu \beta}\\
+    \end{align}
+    ce qui est une relation tensorielle, et donc valable dans tout systèmes de coordonnées. En appliquant la métrique pour descendre les indices, on trouve la relation recherchée.
+\end{proof}
+
+
+\subsubsection{4.2.1 La distinction entre covariance et invariance}
+On distingue la covariance et l'invariance d'un objet de la manière suivante :
+\begin{itemize}
+    \item Un objet est covariant s'il se transforme sous une loi de transformation bien définie. Par exemple, un tenseur $A_{\mu\nu}$ se transforme de la manière covariante suivante : $A'_{\mu\nu}(x') = \frac{\pd x^\alpha}{\pd x'^\mu}\frac{\pd x^\beta}{\pd x'^\nu} A_{\alpha\beta}(x)$.
+    \item Un objet est dit invariant s'il reste invariant sous une transformation donnée, comme p.ex. $\mathcal{L}_\xi A_{\mu\nu} = 0$.
+\end{itemize}
+L'invariance est une propriété plus forte, mais par conséquent moins générale. 
+
+\begin{exmp}
+    Un champ scalaire est covariant : il se transforme comme $\phi(x) = \phi'(x')$. Prenons par exemple $\phi(x) = \frac{1}{x}$ et le difféomorphisme
+    \begin{equation}
+        x \to x' = \frac{1}{x}
+    \end{equation}
+    La covariance stipule que
+    \begin{equation}
+        \phi(x) = \frac{1}{x} = x' = \phi'(x')
+    \end{equation}
+    Et donc $\phi'(x) = x \neq \phi(x)$. Cette fonction n'est donc pas invariante, bien qu'elle est covariante.
+\end{exmp}
+\subsection{Identités de Bianchi}
+Dans cette section, nous considérerons une transformation 
+\begin{equation}
+    x^\mu \to x'^\mu = x^\mu + \xi^\mu
+\end{equation}
+où le facteur $\epsilon$ a été absorbé dans le difféomorphisme (qui sera donc considéré \emph{petit}). Dans ce cas,
+\begin{equation}
+    \mathcal{L}_\xi \cdot = \delta_\xi \cdot
+\end{equation}
+Nous avions précédemment démontré les identités de Bianchi du tenseur d'Einstein à partir des propriétés du tenseur de Riemann. Nous allons à présent montrer qu'ils découlent également de la covariance généralisée de l'action d'Einstein-Hilbert. Comment varie l'action sous variation par difféomorphisme ?
+\begin{align}
+    \delta_{\xi}S &= \int \td ^4x \, \delta_{\xi}(R\sqrt{-g}) \\
+    &= \int \td ^4x \, \sqrt{-g}G^{\mu \nu}\delta_{\xi}g_{\mu \nu}
+\end{align}
+On va calculer la variation d'action à partir de ces deux expressions différentes. 
+\subsubsection{4.3.1 Première expression}
+\begin{align}
+    \delta_{\xi}S &= \int \td ^4x \delta_{\xi}(R\sqrt{-g})\\
+    &=  \int \td ^4x \ltc (\delta_{\xi}R)(\sqrt{-g}) + R(\delta_{\xi}\sqrt{-g}) \rtc
+\end{align}
+On avait montré que $\delta \sqrt{-g} = \frac{1}{2}\sqrt{-g}g^{\mu \nu}\delta_{\xi} g_{\mu \nu}$. Donc, par les expressions des dérivées de Lie d'un scalaire et de la métrique :
+\begin{align}
+     \delta_{\xi}S &=\int \td ^4x \ltc\pd_{\xi}R\sqrt{-g} + R\frac{1}{2}\sqrt{-g}g^{\mu \nu}\delta_\xi g_{\mu \nu}\rtc\\
+     &= \int \td ^4x \ltc\xi^{\rho}\partial_{\rho}R\sqrt{-g} + R\frac{1}{2}\sqrt{-g}g^{\mu \nu} (\nabla_{\mu}\xi_{\nu} + \nabla_{\nu}\xi_{\mu})\rtc\\
+     &= \int d^4x\ltc\xi^{\rho}\partial_{\rho}R\sqrt{-g} + R\sqrt{-g}g^{\mu \nu} \nabla_{\mu}\xi_{\nu}\rtc\\
+     &= \int \td ^4x \ltc\xi^{\rho}\partial_{\rho}R\sqrt{-g} + R\purple{\sqrt{-g}}\nabla^{\nu}\purple{\xi_{\nu}}\rtc\\
+     &=\int \td ^4x \ltc\xi^{\rho}\partial_{\rho}R\sqrt{-g} + R \partial_{\nu}(\purple{\sqrt{-g}\xi^{\nu}})\rtc\\
+     &=\int \td ^4x \, \pd_\nu \ltc R\xi^{\nu}\sqrt{-g} \rtc
+\end{align}
+Ce terme est donc un terme de bord : il s'annule pour difféomorphisme tel que $\xi|_{\partial M} = 0$. On dit donc que l'action d'Einstein-Hilbert est invariante sous le difféomorphisme $\xi$ qui s'annule au bord du domaine. On trouve donc 
+\begin{align}
+    \delta_{\xi}S &=\int \td ^4x \, \pd_\nu \ltc R\xi^{\nu}\sqrt{-g} \rtc = 0 \text{ pour } \xi \text{ tel que } \xi |_{\partial M} = 0
+\end{align}
+\subsubsection{4.3.2 Seconde expression}
+\begin{align}
+     \delta_{\xi}S &= \int \td ^4x \sqrt{-g}G^{\mu \nu}\delta_{\xi}g_{\mu \nu}\\
+     &=\int \td ^4x \sqrt{-g} \, G^{\mu \nu}(\nabla_{\mu}\xi_{\nu} + \nabla_{\nu}\xi_{\mu})\\
+     \label{eq:bianchi idk}
+     &=2\int \td ^4x \sqrt{-g}\, G^{\mu \nu}\nabla_{\mu}\xi_{\nu}
+\end{align}
+Or, remarquons que l'expression suivante est un terme de bord :
+\begin{equation}
+    \int \td ^4x \sqrt{-g}\nabla_{\nu}(G^{\mu \nu} \xi_{\nu}) =  \int \td ^4x \, \partial_{\mu}(\sqrt{-g}G^{\mu \nu} \xi_{\nu}) = 0 \text{ pour } \xi \text{ tel que }\xi|_{\partial M} = 0
+\end{equation}
+Pour une telle transformation, on peut intégrer par parties \ref{eq:bianchi idk} :
+\begin{equation}
+    2\int \td ^4x \sqrt{-g} \, G^{\mu \nu}\nabla_{\mu}\xi_{\nu} = 2\int \td ^4x \sqrt{-g}(\nabla_{\nu}G^{\mu \nu})\xi_{\nu} = 0 \text{ pour tout } \xi \text{ tel que }\xi|_{\partial M} = 0
+\end{equation}
+Autrement dit :
+\begin{equation}
+    \boxed{\nabla_{\mu}G^{\mu \nu} = 0}
+\end{equation}
+Les identités de Bianchi sont une conséquence de la covariance généralisée de l'action d'Einstein-Hilbert ou encore de son invariance sous difféomorphisme s'annulant au bord. 
+
+\subsubsection{4.3.3 Signification des identités de Bianchi}
+
+Les équations d'Einstein $G^{\mu \nu} = 0$ représentent $10$ équations pour $10$ inconnues qui sont les composantes de la métriques $g_{\mu\nu}$. Ceci semble correct : avec $10$ équations du second ordre pour $10$ inconnues, si l'on fixe comme conditions initiales $g_{\mu\nu}$ et $\pd_t g_{\mu\nu}$ sur une hypersurface de genre espace, ces équations devraient spécifier de manière unique les composantes de $g_{\mu\nu}$ en tout point situé dans le futur de cette hypersurface.\\
+\\
+Néanmoins, cela ne peut pas être vrai. En effet, les équations d'Einstein sont généralement covariantes, i.e. invariantes sous transformation générales des coordonnées. Après les avoir résolues, on doit pouvoir être libre d'appliquer un difféomorphisme général sur la solution (qui est constitué de $4$ composantes dépendant des $4$ variables d'espace-temps), et d'obtenir une solution physiquement équivalente. Ainsi, les équations d'Einstein ne peuvent \emph{pas} déterminer uniquement $g_{\mu\nu}$ : elles ne peuvent déterminer la métrique que modulo des transformations générales de coordonnées, donc modulo 4 fonctions. On s'attend donc à ce que parmi les 10 équations de champ, seules 6 soient indépendantes. En effet, les identités de Bianchi
+\begin{equation}
+    \nabla_\alpha G^{\alpha \beta} = 0
+\end{equation}
+impliquent 4 relations différentielles (pour chaque valeur de $\nu$) reliant les solutions les 10 équations d'Einstein. Le couplage est donc correct.\\
+\\
+La covariance généralisée des équations d'Einstein est reflétée par le fait que seules 6 des 10 équations sont de véritables équations différentielles du second ordre, tandis que 4 d'entre elles sont de premier ordre : elles représentes des contraintes sur les données initiales des champs.
+\begin{align}
+     \nabla_{\alpha}G^{\alpha \beta} &= 0 = \partial_{\alpha}G^{\alpha \beta} + \Gamma^{\alpha}_{\mu \alpha}G^{\mu \beta} + \Gamma^{\beta}_{\alpha \mu}G^{\alpha\mu}
+     \intertext{et donc}
+     \partial_{t}G^{t \beta}&= - \partial_{k}G^{k \beta} - \Gamma^{\alpha}_{\mu \alpha}G^{\mu \beta} + \Gamma^{\beta}_{\alpha \mu}G^{\alpha\mu}
+\end{align}
+Le côté droit comporte des objets qui sont au plus des dérivées secondes temporelles de la métrique. Ainsi, au côté gauche $G^{t \beta}$ ne peut contenir qu'au plus les dérivées premières par rapport au temps en la métriques. Les quatre équations $G^{t \beta} = 0$ ne sont pas des équations d'évolution de la métrique : ce sont seulement des contraintes sous les conditions initiales $g_{\mu\nu}$ et $\pd_t g_{\mu\nu}$.\footnote{Voir aussi formalisme Hamiltonien de la relativité générale, Blau [illisible].} Les vecteurs de Killing sont associé à ces équations du champ.

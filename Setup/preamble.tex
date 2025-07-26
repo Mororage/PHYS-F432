@@ -1,0 +1,102 @@
+\RequirePackage{fix-cm}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
+
+% Mathématiques et symboles
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools, bm}
+%\usepackage{mdframed}% Permet d'encadrer les équations
+\usepackage{braket}
+\usepackage{esvect}
+\usepackage{centernot} % Pour barrer des symboles
+\usepackage{halloweenmath}
+\usepackage{tensor}
+% Graphiques et couleurs
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[xcdraw, table]{xcolor}
+
+% Bibliographie
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{refermance.bib} % Import de la bibliographie
+
+% Autres fonctionnalités utiles
+\usepackage{delarray}
+\usepackage{parskip}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, label=\textbullet}
+
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{wasysym} % Astronomical symbols
+
+\usepackage{musicography} % Nice breakers
+
+\usepackage{lmodern} % To switch to Latin Modern
+\rmfamily % To load Latin Modern Roman and enable the following NFSS declarations.
+% Declare that Latin Modern Roman (lmr) should take
+% its bold (b) and bold extended (bx) weight, and small capital (sc) shape, 
+% from the corresponding Computer Modern Roman (cmr) font, for the T1 font encoding.
+\DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
+\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
+
+% Encadrements
+\usepackage[framemethod=tikz]{mdframed} % Pour lignes verticales sur les théorèmes
+
+% En-têtes et pieds de page
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+% Réinitialisation des en-têtes et pieds de page
+\fancyhead{}
+\fancyfoot{}
+
+% Configuration des en-têtes et pieds de page
+
+\fancyhead[L]{Théorie de la Gravitation}
+\fancyhead[R]{\nouppercase\leftmark}
+\fancyfoot[C]{\footnotesize Page \thepage\ sur \pageref*{LastPage}}
+
+
+% Correction de la hauteur des en-têtes pour éviter les erreurs
+\setlength{\headheight}{14.5pt} % Hauteur de l'en-tête
+\setlength{\topmargin}{-1.5cm} % Diminue la marge supérieure pour remonter l'en-tête
+\setlength{\headsep}{1cm} % Espacement vertical entre l'en-tête et le texte
+
+\setlength{\footskip}{1.5cm} % Distance entre le texte principal et le début du pied de page
+\addtolength{\textheight}{+1cm} % Réduit la hauteur de la zone de texte pour libérer de l'espace en bas
+
+\usepackage{color}
+\definecolor{myblue}{rgb}{.8, .8, 1}
+\usepackage{empheq}
+
+\newlength\mytemplen
+\newsavebox\mytempbox
+
+\makeatletter
+\newcommand\mybluebox{%
+    \@ifnextchar[%]
+       {\@mybluebox}%
+       {\@mybluebox[0pt]}}
+
+\def\@mybluebox[#1]{%
+    \@ifnextchar[%]
+       {\@@mybluebox[#1]}%
+       {\@@mybluebox[#1][0pt]}}
+
+\def\@@mybluebox[#1][#2]#3{
+    \sbox\mytempbox{#3}%
+    \mytemplen\ht\mytempbox
+    \advance\mytemplen #1\relax
+    \ht\mytempbox\mytemplen
+    \mytemplen\dp\mytempbox
+    \advance\mytemplen #2\relax
+    \dp\mytempbox\mytemplen
+    \colorbox{myblue}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}

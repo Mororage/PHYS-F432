@@ -1,0 +1,65 @@
+\documentclass[a4paper,12pt]{report} % Add 'fleqn' to align all equation to the left.
+
+% Préambule de Moritz
+\usepackage{import}
+\import{Setup/}{preamble.tex}
+\import{Setup/}{macros.tex}
+% Fin du préambule de Moritz
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+{\bf {\large Université Libre de Bruxelles}}\\\vspace{0.8cm}
+\begin{center}
+2024/2025
+\end{center}
+\vspace{3cm}
+
+\vspace{1.5cm}
+\noindent\rule{\textwidth}{1mm}
+\Large{\textbf{Théorie de la gravitation}}
+\noindent\rule{\textwidth}{1mm}
+\end{center}
+\vspace{3cm}
+%-------------------------------------------------------------------------- 07
+\begin{tabular}{ p{9cm}  p{6cm} }
+\textbf{Basé sur un cours de} & \textbf{Rédigé par} \\
+\begin{itemize}
+    \item Stéphane Detournay
+\end{itemize}
+&
+\begin{itemize}
+    \item Victoria Spruyt
+    \item Moritz Schnor
+\end{itemize}
+\\
+\end{tabular}
+\\
+\,\vspace{3cm}
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\include{Chapitres/1. Introduction/introduction} %
+
+\include{Chapitres/2. Relativité Restreinte/rela restreinte}
+
+\include{Chapitres/3.Element de géométrie différentielle/geometrie différentielle}
+
+%\include{Chapitres/4.Principe d'équivalence et système de coordonnées localement inertiel/principe d'équivalence}
+
+%\include{Chapitres/5. Géodésiques/géodésiques}
+
+%\include{Chapitres/6. Les équations d'Einstein/Einstein}
+
+%\include{Chapitres/7. La solution de Schwarzschild/Schwarzschild}
+
+%\include{Chapitres/8. Trous noirs/Trous Noirs}
+
+%\include{Chapitres/9. Questions/questions}
+
+\end{document}
