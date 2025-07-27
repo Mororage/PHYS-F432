@@ -5,6 +5,7 @@ L’objectif est de créer un support dactylographié rigoureux et librement acc
 
 ---
 
+Les dernières versions compilés (PDF) sont disponibles dans le dossier [Syllabus](https://github.com/Mororage/PHYS-F432/tree/main/Syllabus).
 ## Contribuer
 Toute contribution est la bienvenue :
 
