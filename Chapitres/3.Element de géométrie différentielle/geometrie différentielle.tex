@@ -10,19 +10,19 @@ On se place encore dans l'espace-temps de Minkowski $\mathcal{M}= \R^{1,3}$ avan
 
 \begin{theoremframe}
     \begin{notat}
-    Soit $P\in \mathcal{M}$. L'espace tangent à $\mathcal{M}$ au point $P$ est noté $T_P\mathcal{M}$. C'est un espace vectoriel réel de dimension 4.
+    Soit $P\in \mathcal{M}$. L'espace tangent à $\mathcal{M}$ au point $P$ est noté $T_p\mathcal{M}$. C'est un espace vectoriel réel de dimension 4.
     \end{notat}
 \end{theoremframe}
-La définition précise d'un espace tangent sera donné ultérieurement. Les éléments de $T_P\mathcal{M}$ sont appelés \textit{vecteurs} au point $P$. 
+La définition précise d'un espace tangent sera donné ultérieurement. Les éléments de $T_p\mathcal{M}$ sont appelés \textit{vecteurs} au point $P$. 
 \begin{rmk}
-La notion locale (au point $P$) de cette définition est importante: un vecteur ne pourra pas être vu comme une flèche rejoignant le point $P$ à un autre point $Q \in \mathcal{M}$. Le vecteur \textit{ne vit pas} sur le même espace que les points $P$ et $Q$. Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_P\mathcal{M}$ coincident. On peut alors les voir comme des flèches rejoignant deux points distincts. Ceci n'est plus le cas si l'espace-temps est courbe.
+La notion locale (au point $P$) de cette définition est importante: un vecteur ne pourra pas être vu comme une flèche rejoignant le point $P$ à un autre point $Q \in \mathcal{M}$. Le vecteur \textit{ne vit pas} sur le même espace que les points $P$ et $Q$. Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_p\mathcal{M}$ coincident. On peut alors les voir comme des flèches rejoignant deux points distincts. Ceci n'est plus le cas si l'espace-temps est courbe.
 \end{rmk}
 \begin{theoremframe}
 \begin{defi}
-    L'union disjointe de tous les espaces tangents de $\mathcal{M}$ noté $T\mathcal{M}=\bigsqcup_P T_P\mathcal{M}$ est appelé \textit{fibré tangent} de $\mathcal{M}$.
+    L'union disjointe de tous les espaces tangents de $\mathcal{M}$ noté $T\mathcal{M}=\bigsqcup_P T_p\mathcal{M}$ est appelé \textit{fibré tangent} de $\mathcal{M}$.
 \end{defi}
 \end{theoremframe}
-Comme $T_P\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\overline{e}_\alpha\}_\alpha$ de $T_P\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_P\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \overline{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Remarquons donc que bien que $V$ ne dépend pas du choix de la base, $V^\alpha$, quant à lui, dépend bien de ce choix.
+Comme $T_p\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\overline{e}_\alpha\}_\alpha$ de $T_p\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_p\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \overline{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Remarquons donc que bien que $V$ ne dépend pas du choix de la base, $V^\alpha$, quant à lui, dépend bien de ce choix.
 
 La donnée d'un vecteur $x_{P} \in T_{p}\mathcal{M}$ à tout $P$ de l'espace est un champ de vecteurs.
 
@@ -38,7 +38,7 @@ Un ensemble canonique de vecteur de $\mathcal{M}$ est un vecteur tangent à une 
 \end{theoremframe}
 \begin{theoremframe}
 \begin{propri}
-    Soit un vecteur $V^\alpha\in T_P\mathcal{M}$. Sous transformation de Poincaré, ce vecteur se transforme comme
+    Soit un vecteur $V^\alpha\in T_p\mathcal{M}$. Sous transformation de Poincaré, ce vecteur se transforme comme
     \begin{equation}
         V^{\alpha'} = \Lambda^{\alpha'}_{\; \mu} V^\mu
     \end{equation}
@@ -98,19 +98,19 @@ où le point clarifie l'ordre des indices. Ceci permet de conclure, en multiplia
 Nous appelons \textit{dual} d'un espace vectoriel $V$ l'ensemble des formes linéaires sur cet espace.
 \begin{theoremframe}
     \begin{defi}
-        L'espace \textit{co-tangent} à $\mathcal{M}$ en un point $P$ est le dual de $T_P\mathcal{M}$ et est noté $T_P^*\mathcal{M} = (T_P\mathcal{M)^*}$.
+        L'espace \textit{co-tangent} à $\mathcal{M}$ en un point $P$ est le dual de $T_p\mathcal{M}$ et est noté $T_p^*\mathcal{M} = (T_p\mathcal{M)^*}$.
     \end{defi}
 \end{theoremframe}
 \begin{theoremframe}
     \begin{defi}
-        Un \textit{covecteur} est un élément de l'espace co-tangent $w\in T_P^*\mathcal{M}$.
+        Un \textit{covecteur} est un élément de l'espace co-tangent $w\in T_p^*\mathcal{M}$.
     \end{defi}
 \end{theoremframe}
 On peut définir une base $\{\Theta^\mu\}_\mu$ sur l'espace co-tangent selon l'identité
 \begin{equation}
     \Theta^\mu(\overline{e}_\nu)=\delta^\mu_\nu
 \end{equation}
-Dans cette base, un covecteur $w\in T_P^*\mathcal{M}$ s'écrit $w = w_\alpha \theta^\alpha$. Soit $V \in T_P\mathcal{M}$:
+Dans cette base, un covecteur $w\in T_p^*\mathcal{M}$ s'écrit $w = w_\alpha \theta^\alpha$. Soit $V \in T_p\mathcal{M}$:
 \begin{align}
     w(V) &= w_{\alpha} \Theta^{\alpha}(V^{\mu} \Vec{e_{\mu}})\\
     &=w_{\alpha} V^{\mu}\Theta^{\alpha} (\Vec{e_{\mu})}\\
@@ -123,7 +123,7 @@ où $V$ est un vecteur de l'espace tangent.
 
 Cette expression ne dépend pas du choix de base. De plus, elle ne comporte pas d'indices libres. Un tel terme est appelé scalaire de Lorentz. On peut l'écrire de manière équivalente comme $w(V) = w_{\alpha} V^{\alpha} = w_{\alpha '} V^{\alpha '} $.
 \begin{rmk}
-    Dans un espace vectoriel de dimension finie, le dual de l'espace dual est identifié à $T_P\mathcal{M}$. On a donc $(T^*_P\mathcal{M})^* = T_P\mathcal{M}$.
+    Dans un espace vectoriel de dimension finie, le dual de l'espace dual est identifié à $T_p\mathcal{M}$. On a donc $(T^*_P\mathcal{M})^* = T_p\mathcal{M}$.
 \end{rmk} 
 \begin{theoremframe}
     \begin{propri}
@@ -440,7 +440,7 @@ Notons que nous considérerons dans la suite que l'homéomorphisme sera lisse (c
             \centering
             \includegraphics[width=0.5\linewidth]{Chapitres/3.Element de géométrie différentielle/Images/ouvertchevauchement.jpg}
             \caption{Sur les images de l'intersection de $U_i$ et $U_j$, il existe une bijection lisse.}
-            \label{fig:3.1}
+            \label{fig:3.2}
         \end{figure}
         \item Les atlas sur les variétés ne sont pas uniques. Les différents choix d'atlas correspond aux différents choix physique de système de coordonnées. La liberté de changer d'atlas correspond à la liberté de changer de coordonnées ou de référentiel pour décrire une variété.
     \end{enumerate}

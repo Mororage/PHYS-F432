@@ -1,5 +1,6 @@
 \chapter{Rappels de Relativité Restreinte}
-Ce chapitre contient en grande partie des rappels de relativité restreinte (RR) du cours BA2. L'ensemble de la relativité restreinte reste valable localement en relativité générale (RG) dans un référentiel localement inertiel (RLI).
+La première partie de ce chapitre (section 1-4) est constitué exclusivement de rappels de la relativité restreinte. Celle-ci sera importante dans la suite du cours, comme elle reste valable \emph{localement} en présence de gravitation, dans un RLI. La seconde partie du chapitre (section 5-6) approfondit ces notions via une étude de la \emph{structure causale} de l'espace de Minkowski.
+
 
 \section{Postulats de la relativité restreinte}
 En 1905, Einstein énonça les deux postulats de la relativité restreinte:
@@ -15,13 +16,12 @@ En 1905, Einstein énonça les deux postulats de la relativité restreinte:
 \end{theoremframe}
 \section{Définition d'un référentiel inertiel}
 
-La relativité restreinte est une théorie de l'espace-temps plat $\R ^{1,3}$ dont les points sont appelés les événements. Les référentiels permettent d'enregistrer ces événements, et sont composés de:
-
+La relativité restreinte est une théorie de l'espace-temps plat quadri-dimensionnel $\R ^{1,3}$, dont les points sont appelés des \emph{événements}. Les \emph{référentiels} permettent d'enregistrer ces événements, et sont constitués de:
 \begin{enumerate}
-    \item un repère spatial cartésien orthonormé au repos de coordonnées $(x, y, z) = x^k$ où $k = 1, 2, 3$
-    \item des horloges qui déterminent quand l'événement a lieu $x^0 = ct$. 
+    \item un repère spatial cartésien orthonormé au repos de coordonnées $(x, y, z) = \vect{x}$, souvent écrit en composantes $x^k$ où $k=1, 2, 3$. 
+    \item des horloges qui déterminent quand l'événement a lieu $x^0 = ct$. \\
 \end{enumerate}
-Un point $x^\mu\in \R^{1,3}$ dans ce repère avec $\mu=0,1,2,3$ est appelé un quadri-vecteur (ou 4-vecteur), et possède des unités de longueur $[x^\mu ] = L$.
+Un point $x^\mu\in \R^{1,3}$ dans ce repère avec $\mu=0,1,2,3$ est appelé un quadri-vecteur (ou 4-vecteur), et possède des unités de longueur $[x^\mu ] = L$. Naturellement, les événements existent indépendamment des référentiel, tout comme les points du plan euclidien existent indépendamment des repères cartésiens (ce sont des points physiques).
 \begin{theoremframe}
 \begin{rap}[Principe d'inertie]
     En l'absence de force appliquée, un corps se meut en mouvement rectiligne uniforme ou reste au repos.    
@@ -32,33 +32,41 @@ Un point $x^\mu\in \R^{1,3}$ dans ce repère avec $\mu=0,1,2,3$ est appelé un q
 Un \emph{référentiel inertiel} est une référentiel dans lequel le principe d'inertie est vrai. 
 \end{defi}
 \end{theoremframe}
-Un référentiel inertiel est une contrepartie de l'espace euclidien. \footnote{qu'est-ce que cela signifie vraiment contrepartie? Moritz: aucune idée }
+Étant donné un référentiel inertiel $O$, le principe d'inertie ne peut trivialement pas être vérifié dans des repères accélérés par rapport à $O$. 
 
-Un référentiel non inertiel est par exemple la Terre ou un carrousel qui tourne sur lui-même. En effet dans un carrousel, si une personne envoie une balle à une personne en face de lieu lorsque le carrousel est au repas la balle à une trajectoire en ligne droite ( donc le principe d'inertie est respecter) donc arrive a destination. Alors que quand le carrousel tourne sur lui-même, la personne n'arrivera pas a attraper la balle car elle n'aura pas un mouvement rectiligne (le principe d'inertie n'est pas respecté donc on est pas dans un référentiel inertiel).
+\begin{exmp}
+    \textbf{Un référentiel non-inertiel} :\\
+    Un carrousel qui tourne sur lui-même. Dans celui-ci, si une personne lance une balle à une personne en face de lui lorsque le carrousel est au repos la balle suit une trajectoire en ligne droite (le principe d'inertie est donc respecté). Quand le carrousel commence à tourner, la personne n'arrivera pas a attraper la balle car elle n'aura pas un mouvement rectiligne (le principe d'inertie n'est pas respecté donc on n'est pas dans un référentiel inertiel).
+\end{exmp}
+
 
 \section{Intervalle d'espace-temps}
 
-L'intervalle d'espace-temps plat $\mathcal{M} = \R ^{1,3}$ (avec les coordonnées $x^{\mu}$) est l'objet central de la relativité restreinte. On va voire que l'intervalle d'espace-temps de longueur invariante: $(\Delta s)^2 = \eta _{\mu \nu}\Delta x^{\mu} \Delta x^{\nu} $, est préservé par les transformations de Poincaré propre octocrone $\ISO (3,1)\uparrow$.
+L'intervalle (relativiste) est la contrepartie pour l'espace-temps plat $\R^{1,3}$ de la distance pour un espace euclidien.
 
-L'intervalle d'espace-temps est une contrepartie de la distance euclidienne ($(\Delta r)^2 = (\Delta \vect{x})^2$) sur $\R^{1,3}$.
+\begin{theoremframe}
+    \begin{defi}
+        Soient deux événements $P,Q$ à coordonnées $x_P^\mu, x_Q^\mu$ dans un référentiel inertiel donné. L'\emph{intervalle} d'espace-temps plat entre $P$ et $Q$ est donné par
+        \begin{align}
+            (\Delta s)^2 &\equiv -(c\Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2\\
+            &= \eta _{\mu \nu} \, \Delta x^{\mu} \Delta x^{\nu}
+        \end{align}
+        où $\Delta x^{\mu}=x^\mu_Q-x^\mu_P$ est la séparation entre les deux événements et où $\eta _{\mu \nu} \equiv \textrm{diag}(-1, 1, 1, 1)$ est la métrique de Minkowski\footnote{Contrairement à la QFT, nous utiliserons dans l'ensemble de ce cours la convention \emph{mostly positive} de la métrique de Minkowski, comme il est d'usage en RG et cosmologie.}. La sommation est sous-entendue sur les indices répétés.
+    \end{defi}
+\end{theoremframe}
+Nous verrons que l'intervalle est préservé par les transformations de Poincaré propre octocrone $\ISO (3,1)^\uparrow$. L'intervalle définit une pseudo-métrique (au sens mathématique) sur $\R^{1,3}$ : contrairement à une métrique usuelle, elle n'est pas définie positive, et 
+\begin{equation}
+    \Delta s(x^\mu,y^\mu)=0 \centernot \implies x^\mu=y^\mu
+\end{equation}
 
-Soient deux événements $P,Q \in \R^{1,3}$ dont les coordonnées dans un référentiel intertiel $\mathcal{O}$ sont $x_P^{\mu}$ et $x_Q^{\mu}$ séparées par $\Delta x^{\mu}=x^\mu_P-x^\mu_Q$. L'intervalle relativiste est défini par:
-
-\begin{align}
-    (\Delta s)^2 &\equiv -(c\Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2\\
-    &= \eta _{\mu \nu} \Delta x^{\mu} \Delta x^{\nu}
-\end{align}
-
-où $\eta _{\mu \nu} \equiv \textrm{diag}(-1, 1, 1, 1)$ est la métrique de Minkowski. La sommation est sous-entendue sur les indices répétés. L'intervalle définit une pseudo-métrique sur $\R^{1,3}$: elle n'est pas définie positive, et $d(x^\mu,y^\mu)=0 \centernot \implies x^\mu=y^\mu$.
-
-L'intervalle permet de construire une structure causale sur $\R^{1,3}$: les deux évènements $P$ et $Q$ ont un lien causal si et seulement si $(\Delta s)^2 < 0$. En effet:
+L'intervalle permet de construire une structure causale sur $\R^{1,3}$: les deux évènements $P$ et $Q$ ont un lien causal si et seulement si $(\Delta s)^2 < 0$. En effet, supposons par l'absurde que leur intervalle soit positif :
 
 \begin{align}
     (\Delta s)^2 > 0 &\implies -(c\Delta t)^2 + (\Delta \vect{x})^2 > 0\\
     &\implies c^2 < \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2 \equiv v^2\\
 \end{align}
 
-Mais comme aucune information ne peut propager plus vite que la vitesse,on conclut que les deux évènements ne sont pas en lien causal. 
+Mais comme aucune information ne peut propager plus vite que la vitesse,on conclut que les deux évènements ne sont pas causalement liés. 
 
 \begin{theoremframe}
     \begin{propri}
@@ -66,106 +74,87 @@ Mais comme aucune information ne peut propager plus vite que la vitesse,on concl
     \end{propri}
 \end{theoremframe}
 \begin{proof}
-    Soient deux événements $P,Q \in \R^{1,3}$ séparés dans un référentiel inertiel $\mathcal{O}$ par des coordonnées $\Delta x^{\mu}$ et dans un référentiel inertiel $\mathcal{O}'$ par des coordonnées $\Delta x'^{\mu}$ .
+    Soient deux événements $P,Q \in \R^{1,3}$ séparés dans un référentiel inertiel $O$ par des coordonnées $\Delta x^{\mu}$ et dans un référentiel inertiel $O'$ par des coordonnées $\Delta x'^{\mu}$ .
 
-\begin{center}
-\includegraphics[scale=0.3]{Chapitres/2. Relativité Restreinte/Images/intervalle graph.png}
-%\captionof{figure}{}
-%\label{Plot_1}
-\end{center}
-\begin{enumerate}
-    \item Supposons qu'un signal lumineux joigne $P$ à $Q$. On a donc $\lt \dfrac{\Delta \vect{x}}{\Delta t} \rt^2 = v^2 = c^2$. Calculons $(\Delta s )^2$:
+    \begin{center}
+        \includegraphics[scale=0.3]{Chapitres/2. Relativité Restreinte/Images/intervalle graph.png}
+    \end{center}
+    \begin{enumerate}
+        \item Supposons qu'un signal lumineux joigne $P$ à $Q$. On a donc $\lt \dfrac{\Delta \vect{x}}{\Delta t} \rt^2 = v^2 = c^2$. Calculons $(\Delta s )^2$:
+        \begin{align}
+            (\Delta s )^2  & = -(c\Delta t)^2 + (\Delta \vect{x})^2\\
+            \lt\frac{\Delta s}{\Delta t}\rt^2 & = -c^2 + \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2\\
+            & =0
+        \end{align}
+        Ainsi, $\Delta s = 0$. Dans le référentiel $O'$, on aura également $\Delta s' = 0$  car la vitesse de la lumière est la même dans tout les référentiel inertiel.
+        \begin{equation}
+            \lt \frac{\Delta s'}{\Delta t'} \rt^2 = -c^2 + v'^2 = 0
+        \end{equation}
+        Il en découle que si l'intervalle s'annule dans un référentiel inertiel, il s'annule dans tout référentiel inertiel. \\
+        \item Montrons maintenant que peu importe valeur de $\Delta s$, on a que $\Delta s = \Delta s' $ pour tous référentiels inertiels.
 
-\begin{align}
-    (\Delta s )^2  & = -(c\Delta t)^2 + (\Delta \vect{x})^2\\
-    \lt\frac{\Delta s}{\Delta t}\rt^2 & = -c^2 + \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2\\
-    & =0
-\end{align}
+        Comme les deux référentiels sont inertiels, ils sont reliés par une transformation linéaire: 
+        \begin{equation}
+            x'^{\mu} = \Lambda\indices{^\mu_\alpha} \, x^{\alpha} + a^{\mu}
+            \label{def:poincaré}
+        \end{equation}
+        où $a\in \R^{1,3}$ est un constante et $\Lambda$ une matrice inversible. Les différences sont alors:
+        \begin{equation}
+            \label{eq:intervalle1}
+            \Delta x'^{\mu} = \Lambda\indices{^{\mu}_{\alpha}} \,  \Delta x^{\alpha}
+        \end{equation}
+        et donc l'intervalle dans les deux référentiels s'écrit : 
+        \begin{align}
+            \label{eq:intervalle2}
+            (\Delta s)^2 & = \eta _{\mu \nu} \, \Delta x^{\mu} \Delta x^{\nu}\\
+            \label{eq:intervalle3}
+            (\Delta s')^2 & = \eta _{\mu \nu} \, \Delta x'^{\mu} \Delta x'^{\nu}.
+        \end{align}
+        Autrement dit, $(\Delta s)^2$ et $(\Delta s')^2$ sont des polynômes du second degré en les $\Delta x^{\mu}$, car d'après \ref{def:poincaré}, $x'^\mu$ dépend linéairement de $x^\mu$. On a montré précédemment que si $(\Delta s)^2 = 0$ alors $(\Delta s')^2 = 0$ : les deux polynômes ont donc les mêmes racines. Or, deux polynômes du second degré qui ont les mêmes racines sont proportionnelles, c'est-à-dire qu'il existe $\kappa\in \R$ tel que
+        \begin{equation} 
+            \label{eq:intervalle4}
+            (\Delta s)^2 = \kappa (\Delta s')^2.
+        \end{equation}
+        L'espace-temps est isotrope, et $\kappa$ ne peut donc que dépendre de la norme de la vitesse relative entre les deux référentiels : $\kappa(\vect{v})=\kappa(\lVert \vect{v} \rVert)$\footnote{Etant une propriété des deux référentiels, $\kappa$ ne peut que dépendre $\vect{v}$. Nous invitons le lecteur à argumenter pourquoi celui-ci ne peut pas dépendre des coordonnées d'espace.}. En particulier, on trouve $\kappa(\Vec{v}) = \kappa(-\vect{v})$. En effectuant le changement de référentiel inverse, on trouve que
+        \begin{equation}
+            (\Delta s')^2 = \kappa(-\vect{v}) (\Delta s)^2
+            \label{eq:intervalle5}
+        \end{equation}
+        En combinant\ref{eq:intervalle4} avec \ref{eq:intervalle5}, on obtient finalement
+        \begin{align}
+            (\Delta s)^2 &= \kappa(\vect{v}) \kappa(-\vect{v}) (\Delta s)^2\\
+            &= \kappa^2(\Delta s)^2
+        \end{align}
+        Il vient que $\kappa ^2= 1$ soit $\kappa = \pm 1$. En injectant \ref{eq:intervalle1} dans \ref{eq:intervalle3}, puis en utilisant la relation \ref{eq:intervalle4}, on trouve que
+        \begin{equation}
+            \eta_{\mu\nu} \, \Delta x^\mu \Delta x^\nu = \kappa \, \eta_{\alpha\beta} \, \Lambda\indices{^\alpha_{\mu}} \, \Lambda\indices{^\beta_{\nu}}\, \Delta x^\mu \Delta x^\nu
+        \end{equation}
+        soit (en notation matricielle) :
+        \begin{equation}
+            \label{eq:Lorentz pre}
+            \eta = \kappa \,\eta'=\kappa \,\Lambda^T\eta \Lambda
+        \end{equation}
+        Comme $\eta$ est une forme quadratique symétrique et $\eta'$ est un changement de base de $\eta$ ($\Lambda$ est inversible), le \textit{théorème de Sylvester}\footnote{c.f. votre cours d'algèbre de BA1.} impose que la signature de $\eta'$ ne change pas, et donc que $\kappa=1$.
 
-Ainsi, $\Delta s = 0$. Dans le référentiel $O'$, on aura également $\Delta s' = 0$  car la vitesse de la lumière est la même dans tout les référentiel inertiel.
-
-\begin{equation}
-    \lt \frac{\Delta s'}{\Delta t'} \rt^2 = -c^2 + v'^2 = 0
-\end{equation}
-
-Il en découle que si l'intervalle s'annule dans un référentiel inertiel, alors il s'annule aussi dans tout référentiel inertiel. 
-\item Montrons maintenant que peu importe valeur de $\Delta s$, on a que $\Delta s = \Delta s' $ pour tous référentiels inertiels.
-
- 
-
-Comme les deux référentiels sont inertiels, ils sont reliés par une transformation linéaire: 
-
-\begin{equation}
-    x'^{\mu} = \Lambda^{\mu}_{ \; \alpha} x^{\alpha} + a^{\mu}
-    \label{def:poincaré}
-\end{equation}
-où $a\in \R^{1,3}$ est un constante et $\Lambda$ une matrice inversible. Les différences sont alors:
-
-\begin{equation}
-    \label{eq:intervalle1}
-    \Delta x'^{\mu} = \Lambda^{\mu}_{\alpha} \Delta x^{\alpha}
-\end{equation}
-
-et donc l'intervalle dans les deux référentiels s'écrit
-
-\begin{align}
-    \label{eq:intervalle2}
-    (\Delta s)^2 & = \eta _{\mu \nu} \Delta x^{\mu} \Delta x^{\nu}\\
-    \label{eq:intervalle3}
-    (\Delta s')^2 & = \eta _{\mu \nu} \Delta x'^{\mu} \Delta x'^{\nu}
-\end{align}
-
-et donc $(\Delta s)^2$ et $(\Delta s')^2$ sont deux polynômes du second degré en les $\Delta x^{\mu}$ (comme les $x'^\mu$ dépendent linéairement de $x^\mu$). On a prouvé précédemment que si  $(\Delta s)^2 = 0$ alors   $(\Delta s')^2 = 0$. Les deux polynômes ont donc les mêmes racines. Or deux polynômes du second degré qui ont les mêmes racines sont proportionnelles, c'est-à-dire qu'il existe $\kappa\in \R$ tel que
-
-\begin{equation} 
-\label{eq:intervalle4}
-(\Delta s)^2 = \kappa (\Delta s')^2.
-\end{equation}
-
-L'espace-temps est isotrope donc $\kappa(\vect{v})=\kappa(\lVert \vect{v} \rVert)$\footnote{Etant une propriété des deux référentiels, $\kappa$ ne peut que dépendre $\vect{v}$. Nous invitons le lecteur à argumenter pourquoi celui-ci ne peut pas dépendre des coordonnées d'espace.} et donc en particulier, on trouve $\kappa(\Vec{v}) = \kappa(-\vect{v})$. En effectuant le changement de référentiel inverse, on trouve que
-
-\begin{equation}
-    (\Delta s')^2 = \kappa(-\vect{v}) (\Delta s)^2
-    \label{eq:intervalle5}
-\end{equation}
-
-En combinant\ref{eq:intervalle4} avec \ref{eq:intervalle5}, on obtient finalement
-
-\begin{align}
-    (\Delta s)^2 &= \kappa(\vect{v}) \kappa(-\vect{v}) (\Delta s)^2\\
-    &= \kappa^2(\Delta s)^2
-\end{align}
-
-Il vient que $\kappa ^2= 1$ donc aussi $\kappa = \pm 1$. En injectant \ref{eq:intervalle1} dans \ref{eq:intervalle3}, puis en utilisant la relation \ref{eq:intervalle4}, on trouve que
-\begin{equation}
-    \eta_{\mu\nu} \Delta x^\mu \Delta x^\nu = \kappa \eta_{\alpha\beta} \Lambda^\alpha_{\; \mu} \Lambda^\beta_{\; \nu}\Delta x^\mu \Delta x^\nu
-\end{equation}
-soit
-\begin{equation}
-    \label{eq:Lorentz pre}
-    \eta = \kappa\eta'=\kappa \Lambda^T\eta \Lambda
-\end{equation}
-Comme $\eta$ est une forme quadratique symétrique et $\eta'$ est un changement de base de $\eta$ ($\Lambda$ est inversible), par le \textit{théorème de Sylvester}\footnote{c.f. votre cours d'algèbre de BA1.} que la signature de $\eta'$ ne change pas, et donc que $\kappa=1$.
-
-On peut ainsi conclure que $(\Delta s)^2 = (\Delta s)^2$.
-\end{enumerate}
+        On peut ainsi conclure que $(\Delta s')^2 = (\Delta s)^2$.
+    \end{enumerate}
 \end{proof}
 
 \section{Transformations de Lorentz et de Poincaré}
 
-On définit les transformations de Poincaré comme l'ensemble des isométries sur l'espace (pseudo-)métrique $(\R^{1,3},s)$, c'est-à-dire les transformations qui relient des référentiels inertiels et telles que la vitesse de la lumière $c$ soit conservée.
+On définit les transformations de Poincaré comme l'ensemble des isométries sur l'espace-temps munie de la (pseudo-)métrique de Minkowski $(\R^{1,3},s)$, c'est-à-dire les transformations qui relient des référentiels inertiels et telles que la vitesse de la lumière $c$ soit conservée.
 
-Imaginons qu'on a deux référentiels inertiels $O$ et $O'$ qui ont respectivement comme coordonnées $x^{\alpha}$ et $x^{\alpha '}$. 
+Soient deux référentiels inertiels $O$ et $O'$ qui ont respectivement comme coordonnées $x^{\alpha}$ et $x^{\alpha '}$. 
 Comme les deux référentiels sont inertiels ils doivent être reliés par la transformation \ref{def:poincaré}. 
 
 Comme vu dans la section précédente, en prenant $\kappa = 1$ dans la relation \ref{eq:Lorentz pre}, on trouve que
 
 \begin{equation}
     \label{eq:Lorentz}
-    \Lambda ^{T} \eta \Lambda = \eta
+    \boxed{\Lambda ^{T} \eta \Lambda = \eta}
 \end{equation}
 
-L'ensemble des matrices satisfait à l'équation \ref{eq:Lorentz} est appelé le \textit{groupe de Lorentz} O$(3,1)$. L'ensemble des couples $(\Lambda,a)$ satisfaisant à \ref{eq:intervalle1} et donc à \ref{eq:Lorentz} est appelé \textit{groupe de Lorentz inhomogène} ou le \textit{groupe de Poincaré} $IO(3,1)$. 
+L'ensemble des matrices satisfaisant à l'équation \ref{eq:Lorentz} est appelé le \textit{groupe de Lorentz} O$(3,1)$. L'ensemble des couples $(\Lambda,a)$ satisfaisant à \ref{eq:intervalle1} et donc à \ref{eq:Lorentz} est appelé \textit{groupe de Lorentz inhomogène} ou le \textit{groupe de Poincaré} $IO(3,1)$. 
 
 \begin{rmk}
 Lorsque $\eta = \text{diag}(-1,...,-1,1,...,1)$ avec $p$ fois -1 et $q$ fois +1, on appelle le groupe vérifiant \ref{eq:Lorentz} IO$(p,q)$
@@ -179,7 +168,7 @@ Les transformations telles que $\Lambda =  I$ appartiennent au groupe de transla
 
 \subsection{Groupe de Lorentz}
 
-Le groupe de Lorentz O(3,1) possède deux sous-groupes intéressants. En particulier, il possède quatre composantes non-connexes.
+Le groupe de Lorentz O(3,1) possède deux sous-groupes non-triviaux. En particulier, il possède quatre composantes non-connexes.
 
 \begin{enumerate}
     \item En reprenant la relation $\Lambda ^{T} \eta \Lambda = \eta$, et calculant le déterminant:
@@ -187,25 +176,25 @@ Le groupe de Lorentz O(3,1) possède deux sous-groupes intéressants. En particu
         \det \Lambda^{T} \det \eta \det\Lambda = \det \eta \\
         \implies \det\Lambda = \pm 1
     \end{equation}
-    Comme il est impossible de passer continument d'un élément de $\det =1$ = un élément de $\det = -1$, le groupe possède deux composantes non-connexes. On note O$(3,1)_\pm$ la partie du groupe de Lorentz à $\det = \pm 1$.\\
+    Comme il est impossible de passer continûment d'un élément de $\det =1$ à un élément de $\det = -1$, le groupe possède deux composantes non-connexes. On note O$(3,1)_\pm$ la partie du groupe de Lorentz à $\det = \pm 1$.\\
     \\
-    Uniquement la composante O$(3,1)_+$ est un sous-groupe de O(3,1), appelé groupe spécial de Lorentz noté SO$(3,1)$. \\
+    Uniquement la composante O$(3,1)_+$ est un sous-groupe de O(3,1), appelé groupe spécial de Lorentz noté SO$(3,1)$\footnote{En effet, c'est la seule des deux composantes qui inclut l'élément identité.}. \\
 
     
-    \item Réécrivons la relation de définition du groupe de Lorentz. En composantes, on trouve
+    \item Réécrivons la relation de définition \ref{eq:Lorentz} du groupe de Lorentz. En composantes, on trouve
     \begin{equation}
-        \eta_{\alpha \beta} \Lambda_{\;\mu}^{\alpha} \Lambda_{\; \nu}^{\beta} = \eta_{\mu \nu}
+        \eta_{\alpha \beta}\, \Lambda\indices{^\alpha_{\mu}} \,\Lambda\indices{^\beta_{\nu}} = \eta_{\mu \nu}
     \end{equation}
     Ainsi, pour la composante $\mu = \nu =0$:
     \begin{align}
-        \eta_{0 0} &= \eta_{\alpha \beta} \Lambda_{\;0}^{\alpha} \Lambda_{\;0}^{\beta} \\
-        \implies -1 &= -(\Lambda_{\;0}^{0})^2 + \sum_{k}(\Lambda_{\;0}^{k})^2\\
-        \implies (\Lambda_{\;0}^{0})^2 &= 1 + \sum_{k}(\Lambda_{\;0}^{k})^2\\
-        \implies (\Lambda_{\;0}^{0})^2 &\geq 1
+        \eta_{0 0} &= \eta_{\alpha \beta} \,\Lambda\indices{^\alpha_{0}} \, \Lambda\indices{^\beta_{0}} \\
+        \implies -1 &= -(\Lambda\indices{^0_{0}})^2 + \sum_{k}(\Lambda\indices{^k_0})^2\\
+        \implies (\Lambda\indices{^0_0})^2 &= 1 + \sum_{k}(\Lambda\indices{^k_0})^2\\
+        \implies (\Lambda\indices{^0_0})^2 &\geq 1
     \end{align}
-    On trouve donc de nouveau deux composantes non connexes notées O(3,1)$^\uparrow$ (si $\Lambda_{\;0}^{0} \geq 1$) et O(3,1)$^\downarrow$ (si $\Lambda_{\;0}^{0} \leq - 1$). Uniquement O(3,1)$^\uparrow$ est un sous-groupe de O(3,1) et est aussi appelé le sous-groupe orthochrone de Lorentz.
+    On trouve donc de nouveau deux composantes non connexes notées O(3,1)$^\uparrow$ (si $\Lambda\indices{^0_0} \geq 1$) et O(3,1)$^\downarrow$ (si $\Lambda\indices{^0_0} \leq - 1$). Uniquement O(3,1)$^\uparrow$ est un sous-groupe de O(3,1) et est aussi appelé le sous-groupe orthochrone de Lorentz.
 \end{enumerate}
-Le groupe O(3,1)$^\uparrow_+ =$ SO(3,1)$^\uparrow$ est un sous-groupe normal de O(3,1). Nous renvoyons vers votre cours de théorie des groupes pour une étude en profondeur du groupe de Lorentz.
+Le groupe O(3,1)$^\uparrow_+ \equiv$ SO(3,1)$^\uparrow$ est un sous-groupe normal de O(3,1). Nous renvoyons vers votre cours de théorie des groupes pour une étude détaillée du groupe de Lorentz.
 \subsection{Exemple de transformation de Lorentz:}
 
 \begin{exmp}
@@ -666,7 +655,6 @@ La frontière de $\cRM{1}^{+}(\mathcal{S})$ est l'horizon des événements pass�
 
 \begin{center}
 \includegraphics[scale=0.1]{Chapitres/2. Relativité Restreinte/Images/Courbe hyperbole 2.jpg}
-%\captionof{figure}{}
 \label{Parabolique 2}
 \end{center}
 
