@@ -4,8 +4,11 @@ Bienvenue dans ce dépôt collaboratif dédié à la rédaction du cours PHYS-F4
 L’objectif est de créer un support dactylographié rigoureux et librement accessible.
 
 ---
+## Navigation
+Les dernières versions compilées (PDF) sont disponibles dans le dossier [Syllabus](https://github.com/Mororage/PHYS-F432/tree/main/Syllabus). Le reste des fichier correspond au dossier LaTeX. 
 
-Les dernières versions compilées (PDF) sont disponibles dans le dossier [Syllabus](https://github.com/Mororage/PHYS-F432/tree/main/Syllabus).
+Les dernières mises à jour et plans sont disponibles [ici](https://github.com/Mororage/PHYS-F432/issues/1).
+
 ## Contribuer
 Toute contribution est la bienvenue :
 
