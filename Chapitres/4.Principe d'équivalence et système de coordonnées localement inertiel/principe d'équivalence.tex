@@ -1,6 +1,6 @@
-\chapter{Principe d'équivalence et RLI}
+\chapter{Référentiels localement inertiels et courbure}
 \section{Métrique Riemannienne}
-Nous allons à présent reconstruire une notion de métrique sur une variété $\mathcal{M}$ arbitraire
+Nous allons à présent reconstruire une notion de métrique sur une variété $\mathcal{M}$ arbitraire. 
 
 \begin{theoremframe}
     \begin{defi}
@@ -11,41 +11,41 @@ Nous allons à présent reconstruire une notion de métrique sur une variété $
         qui pour tout $P \in \mathcal{M}$ satisfait à :
         \begin{enumerate}
             \item $\forall X, Y \in T_P \mathcal{M}$, on a $g_P(X, Y) = g_P(Y, X)$ (tenseur symétrique).
-            \item Si $g_P(X, Y) = 0$ $\forall X \in T_P \mathcal{M}$ alors $Y = 0$ (tenseur non dégénérée)
+            \item Si $g_P(X, Y) = 0$ $\forall X \in T_P \mathcal{M}$ alors $Y = 0$ (tenseur non-dégénéré)
         \end{enumerate}
     \end{defi}
 \end{theoremframe}
-Il est important de remarquer que $g$ n'est \emph{pas} une $2$-forme. Dans une carte locale, les composantes de la métrique s'écrivent
+Notons que $g$ n'est \emph{pas} une $2$-forme. Dans une carte locale, les composantes de la métrique s'écrivent
 \begin{equation}
 g(\partial_{\alpha}, \partial_{\beta}) = g_{\alpha \beta} = g_{\beta \alpha} = g(\partial_{\beta}, \partial_{\alpha})
 \end{equation}
 car le tenseur est symétrique. Dans cette base, la métrique peut donc être écrite comme:
 
  \begin{equation}
-     g = g_{\alpha \beta}\td x^{\alpha}\td x^{\beta}
+     g = g_{\alpha \beta}\, \td x^{\alpha}\td x^{\beta}
  \end{equation}
 
- Puisque $g$ est non-dégénérée, son déterminant est non-nul (autrement dit, toutes les valeurs propres de $g_{\mu \nu}$ sont non-nulles) et la $g_{\mu \nu}$ matrice est inversible. On note $g^{\mu \nu}$ la matrice inverse, qui satisfait à
-
+ Puisque $g$ est non-dégénérée, son déterminant est non-nul (toutes les valeurs propres de $g_{\mu \nu}$ sont non-nulles) et la matrice $g_{\mu \nu}$ est inversible. On note $g^{\mu \nu}$ la matrice inverse, qui satisfait à
  \begin{equation}
-     \boxed{g^{\mu \nu}g_{\nu \alpha} = \delta_{\mu}^{\alpha} = g_{\mu \nu}g^{\nu \alpha}}
+     \boxed{g^{\mu \nu}g_{\nu \rho} = \delta^{\mu}
+     _{\rho} = g_{\rho \nu}g^{\nu \mu}}
  \end{equation}
 
 Précédemment, nous avions vu que la métrique de Minkowski permettait de descendre et monter les indices. Ce sera également le cas pour une variété générale. Elle permet d'établir un isomorphisme $T^*_P \mathcal{M} \simeq T_P \mathcal{M}$ car la métrique est non-dégénérée. Par abus de notation, nous noterons cette isomorphisme également
 
 \begin{equation}
-    g_P:T_P \mathcal{M} \rightarrow T^*_P \mathcal{M}: X \mapsto g(X,\cdot)
+    g_P:T_P \mathcal{M} \rightarrow T^*_P \mathcal{M}: X \mapsto g(X,\cdot\,)
 \end{equation}
 Pour un vecteur $X = X^\mu \pd_\mu$, on écrit donc
 \begin{equation}
-    g_P(X, \cdot) = g\indices{_\mu_\nu} X^\mu \equiv X_\nu
+     g\indices{_\mu_\nu} X^\mu \equiv X_\nu
 \end{equation}
-Comme dans le cas Minkowskien.
+Comme dans le cas Minkowskien\footnote{Il est important à remarquer que la métrique forme l'exception de la règle de "monter les indices avec la métrique" : $g^{\mu\nu}$ n'est \emph{pas} obtenu de cette manière, mais est simplement la matrice inverse de la métrique $g_{\mu\nu}$. C'est pour cette raison que certaines références noterons la métrique inverse de manière distincte de la métrique, comme par exemple $\mathfrak{g}^{\mu\nu}$.}.
 
 \begin{rmk}
-    En un point $P \in \mathcal{M}$, la métrique peut toujours être ramené à sa forme canonique dans laquelle elle s'écrit 
+    En un point $P \in \mathcal{M}$, la métrique peut toujours être ramené à sa forme canonique (par diagonalisation) dans laquelle elle s'écrit 
     \begin{equation}
-        g_{\mu \nu} = diag(-1, -1, \cdots, -1, +1, \cdots, +1)
+        g_{\mu \nu} = \mathrm{diag}(-1, -1, \cdots, -1, +1, \cdots, +1)
     \end{equation}
 
     \begin{enumerate}
@@ -56,7 +56,7 @@ Comme dans le cas Minkowskien.
 Comme la métrique définit une forme bilinéaire symétrique, sa signature (à tout point) ne dépend pas du choix de coordonnées. Celle-ci est donc donnée par la métrique dans sa forme canonique.
 \begin{theoremframe}
     \begin{defi}
-        Une variété Lorentzienne est une variété lisse munie d'une métrique Lorentzienne (à forme canonique $\mathrm{diag} \,(-, +, +, +)$), notée $(\mathcal{M},g)$.
+        Une variété Lorentzienne est une variété différentielle lisse munie d'une métrique Lorentzienne (à forme canonique $\mathrm{diag} \,(-, +, +, +)$), notée $(\mathcal{M},g)$.
     \end{defi}
 \end{theoremframe}
 \end{rmk}
@@ -68,7 +68,7 @@ D'après le principe d'équivalence, dans les régions suffisamment restreintes 
     \begin{propri}
         \label{prop: PE}
         En tout point $P \in \mathcal{M}$, il existe un système de coordonnées $x^{\hat{\mu}}$ tel que
-       \begin{enumerate}
+       \begin{enumerate}[label = \roman*.]
            \item $\left. g_{\hat{\mu}\hat{\nu}} \right|_P = \eta_{\hat{\mu}\hat{\nu}}$
            \item $ \left. \partial_{\hat{\alpha}}g_{\hat{\mu}\hat{\nu}} \right|_P=0$
            \label{Propriété 4.1}
@@ -76,67 +76,65 @@ D'après le principe d'équivalence, dans les régions suffisamment restreintes 
        \label{localement métrique de Minkowski}
     \end{propri}    
 \end{theoremframe}
-On dit alors que dans ce système de coordonnées, $g_{\hat{\mu}\hat{\nu}}$ prend sa forme canonique (au point $P$). Ces coordonnées sont appelées \textit{coordonnées localement inertielles}. Dans ces coordonnées, la métrique en un point $P$ ressemble à celle de l'espace-temps plat \emph{au premier ordre}. C'est la formulation mathématiquement correcte de la caractérisation \emph{locale} du principe d'équivalence.
+On dit alors que dans ce système de coordonnées, $g_{\hat{\mu}\hat{\nu}}$ prend sa forme canonique (au point $P$). Ce système de coordonnées est appelé \textit{référentiel localement inertielles} (RLI). Dans ces coordonnées, la métrique en un point $P$ ressemble à celle de l'espace-temps plat \emph{au premier ordre}. C'est la formulation mathématiquement rigoureuse de la caractérisation \emph{locale} du principe d'équivalence (c'est-à-dire valable jusqu'au premier ordre).
 
-Nous n'allons construire une preuve constructive de cette propriété, on montrera uniquement l'existence de ce système de coordonnées. 
+Nous n'allons pas donner une preuve constructive de cette propriété (mais qui existe, voir Blau p.102), on montrera uniquement l'existence de ce système de coordonnées. 
 \begin{proof}
-Considérons $g_{\mu \nu}$ la métrique de $\mathcal{M}$ dans un système de coordonnées locales $x^{\alpha}$ autour d'un point $P \in \mathcal{M}$ (référentiel $O$). On cherche un système de coordonnées localement inertiel $x^{\hat{\nu}}$ (référentiel $\hat{O}$) dans lequel les conditions 1. et 2. sont satisfaites. Par la loi de transformations tensorielle : 
+Considérons $g_{\mu \nu}$ la métrique de $\mathcal{M}$ dans un système de coordonnées locales $x^{\alpha}$ autour d'un point $P \in \mathcal{M}$ (référentiel $O$). On cherche un système de coordonnées localement inertiel $x^{\hat{\nu}}$ (référentiel $\hat{O}$), c'est-à-dire dans lequel les conditions i. et ii. sont satisfaites. Sous changement de coordonnées général (difféomorphisme), la métrique se transforme selon : 
 \begin{equation}
     \left. g_{\hat{\mu}\hat{\nu}} \right|_P = \frac{\partial x^{\mu}}{\partial x^{\hat{\mu}}}\frac{\partial x^{\nu}}{\partial x^{\hat{\nu}}} \left. g_{\mu \nu} \right|_P
 \end{equation}
-Sans perte de généralité, on pourra imposer que $\left. x^{\alpha} \right|_P = 0 = \left. x^{\hat{\mu}} \right|_P$ (par translation). Développons $x^\mu (x^{\hat{\mu}})$ en série de Taylor autour de l'origine :
+Sans perte de généralité, on pourra imposer que $\left. x^{\alpha} \right|_P = 0 = \left. x^{\hat{\mu}} \right|_P$ (par translation du système de coordonnées). Développons $x^\mu (x^{\hat{\mu}})$ en série de Taylor autour de l'origine :
 
 \begin{equation}
     x^{\mu}(x^{\hat{\nu}}) = 0 + \atP{\frac{\partial x^{\mu}}{\partial x^{\hat{\nu}}}}x^{\hat{\nu}} + \frac{1}{2!}\atP{\frac{\partial^2 x^{\mu}}{\partial x^{\hat{\alpha}} \partial x^{\hat{\beta}}}}x^{\hat{\alpha}} x^{\hat{\beta}}+ \frac{1}{3!}\atP{\frac{\partial^3 x^{\mu}}{\partial x^{\hat{\alpha}}\partial x^{\hat{\beta}}\partial x^{\hat{\gamma}}}}x^{\hat{\alpha}}x^{\hat{\beta}}x^{\hat{\gamma}} + \mathcal{O}(x^{\hat{\nu}} )^4
     \label{Taylor d'anciennes à nouvelles coordonnées}
 \end{equation}
-Où nous avons extensivement utilisé $\atP{x^\mu(x^{\hat{\nu}})} = 0$. Définissons les objets $A,B,C$ tels que
-
+Définissons les objets $A,B,C$ tels que
 \begin{equation}
-    x^{\mu}(x^{\hat{\nu}}) = A\indices{^\mu_{\hat{\mu}}}x^{\hat{\mu}} + \frac{1}{2!}B\indices{^{\mu}_{\hat{\alpha} \hat{\beta}}}x^{\hat{\alpha}}x^{\hat{\beta}} + \frac{1}{3!}C\indices{^{\mu}_{\hat{\alpha}\hat{\beta}\hat{\gamma}}}x^{\hat{\alpha}}x^{\hat{\beta}} x^{\hat{\gamma}}
+    x^{\mu}(x^{\hat{\nu}}) = A\indices{^\mu_{\!\hat{\alpha}}}\,x^{\hat{\alpha}} + \frac{1}{2!}B\indices{^{\mu}_{\!\hat{\alpha} \hat{\beta}}} \, x^{\hat{\alpha}}x^{\hat{\beta}} + \frac{1}{3!}C\indices{^{\mu}_{\!\hat{\alpha}\hat{\beta}\hat{\gamma}}}\,x^{\hat{\alpha}}x^{\hat{\beta}} x^{\hat{\gamma}}
 \end{equation}
-\subsubsection{La condition 1.}
+\subsubsection{La condition i.}
 
-Selon la loi de transformation tensorielle : $g_{\hat{\mu}\hat{\nu}} = A\indices{^{\mu}_{\hat{\mu}}} A\indices{^{\nu}_{\hat{\nu}}}g_{\mu \nu}$. On souhaiterait imposer
+Selon la loi de transformation tensorielle : $g_{\hat{\mu}\hat{\nu}} = A\indices{^{\mu}_{\!\hat{\mu}}}\, A\indices{^{\nu}_{\!\hat{\nu}}}\,g_{\mu \nu}$. On souhaiterait imposer
 \begin{equation}
     g_{\hat{\mu}\hat{\nu}} = \eta_{\hat{\mu}\hat{\nu}}.
 \end{equation}
 
 Comme $g_{\hat{\mu}\hat{\nu}}$ est symétrique, elle possède $\frac{4 (4+1)}{2} = 10$ composantes indépendantes.
 \begin{exerc}
-    Montrez qu'une matrice symétrique $n \times n$ possède (au plus) $\frac{n(n+1)}{2}$ composantes indépendantes. Déduisez-en qu'une matrice anti-symétrique possède au plus $\frac{n(n-1)}{2}$ composantes indépendantes.
+    Montrez qu'une matrice symétrique $n \times n$ possède au plus $\frac{n(n+1)}{2}$ composantes indépendantes. Déduisez-en qu'une matrice antisymétrique possède au plus $\frac{n(n-1)}{2}$ composantes indépendantes.
 \end{exerc}
-Pour pouvoir réduire $g_{\hat{\mu}\hat{\nu}}$ à la métrique de Minkowski, il faut pouvoir lui imposer (au moins) 10 équations algébriques. Ces équations viennent de la loi de transformation tensorielle. La question revient donc à trouver le nombre de composantes indépendantes de $A$\footnote{Notons que bien que $A$ être une fonction des coordonnées $x^\mu$, il s'agit bien de coefficients constants lorsqu'on fixe le point $P\in \mathcal{M}$.}.\\
+Pour pouvoir réduire $g_{\hat{\mu}\hat{\nu}}$ à la métrique de Minkowski, il faut pouvoir lui imposer 10 équations algébriques. Ces équations viennent de la loi de transformation tensorielle. La question revient donc à trouver le nombre de composantes indépendantes de $A$\footnote{Notons que bien que $A$ est une fonction des coordonnées $x^\mu$, il s'agit bien de coefficients constants lorsqu'on fixe le point $P\in \mathcal{M}$.}.\\
 \\
-Comme $A\indices{_{\hat{\mu}}^{\mu}}$ est une matrice inversible, elle possède $n^2 = 16$ composantes indépendantes, ce qui est plus que suffisant pour fixer $g$. Notons que les 6 composantes non-utilisées peuvent êtres vues comme les 6 paramètres du groupe de Lorentz, qui préserve la forme de la métrique de Minkowski. Le surflux de conditions vient donc du fait que la métrique sous sa forme canonique (minkowskienne) possède quand même toute une classe de référentiels qui gardent sa forme invariante (les référentiels inertiels).
-
-\subsubsection{La condition 2.}
+Comme $A\indices{^{\mu}_{\!\hat{\mu}}}$ est une matrice inversible, elle possède $n^2 = 16$ composantes indépendantes, ce qui est plus que suffisant pour fixer $g$. Notons que les 6 composantes non-utilisées peuvent êtres vues comme les 6 paramètres du groupe de Lorentz, qui préserve la forme de la métrique de Minkowski. Le surflux de conditions vient donc du fait que la métrique sous sa forme canonique (minkowskienne) possède quand même toute une classe de référentiels qui gardent sa forme invariante (les référentiels inertiels).
+\subsubsection{La condition ii.}
 
 Nous souhaitons également imposer
 \begin{equation}
-    \partial_{\hat{\alpha}}g_{\hat{\mu}\hat{\nu}} =0
+    \atP{\partial_{\hat{\alpha}}g_{\hat{\mu}\hat{\nu}}} =0
 \end{equation}
 De nouveau, nous devons trouver la loi de transformation de cette quantité et compter le nombre de conditions que nous pouvons imposer. Comme la métrique est symétrique et $\pd_{\hat{\alpha}}$ possède 4 composantes, nous nécessitons d'au moins $4\cdot 10 = 40$ contraintes.
 
 \begin{align}
 \nonumber
-   \partial\indices{_{\hat{\alpha}}}g_{\hat{\mu}\hat{\nu}} &= \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}}\partial_{\alpha}(\frac{\partial x^{\mu}}{\partial x^{\hat{\mu}}}\frac{\partial x^{\nu}}{\partial x^{\hat{\nu}}} g_{\mu \nu})\\
-   &= A\indices{^{\alpha}_{\hat{\alpha}}} A\indices{^{\mu}_{\hat{\mu}}} A\indices{^{\nu}_{\hat{\nu}}}\, \partial_{\alpha} g_{\mu \nu} + \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} g_{\mu \nu}\frac{\partial^2 x^{\mu}}{\partial x^{\alpha}x^{\hat{\mu}}}\frac{\partial x^{\nu}}{\partial x^{\hat{\nu}}} + \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} g_{\mu \nu}\frac{\partial x^{\mu}}{\partial x^{\hat{\mu}}}\frac{\partial^2 x^{\nu}}{\partial x^{\alpha}x^{\hat{\nu}}}
+   \partial\indices{_{\hat{\alpha}}}g_{\hat{\mu}\hat{\nu}} &= \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}}\partial_{\alpha}\lt \frac{\partial x^{\mu}}{\partial x^{\hat{\mu}}}\frac{\partial x^{\nu}}{\partial x^{\hat{\nu}}} \,g_{\mu \nu} \rt\\
+   \label{preuve:PE1 ii.1}
+   &= A\indices{^{\alpha}_{\!\hat{\alpha}}} A\indices{^{\mu}_{\!\hat{\mu}}} A\indices{^{\nu}_{\!\hat{\nu}}}\, \partial_{\alpha} g_{\mu \nu} + \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} g_{\mu \nu}\frac{\partial^2 x^{\mu}}{\partial x^{\alpha}x^{\hat{\mu}}}\frac{\partial x^{\nu}}{\partial x^{\hat{\nu}}} + \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} g_{\mu \nu}\frac{\partial x^{\mu}}{\partial x^{\hat{\mu}}}\frac{\partial^2 x^{\nu}}{\partial x^{\alpha}x^{\hat{\nu}}}
 \end{align}
 
 où par la règle de la chaîne 
 \begin{align}
-\frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} \frac{\partial^2 x^{\mu}}{\partial x^{\alpha}x^{\hat{\mu}}} = \frac{\partial^2 x^{\mu}}{\partial x^{\hat{\alpha}}x^{\hat{\mu}}} = B\indices{^{\mu}_{\hat{\alpha} \hat{\mu}}}\\
-\nonumber
-\, \\
-\frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} \frac{\partial^2 x^{\nu}}{\partial x^{\alpha}x^{\hat{\nu}}} = \frac{\partial^2 x^{\nu}}{\partial x^{\hat{\alpha}}x^{\hat{\nu}}} = B\indices{^{\nu}_{\hat{\alpha} \hat{\nu}}}
+    \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} \frac{\partial^2 x^{\mu}}{\partial x^{\alpha}x^{\hat{\mu}}} = \frac{\partial^2 x^{\mu}}{\partial x^{\hat{\alpha}}x^{\hat{\mu}}} = B\indices{^{\mu}_{\!\hat{\alpha} \hat{\mu}}}\\
+    \nonumber
+    \, \\
+    \frac{\partial x^{\alpha}}{\partial x^{\hat{\alpha}}} \frac{\partial^2 x^{\nu}}{\partial x^{\alpha}x^{\hat{\nu}}} = \frac{\partial^2 x^{\nu}}{\partial x^{\hat{\alpha}}x^{\hat{\nu}}} = B\indices{^{\nu}_{\!\hat{\alpha} \hat{\nu}}}
 \end{align}
-En particulier, $B\indices{^{\nu}_{\hat{\alpha} \hat{\nu}}}$ est symétrique en $\hat{\alpha}, \hat{\nu}$. Nous pouvons alors écrire
-
+En particulier, $B\indices{^{\nu}_{\!\hat{\alpha} \hat{\nu}}}$ est symétrique en $\hat{\alpha}, \hat{\nu}$. Nous pouvons alors réécrire \ref{preuve:PE1 ii.1} :
 \begin{equation}
-    \partial_{\hat{\alpha}}g_{\hat{\mu}\hat{\nu}} = A\indices{^{\alpha}_{\hat{\alpha}}}A\indices{^{\mu}_{\hat{\mu}}}A\indices{^{\nu}_{\hat{\nu}}}\partial_{\alpha}\, g_{\mu \nu} + g_{\mu \nu}A\indices{^{\nu}_{\hat{\nu}}} B\indices{^{\mu}_{\hat{\alpha} \hat{\mu}}} + g_{\mu \nu}A\indices{^{\mu}_{\hat{\mu}}}B\indices{^{\nu}_{\hat{\alpha} \hat{\nu}}} 
+    \partial_{\hat{\alpha}}g_{\hat{\mu}\hat{\nu}} = A\indices{^{\alpha}_{\!\hat{\alpha}}} A\indices{^{\mu}_{\!\hat{\mu}}} A\indices{^{\nu}_{\!\hat{\nu}}}\, \partial_{\alpha} g_{\mu \nu} + g_{\mu \nu}A\indices{^{\nu}_{\!\hat{\nu}}} B\indices{^{\mu}_{\!\hat{\alpha} \hat{\mu}}} + g_{\mu \nu}A\indices{^{\mu}_{\!\hat{\mu}}}B\indices{^{\nu}_{\!\hat{\alpha} \hat{\nu}}} 
 \end{equation}
-Comme nous avons déjà utilisé tous les degrés de libertés de $A$ (les 6 contraintes non-utilisées ne peuvent pas donner de conditions supplémentaires, d'après l'argumentation au point précédent). Pour $B$, par symétrie en les deux indices covariants, nous trouvons 
+Comme nous avons déjà utilisé tous les degrés de liberté de $A$ (les 6 contraintes non-utilisées ne peuvent pas donner de conditions supplémentaires comme il s'agit d'une symétrie résiduelle, voir point précédent). Pour $B$, par symétrie en les deux indices covariants, nous trouvons 
 \begin{equation}
     \frac{4(4+1)}{2} \cdot 4 = 40
 \end{equation}
@@ -147,11 +145,11 @@ On pourrait se demander s'il est également possible d'imposer que les dérivée
 \begin{equation}
     \partial_{\hat{\alpha}}\partial_{\hat{\beta}}g_{\hat{\mu}\hat{\nu}}
 \end{equation}
-est symétrique en les deux premiers et les deux derniers indices. Il y a donc $10\cdot 10=100$ composantes à annuler. Ces contraintes viennent de nouveau de la loi de transformation. En dérivée seconde, l'objet $C\indices{^{\mu}_{\hat{\alpha}\hat{\beta}\hat{\gamma}}}$ interviendra. Comme $A$ et $B$ ont été complètement contraints (aux 6 degrés de libertés de $A$ près), il suffit de compter le nombre de composantes indépendantes de $C$.\\
+est symétrique en les deux premiers et les deux derniers indices. Il y a donc $10\cdot 10=100$ composantes à annuler. Ces contraintes viennent de nouveau de la loi de transformation. En dérivée seconde, l'objet $C\indices{^{\mu}_{\!\hat{\alpha}\hat{\beta}\hat{\gamma}}}$ interviendra. Comme $A$ et $B$ ont été complètement contraints (aux 6 degrés de liberté de $A$ près), il suffit de compter le nombre de composantes indépendantes de $C$.\\
 \\
 Celui-ci est complètement symétrique en ses $3$ indices covariants. Pour calculer combien de composantes il possède, on effectue le calcul au cas par cas. 
 \begin{enumerate}
-    \item Si les trois indices covariants sont tous identiques, nous trouvons $4$ composantes pour $\hat{\mu} = 0,1,2,3$.
+    \item Si les trois indices covariants sont tous identiques, nous trouvons $4$ composantes pour $\hat{\alpha} = 0,1,2,3$.
     \item Si seulement deux des indices covariants sont identiques, nous trouvons $4 \cdot 3 = 12$ composantes venant respectivement des deux indices identiques et du troisième indice (pour lequel il n'y a plus que 3 choix).
     \item Si les trois indices sont différents nous trouvons ${3\choose 4} = 4$ composantes.
 \end{enumerate}
@@ -159,13 +157,13 @@ En y rajoutant les 4 degrés de libertés de l'indice contravariant, on trouve f
 \begin{equation}
     4\cdot (4+12+4)=80
 \end{equation}
-composantes indépendantes, ce qui n'est pas suffisant pour annuler la dérivée seconde de la métrique en toute généralité.
+composantes indépendantes, ce qui n'est pas suffisant pour annuler la dérivée seconde de la métrique en toute généralité (bien qu'elle pourrait s'annuler "accidentellement").
 \end{rmk}
 
 \section{Éléments de longueurs}
-Nous avons précédemment vu que similairement au cas d'un espace-temps plat, la métrique permet de monter et descendre les indices d'une expression tensorielle. Nous allons voir à présent qu'elle permet également de définir un élément de longueur et donc le genre d'un intervalle, d'un vecteur ou d'une courbe. 
+Nous avons précédemment vu que similairement au cas d'un espace-temps plat, la métrique permet de monter et descendre les indices d'une expression tensorielle. Nous allons voir à présent qu'elle permet également de définir un élément de longueur et donc le genre d'un intervalle, d'un vecteur et d'une courbe. 
 
-Soit $\gamma: \R \to \mathcal{M}$ une courbe lisse sur $\mathcal{M}$ de coordonnées (locales) $\varphi(\gamma(\lambda)) = x^{\mu}(\lambda)$. Le champ de vecteurs tangents à cette courbe est
+Soit $\gamma: \R \to \mathcal{M}$ une courbe lisse sur $\mathcal{M}$ à coordonnées (locales) $\varphi(\gamma(\lambda)) = x^{\mu}(\lambda)$. Le champ de vecteurs tangents à cette courbe est
 \begin{equation}
 X = \frac{\td x^{\mu}}{\td \lambda}\partial_{\mu}.
 \end{equation}
@@ -177,9 +175,9 @@ X = \frac{\td x^{\mu}}{\td \lambda}\partial_{\mu}.
         \end{equation}
     \end{defi}
 \end{theoremframe}
-Comme $g = g_{\mu \nu}dx^{\mu}\otimes dx^{\nu}$, on trouve
+Comme $g = g_{\mu \nu}\,\td x^{\mu}\otimes \td x^{\nu}$, on trouve
 \begin{align}
-    g(X, X) &= g_{\mu \nu}\textcolor{purple}{\td x^{\mu}}\otimes \textcolor{blue}{\td x^{\nu}}\left(\textcolor{purple}{\frac{\td x^{\alpha}}{\td \lambda} \partial_{\alpha}}, \textcolor{blue}{\frac{\td x^{\beta}}{\td \lambda} \partial_{\beta}}\right)\\
+    g(X, X) &= g_{\mu \nu}\,\textcolor{purple}{\td x^{\mu}}\otimes \textcolor{blue}{\td x^{\nu}}\left(\textcolor{purple}{\frac{\td x^{\alpha}}{\td \lambda} \partial_{\alpha}}, \textcolor{blue}{\frac{\td x^{\beta}}{\td \lambda} \partial_{\beta}}\right)\\
     &= g_{\mu \nu}\textcolor{purple}{\frac{\td x^{\alpha}}{\td \lambda} \td x^{\mu}(\partial_{\alpha}})\textcolor{blue}{\frac{\td x^{\beta}}{\td \lambda} \td x^{\nu}(\partial_{\beta}})\\
     &= g_{\mu \nu}\frac{\td x^{\alpha}}{\td \lambda}\delta^{\mu}_{\alpha}\frac{\td x^{\beta}}{\td \lambda}\delta^{\nu}_{\beta}\\
     &= g_{\alpha \beta}\frac{\td x^{\alpha}}{\td \lambda}\frac{\td x^{\beta}}{\td \lambda}
@@ -187,32 +185,31 @@ Comme $g = g_{\mu \nu}dx^{\mu}\otimes dx^{\nu}$, on trouve
 \begin{theoremframe}
     \begin{defi}
         Le vecteur $X \in T_P\mathcal{M}$ est dit
-        \begin{itemize}
-            \item de \emph{genre temps} si $g(X,X) \leq 0$.
-            \item de \emph{genre espace} si $g(X,X) \geq 0$.
+        \begin{enumerate}[label = \roman*.]
+            \item de \emph{genre temps} si $g(X,X) < 0$.
+            \item de \emph{genre espace} si $g(X,X) > 0$.
             \item de \emph{genre lumière} si $g(X,X) = 0$.
-        \end{itemize}
+        \end{enumerate}
     \end{defi}
 \end{theoremframe}
 Justifions cette définition. Par la \textit{Propriété \ref{prop: PE}}, on peut en tout point se placer dans des coordonnées localement inertielles $x^{\hat{\mu}}$. Dans ces coordonnées, on peut donc écrire
-
 \begin{equation}
    g(X, X) = g_{\alpha \beta}\frac{\td x^{\alpha}}{\td \lambda}\frac{\td x^{\beta}}{\td \lambda} = \eta_{\hat{\mu} \hat{\mu}}\frac{\td x^{\hat{\mu}}}{\td \lambda}\frac{\td x^{\hat{\nu}}}{\td \lambda}
 \end{equation}
-Ainsi, la courbe est de genre temps au point $P$ si son vecteur tangent à ce point est de genre temps.
+On retrouve donc bien la même définition que dans un espace-temps plat.
 \begin{theoremframe}
     \begin{defi}
-        Le genre d'une courbe à un point $P$ est défini par le genre de son vecteur tangent à ce point.
+        Le genre d'une courbe à un point $P$ est défini par le genre de son vecteur tangent en ce point.
     \end{defi}
 \end{theoremframe}
 En particulier, la structure des cônes de lumière reste (localement) la même qu'en relativité restreinte, ce qui est attendu en vertu du Principe d'Équivalence.
 \begin{theoremframe}
     \begin{defi}
-        La longueur d'une courbe de genre temps ou temps propre le long de cette courbe est donnée par 
+        La longueur d'une courbe de genre temps (en ce compris, de genre temps en tout point) le long de cette courbe est donnée par 
             \begin{equation}
-            s \equiv \int^{\lambda_2}_{\lambda_{1}}\sqrt{-g_{\alpha \beta}\frac{\td x^{\alpha}}{\td\lambda}\frac{\td x^{\beta}}{\td \lambda}} \td\lambda = \int^{\lambda_2}_{\lambda_{1}}\sqrt{-g_{\alpha \beta}\td x^{\alpha}\td x^{\beta}} =  \int \sqrt{-\td s^2 }
+            s \equiv \int^{\lambda_2}_{\lambda_{1}}\sqrt{-g_{\alpha \beta}\,\frac{\td x^{\alpha}}{\td\lambda}\frac{\td x^{\beta}}{\td \lambda}} \td\lambda = \int^{\lambda_2}_{\lambda_{1}}\sqrt{-g_{\alpha \beta}\, \td x^{\alpha}\td x^{\beta}} =  \int \sqrt{-\td s^2 }
             \end{equation}
-        Par analogie à la relativité restreinte, le temps propre d'une courbe est définie par
+        Elle est appelée \emph{temps propre}, par analogie à la relativité restreinte :
         \begin{equation}
             \tau = \int \td \tau = \int \sqrt{-\td s^2 }
         \end{equation}
@@ -220,9 +217,10 @@ En particulier, la structure des cônes de lumière reste (localement) la même 
     \end{defi}
 \end{theoremframe}
 
-La métrique $g = g_{\mu \nu}\td x^{\mu}\otimes \td x^{\nu}$ permet de définir un élément de longueur le long d'une courbe quelconque comme
-
-$$ \td s^2 = g_{\mu \nu}\td x^{\mu}\td x^{\nu}$$
+La métrique $g = g_{\mu \nu}\,\td x^{\mu}\otimes \td x^{\nu}$ permet de définir un élément de longueur le long d'une courbe quelconque comme
+\begin{equation}
+    \td s^2 = g_{\mu \nu}\,\td x^{\mu}\td x^{\nu}
+\end{equation}
 qui sera par abus de langage également appelé métrique. 
 \section{Densités tensorielles}
 Nous verrons dans cette petite section une classe d'objets non-tensoriels appelée \emph{densités tensorielles}, que nous illustrerons à travers le \emph{symbole de Levi-Civita} complètement symétrique tel que
@@ -234,15 +232,15 @@ Nous verrons dans cette petite section une classe d'objets non-tensoriels appel�
         0 & \text{si deux indices sont répétés}
     \end{array}\right.
 \end{align}
-Les composantes du symbole de Levi-Civita sont spécifiés de la manière ci-dessus dans tout référentiel. Il ne se transforme donc pas de manière covariante (tensorielle). Remarquons néanmoins que par définition du déterminant d'une matrice $A\indices{^\mu_\nu}$ : 
+Les composantes du symbole de Levi-Civita sont ceux spécifiés ci-dessus dans tout référentiel : il ne se transforme donc pas de manière covariante (tensorielle). Remarquons néanmoins que par définition du déterminant d'une matrice $A\indices{^\mu_\nu}$ : 
 \begin{equation}
     \tilde{\varepsilon}\indices{_{\nu_1} _\cdots _{\nu_n}} \lvert A \rvert = \tilde{\varepsilon}\indices{_{\mu_1} _\cdots _{\mu_n}} A\indices{^{\mu_1} _{\nu_1}} \cdots A\indices{^{\mu_n} _{\nu_n}}
 \end{equation}
-Soit en posant $A^\mu_{\nu'} = \frac{\pd x^\mu}{\pd x^{\nu'} }$, on trouve
+Soit en posant $A\indices{^\mu_{\nu'}} = \frac{\pd x^\mu}{\pd x^{\nu'} }$, on trouve
 \begin{equation}
     \tilde{\varepsilon}\indices{_{\nu'_1} _\cdots _{\nu'_n}} = \left| \frac{\pd x^{\mu'}}{\pd x^{\nu}} \right|  \tilde{\varepsilon}\indices{_{\mu_1} _\cdots _{\mu_n}} \frac{\pd x^{\mu_1}}{\pd x^{\nu_1'} } \cdots \frac{\pd x^{\mu_n}}{\pd x^{\nu'_n} }
 \end{equation}
-Qui est \emph{prèsqu'un loi tensorielle}. Des quantités qui se transforment de manière tensorielle modulo une puissance de la jacobienne s'appellent \emph{densités tensorielles}. Un autre exemple est le déterminant de la métrique qui se transforme comme :
+Qui est \emph{prèsqu'une loi tensorielle}. Des quantités qui se transforment de manière tensorielle modulo une puissance de la jacobienne s'appellent \emph{densités tensorielles}. Un autre exemple est le déterminant de la métrique qui se transforme comme :
 \begin{equation}
     g(x^{\mu'}) = \left| \frac{\pd x^{\mu'}}{\pd x^{\mu}} \right|^{-2} g(x^\mu)
 \end{equation}
@@ -250,17 +248,17 @@ Nous pouvons donc combiner ces deux densités pour construire un vrai tenseur :
 \begin{equation}
     \varepsilon\indices{_{\mu_1} _\cdots _{\mu_n}} = \sqrt{\lvert g\rvert} \tilde{\varepsilon}\indices{_{\nu'_1} _\cdots _{\nu'_n}}
 \end{equation}
-Qui est appelé le \emph{tenseur de Levi-Civita}. Une approche similaire permet de créer un tenseur à partir d'une densité tensorielle arbitraire en multipliant par une puissance adéquate de $\lvert g \rvert$. Dans une variété Lorentzienne, nous écrirons souvent $\sqrt{-g}$. Remarquons que la matrice inverse du tenseur de Levi-Civita s'écrit :
+Qui est appelé le \emph{tenseur de Levi-Civita}. Une approche similaire permettra toujours de créer un tenseur à partir d'une densité tensorielle arbitraire en multipliant par une puissance adéquate de $\lvert g \rvert$ ($-g$ pour une variété Lorentzienne). Remarquons que la matrice inverse du tenseur de Levi-Civita s'écrit :
 \begin{equation}
     \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_n}} = \frac{1}{\sqrt{\lvert g\rvert}}\tilde{\varepsilon}\indices{^{\nu'_1}  ^\cdots ^{\nu'_n}}
 \end{equation}
-Nous donnerons de plus l'identité de sommation du tenseur de Levi-Civita :
+Nous donnerons de plus une identité utile de sommation du tenseur de Levi-Civita :
 \begin{equation}
     \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_n} ^{\alpha_1} ^\cdots ^{\alpha_{n-p}}} \varepsilon\indices{_{\mu_1} _\cdots _{\mu_n} _{\beta} _\cdots _{\alpha_{n-p}}} = (-1)^s \, p! \, (n-p)! \,\delta^{[\alpha_1}_{\beta_1} \cdots \delta^{\alpha_{n-p}]}_{\beta_{n-p}}
 \end{equation}
 où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans le cas Lorentzien).
 \begin{exerc}
-    D'après le théorème de changement de base d'analyse, soit $U \in\R^n$ et un difféomorphisme $h:U \to V \in \R^n$. Alors :
+    D'après le théorème de changement de base, soit $U \in\R^n$ et un difféomorphisme $h:U \to V \in \R^n$. Alors :
     \begin{equation*}
         \int_U \td^n x f(\vect{x}) = \int_V \td^n y \, f \circ h (\vect{y}) \, \vert \det h(\vect{y})\vert
     \end{equation*}
@@ -269,9 +267,9 @@ où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans 
         \td^n x \to \td^n x' = \left| \frac{\pd x^{\mu'}}{\pd x^\mu}\right| \td^n x
     \end{equation*}
     \begin{enumerate}
-        \item Montrez que la quantité
+        \item Montrez que la mesure
         \begin{equation*}
-            \td^n x = \td x^0 \wedge \cdots \td x^{n-1}
+            \td^n x = \td x^0 \wedge \cdots \wedge \td x^{n-1}
         \end{equation*}
         se transforme comme une densité tensorielle.
         \item Construisez un élément de mesure tensoriel (plus précisément, une $n$-forme).
@@ -279,11 +277,11 @@ où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans 
         \begin{equation}
             \int_\mathcal{M} : \Omega^p \to \R : \omega \mapsto \int_\mathcal{M} \omega
         \end{equation}
-        se ramène à la définition usuelle d'une intégrale pour la 1-forme $\omega = f(x) \td x$ dans un espace-temps plat. Le terme $\sqrt{-g}$ présent dans le cas général représente un élément de mesure associé à la variété.
+        se ramène à la définition usuelle d'une intégrale pour la 1-forme $\omega = f(x) \td x$ dans un espace-temps plat. Le terme $\sqrt{-g}$ présent dans le cas général représente un élément de mesure "correctif" associé à la variété.
     \end{enumerate}
 \end{exerc}
 \section{Équations de Maxwell en présence de gravitation}
-Nous allons faire le lien avec le chapitre précédent sur les formes différentielles en cherchant une forme des équations de Maxwell valables dans un référentiel quelconque (i.e. dans une variété courbe). Ceci permettra d'illustrer une manière alternative aux expressions tensorielles (via la dérivée covariante, comme nous verrons dans la suite) de construire une théorie valable en présence de gravitation (mais qui n'est valable que dans le cas des $p$-formes). La notion de métrique permet d'introduire la \emph{théorie de Hodge}.
+Au chapitre précédent, nous avons montré que les équations de Maxwell peuvent s'écrire sous une forme valable dans tout référentiel inertiel. Nous allons à présent tenter de la généraliser à une variété quelconque (donc en présence de gravitation). Ceci permettra d'illustrer une manière alternative aux expressions tensorielles de construire une théorie valable en présence de gravitation (mais qui n'est valable que pour des $p$-formes). La notion de métrique permet d'introduire la \emph{théorie de Hodge}.
 
 \begin{theoremframe}
     \begin{defi}
@@ -295,44 +293,39 @@ Nous allons faire le lien avec le chapitre précédent sur les formes différent
 \end{theoremframe}
 Soit une $p$-forme
 \begin{equation}
-    A = \frac{1}{p!}A_{\mu_1 \cdots \mu_p}dx^{\mu_1}\wedge \cdots \wedge dx^{\mu_p}
+    A = \frac{1}{p!}A_{\mu_1 \cdots \mu_p}\,\td x^{\mu_1}\wedge \cdots \wedge \td x^{\mu_p}
 \end{equation}
 Alors, en composantes, le dual de $A$ s'écrit
 \begin{equation}
-    (*A)_{\mu_1 \cdots \mu_{n-p}} =  \frac{1}{p!}\varepsilon^{\nu_1 \cdots \nu_{p}}_{\mu_1 \cdots \mu_{n-p}}A_{\nu_1 \cdots \nu_p}
+    (*A)_{\mu_1 \cdots \mu_{n-p}} =  \frac{1}{p!}\varepsilon\indices{^{\nu_1 \cdots \nu_{p}}_{\mu_1 \cdots \mu_{n-p}}}\,A_{\nu_1 \cdots \nu_p}
 \end{equation}
-Le tenseur de Levi-Civita ci-présent possède $n$ indices, et est donc un tenseur de type $(p,n-p)$. Nous n'avons introduit cette notion qu'à ce moment car une notion de métrique y est nécessaire, comme l'indique la contribution implicite de la métrique (pour monter partiellement les indices du tenseur de Levi-Civita). Par exemple :
+Le tenseur de Levi-Civita ci-présent possède $n$ indices, et est donc un tenseur de type $(p,n-p)$. Nous n'avons introduit cette notion qu'à ce moment (et pas au chapitre précédent, qui pourrait sembler plus naturel) car une notion de métrique y est nécessaire, comme l'indique la contribution implicite de la métrique (pour monter partiellement les indices du tenseur de Levi-Civita). Par exemple :
 \begin{equation}
     \varepsilon\indices{^\nu_\beta} = g^{\nu \alpha} \varepsilon\indices{_\alpha_\beta}
 \end{equation}
-
-
-Revenons aux équations de Maxwell que nous avions écrites sous la forme\footnote{No pun intended.}
-
+Revenons aux équations de Maxwell que nous avions écrites en terme du tenseur de Faraday :
 \begin{equation}
 \label{eq:maxwell4}
-    \left\{
-\begin{array}{l}
-\partial_{\mu}F^{\mu \nu} = J^{\nu}\\
-\partial_{[_{\alpha}}F_{\mu \nu]} = 0
-\end{array}
-\right.
+    \begin{dcases}
+        \partial_{\mu}F^{\mu \nu} = J^{\nu}\\
+        \partial_{[{\alpha}}F_{\mu \nu]} = 0
+    \end{dcases}
 \end{equation}
 où le quadri-courant est défini comme $J^{\nu} = (\rho ,J^{i})$ où $\rho$ est la densité de charge. Le tenseur de Faraday a été donné en \ref{eq: Faraday}.
 
 Dans cette forme, les équations de Maxwell sont manifestement invariantes sous transformation du groupe de Poincaré. Mais est-ce que ces équations sont aussi invariantes sous transformation générale de coordonnées $x^{\mu} \to x^{\mu '}(x^{\mu})$ ?
 
-On a déjà montré précédemment qu'en général, $\partial_{\mu}F^{\mu \nu}$ n'était pas une expression tensorielle sous transformation générale des coordonnées. Celle-ci est donc uniquement valable localement, dans un référentiel localement inertiel très particulier où $\left. g_{\mu \nu}\right|_P = \eta_{\nu \mu}$. La méthode générale pour reformuler une équation de manière tensorielle est comme suit : nous cherchons une relation tensorielle qui, dans un référentiel localement inertiel se réduit à \ref{eq:maxwell4}. Autrement dit, étant donné une expression valable dans un RLI, nous cherchons à la réécrire de manière tensorielle dans ce référentiel. Cette expression sera ensuite valable dans tout référentiel, comme il s'agira d'une relation tensorielle.\\
-\\
+On a déjà montré précédemment qu'en général, $\partial_{\mu}F^{\mu \nu}$ n'était pas une expression tensorielle sous transformation générale des coordonnées. Celle-ci est donc uniquement valable localement, dans un référentiel localement inertiel, où $\left. g_{\mu \nu}\right|_P = \eta_{\mu \nu}$. Nous cherchons donc une relation tensorielle qui, dans un référentiel localement inertiel se réduit à \ref{eq:maxwell4}. Autrement dit, étant donné une expression valable dans un RLI, nous cherchons à la réécrire de manière tensorielle dans ce référentiel. Cette expression sera ensuite valable dans tout référentiel par définition, comme il s'agira d'une relation tensorielle.
+
 Or, comme le tenseur de Faraday peut être vue comme la 2-forme
 \begin{equation}
-    F = \frac{1}{2!} F_{\mu\nu} \td x^\mu \wedge \td x^\nu
+    F = \frac{1}{2!} F_{\mu\nu} \, \td x^\mu \wedge \td x^\nu
 \end{equation}
 et le 4-courant comme une 1-forme
 \begin{equation}
-    J = J_\mu \td x^\mu = g_{\mu\nu} J^\nu \td x^\mu
+    J = J_\mu \,\td x^\mu = g_{\mu\nu} J^\nu \,\td x^\mu
 \end{equation}
-il est possible de réécrire les équations de Maxwell dans le cadre de la théorie de Hodge selon
+il est possible de réécrire les équations de Maxwell dans le cadre de la théorie de Hodge dans la forme\footnote{pun intended.}
 \begin{align}
 \label{eq:Maxwell formes}
     \left\{
@@ -342,9 +335,9 @@ il est possible de réécrire les équations de Maxwell dans le cadre de la thé
 \end{array}
 \right.
 \end{align}
-Comme ces objets sont des \emph{formes}, ils se transforme de manière tensorielle. Cette expression des équations de Maxwell sont donc valables dans un référentiel arbitraire d'une variété courbe soit en présence de gravition. Un lecteur intéressé pourra s'intéresser d'avantage dans cette partie de la \emph{topologie algébrique} dans [Source].\\
+Comme ces objets sont des $p$-\emph{formes}, ils se transforment de manière tensorielle. Cette expression des équations de Maxwell est donc valable dans un référentiel arbitraire, et donc en présence de gravition. Un lecteur intéressé pourra s'intéresser d'avantage dans cette partie de la \emph{topologie algébrique} dans [Source].\\
 \\
-$F$ est une 2-forme, alors que $J$ est une 1-forme. Comme $\dim \mathcal{M} = 4$, $*F$ est une -forme
+Argumentons que ces équations font bien intervenir les mêmes objets des deux côtés : 
 \begin{itemize}
     \item $F$ est une 2-forme, alors que $J$ est une 1-forme.
     \item Comme $\dim \mathcal{M} = 4$, $*F$ est une $(4-2) = 2$-forme. Similairement, $*J$ est une 3-forme.
@@ -381,60 +374,88 @@ Ces équations sont invariantes sous la \emph{transformation de dualité EM en p
     \end{array}
     \right.
 \end{align}
-Dirac montra que la cohérence de la théorie quantique correspondante impliquait une quantification des charges\footnote{Anecdote de Moritz : c'était par ailleurs l'objet de mon travail personnel de mécanique quantique.} selon
+Dirac montra que la cohérence de la théorie quantique correspondante implique une quantification des charges\footnote{Anecdote de Moritz : c'était par ailleurs l'objet du travail personnel de mécanique quantique de mon année.} selon
 \begin{equation}
     q_e q_m = 2 \pi n, \, n\in \Z
 \end{equation}
-La dualité échange $q_e$ et $q_m$, soit $q_e$ par $\dfrac{2\pi}{q_e} = q_m$, la charge magnétique fondamentale (minimale). Mais $q_e$ est également lié au couplage électromagnétique. C'est parce que $q_e$ est petit que la force électromagnétique est faiblement couplée, et qu'on peut donc appliquer la théorie des perturbations en électrodynamique quantique (QED). Mais comme la dualité échange un couplage faible $q_e$ par un couplage fort $q_m$, elle donne l'espoir d'étudier des systèmes fortement couplés (qui sont difficiles voir impossible à étudier perturbativement, voir p.ex. l'interaction hadronique forte) via la théorie duale faiblement couplée. Néanmoins, aucune expérience n'a pu mettre en évidence l'existence de monopoles magnétiques. Il existe néanmoins d'autres théories utilisant ce type de symétries, comme par exemple la \emph{dualité de Seiberg-Witten} dans les théories supersymétriques.
-
-
-
-
+La dualité échange $q_e$ et $q_m$, soit $q_e$ par $\dfrac{2\pi}{q_e} = q_m$, la charge magnétique fondamentale (minimale). Mais $q_e$ est également lié au couplage électromagnétique. C'est parce que $q_e$ est petit que la force électromagnétique est faiblement couplée, et qu'on peut donc appliquer la théorie des perturbations en électrodynamique quantique (QED). Mais comme la dualité échange un couplage faible $q_e$ par un couplage fort $q_m$, elle donne l'espoir d'étudier des systèmes fortement couplés (qui sont difficiles voir impossible à étudier perturbativement, voir p.ex. l'interaction hadronique forte) via la théorie duale faiblement couplée. Néanmoins, aucune expérience n'a pu mettre en évidence l'existence de monopoles magnétiques. Il existe par contre d'autres théories utilisant ce type de symétries, comme par exemple la \emph{dualité de Seiberg-Witten} dans les théories supersymétriques.
 
 \section{Connexion, transport parallèle et dérivée covariante}
-On aimerait considérer des dérivées de champ de tenseurs, mais comme vu précédemment, $\partial_{\nu}x_{\mu}$ ne se comporte pas comme un tenseur sous transformations générale de coordonnées. On avait définit la dérivée extérieure qui représente une opération de différentiation tensorielle mais qui s'applique seulement aux p-formes. Afin de construire un opérateur de différentiation tensorielle, il est clair que nous devons donc modifier notre définition de dérivée. Ceci nous emmène à introduire les notions de \emph{connexion}, de \emph{transport parallèle} et de \emph{dérivées covariantes}.
-\subsection{Introduction informelle à la dérivée covariante}
-Rappelons $\Zhe(\mathcal{M})$, l'ensemble des champs de vecteurs lisses sur $\mathcal{M}$.
+On souhaiterait considérer des dérivées de champs de tenseurs, mais comme vu précédemment, $\partial_{\nu}x_{\mu}$ ne se comporte pas comme un tenseur sous transformations générales de coordonnées. Une loi de transformation similaire peut être formulée pour $\pd_\mu X^\nu$ :
+\begin{equation}
+    \pd_\mu X^\nu \to \pd_{\mu'} X^{\nu'} = \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^{\nu}} \pd_\mu X^\nu + \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd^2 x^{\nu'}}{\pd x^{\mu}\pd x^{\nu}}\, X^\nu 
+\end{equation}
+On avait définit la dérivée extérieure qui représente une opération de différentiation tensorielle mais qui ne s'applique seulement aux p-formes. Il s'avère que le problème vient du fait que les espaces tangents à des points différents ne sont pas nécessairement les mêmes, et on devra donc faire attention à comment transporter un vecteur d'un point à un autre. Afin de construire un opérateur de différentiation tensorielle plus générale, nous allons donc modifier notre définition de dérivée (qui essentiellement compare un champ en deux points proches). Ceci nous amène à introduire les notions de \emph{connexion}, de \emph{transport parallèle} et finalement de \emph{dérivée covariante}.
+%\subsection{Introduction informelle à la dérivée covariante}
+\vspace{5pt}
+%Il y a essentiellement deux manières de voir une variété : soit, on la considère comme sous-ensemble dans un autre espace "ambiant" (comme par exemple la sphère dans $\R^3$), soit, on la considère de manière abstraite uniquement à travers son atlas ou sa métrique qui la caractérise (comme par exemple l'espace-temps). Dans le premier cas, on peut alors parler de quantités dites \emph{extrinsèques} si elles nécessitent de considérer l'espace ambiant dans laquelle se trouve la variété. Si une quantité peut être calculée indépendamment de l'espace ambiant, elle est dite %\emph{intrinsèque}.
+%\begin{exmp}
+%    Le rayon de la sphère $S^2$, la normale en un point donné ou encore la courbure moyenne sont des propriétés extrinsèques.
+%\end{exmp}
+%\begin{exmp}
+%    Les longueurs de courbes sur la surface ne dépendent pas de l'espace ambiant : il suffit la donnée de la métrique pour les calculer.
+%\end{exmp}
+%Afin de comprendre pourquoi la dérivation usuelle sur une variété courbe pose problème, on considèrera en premier lieu le cas d'une surface plongée dans $\R^3$, pour définir de manière extrinsèque une dérivée covariante.
+
+%Nous aimerions calculer l'accélération d'une courbe $\gamma$ sur $S\subset \R^3$ en $p$. En oubliant temporairement la surface $S$, et en ne retenant uniquement que $\gamma$ prend des valeurs dans $\R^3$, on pourrait calculer son accélération comme d'habitude : 
+%\begin{equation}
+%    \gamma ''(t) =\lim_{h\to 0} \frac{\gamma'(t+h) - \gamma'(t)}{h}
+%\end{equation}
+%Le problème est que, l'accélération résultante n'est pas nécessairement tangente à la surface.
+%\begin{exmp}
+%    Prenons $\gamma(t) = (\cos(t),\sin(t),0)$ traçant un cercle sur la sphère $S^2$. Son accélération, calculé en tant que chemin dans $\R^3$, vaut alors $\gamma''(t)= - (\cos (t),\sin(t),0)$ qui est en fait \emph{perpendiculaire} à la surface.
+%\end{exmp}
+%Le problème est que la surface $S$ ne peut faire sens d'un vecteur que s'il appartient à son espace tangent au point donné. Nous devons donc trouver une définition qui donne une résultante dans l'espace tangent. Dans le cas présent, il s'avère que la solution est relativement simple : il suffit de projeter l'accélération de retour sur l'espace tangent. En séparant l'accélération en partie tangentielle $D_\gamma (t)$ et partie perpendiculaire $\gamma_\perp''(t)$, on appelle accélération de $\gamma(t)$ dans $S$ :
+%\begin{equation}
+%    D_\gamma (t) = \gamma''(t) - \gamma_\perp''(t)
+%\end{equation}
+%Une procédure analogue permet de définir la dérivée de tout vecteur $Y$ dans la direction $X$. En notant la dérivée usuelle $X\cdot Y$, la dérivée covariante sur $S$ est alors
+%\begin{equation}
+%    \nabla_X Y = (X\cdot Y)^T
+%\end{equation}
+%Soit une courbe $\gamma(\lambda)$ telle que $\gamma(0)=m \in \mathcal{M}$ et soit le champ de vecteurs tangent à $\gamma$ : $X^\mu = \frac{\td x^\mu}{\td \lambda}$. Nous avions vu dans le chapitre précédent que $\pd_\mu w_\nu$ n'est en général pas tensoriel. Une loi de transformation similaire peut être formulée pour $\pd_\mu X^\nu$ :
+%\begin{equation}
+%    \pd_\mu X^\nu \to \pd_{\mu'} X^{\nu'} = \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^{\nu}} \pd_\mu X^\nu + \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd^2 x^{\nu'}}{\pd x^{\mu}\pd x^{\nu}}\, X^\nu 
+%Nous aimerions obtenir un opérateur différentiel (donc faisant intervenir une dérivée), mais qui se transforme tensoriellement. Nous pourrions donc commencer par un objet du type
+%\begin{equation}
+%    \nabla_\mu X^\nu = \pd _\mu X^\nu+ \Gamma\indices{^\nu_{\mu\rho}} X^\rho
+%\end{equation}
+%Où $\Gamma$ est un tenseur arbitraire ajusté pour que
+%\begin{equation}
+%    \nabla_\mu X^\nu \to \nabla_{\mu'} X^{\nu'} = \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^\nu} \nabla_\mu X^\nu
+%\end{equation}
+%Nous pourrions alors en déduire la loi de transformation de ces matrices (qui sera calculé explicitement dans la suite) :
+%\begin{equation}
+%    \Gamma\indices{^{\mu '}_{\nu '\beta '}} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \,\Gamma\indices{^{\mu}_{\nu \alpha}} +\frac{\partial x^{\mu '}}{\partial x^{\alpha '}}\frac{\partial ^2 x^{\alpha}}{\partial x^{\nu'}\partial x^{\beta '}}
+%\end{equation}
+%Cette démarche est néanmoins peu intuitive, et ne se généralise pas facilement. Voyons donc premièrement ce qui pose problème dans l'opération de dérivation.
+
+%Considérons une surface $S \subset \R^3$ munie de la métrique induite de $\R^3$. Soit $p \in S$ et un chemin tel que $\gamma(0) = p$. Nous aimerions définir l'accélération $\gamma''(t)$ de cette courbe. Une première tentative pourrait nous amener à simplement considérer $\gamma(t)$ comme un chemin dans $\R^3$, et de calculer ses dérivées en oubliant la surface $S$. Ce procédé est néanmoins problématique : $\gamma''(t)$ n'est plus nécessairement tangent à la surface, et n'appartient donc pas à l'espace tangent.
+%\begin{exmp}
+%    Prenons $\gamma(t) = (\cos(t),\sin(t),0)$ traçant un cercle sur la sphère $S^2$. Son accélération, calculé en tant que chemin dans $\R^3$, vaut alors $\gamma''(t)= - (\cos (t),\sin(t),0)$ qui est en fait \emph{perpendiculaire} à la surface.
+%\end{exmp}
+%Comme
+\subsection{La dérivée covariante}
+Annonçons donc ce qu'on souhaite obtenir :
 \begin{theoremframe}
     \begin{defi}
     \label{def:covariant der}
-        La dérivée covariante est un opérateur de différentiation agissant sur des champs de tenseurs arbitraires qui 
-        \begin{enumerate}[label=(\roman*)]
-            \item se transforme de manière tensorielle sous transformation générale de coordonnées.
-            \item se ramène à la dérivée usuelle dans un référentiel localement inertiel. 
+        La dérivée covariante est un opérateur de différentiation agissant sur des champs de tenseurs arbitraires et qui : 
+        \begin{enumerate}[label=\roman*.]
+            \item Se transforme de manière tensorielle sous transformation générale de coordonnées.
+            \item Se ramène à la dérivée usuelle dans un référentiel localement inertiel. 
         \end{enumerate}
     \end{defi}
 \end{theoremframe}
-Soit une courbe $\gamma(\lambda)$ telle que $\gamma(0)=m \in \mathcal{M}$ et soit le champ de vecteurs tangent à $\gamma$ : $X^\mu = \frac{\td x^\mu}{\td \lambda}$. Nous avions vu dans le chapitre précédent que $\pd_\mu w_\nu$ n'est en général pas tensoriel. Une loi de transformation similaire peut être formulée pour $\pd_\mu X^\nu$ :
-\begin{equation}
-    \pd_\mu X^\nu \to \pd_{\mu'} X^{\nu'} = \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^{\nu}} \pd_\mu X^\nu + X^\nu  \frac{\pd^2 x^{\nu'}}{\pd x^{\mu'}\pd x^{\nu}}
-\end{equation}
-Or, la dérivée
-\begin{equation}
-    \frac{\td X}{\td \lambda} = \frac{\td X^\mu}{\td \lambda} \partial_\mu + X^\mu \frac{\td}{\td  \lambda} \pd_\mu = \frac{\td X^\mu}{\td \lambda} \partial_\mu + X^\mu X^\nu\frac{\pd^2}{\pd x^\mu \pd x^\nu}
-\end{equation}
-\begin{equation}
-    D_\mu X^\nu \equiv \lt \pd_\mu X^\nu - \frac{\pd^2 x^{\nu}}{\pd x^{\mu}\pd x^{\alpha}} X^\alpha \rt 
-\end{equation}
-Et de dire que la résultante de cet opérateur différentiel $D$ sera tensoriel. Ce n'est malheureusement pas le cas comme le montre un rapide calcul :
-\begin{align}
-    D_\mu X^\nu \to D_{\mu'} X^{\nu'} &= \underbrace{\frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^{\nu}} \pd_\mu X^\nu + \frac{\pd^2 x^{\nu'}}{\pd x^{\mu'}\pd x^{\nu}} X^\nu}_{\text{Contribution de } \partial_\mu X^\nu} - \underbrace{\frac{\pd^2 x^{\nu'}}{\pd x^{\mu'}\pd x^{\alpha'}} X^{\alpha'}}_\text{terme correctif}\\
-    & = \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^{\nu}} \pd_\mu X^\nu+ \frac{\pd^2 x^{\nu'}}{\pd x^{\mu'}\pd x^{\nu}} X^\nu  - \frac{\pd^2 x^{\nu'}}{\pd x^{\mu'}\pd x^{\alpha'}} \frac{\pd x^{\alpha'}}{\pd x^\alpha}X^{\alpha}
-\end{align}
-Or, en appliquant la règle de la chaîne sur le deuxième terme, ceux-ci s'annulent exactement. On trouve donc finalement
-\begin{equation}
-    D_{\mu'} X^{\nu'} = \frac{\pd x^\mu}{\pd x^{\mu'}} \frac{\pd x^{\nu'}}{\pd x^{\nu}} \pd_\mu X^\nu
-\end{equation}
-Qui n'est pas tensoriel (il faudrait que $\partial_\mu \leftrightarrow D_\mu$ sur le côté droit). Néanmoins, on semble ne pas être loin d'une bonne réponse. En effet, on remarque que la quantité 
-\subsection{La dérivée covariante abstraite}
-Introduisons formellement la dérivée covariante à travers les \emph{connexions affines}.
+Introduisons-la formellement à travers les \emph{connexions affines}.
+
 \begin{theoremframe}
     \begin{defi}
     \label{def:connexion affine}
         Une connexion affine est une application 
         $$\nabla : \Zhe(\mathcal{M})\times \Zhe(\mathcal{M}) \to \Zhe (\mathcal{M}):(X, Y) \mapsto \nabla_{X}Y $$
         satisfaisant aux propriétés suivantes pour tout $ X, Y, Z \in \Zhe(\mathcal{M})$ et $ f \in C^{\infty}(\mathcal{M})$
-        \begin{enumerate}[label=(\roman*)]
+        \begin{enumerate}[label=\roman*.]
             \item $\nabla_{X}(Y+Z) = \nabla_{X}Y + \nabla_{X}Z$
             \item $\nabla_{(X+Y)} Z = \nabla_{X} Z+\nabla_{Y}Z$
             \item $\nabla_{(fX)}Y = f\nabla_{X}Y$
@@ -443,31 +464,30 @@ Introduisons formellement la dérivée covariante à travers les \emph{connexion
     \end{defi}
 \end{theoremframe}
 Dans une carte locale $(U, \varphi)$ autour de $P\in \mathcal{M}$ à coordonnées $\varphi(P) = x^{\mu}(P)$, 
-une connexion affine $\nabla$ est déterminée par la donnée de $n^3$ fonctions dans $\mathcal{M}$ appelées \textit{coefficients de connexion } et définies par son action sur la base $\{\partial_{\mu}\}$ de $T_{P}\mathcal{M}$ :
-
+une connexion affine $\nabla$ est déterminée par la donnée de $n^3$ fonctions dans $\mathcal{M}$ appelées \textit{coefficients de connexion} définies par son action sur la base $\{\partial_{\mu}\}$ de $T_{P}\mathcal{M}$ :
 \begin{equation}
-    \boxed{\nabla_{\partial_{\mu}}\partial_{\nu} \equiv \nabla_\mu \pd_\nu = \Gamma\indices*{^{\alpha}_{\mu \nu}}\partial_{\alpha}}
+    \boxed{\nabla_{\partial_{\mu}}\partial_{\nu} \equiv \nabla_\mu \pd_\nu = \Gamma\indices{^{\alpha}_{\!\mu \nu}}\partial_{\alpha}}
 \end{equation}
-L'action sur les vecteurs de base (via la données des $\Gamma^{\alpha}_{\mu \nu}$) définit l'action sur tout vecteur
-$\forall X,Y\in \Zhe(\mathcal{M})$:
+L'action sur les vecteurs de base (donc la donnée des $\Gamma^{\alpha}_{\!\mu \nu}$) définit son action sur tout (champ de) vecteur
+$ X,Y\in \Zhe(\mathcal{M})$:
 \begin{align}
      \nabla_{X}Y =(\nabla_{X}Y)^{\beta}\partial_{\beta} &=  \nabla_{X^{\mu}\partial_{\mu}}(Y^{\alpha}\partial_{\alpha})\\
      &= X^{\mu}\nabla_{\partial_{\mu}}(Y^{\alpha}\partial_{\alpha}) \\
      &= X^{\mu}(\partial_{\mu}Y^{\alpha}\partial_{\alpha} + Y^{\alpha}\nabla_{\partial_{\mu}}\partial_{\alpha})\\
-     &=X^{\mu}(\partial_{\mu}Y^{\beta} + Y^{\alpha}\Gamma^{\beta}_{\mu \alpha})\partial_{\beta}
+     &=X^{\mu}(\partial_{\mu}Y^{\beta} + Y^{\alpha}\Gamma\indices{^{\beta}_{\!\mu \alpha}})\partial_{\beta}
 \end{align}
 Les composantes de la connexion sont donc données par
 \begin{equation}
-    \boxed{\nabla_{X}Y^{\beta} = X^\mu (\partial_{\mu}Y^{\beta} + Y^{\alpha}\Gamma^{\beta}_{\mu \alpha})}
+    \boxed{(\nabla_{X}Y)^{\beta} = X^\mu (\partial_{\mu}Y^{\beta} + \Gamma\indices{^{\beta}_{\!\mu \alpha}}Y^{\alpha})}
     \label{def: dérivée covariante vecteur}
 \end{equation}
 En particulier, si $X$ est un vecteur de la base, on obtient :
 \begin{equation} 
-    \nabla_{\mu}Y^{\beta} = (\partial_{\mu}Y^{\beta} + Y^{\alpha}\Gamma^{\beta}_{\mu \alpha})
+    \nabla_{\mu}Y^{\beta} = (\partial_{\mu}Y^{\beta} + Y^{\alpha}\Gamma\indices{^{\beta}_{\!\mu \alpha}})
 \end{equation}
 \subsection{Le transport parallèle}
 
-Les coefficients de connexion vont nous permettre de \emph{connecter} (i.e. comparer) des éléments du fibré (i.e. des vecteurs) en deux points proches distincts et de là de définir une notion de dérivée pour des champs de vecteurs intrinsèque à la variété. Notons que ceci n'est pas évident : ces vecteurs appartiennent à des espaces vectoriels différents comme a priori, $T_P\mathcal{M} \neq T_{P'}\mathcal{M}$. Pour plus de détails, le lecteur est invité à consulter la chaine \href{https://youtu.be/Af9JUiQtV1k?si=gT3A0wMGmJmEb9g0}{eigenchris} pour s'en convaincre. 
+Les coefficients de connexion vont nous permettre de \emph{connecter} (comparer) des éléments du fibré (vecteurs) en deux points proches distincts et de là pouvoir définir une notion de dérivée pour des champs de vecteurs intrinsèque à la variété. Notons que ceci n'est pas trivial : ces vecteurs appartiennent à des espaces vectoriels différents comme a priori, $T_P\mathcal{M} \neq T_{P'}\mathcal{M}$\footnote{Pour plus de détails, le lecteur est invité à consulter la \href{https://youtu.be/Af9JUiQtV1k?si=gT3A0wMGmJmEb9g0}{vidéo d'eigenchris} pour s'en convaincre}. 
 
 On va introduire le \textit{transport parallèle} pour qui permet de comparer deux vecteurs appartenant à des espaces vectoriels proches, c'est à dire qui permet de construire, à partir d'un vecteur au point $P$, un autre vecteur à un point adjacent $P'$.
 \begin{theoremframe}
@@ -476,132 +496,121 @@ On va introduire le \textit{transport parallèle} pour qui permet de comparer de
         \begin{equation}
             x'^\mu = x^\mu + \varepsilon^\mu \equiv x^{\alpha} + \varepsilon Y^{\alpha} 
         \end{equation}
-        où $\varepsilon \ll 1$. Soit $X_P \in T_P\mathcal{M}$. Alors, le transport parallèle de $X_P$ du point $P$ vers le point $P'$ est
+        où $\varepsilon \ll 1$. Soit $X \in T_P\mathcal{M}$. Alors, le transport parallèle de $X$ du point $P$ vers le point $P'$ est
         \begin{equation}
-            \boxed{\tilde{X}^{\mu}_{P'} = X^{\mu}_{P} - \Gamma^{\mu}_{\beta \gamma}X^{\beta}_{P} \, \varepsilon^{\gamma} + \mathcal{O}(\varepsilon^2)}
+            \boxed{\tilde{X}^{\mu}({P'}) = X^{\mu} - \Gamma\indices{^{\mu}_{\!\beta \gamma}}\,X^{\beta} \, \varepsilon^{\gamma} + \mathcal{O}(\varepsilon^2)}
         \end{equation}
     \end{defi}
 \end{theoremframe}
-Pour le moment, nous considérerons $\Gamma^{\alpha}_{\beta \gamma}$ sans lien avec la section précédente. Nous montrerons qu'il s'agit exactement des coefficients de connexion. Notons également que $Y\in T_P\mathcal{M}$ (c'est pourquoi nous l'avons écrit en majuscule).
-\begin{exerc}
-    Vérifiez que le transport parallèle est une opération linéaire. C'est à dire que le transport parallèle de $a X^\mu_P +b Y^\mu_P$ est simplement $a\tilde{X}^\mu_{P'}+ b\tilde{Y}^\mu_{P'}$.
-\end{exerc}
+Pour le moment, nous considérerons $\Gamma^{\alpha}_{\!\beta \gamma}$ sans lien avec la section précédente. Nous montrerons qu'il s'agit exactement des coefficients de connexion. Notons également que $Y\in T_P\mathcal{M}$, et qu'elle indique la \emph{direction} du déplacement.
 On peut alors énoncer une définition alternative de la dérivée covariante de $X$ dans la direction $Y$.
 \begin{theoremframe}
 \begin{propri}
 \label{def2:transport parallèle}
-    La dérivée covariante peut être définie en fonction du transport parallèle selon
+    Soient $X,Y \in T_P\M$ et $\tilde X (P')$, son transport parallèle vers le point $P'$ proche. Alors, la dérivée covariante de $X$ dans la direction $Y$ est donné par :
     \begin{equation}
         (\nabla_{Y}X)^{\mu} = \lim_{\varepsilon \rightarrow 0}\frac{X^{\mu}(x^{\alpha} + \varepsilon Y^{\alpha} ) - \tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} )}{\varepsilon}
     \end{equation}
 \end{propri}
 \end{theoremframe}
-Remarquons que les deux vecteurs sont comparés au même point.
+\begin{rmk}
+    À présent, les deux vecteurs sont comparés au même point.
+\end{rmk}
 \begin{proof}
-    Développons $\tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} )$ en série de Taylor :
+    Développons $\tilde{X}^{\mu}(x^{\alpha} +\varepsilon \, Y^{\alpha} )$ en série de Taylor :
     \begin{equation}
-        X^{\mu}(x^{\alpha} + \varepsilon Y^{\alpha} ) =X^{\mu}(x^{\alpha}) + \varepsilon Y^{\gamma}\partial_{\gamma}X^{\mu}(x^\alpha) + \mathcal{O}(\varepsilon^{2}) 
+        X^{\mu}(x^{\alpha} + \varepsilon\, Y^{\alpha} ) =X^{\mu}(x^{\alpha}) + \varepsilon \,Y^{\gamma}\partial_{\gamma}X^{\mu}(x^\alpha) + \mathcal{O}(\varepsilon^{2}) 
     \end{equation}
     De plus, par définition du transport parallèle :
     \begin{align}
-        \tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} ) &= X^{\mu}(x^{\alpha}) - \Gamma^{\mu}_{\beta \gamma}X^{\beta}(x^\alpha)\varepsilon^{\gamma} + \mathcal{O}(\varepsilon^2)\\
-        & = X^{\mu}(x^{\alpha}) - \varepsilon Y^\gamma \Gamma^{\mu}_{\beta \gamma}X^{\beta}(x^\alpha) + \mathcal{O}(\varepsilon^2)
+        \tilde{X}^{\mu}(x^{\alpha} +\varepsilon \,Y^{\alpha} ) &= X^{\mu}(x^{\alpha}) - \Gamma\indices{^{\mu}_{\!\beta \gamma}}X^{\beta}(x^\alpha)\,\varepsilon^{\gamma} + \mathcal{O}(\varepsilon^2)\\
+        & = X^{\mu}(x^{\alpha}) - \varepsilon\, Y^\gamma \Gamma\indices{^{\mu}_{\!\beta \gamma}}X^{\beta}(x^\alpha) + \mathcal{O}(\varepsilon^2)
     \end{align}
-    Ce qui nous donne 
+    En soustrayant ces deux résultats, on trouve donc :
     \begin{equation}
-        X^{\mu}(x^{\alpha} + \varepsilon Y^{\alpha} ) - \tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} ) = \varepsilon Y^\alpha \lt \partial_\alpha X^\mu + \Gamma^{\mu}_{\beta \alpha} X^\beta\rt+ \mathcal{O}(\varepsilon^2)
+        X^{\mu}(x^{\alpha} + \varepsilon Y^{\alpha} ) - \tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} ) = \varepsilon Y^\alpha \lt \partial_\alpha X^\mu + \Gamma\indices{^{\mu}_{\!\beta \alpha}} X^\beta\rt+ \mathcal{O}(\varepsilon^2)
     \end{equation}
     Et on retrouve donc bien 
     \begin{equation}
-        \lim_{\varepsilon\to 0} \frac{X^{\mu}(x^{\alpha} + \varepsilon Y^{\alpha} ) - \tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} )}{\varepsilon} = Y^\alpha \lt \partial_\alpha X^\mu + \Gamma^{\mu}_{\beta \alpha} X^\beta\rt \equiv (\nabla_Y X)^\mu
+        \lim_{\varepsilon\to 0} \frac{X^{\mu}(x^{\alpha} + \varepsilon Y^{\alpha} ) - \tilde{X}^{\mu}(x^{\alpha} +\varepsilon Y^{\alpha} )}{\varepsilon} = Y^\alpha \lt \partial_\alpha X^\mu + \Gamma\indices{^{\mu}_{\!\beta \alpha}} X^\beta\rt \equiv (\nabla_Y X)^\mu
     \end{equation}
 \end{proof}
 \begin{theoremframe}
 \begin{defi}
-    Soit une courbe lisse $\gamma: \R \to \mathcal{M}$ à coordonnées $x^\mu(\lambda)$ et son champ tangent $U^\alpha = \dfrac{\td x^\mu}{\td \lambda}$. On dit qu'un champ de vecteurs $X$ est \emph{transporté parallèlement} à cette courbe si à tout point de la courbe :
+    Soit une courbe lisse $\gamma: \R \to \mathcal{M}$ à coordonnées $x^\mu(\lambda)$ et son champ tangent $U^\alpha = \frac{\td x^\mu}{\td \lambda}$. On dit qu'un champ de vecteurs $X$ est \emph{transporté parallèlement} à cette courbe si à tout point de la courbe :
     \begin{equation}
         \nabla_U X = 0
     \end{equation}
 \end{defi}
 \end{theoremframe}
-Cette définition peut être comprise grâce à la propriété \ref{def2:transport parallèle}. En effet, on trouve que
+En effet, en vertu de la propriété \ref{def2:transport parallèle}, on trouve que
 \begin{equation}
     \nabla_U X = 0 \iff X_P(P') = \tilde{X}_P(P')
 \end{equation}
-pour $P,P' \in \mathrm{Im} \, \gamma$. Pour terminer cette section, formulons quelques remarques :
+pour $P,P' \in \mathrm{Im} \, \gamma$. 
 
+\begin{rmk} \,\\
 \begin{enumerate}
-    \item L'opérateur $\nabla_{Y}$ est la généralise la dérivée directionnelle sur des vecteurs. Pour les fonctions, nous avons simplement :
+    \item L'opérateur $\nabla_{Y}$ est la généralisation de la dérivée directionnelle sur des vecteurs. Pour les fonctions, nous avons simplement :
     \begin{equation}
-        Y(f) = Y^{\alpha}\partial_{\alpha} \equiv \nabla_{Y}f
+        Y(f) = Y^{\alpha}\partial_{\alpha} f \equiv \nabla_{Y}f
     \end{equation}
-    la dérivée usuelle.
+    qui est la dérivée usuelle.
     \item $\nabla$ peut être vu comme un opérateur tel que
-    $\Zhe (\mathcal{M})\to \Zhe^* (\mathcal{M})\times\Zhe(\mathcal{M}):V \mapsto \nabla V$. Cette application est un champ de tenseurs $(1, 1)$, à composantes $(\nabla V)\indices*{^\mu_\nu} = \nabla_\nu V^\mu$. Pour $V\in\Zhe$ fixe, on écrira également
+    $\Zhe (\mathcal{M})\to \Zhe^* (\mathcal{M})\times\Zhe(\mathcal{M}):V \mapsto \nabla V$. Cette application est un champ de tenseurs $(1, 1)$, à composantes $(\nabla V)\indices*{^\mu_\nu} = \nabla_\nu V^\mu$. Pour $V\in\Zhe (\M)$ fixe, on écrira également
     \begin{equation}
         \nabla V: \Zhe \times \Zhe^* \to C^\infty(\R): (X,w) \mapsto \nabla V(X,w) = \nabla_X V(w)
     \end{equation}
     dont les composantes sont notées $(\nabla V)\indices{_\mu^\nu} \equiv \nabla_\mu V^\nu$. Nous appelerons cet opérateur la dérivée covariante de $V$ dans la suite du cours.
-    \item Lorsque les coefficients de connexion s'annulent identiquement, la dérivé covariante se ramène à la dérivée partielle ordinaire. De plus, un vecteur transporté parallèlement est égal à son vecteur original. Autrement dit, $\mathcal{M}$ est un espace vectoriel. Ce cas correspond donc à l'espace temps plat de Minkowski (en l'absence de gravitation).
+    \item Lorsque les coefficients de connexion s'annulent identiquement, la dérivé covariante se ramène à la dérivée directionnelle ordinaire. De plus, un vecteur transporté parallèlement sera égal à son vecteur original. Autrement dit, $\mathcal{M}$ est alors un espace vectoriel. Ce cas correspond donc à l'espace temps plat de Minkowski (en l'absence de gravitation).
 \end{enumerate}
-
+\end{rmk}
+\cutebreak
 \subsection{Loi de transformation de la connexion}
 
-Jusqu'ici, les $n^3$ coefficient de connexion $\Gamma^{\beta}_{\mu \alpha}$ étaient considérés arbitraires. Nous allons à présent les contraindre de sorte que $\nabla X$ soit bien un tenseur. Nous imposerons donc que
-
-\begin{equation}
-    \nabla_{\nu '}X^{\mu '} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\nabla_{\nu }X^{\mu }
-\end{equation}
+Jusqu'ici, les $n^3$ coefficient de connexion $\Gamma\indices{^{\beta}_{\!\mu \alpha}}$ étaient considérés arbitraires. Nous allons à présent les contraindre de sorte que $\nabla X$ soit bien un tenseur. Nous imposerons donc que
+\begin{align}
+    \nabla_{\nu '}X^{\mu '} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\nabla_{\nu }X^{\mu }= \textcolor{purple}{\frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\partial_{\nu}X^{\mu}} + \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\Gamma\indices{^{\mu }_{\!\nu \alpha}}X^{\alpha }
+\end{align}
 Par définition de la connexion, dans le nouveau référentiel :
 \begin{align}
-    \nabla_{\nu '}X^{\mu '} &= \pd_{\nu'} X^{\mu'} + \Gamma^{\mu'}_{\nu'\alpha'} X^{\alpha'}\\
-    &=\frac{\partial x^{\nu}}{\partial x^{\nu '}}\partial_{\nu}\left(\frac{\partial x^{\mu'}}{\partial x^{\mu}} X^{\mu}\right) + \Gamma^{\mu '}_{\nu '\alpha '}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha}\\
-    &= \textcolor{purple}{\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\mu'}}{\partial x^{\mu}}\partial_{\nu}X^{\mu}} +\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial^2 x^{\mu'}}{\partial x^{\nu} \partial x^{\mu}}X^{\mu}  + \Gamma^{\mu '}_{\nu '\alpha '}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha}
+    \nabla_{\nu '}X^{\mu '} &= \pd_{\nu'} X^{\mu'} + \Gamma\indices{^{\mu'}_{\!\!\nu'\alpha'}}\, X^{\alpha'}\\
+    &=\frac{\partial x^{\nu}}{\partial x^{\nu '}}\partial_{\nu}\left(\frac{\partial x^{\mu'}}{\partial x^{\mu}} X^{\mu}\right) + \Gamma\indices{^{\mu '}_{\!\!\nu '\alpha '}}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha}\\
+    &= \textcolor{purple}{\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\mu'}}{\partial x^{\mu}}\partial_{\nu}X^{\mu}} +\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial^2 x^{\mu'}}{\partial x^{\nu} \partial x^{\mu}}X^{\mu}  + \Gamma\indices{^{\mu '}_{\!\!\nu '\alpha '}}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha}
 \end{align}
-On trouve donc, en imposant une transformation tensorielle :
-
-\begin{align}
-    \nabla_{\nu'} X^{\mu'} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\nabla_{\nu }X^{\mu } = \textcolor{purple}{\frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\partial_{\nu}X^{\mu}} + \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\Gamma^{\mu }_{\nu \alpha}X^{\alpha }
-\end{align}
-En simplifiant le terme covariant :
-
+En égalisant, on peut simplifier le terme covariant (rouge) et on obtient :
 \begin{align}
 \label{eq: Connexion tenseur1}
-    &\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial^2 x^{\mu'}}{\partial x^{\nu} \partial x^{\alpha}}X^{\mu} + \Gamma^{\mu '}_{\nu '\alpha '}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\Gamma^{\mu }_{\nu \alpha}X^{\alpha }\\
+    &\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial^2 x^{\mu'}}{\partial x^{\nu} \partial x^{\alpha}}X^{\alpha} + \Gamma\indices{^{\mu '}_{\!\!\nu '\alpha '}}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\Gamma\indices{^{\mu }_{\!\nu \alpha}}X^{\alpha }
 \end{align}
-Comme cette expression est valable pour tout $X$, nous pouvons le laisser tomber. En multipliant des deux côtés par $\dfrac{\pd x^\alpha}{\pd x^{\beta'}}$, on peut simplifier via la règle de la chaîne :
+Comme cette expression est valable pour tout $X$, nous pouvons le laisser tomber. En multipliant des deux côtés par $\dfrac{\pd x^\alpha}{\pd x^{\beta'}}$, on peut simplifier le premier terme via la règle de la chaîne :
 \begin{align}
-    \frac{\partial x^{\alpha}}{\partial x^{\beta '}} \overbrace{ \frac{\partial x^{\nu}}{\partial x^{\nu '}} \frac{\pd}{\pd x^\nu} }^{ \pd_{\nu'}} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}} +\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \Gamma^{\mu '}_{\nu '\alpha '}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} = \frac{\partial x^{\alpha}}{\partial x^{\beta '}}\frac{\partial }{\partial x^{\alpha '}} \frac{\partial x^{\mu'}}{ \partial x^{\nu'}} +\Gamma^{\mu '}_{\nu '\alpha '}\frac{\partial x^{\alpha '}}{\partial x^{\beta' }}
+    \frac{\partial x^{\alpha}}{\partial x^{\beta '}}  \frac{\partial x^{\nu}}{\partial x^{\nu '}} \frac{\pd}{\pd x^\nu} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}} = \frac{\partial x^{\alpha}}{\partial x^{\beta '}} \frac{\pd}{\pd x^{\nu'}} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}}
 \end{align}
-Or, comme 
-\begin{equation}
-    \frac{\partial x^{\alpha '}}{\partial x^{\beta' }} = \delta^{\alpha'}_{\beta'}
-\end{equation}
-\ref{eq: Connexion tenseur1} donne
-\begin{equation}
-    \Gamma^{\mu '}_{\nu '\beta '} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \Gamma^{\mu}_{\nu \alpha} -\frac{\partial x^{\alpha}}{\partial x^{\beta '}}\frac{\partial }{\partial x^{\nu '}} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}}
-\end{equation}
-En intégrant le dernier terme par parties :
+Une intégration par parties donne alors :
 \begin{align}
     \frac{\partial x^{\alpha}}{\partial x^{\beta '}}\partial_{\nu '} \frac{\partial x^{\mu '}}{\partial x^{\alpha}} &= \partial_{\nu '}\left(\frac{\partial x^{\alpha}}{\partial x^{\beta '}}\frac{\partial x^{\mu '}}{\partial x^{\alpha}}\right) - \frac{\partial x^{\mu '}}{\partial x^{\alpha}} \partial_{\nu '}\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \\
-    &= \partial_{\nu '} \delta^{\mu'}_{\beta'} - \frac{\partial x^{\mu '}}{\partial x^{\alpha}}\frac{\partial^2 x^{\alpha}}{\partial x^{\nu '}\partial x^{\beta '}} 
+    &= \cancel{\partial_{\nu '} \delta^{\mu'}_{\beta'}} - \frac{\partial x^{\mu '}}{\partial x^{\alpha}}\frac{\partial^2 x^{\alpha}}{\partial x^{\nu '}\partial x^{\beta '}} 
 \end{align}
-Dont le premier terme s'annule. On obtient finalement la loi de transformation générale de coordonnées pour les coefficients de connexion
-
+En recombinant dans \ref{eq: Connexion tenseur1} :
 \begin{equation}
-    \boxed{\Gamma^{\mu '}_{\nu '\beta '} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \Gamma^{\mu}_{\nu \alpha} +\frac{\partial x^{\mu '}}{\partial x^{\alpha '}}\frac{\partial ^2 x^{\alpha}}{\partial x^{\nu'}\partial x^{\beta '}} }
+    - \frac{\partial x^{\mu '}}{\partial x^{\alpha}}\frac{\partial^2 x^{\alpha}}{\partial x^{\nu '}\partial x^{\beta '}} +\Gamma\indices{^{\mu '}_{\!\!\nu '\beta '}} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \Gamma\indices{^{\mu}_{\!\nu \alpha}} 
+\end{equation}
+ On obtient finalement la loi de transformation générale de coordonnées pour les coefficients de connexion
+\begin{equation}
+    \boxed{\Gamma\indices{^{\mu '}_{\!\!\nu '\beta '}} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial x^{\alpha}}{\partial x^{\beta '}} \Gamma\indices{^{\mu}_{\!\nu \alpha}} +\frac{\partial x^{\mu '}}{\partial x^{\alpha '}}\frac{\partial ^2 x^{\alpha}}{\partial x^{\nu'}\partial x^{\beta '}} }
 \end{equation}
 On observe donc que les coefficients de connexion ne se transforment pas de manière covariante à cause du terme en la dérivée seconde. La partie antisymétrique des coefficients de connexion
 \begin{equation}
-    T^\mu_{\alpha\beta} = \Gamma^\mu_{[\alpha\beta]}
+    T^\mu_{\alpha\beta} = \Gamma\indices{^\mu_{\![\alpha\beta]}}
 \end{equation}
-se transforme comme un tenseur et est appelé le \emph{tenseur des torsions}. Pour une visualisation des effets de ce tenseurs, le lecteur est invité à consulter \href{https://www.youtube.com/watch?v=SfOiOPuS2_U}{cette vidéo}. Dans la suite du cours, nous supposerons que nos connexions sont \emph{sans torsion}, c'est à dire que le tenseur des torsions s'annule identiquement. En effet, muni d'une connexion avec torsion, le principe d'équivalence n'est pas vérifié. Pour une telle connexion, nous aurons donc
+se transforme bien comme un tenseur et est appelé le \emph{tenseur des torsions}\footnote{Pour une visualisation des effets de ce tenseurs, le lecteur est invité à consulter la\href{https://www.youtube.com/watch?v=SfOiOPuS2_U}{vidéo d'Eigenchris} à ce sujet.}. Dans la suite du cours, nous supposerons que nos connexions sont \emph{sans torsion}, c'est à dire que le tenseur des torsions s'annule identiquement (en effet, muni d'une connexion avec torsion, le principe d'équivalence n'est pas vérifié). Pour une telle connexion sans torsion, nous aurons donc
 \begin{equation}
-    \Gamma^\mu_{\alpha\beta} = \Gamma^\mu_{\beta \alpha}
+    \Gamma\indices{^\mu_{\!\alpha\beta}} = \Gamma\indices{^\mu_{\!\beta \alpha}}
 \end{equation}
-Sous cette condition, la connexion affine est une dérivée covariante dans le sens de la définition \ref{def:covariant der}.
+Sous cette condition, la connexion affine est une dérivée covariante au sens de la définition \ref{def:covariant der}.
 \begin{rmk}
-    Il est important de noter que les coefficients de connexion, même sans torsion, ne se transforment pas de manière covariante sous transformation générale de coordonnées. 
+    Il est important de noter que les coefficients de connexion, même sans torsion, ne se transforment pas de manière covariante sous transformation générale de coordonnées : c'est donc toujours pas un tenseur. 
 \end{rmk}
 
 
@@ -631,30 +640,31 @@ Ceci est simplement la règle de Leibniz. Nous étendons cette définition en im
 où $T_1$ et $T_2$ sont des champs de vecteurs arbitraires. 
 
 \subsection{Dérivée covariante d'une 1-forme}
-Soit un champ de covecteurs $w \in \Zhe^*(\mathcal{M}) = \Omega^1(\mathcal{M})$ et deux champ de vecteurs $X, Y \in \chi(\mathcal{M})$. On souhaite trouver une expression pour $(\nabla_X w)$.
-
+Soit un champ de covecteurs $w \in \Zhe^*(\mathcal{M}) = \Omega^1(\mathcal{M})$ et deux champ de vecteurs $X, Y \in \chi(\mathcal{M})$. On souhaite trouver une expression pour $(\nabla_X w)$. Par la définition \ref{dérivée covariante 0-forme} de la dérivée covariante pour un scalaire 
 \begin{align}
-\intertext{Par la définition \ref{dérivée covariante 0-forme} de la dérivée covariante pour un scalaire }       
-            \nabla_X(w(Y)) &= X(w(Y))\\
-\intertext{On souhaiterait à nouveau que la connexion vérifie la règle de Leibniz. On impose donc }           
-            &= (\nabla_X(w))Y + w(\nabla_X Y)
+    \nabla_X(w(Y)) &= X(w(Y))
 \end{align}
-En décomposant la première expression en composantes, on trouve
+En décomposant cette expression en composantes, on trouve
 \begin{align}
     X^{\mu}\partial_{\mu}(w_{\alpha} Y^{\alpha})&= X^{\mu}Y^{\alpha}\partial_{\mu}w_{\alpha} + X^{\mu}w_{\alpha}\partial_{\mu}Y^{\alpha}
     \label{dérivée covarantes 1-forme 2}
-    \intertext{La deuxième expression se développe selon}
-    (\nabla_X w)(Y) + w(\nabla_X Y) &= (\nabla_X w)_{\mu}dx^{\mu}(Y^{\alpha}\partial_{\alpha}) +  w_\mu (\nabla_X Y)^\mu\\
-    & = (\nabla_X w)_{\mu}Y^{\mu} + w_{\alpha}X^{\mu}\partial_{\mu}Y^{\alpha} + w_{\alpha}X^{\mu}\Gamma^{\alpha}_{\mu \gamma}Y^{\gamma}
+\end{align}
+On souhaite également que la connexion vérifie la règle de Leibniz. On impose donc 
+\begin{align}           
+    \nabla_X(w(Y))&= (\nabla_X(w))Y + w(\nabla_X Y)
+\end{align}
+La deuxième expression se développe selon
+\begin{align}
+    (\nabla_X w)(Y) + w(\nabla_X Y) &= (\nabla_X w)_{\mu}\td x^{\mu}(Y^{\alpha}\partial_{\alpha}) +  w_\mu (\nabla_X Y)^\mu\\
+    & = (\nabla_X w)_{\mu}Y^{\mu} + w_{\alpha}X^{\mu} (\partial_{\mu}Y^{\alpha} + \Gamma\indices{^{\alpha}_{\!\mu \gamma}}Y^{\gamma})
 \end{align}
 En les égalisant, on trouve finalement que
 \begin{align}
-    X^{\mu}Y^{\alpha}\partial_{\mu}w_{\alpha} + \textcolor{purple}{X^{\mu}w_{\alpha}\partial_{\mu}Y^{\alpha}} = (\nabla_X w)_{\alpha}Y^{\alpha} + \textcolor{purple}{w_{\alpha}X^{\mu}\partial_{\mu}Y^{\alpha}} + w_{\gamma}X^{\mu}\Gamma^{\gamma}_{\mu \alpha}Y^{\alpha}
+    X^{\mu}Y^{\alpha}\partial_{\mu}w_{\alpha} + \textcolor{purple}{X^{\mu}w_{\alpha}\partial_{\mu}Y^{\alpha}} = (\nabla_X w)_{\alpha}Y^{\alpha} + \textcolor{purple}{w_{\alpha}X^{\mu}\partial_{\mu}Y^{\alpha}} + w_{\gamma}X^{\mu}\Gamma\indices{^{\gamma}_{\!\mu \alpha}}Y^{\alpha}
 \end{align}    
-Où l'on simplifie les termes en rouge. Ceci étant vérifié pour tout $Y$, on trouve une expression de la dérivée covariante pour une 1-forme :
-
+Où on peut simplifier les termes en rouge. Ceci étant vérifié pour tout $Y$, on trouve une expression de la dérivée covariante pour une 1-forme :
 \begin{equation}
-    \boxed{(\nabla_X w)_{\mu} = X^{\alpha} \lt \partial_{\alpha}w_{\mu} - \Gamma^{\lambda}_{\alpha \mu}w_{\lambda} \rt}
+    \boxed{(\nabla_X w)_{\mu} = X^{\alpha} \lt \partial_{\alpha}w_{\mu} - \Gamma\indices{^{\lambda}_{\!\alpha \mu}}w_{\lambda} \rt}
     \label{dérivée covariance 1-forme egalisé 1}
 \end{equation}
 \subsection{La dérivée covariante pour un tenseur quelconque}
@@ -668,9 +678,9 @@ Par la définition \ref{rap:tenseur} d'un tenseur quelconque, il est possible de
         \end{equation}
         dont les composantes sont données par
         \begin{align*}
-            \nabla_{\alpha}T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \cdots \nu_q}} =& \partial_{\alpha}T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \cdots \nu_q} }\\
-            &+ \Gamma^{\mu_1}_{\alpha \textcolor{blue}{\theta}}T\indices{^{\textcolor{blue}{\theta} \mu_2 \cdots \mu_p}_{\nu_1 \cdots \nu_q}} + \Gamma^{\mu_2}_{\alpha \textcolor{blue}{\theta}}T\indices{^{\mu_1 \textcolor{blue}{\theta} \cdots \mu_p}_{\nu_1 \cdots \nu_q}} + ... + \Gamma^{\mu_p}_{\alpha \textcolor{blue}{\theta}}T\indices{^{\mu_1 \mu_2  \cdots \mu_{p-1}\textcolor{blue}{\theta}}_{\nu_1 \cdots \nu_q}} \\
-            &- \Gamma^{\textcolor{blue}{\theta}}_{\alpha \nu_1}T\indices{^{\mu_1 \cdots \mu_p}_{\textcolor{blue}{\theta} \nu_2 \cdots \nu_q}} -\Gamma^{\textcolor{blue}{\theta}}_{\alpha \nu_2}T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \textcolor{blue}{\theta} \cdots \nu_q}} - ... - \Gamma^{\textcolor{blue}{\theta}}_{\alpha \nu_q}T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \nu_2 \cdots \nu_{p-1}\textcolor{blue}{\theta}}}
+            \nabla_{\alpha}T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \cdots \nu_q}} =& \quad \partial_{\alpha}T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \cdots \nu_q} }\\
+            &+ \Gamma\indices{^{\mu_1}_{\!\alpha \textcolor{blue}{\theta}}}\,T\indices{^{\textcolor{blue}{\theta} \mu_2 \cdots \mu_p}_{\nu_1 \cdots \nu_q}} + \Gamma\indices{^{\mu_2}_{\!\alpha \textcolor{blue}{\theta}}}\,T\indices{^{\mu_1 \textcolor{blue}{\theta} \cdots \mu_p}_{\nu_1 \cdots \nu_q}} + \,\dots\, + \Gamma\indices{^{\mu_p}_{\!\alpha \textcolor{blue}{\theta}}}\,T\indices{^{\mu_1 \mu_2  \cdots \mu_{p-1}\textcolor{blue}{\theta}}_{\nu_1 \cdots \nu_q}} \\
+            &- \Gamma\indices{^{\textcolor{blue}{\theta}}_{\!\alpha \nu_1}}\,T\indices{^{\mu_1 \cdots \mu_p}_{\textcolor{blue}{\theta} \nu_2 \cdots \nu_q}} -\Gamma\indices{^{\textcolor{blue}{\theta}}_{\!\alpha \nu_2}}\,T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \textcolor{blue}{\theta} \cdots \nu_q}} - \,\dots\, - \Gamma\indices{^{\textcolor{blue}{\theta}}_{\!\alpha \nu_q}}\,T\indices{^{\mu_1 \cdots \mu_p}_{\nu_1 \nu_2 \cdots \nu_{p-1}\textcolor{blue}{\theta}}}
         \end{align*}
     \end{defi}
 \end{theoremframe}
@@ -683,10 +693,10 @@ La structure des composantes est donc comme suit :
 \begin{exmp}
     La métrique est un tenseur $(0,2)$. Sa dérivée covariante est donc donnée par
     \begin{equation}
-        \boxed{\nabla_{\alpha} g_{\mu \nu} = \partial_{\alpha}g_{\mu \nu} - \Gamma^{\gamma}_{\alpha \mu}g_{\gamma \nu}-\Gamma^{\gamma}_{\alpha \nu}g_{\mu \gamma}}
+        \boxed{\nabla_{\alpha} g_{\mu \nu} = \partial_{\alpha}g_{\mu \nu} - \Gamma\indices{^{\gamma}_{\!\alpha \mu}}g_{\gamma \nu}-\Gamma\indices{^{\gamma}_{\!\alpha \nu}}g_{\mu \gamma}}
     \end{equation}
 \end{exmp}
-Nous généraliserons également la définition de transport parallèle pour un champ de tenseurs
+Nous prolongerons également la définition de transport parallèle pour un champ de tenseurs
 \begin{theoremframe}
     \begin{defi}
     
@@ -697,7 +707,7 @@ Nous généraliserons également la définition de transport parallèle pour un 
     \end{defi}
 \end{theoremframe}
 \section{La connexion de Levi-Civita}
-Pour le moment, les coefficients sont soumis aux conditions :
+Pour le moment, les coefficients de connexion sont soumis aux conditions suivantes :
 \begin{enumerate}
     \item La connexion affine est un tenseur, ce qui impose une loi de transformation (non-tensorielle) pour les coefficients de connexion.
     \item Nous considérons des coefficients de connexion sans torsion.
@@ -756,9 +766,9 @@ Comme ceci est vrai pour tout $X,Y$ et $U$, on retrouve bien la définition \ref
     \end{align}
     ou encore
     \begin{align}
-        &U^{\alpha}(\nabla_{\alpha}g)_{\beta \gamma} dx^{\beta}\otimes dx^{\gamma}(X^{\mu}\partial_{\mu}, Y^{\nu}\partial_{\nu}) = 0 \implies U^{\alpha}X^{\mu}Y^{\nu}\nabla_{\alpha}g_{\mu \nu} =0
+        &U^{\alpha}(\nabla_{\alpha}g)_{\beta \gamma} \,\td x^{\beta}\otimes \td x^{\gamma}(X^{\mu}\partial_{\mu}, Y^{\nu}\partial_{\nu}) = 0 \implies U^{\alpha}X^{\mu}Y^{\nu}\nabla_{\alpha}g_{\mu \nu} =0
     \end{align}
-    Valable pour tout $X,Y$ et $U$. On a donc l'identité
+    valable pour tout $X,Y$ et $U$. On a donc l'identité
     \begin{equation}
     \nabla_{\alpha}g_{\mu \nu} =0
     \end{equation}
@@ -771,47 +781,42 @@ Ce résultat permet de rentrer et sortir la métrique d'une dérivée covariante
     \end{theorem}
 \end{theoremframe}  
 \begin{proof}
-Nous allons considérer une permutation cyclique de l'identité \ref{eq:métrique métrique}
-
-\begin{equation}
-\left\{
-\begin{array}{l}
-\nabla_{\alpha}g_{\mu \nu} = \partial_{\alpha}g_{\mu \nu} - \textcolor{purple}{\Gamma^{\beta}_{\alpha \mu}g_{\beta \mu}} - \textcolor{blue}{\Gamma^{\beta}_{\alpha \mu}g_{\mu \beta}} = 0 \\
-\\
-\nabla_{\mu}g_{ \nu \alpha } = \partial_{\mu}g_{\nu \alpha} - \Gamma^{\beta}_{\mu \nu}g_{\beta \alpha} - \textcolor{purple}{\Gamma^{\beta}_{\mu \alpha}g_{\nu \beta}} = 0 \\
-\\
-\nabla_{\nu}g_{ \alpha \mu } = \partial_{\nu}g_{\alpha \mu} - \textcolor{blue}{\Gamma^{\beta}_{\mu \alpha}g_{\beta \mu}} - \Gamma^{\beta}_{\nu \mu}g_{\alpha \beta} = 0 \\
-\end{array}
-\right.
-\end{equation}
-En soustrayant la deuxième et troisème ligne à la première, les contributions colorées s'annulent et on obtient
-\begin{equation}
-    \partial_{\alpha}g_{\mu \nu} - \partial_{\mu}g_{\nu \alpha} - \partial_{\nu}g_{\alpha \mu} +2\Gamma^{\beta}_{\mu \nu} g_{\beta \alpha} = 0
-\end{equation}
-En multipliant l'expression par $g^{\alpha\gamma}$ on trouve 
-\begin{equation}
-     g^{\alpha \gamma}\partial_{\alpha}g_{\mu \nu} - g^{\alpha \gamma}\partial_{\mu}g_{\nu \alpha} - g^{\alpha \gamma}\partial_{\nu}g_{\alpha \mu} +2\Gamma^{\gamma}_{\mu \nu}  =0
-\end{equation}
-via l'identité $g_{\mu\alpha} g^{\alpha\nu} = \delta_\mu^\nu$. On peut donc isoler les coefficients de connexion
-\begin{equation}
-    \Gamma^{\gamma}_{\mu \nu} = \frac{1}{2}g^{\alpha \gamma}( - \partial_{\alpha}g_{\mu \nu} + \partial_{\mu}g_{\nu \alpha} + \partial_{\nu}g_{\alpha \mu})
-\end{equation}
-Comme cette expression ne dépend que de $g$, l'unicité est assurée (la connexion ne dépend que de ses coefficients dans une base donnée).
+    Montrons l'unicité. Nous allons considérer une permutation cyclique de l'identité \ref{eq:métrique métrique}
+    \begin{equation}
+        \begin{dcases}
+            \nabla_{\alpha}g_{\mu \nu} = \partial_{\alpha}g_{\mu \nu} - \textcolor{purple}{\Gamma\indices{^{\beta}_{\!\alpha \mu}}\,g_{\beta \mu}} - \textcolor{blue}{\Gamma\indices{^{\beta}_{\!\alpha \mu}}\,g_{\mu \beta}} = 0 \\
+            \nabla_{\mu}g_{ \nu \alpha } = \partial_{\mu}g_{\nu \alpha} - \Gamma\indices{^{\beta}_{\!\mu \nu}}\,g_{\beta \alpha} - \textcolor{purple}{\Gamma\indices{^{\beta}_{\!\mu \alpha}}\,g_{\nu \beta}} = 0 \\
+            \nabla_{\nu}g_{ \alpha \mu } = \partial_{\nu}g_{\alpha \mu} - \textcolor{blue}{\Gamma\indices{^{\beta}_{\!\mu \alpha}}\,g_{\beta \mu}} - \Gamma\indices{^{\beta}_{\!\nu \mu}}\,g_{\alpha \beta} = 0 
+        \end{dcases}
+    \end{equation}
+    En soustrayant la deuxième et troisème ligne à la première, les contributions colorées s'annulent et on obtient
+    \begin{equation}
+        \partial_{\alpha}g_{\mu \nu} - \partial_{\mu}g_{\nu \alpha} - \partial_{\nu}g_{\alpha \mu} +2\Gamma\indices{^{\beta}_{\!\mu \nu}}\, g_{\beta \alpha} = 0
+    \end{equation}
+    En multipliant l'expression par $g^{\alpha\gamma}$ on trouve 
+    \begin{equation}
+        g^{\alpha \gamma}\partial_{\alpha}g_{\mu \nu} - g^{\alpha \gamma}\partial_{\mu}g_{\nu \alpha} - g^{\alpha \gamma}\partial_{\nu}g_{\alpha \mu} +2\Gamma\indices{^{\gamma}_{\!\mu \nu}}  =0
+    \end{equation}
+    via l'identité $g_{\mu\alpha} g^{\alpha\nu} = \delta_\mu^\nu$. On peut donc isoler les coefficients de connexion
+    \begin{equation}
+        \Gamma\indices{^{\gamma}_{\!\mu \nu}} = \frac{1}{2}g^{\alpha \gamma}( - \partial_{\alpha}g_{\mu \nu} + \partial_{\mu}g_{\nu \alpha} + \partial_{\nu}g_{\alpha \mu})
+    \end{equation}
+    Comme cette expression ne dépend que de $g$, l'unicité est assurée (la connexion ne dépend que de ses coefficients dans une base donnée).
 \end{proof}
 \begin{theoremframe}
     \begin{defi}
         Une connexion telle que donnée par le théorème \ref{thm:fondamental riemannien} est appelée \emph{connexion de Levi-Civita}. C'est donc l'unique connexion sur $(\mathcal{M},g)$ métrique et sans torsion. Les coefficients de cette connexion, données par
         \begin{equation}
-            \boxed{\Gamma^{\gamma}_{\mu \nu} = \frac{1}{2}g^{\alpha \gamma}( - \partial_{\alpha}g_{\mu \nu} + \partial_{\mu}g_{\nu \alpha} + \partial_{\nu}g_{\alpha \mu})}
+            \boxed{\Gamma\indices{^{\gamma}_{\!\mu \nu}} = \frac{1}{2}g^{\alpha \gamma}( - \partial_{\alpha}g_{\mu \nu} + \partial_{\mu}g_{\nu \alpha} + \partial_{\nu}g_{\alpha \mu})}
     \label{Connexion de Levi-Civita}
         \end{equation}
-        sont appelées les \emph{symboles de Christoffel}
+        sont appelées les \emph{symboles de Christoffel}.
     \end{defi}
 \end{theoremframe}
 Dans la suite du cours, nous considérerons toujours une connexion de Levi-Civita.
 \begin{theoremframe}
     \begin{propri}
-        Étant donné une connexion de Levi-Civita, on peut toujours annuler les coefficients de connexion à un point par un changement de coordonnées approprié. 
+        Étant donné une connexion de Levi-Civita, on peut toujours annuler les coefficients de connexion en un point par un changement de coordonnées approprié. 
     \end{propri}
 \end{theoremframe}
 \begin{proof}
@@ -820,45 +825,42 @@ Dans la suite du cours, nous considérerons toujours une connexion de Levi-Civit
         \item $\left. g_{\hat{\mu}\hat{\nu}} \right|_P = \eta_{\hat{\mu}\hat{\nu}}$
         \item $ \left. \partial_{\hat{\alpha}}g_{\hat{\mu}\hat{\nu}} \right|_P=0$
     \end{enumerate}
-    Il suit alors immédiatement de la relation \ref{Connexion de Levi-Civita} que dans ce référentiel, $ \Gamma^{\hat{\gamma}}_{\hat{\mu} \hat{\nu}} =0$. 
+    Il suit alors immédiatement de la relation \ref{Connexion de Levi-Civita} que dans ce référentiel, $ \Gamma^{\hat{\gamma}}_{\!\hat{\mu} \hat{\nu}} =0$. 
 \end{proof}
 Il est possible de généraliser ce résultat pour une connexion sans torsion, mais pas métrique $( \nabla_{\alpha}g_{\mu \nu} \neq 0$).
 \subsection{Les lois de la physique en présence de gravitation}
-La dérivée covariante $\nabla_{\mu}$ permet de formuler les lois de la physiques sur une variété quelconque $(\mathcal{M}, g)$ tel que 
-
+La dérivée covariante $\nabla_{\mu}$ permet de formuler les lois de la physiques sur une variété quelconque $(\mathcal{M}, g)$ telles que :
 \begin{enumerate}
-    \item elles soient tensorielles (les lois tensorielles sont valables pour tout observateur).
-    \item satisfont au principe d'équivalence, c'est-à-dire qui se ramènent localement à la relativité restreinte (aux lois de la physique sans gravitation, dans un référentiel localement inertiel)
+    \item Elles soient tensorielles (valables pour tout observateur),
+    \item Elles satisfont au principe d'équivalence, c'est-à-dire qu'elles se ramènent localement aux lois de la physique sans gravitation.
 \end{enumerate}
-Illustrons ce procédé avec les équations de Maxwell. En relativité restreinte en l'absence de gravitation, une partie des équations de Maxwell s'écrit
-
+Illustrons ce procédé avec les équations de Maxwell. En relativité restreinte en l'absence de gravitation, (une partie des) équations de Maxwell s'écrit
 \begin{equation}
     \partial_{\mu}F^{\mu \nu} = J^{\nu}
 \label{équation de Mawell 2}
 \end{equation}
-Cette équation représente aussi les équations de Maxwell en présence de gravitation dans un référentiel localement inertiel. On a montré précédemment que dans un système de coordonnée localement inertiel, 
+Cette équation représente aussi les équations de Maxwell en présence de gravitation dans un référentiel localement inertiel. On a montré précédemment que dans un système de coordonnée localement inertiel :
 \begin{equation}
-    \Gamma^{\hat{\gamma}}_{\hat{\mu} \hat{\nu}} = 0
+    \Gamma\indices{^{\hat{\gamma}}_{\!\hat{\mu} \hat{\nu}}} = 0
 \end{equation}
- Et donc, dans ce référentiel, $\nabla_{\mu} = \partial_{\mu}$. Par conséquence, les équations de Maxwell dans ce référentiel s'écrivent comme
-
+ Et donc, dans ce référentiel, la dérivée covariante se ramène à la dérivée usuelle : $\nabla_{\mu} = \partial_{\mu}$. Par conséquence, les équations de Maxwell dans ce référentiel s'écrivent
  \begin{equation}
      \nabla_{\mu} F^{\mu \nu} = J^{\nu}
      \label{équation de Mawell vallablle dans tout les réf}
  \end{equation}
  Mais à présent, cette équation est tensorielle (donc valable pour tout système de coordonnées contrairement à \ref{équation de Mawell 2}). L'équation[\ref{équation de Mawell vallablle dans tout les réf}] représente donc les équations de Maxwell dans un référentiel général. 
 
- Plus généralement, pour rendre des équations covariantes c'est-à-dire valables dans un système de coordonnées quelconque ou valable en présence de gravitation, il suffit de faire la substitution suivante :
+ Plus généralement, pour rendre des équations covariantes c'est-à-dire valables dans un système de coordonnées quelconque/en présence de gravitation, il suffit de faire la substitution suivante :
  \begin{equation}
      \partial_{\mu} \rightarrow \nabla_{\mu}
  \end{equation}
-En présence d'une torsion, le principe d'équivalence n'est pas satisfait car les coefficients de connexion ne pourront plus être annulées. 
-
-Nous verrons au prochain chapitre sur les géodésiques que les coefficients de connexion encodent les forces (fictives) d'inertie ou, d'après le Principe d'Équivalence, l'effet des forces gravitationnelles. \emph{Annuler les coefficients de connexion} revient à se placer dans un référentiel localeent inertiel. Étant donné ceci, l'expression \ref{Connexion de Levi-Civita} (exprimant les coefficients de connexion comme dérivées de la métrique) suggère déjà le fait que la métrique de l'espace-temps jouera le rôle de \emph{potentiel gravitationnel}, analogue à $\vect{F} = - \vect{\nabla} \Phi$
+Nous verrons au prochain chapitre que les coefficients de connexion encodent les forces (fictives) d'inertie ou, d'après le Principe d'Équivalence, l'effet des forces gravitationnelles. \emph{Annuler les coefficients de connexion} revient à se placer dans un référentiel localeent inertiel. Étant donné ceci, l'expression \ref{Connexion de Levi-Civita} (exprimant les coefficients de connexion comme dérivées de la métrique) suggère déjà le fait que la métrique de l'espace-temps jouera le rôle de \emph{potentiel gravitationnel}, analogue à $\vect{F} = - \vect{\nabla} \Phi$
 \subsection{Interprétation géométrique de la torsion}
+WIP
 \section{Sur le lien entre la dérivée covariante et la dérivée extérieure}
+WIP
 \section{Courbure}
-Dans un espace temps plat, si on transporte parallèlement un vecteur d'un point à un autre le long de 2 chemin distincts, on obtient le même vecteur. Ce n'est plus valable dans une variété générique : il n'y a pas moyen de comparer des vecteurs en différents points, ou en particulier calculer la variation d'un champ de tenseurs dans une direction donnée. C'est ce qui nous a amené à définir la notion de \emph{connexion affine} $\nabla$. L'avantage de travailler dans une variété (pseudo-)Riemannienne est l'existence et unicité d'une connexion privilégiée, appelée \emph{connexion de Levi-Civita}. Le tenseur de Riemann permettra de quantifier la courbure d'une variété munie d'une connexion de Levi-Civita.
+Dans un espace-temps plat, si on transporte parallèlement un vecteur d'un point à un autre le long de deux chemins distincts, on obtient le même vecteur. Ce n'est plus nécessairement vrai dans une variété arbitraire : il n'y a pas moyen de comparer des vecteurs en différents points, ou en particulier calculer la variation d'un champ de tenseurs dans une direction donnée. C'est ce qui nous a amené à définir la notion de \emph{connexion affine} $\nabla$. L'avantage de travailler dans une variété (pseudo-)Riemannienne est l'existence et unicité d'une connexion privilégiée, appelée \emph{connexion de Levi-Civita}. Le tenseur de Riemann permettra de quantifier la courbure d'une variété munie d'une connexion de Levi-Civita.
 \begin{exmp}
     Transport parallèle sur la sphère.
 \end{exmp}
@@ -867,11 +869,11 @@ Le tenseur de Riemann nous fournira une description locale de la courbure en tou
 
 \begin{theoremframe}
     \begin{defi}
-        Le tenseur de Riemann d'une connexion $\nabla$ est l'application 
+        Le tenseur de Riemann d'une connexion affine $\nabla$ est l'application 
         \begin{align}
             R : \lt \begin{array}{ccl}
-                \Zhe (\mathcal{M}) \times \Zhe (\mathcal{M}) \times \Zhe (\mathcal{M}) & \to & \Zhe(\mathcal{M}) \\
-                (X,Y,Z) & \mapsto & R(X,Y,Z)
+                \Zhe (\mathcal{M}) \times \Zhe (\mathcal{M}) \times \Zhe (\mathcal{M}) & \longrightarrow & \Zhe(\mathcal{M}) \\
+                (X,Y,Z) & \longmapsto & R(X,Y,Z)
             \end{array}
             \rt
         \end{align}
@@ -882,87 +884,79 @@ Le tenseur de Riemann nous fournira une description locale de la courbure en tou
         \end{align}
     \end{defi}
 \end{theoremframe}
-Il s'agit donc d'un tenseur $(1,3)$. $[X, Y]$ est le crochet de Lie de deux champs de vecteurs défini comme
+où $[X, Y]$ est le crochet de Lie de deux champs de vecteurs défini comme
 \begin{equation}
-     [\quad]:\Zhe(\mathcal{M})\times \Zhe(\mathcal{M}) \rightarrow \Zhe(\mathcal{M}) : (X, Y) \mapsto [X, Y]= XY -YX
+     [\, \cdot \,,\, \cdot \,]:\Zhe(\mathcal{M})\times \Zhe(\mathcal{M}) \rightarrow \Zhe(\mathcal{M}) : (X, Y) \mapsto [X, Y]= XY -YX
 \end{equation}
 ses composantes sont
 \begin{align}
-    [X, Y]f &= X(Y(\cdot)) - Y(X(\cdot))\\
+    [X, Y]f &= X(Y(f)) - Y(X(f))\\
     &= X^{\alpha}\partial_{\alpha}(Y^{\mu}\partial_{\mu}f) - Y^{\alpha}\partial_{\alpha}(X^{\mu}\partial_{\mu}f)\\
-    &= X^{\alpha}\partial_{\alpha}Y^{\mu}\partial_{\mu} + \textcolor{purple}{X^{\alpha}Y^{\alpha}\partial_{\alpha}\partial_{\mu}} - Y^{\alpha}\partial_{\alpha}X^{\mu}\partial_{\mu} - \textcolor{purple}{Y^{\alpha}X^{\alpha}\partial_{\alpha}\partial_{\mu}}\\
-    &= (X^{\alpha}\partial_{\alpha}Y^{\mu} - Y^{\alpha}\partial_{\alpha}X^{\mu} )\partial_{\mu}\\
-    &= [X, Y]_{\mu}\partial_{\mu}
+    &= X^{\alpha}\partial_{\alpha}Y^{\mu}\partial_{\mu}f + \textcolor{purple}{X^{\alpha}Y^{\mu}\partial_{\alpha}\partial_{\mu}f} - Y^{\alpha}\partial_{\alpha}X^{\mu}\partial_{\mu}f - \textcolor{purple}{Y^{\alpha}X^{\mu}\partial_{\alpha}\partial_{\mu}f}\\
+    &= (X^{\alpha}\partial_{\alpha}Y^{\mu} - Y^{\alpha}\partial_{\alpha}X^{\mu} )\partial_{\mu}f\\
+    &= [X, Y]^{\mu}\partial_{\mu}f
 \end{align}
 \begin{exerc}
-    Montrer que $[X, Y]_{\mu}$ se transforme comme un vecteur.
+    Montrer que $[X, Y]^{\mu}$ se transforme comme un vecteur.
 \end{exerc}
-Rappelons que les composantes du tenseur de Riemann dans une carte locale sont:
-\begin{equation}
-    R = R\indices{^{\xi}_{\mu \nu \rho}}\td x^{\mu}\otimes \td x^{\nu}\otimes \td x^{\rho}\otimes \partial_{\xi}
-\end{equation}
-Où
-\begin{equation}
-     R(\partial_{\alpha}, \partial_{\beta}, \partial_{\gamma})(\td x^{\mu}) = R\indices{^{\mu}_{\alpha \beta \gamma}}
-\end{equation}
-Calculons l'expression de ces composantes à partir de la définition du tenseur de Riemann :
+Les composantes du tenseur de Riemann dans une carte locale sont:
 \begin{align}
-    R\indices{^{\mu}_{\alpha \beta \gamma}} &= R(\partial_{\alpha}, \partial_{\beta}, \partial_{\gamma})(\td x^{\mu})\\
-    &= \lt \nabla_{\beta} \nabla_{\gamma} \partial_{\alpha} - \nabla_{\gamma}\nabla_{\beta}\partial_{\alpha} - \nabla_{[\partial_{\beta}, \partial_{\gamma}]}\partial_{\alpha}\rt (\td x^{\mu})
+    R = R\indices{^{\xi}_{\!\mu \nu \rho}}\td x^{\mu}\otimes \td x^{\nu}\otimes \td x^{\rho}\otimes \partial_{\xi}
 \end{align}
-Or, comme les dérivées partielles commutent, on a 
-\begin{equation}
-    \nabla_{[\partial_{\beta}, \partial_{\gamma}]} = \nabla_0 =  0
-\end{equation}
-Et comme par définition de la connexion, $(\nabla_\mu \partial_\nu) = \Gamma^\alpha_{\mu\nu} \pd_\alpha$ on trouve
+Où ses composantes sont définies par son action sur la base :
 \begin{align}
-     R\indices{^{\mu}_{\alpha \beta \gamma}} &=\lt \nabla_{{\beta}}(\textcolor{purple}{\Gamma^{\nu}_{\gamma \alpha}\partial_{\nu}}) - \nabla_{{\gamma}}(\textcolor{blue}{\Gamma^{\nu}_{\beta \alpha}\partial_{\nu}}) \rt (\td x^{\mu})
+     R(\partial_{\alpha}, \partial_{\beta},\partial_{\gamma}) &= R\indices{^{\mu}_{\!\gamma \alpha \beta}} \,\pd_\mu\\
+     & =\lt \nabla_{\alpha} \nabla_{\beta}  - \nabla_{\beta}\nabla_{\alpha} - \nabla_{[\partial_{\alpha}, \partial_{\beta}]}\rt\partial_{\gamma}\\
+     & = \lt \nabla_{\alpha} \nabla_{\beta}  - \nabla_{\beta}\nabla_{\alpha}\rt\partial_{\gamma}
 \end{align}
-Par la définition \ref{def: dérivée covariante vecteur} de la dérivée covariante d'un vecteur (comme $\nabla_\mu \pd_\nu$ est un vecteur) :
+Comme les dérivées partielles commutent. Et comme par définition de la connexion, $(\nabla_\mu \partial_\nu) = \Gamma\indices{^\alpha_{\!\mu\nu}} \pd_\alpha$ on trouve :
 \begin{align}
-     R\indices{^{\mu}_{\alpha \beta \gamma}} &=\lt \partial_{\beta}\textcolor{purple}{\Gamma^{\nu}_{\gamma \alpha}\partial_{\nu}} + \textcolor{purple}{\Gamma^{\sigma}_{\gamma \alpha}} \Gamma^{\nu}_{\beta \sigma}\textcolor{purple}{\partial_{\nu}} - \partial_{\gamma}\textcolor{blue}{\Gamma^{\nu}_{\beta \alpha}\partial_{\nu}} - \textcolor{blue}{\Gamma^{\sigma}_{\gamma \alpha}} \Gamma^{\nu}_{\beta \sigma}\textcolor{blue}{\partial_{\nu}} \rt (\td x^{\mu})
+     R\indices{^{\mu}_{\!\gamma\alpha \beta}} &=\lt \nabla_{{\alpha}}(\textcolor{purple}{\Gamma\indices{^{\nu}_{\!\beta \gamma}}\partial_{\nu}}) - \nabla_{{\beta}}(\textcolor{blue}{\Gamma\indices{^{\nu}_{\!\alpha \gamma}}\partial_{\nu}}) \rt \td x^{\mu}
 \end{align}
-On simplifie en utilisant l'identité $\pd_\mu (\td x^\nu) = \delta^\nu_\mu$ :
+Comme $\nabla_\mu \pd_\nu$ est un vecteur, l'expression se développe davantage d'après la définition \ref{def: dérivée covariante vecteur} :
+\begin{align}
+     R\indices{^{\mu}_{\!\gamma\alpha \beta}} &=\lt \partial_{\alpha}\textcolor{purple}{\Gamma\indices{^{\nu}_{\!\beta \gamma}}\partial_{\nu}} + \Gamma\indices{^{\nu}_{\!\alpha \sigma}}\textcolor{purple}{\Gamma\indices{^{\sigma}_{\!\beta \gamma}}} \textcolor{purple}{\partial_{\nu}} - \partial_{\beta}\textcolor{blue}{\Gamma\indices{^{\nu}_{\!\alpha \gamma}}\partial_{\nu}} - \Gamma\indices{^{\nu}_{\!\beta \sigma}}\textcolor{blue}{\Gamma\indices{^{\sigma}_{\!\alpha \gamma}}} \textcolor{blue}{\partial_{\nu}} \rt \td x^{\mu}
+\end{align}
+En simplifiant via $\pd_\mu (\td x^\nu) = \delta^\nu_\mu$, on obtient l'expression des composantes du tenseur de Riemann en fonction des symboles de Christoffel (et donc de la métrique) :
 \begin{align}
      \label{Composantes du tenseur de Riemann}
-    \boxed{R\indices{^{\mu}_{\alpha \beta \gamma}} =  \partial_{\beta}\Gamma^{\mu}_{\gamma \alpha} + \Gamma^{\sigma}_{\gamma \alpha} \Gamma^{\mu}_{\beta \sigma} - \partial_{\gamma}\Gamma^{\mu}_{\beta \alpha} - \Gamma^{\sigma}_{\beta \alpha} \Gamma^{\mu}_{\gamma \sigma} }
+    \boxed{R\indices{^{\mu}_{\!\alpha \beta \gamma}} =  \partial_{\beta}\Gamma\indices{^{\mu}_{\!\gamma \alpha}} + \Gamma\indices{^{\blue{\sigma}}_{\!\gamma \alpha}} \Gamma\indices{^{\mu}_{\!\beta \blue{\sigma}}} - \partial_{\gamma}\Gamma\indices{^{\mu}_{\!\beta \alpha}} - \Gamma\indices{^{\blue{\sigma}}_{\!\beta \alpha}} \Gamma\indices{^{\mu}_{\!\gamma \blue{\sigma}}} }
 \end{align}
 \begin{exerc}
     Montrez que le tenseur de Riemann se transforme bien selon
     \begin{equation}
-        R\indices{^{\mu '}_{\alpha ' \beta ' \gamma'}} = \frac{\partial x^{\mu '}}{\partial x^{\mu} }\frac{\partial x^{\alpha}}{\partial x^{\alpha '} }\frac{\partial x^{\beta}}{\partial x^{\beta '} }\frac{\partial x^{\gamma}}{\partial x^{\gamma '} }R\indices{^{\mu}_{\alpha \beta \gamma}}
+        R\indices{^{\mu '}_{\!\!\alpha ' \beta ' \gamma'}} = \frac{\partial x^{\mu '}}{\partial x^{\mu} }\frac{\partial x^{\alpha}}{\partial x^{\alpha '} }\frac{\partial x^{\beta}}{\partial x^{\beta '} }\frac{\partial x^{\gamma}}{\partial x^{\gamma '} }R\indices{^{\mu}_{\!\alpha \beta \gamma}}
     \end{equation}
 \end{exerc}
 \begin{exerc}
     Montrez que l'action du tenseur de Riemann est multiplicatif, i.e.
     \begin{equation}
-        R(X,Y,Z) = R\indices{^\mu_\alpha_\beta_\gamma} Z^\alpha Y^\beta X^\gamma \pd_\mu
+        R(X,Y,Z) = R\indices{^\mu _\!_\alpha_\beta_\gamma} X^\beta Y^\gamma Z^\alpha \pd_\mu
     \end{equation}
 \end{exerc}
-Ce résultat est important pour confirmer que $R$ est bien un tenseur. Ceci n'aurait pas été vérifié si le résultat dépendait des dérivées des composantes des vecteurs, qui impliquent le champ de vecteurs ailleurs qu'au point donné. Le tenseur de Riemann est donc \emph{local en tout point}.
+Ce résultat est important pour confirmer que $R$ est bien un tenseur : ce n'aurait pas été vrai si le résultat dépendait des dérivées des composantes des vecteurs, qui impliquent le champ de vecteurs ailleurs qu'au point donné. Le tenseur de Riemann est donc \emph{local en tout point}.
 \begin{rmk}
-    Il est possible de voir $\Gamma^\alpha_{\beta \cdot} = \Gamma^\alpha_{\beta \mu} \td x^\mu$ comme une 1-forme de la connexion. Alors, la relation \ref{Composantes du tenseur de Riemann} représente les composantes en base de coordonnées de la 2-forme 
+    Il est possible de considérer $\Gamma\indices{^\alpha_{\!\beta}} \equiv \Gamma\indices{^\alpha_{\!\beta \mu}}\, \td x^\mu$ comme une 1-forme de la connexion. Alors, la relation \ref{Composantes du tenseur de Riemann} représente les composantes en base de coordonnées de la 2-forme 
     \begin{equation}
-        R\indices{^\mu_\nu} = R\indices{^\mu_\nu_\alpha_\beta} \td x^\alpha \wedge \td x^\beta
+        \mathcal{R}\indices{^\mu_\nu} = R\indices{^\mu_\!_\nu_\alpha_\beta}\, \td x^\alpha \wedge \td x^\beta
     \end{equation}
     
 \end{rmk}
-\subsection{Interprétation géométrique du tenseur de Riemann:}
+\subsection{Interprétation géométrique du tenseur de Riemann}
 
-En présence de la notion intuitive de courbure, on s'attend à ce qu'un vecteur transporté parallèlement d'un point à un autre selon deux chemins différents donne lieu à 2 vecteurs différents. Leur différence nous permettra de quantifier la notion de courbure.  
+D'après une notion intuitive de courbure, on s'attend à ce qu'un vecteur transporté parallèlement d'un point à un autre selon deux chemins différents donne lieu à 2 vecteurs différents. Leur différence nous permettra de quantifier la notion de courbure.  
 
 Soit un point $P \in \mathcal{M}$ et un autre point $Q$ proche de $P$, resp. à coordonnées locales 
 \begin{align}
     \varphi(P) &= x^\mu\\
     \varphi(Q) &= x^\mu + \epsilon^\mu + \eta^\mu
 \end{align}
-où $\epsilon^\mu = \epsilon \dfrac{\td x^\mu}{\td \lambda}$ et $\eta^\mu = \eta \dfrac{\td y^\mu}{\td \lambda}$ avec $\epsilon, \eta \ll 1$. Nous allons transporter parallèlement un vecteur $V \in T_P \mathcal{M}$ vers $Q$ le long des deux chemins distincts
+où $\epsilon^\mu = \epsilon \dfrac{\td y^\mu}{\td \lambda}$ et $\eta^\mu = \eta \dfrac{\td z^\mu}{\td \lambda}$ avec $\epsilon, \eta \ll 1$. Nous allons transporter parallèlement un vecteur $V \in T_P \mathcal{M}$ vers $Q$ le long des deux chemins distincts :
 \begin{align*}
     \text{Premier chemin :} \quad P \overset{\epsilon}{\to} P' \overset{\eta}{\to} Q \\
     \text{Second chemin :} \quad P \overset{\eta}{\to} P'' \overset{\epsilon}{\to} Q 
 \end{align*}
-Afin de clarifier les notations, nous noterons le vecteur $V$ transporté parallèlement une fois $\tilde{V}$ et lorsqu'il est transporté parallèlement une deuxième fois $\Hat{V}$.
-
+Nous noterons le vecteur $V$ transporté parallèlement une fois $\tilde{V}$, et lorsqu'il est transporté parallèlement une deuxième fois $\Hat{V}$.
 \subsubsection{Transport parallèle le long du premier chemin}
 Nous souhaitons transporter parallèlement le vecteur $V$ le long du chemin suivant :
 \begin{align}
@@ -970,23 +964,24 @@ Nous souhaitons transporter parallèlement le vecteur $V$ le long du chemin suiv
 \end{align}
 Le transport parallèle de $V$ de $P$ vers $P'$ est par définition :
 \begin{equation}
-    \tilde{V}^\mu_1 (P') = V^\mu - \left. \Gamma^\mu_{\beta \gamma}\right|_P \, V^\beta \, \epsilon^\gamma + \mathcal{O}(\epsilon^2)
+    \tilde{V}^\mu_1 (P') = V^\mu - \left. \Gamma\indices{^\mu_{\!\beta \gamma}}\right|_P \, V^\beta \, \epsilon^\gamma + \mathcal{O}(\epsilon^2)
 \end{equation}
 Si ce vecteur résultant est alors transporté parallèlement vers $Q$, on obtient 
 \begin{align}
-    \hat{V}^\mu_1 (Q) &= \tilde{V}^\mu_1 - \left. \Gamma^\mu_{\beta \gamma} \right|_{P'} \, \tilde{V}^\beta_1 \,  \eta^\gamma + \mathcal{O}(\eta^2)\\
-    \label{eq:riemann premier chemin}
-    & = V^\mu - \left. \Gamma^\mu_{\beta \gamma} \right|_P \, V^\beta \, \epsilon^\gamma - \left. \Gamma^\mu_{\beta \gamma} \right|_{P'} \lt V^\beta -\left. \Gamma^\beta_{\lambda \sigma}\right|_P \, V^\lambda \, \epsilon^\sigma \rt \, \eta^\gamma +  \mathcal{O}(\epsilon^2) + \mathcal{O}(\eta^2)
+\label{eq:riemann premier chemin}
+    \hat{V}^\mu_1 (Q) &= \tilde{V}^\mu_1 - \left. \Gamma\indices{^\mu_{\!\beta \gamma}} \right|_{P'} \, \tilde{V}^\beta_1 \,  \eta^\gamma + \mathcal{O}(\eta^2)\\
+     \nonumber
+    & = V^\mu - \left. \Gamma\indices{^\mu_{\!\beta \gamma}} \right|_P \, V^\beta \, \epsilon^\gamma - \left. \Gamma\indices{^\mu_{\!\beta \gamma}} \right|_{P'} \lt V^\beta -\left. \Gamma\indices{^\beta_{\!\lambda \sigma}}\right|_P \, V^\lambda \, \epsilon^\sigma \rt \, \eta^\gamma +  \mathcal{O}(\epsilon^2) + \mathcal{O}(\eta^2)
 \end{align}
-où nous avons omis les arguments : $V^\mu = V^\mu(P)$ et $\tilde{V}^\mu_1 = \tilde{V}^\mu_1 (P')$. Notons de plus que nous négligerons les termes de second ordre mais pas les termes croisées en $\epsilon \eta$ (qui s'avérera crucial pour notre analyse). Comme, les coordonnées de $P'$ s'écrivent $x^\mu + \epsilon^\gamma$, on peut faire le développement de Taylor suivant :
+où nous avons omis les arguments : $V^\mu = V^\mu(P)$ et $\tilde{V}^\mu_1 = \tilde{V}^\mu_1 (P')$. Notons de plus que nous négligerons les termes de second ordre mais pas les termes croisées en $\epsilon \eta$ (ce qui s'avérera être crucial dans notre analyse). Comme, les coordonnées de $P'$ s'écrivent $x^\mu + \epsilon^\gamma$, on peut faire le développement de Taylor suivant :
 \begin{equation}
     \label{eq:taylor connexion}
-    \left. \Gamma^\mu_{\beta \gamma} \right|_{P'} = \Gamma^\mu_{\beta \gamma} (x^\nu +\epsilon^\nu ) = \Gamma^\mu_{\beta \gamma} (x^\nu) + \epsilon^\xi \pd_\xi \Gamma^\mu_{\beta \gamma} (x^\nu) + \mathcal{O}^2
+    \left. \Gamma\indices{^\mu_{\!\beta \gamma}} \right|_{P'} = \Gamma\indices{^\mu_{\!\beta \gamma}} (x^\nu +\epsilon^\nu ) = \Gamma\indices{^\mu_{\!\beta \gamma}} (x^\nu) + \epsilon^\xi \pd_\xi \Gamma\indices{^\mu_{\!\beta \gamma}} (x^\nu) + \dots
 \end{equation}
 Lorsque cette expression est injecté dans \ref{eq:riemann premier chemin}, tous les coefficients de connexion sont évalués en $P$ :
 \begin{equation}
     \label{eq: premier chemin}
-    \hat{V}^\mu_1 (Q) = V^\mu - \Gamma^\mu_{\beta \gamma}  \, V^\beta \, \epsilon^\gamma - \lt \Gamma^\mu_{\beta \gamma} + \epsilon^\xi \pd_\xi \Gamma^\mu_{\beta \gamma} \rt \lt V^\beta - \Gamma^\beta_{\lambda \sigma} \, V^\lambda \, \epsilon^\sigma \rt \eta^\gamma +  \mathcal{O}^2
+    \hat{V}^\mu_1 (Q) = V^\mu - \Gamma\indices{^\mu_{\!\beta \gamma}}  \, V^\beta \, \epsilon^\gamma - \lt \Gamma\indices{^\mu_{\!\beta \gamma}} + \epsilon^\xi \pd_\xi \Gamma\indices{^\mu_{\!\beta \gamma}} \rt \lt V^\beta - \Gamma\indices{^\beta_{\!\lambda \sigma}} \, V^\lambda \, \epsilon^\sigma \rt \eta^\gamma +  \dots
 \end{equation} 
 \subsubsection{Transport parallèle le long du second chemin}
 Similairement à la section précédente, nous considérerons le transport parallèle le long du chemin
@@ -996,19 +991,20 @@ Similairement à la section précédente, nous considérerons le transport paral
 où $\varphi(P'') = x^\mu+\eta^\mu$. Les calculs explicites sont laissés comme exercice au lecteur, mais donnent un résultat similaire à \ref{eq: premier chemin} :
 \begin{equation}
     \label{eq: second chemin}
-    \hat{V}^\mu_2 (Q) = V^\mu - \Gamma^\mu_{\beta \gamma}  \, V^\beta \, \eta^\gamma - \lt \Gamma^\mu_{\beta \gamma} + \eta^\xi \pd_\xi \Gamma^\mu_{\beta \gamma} \rt \lt V^\beta - \Gamma^\beta_{\lambda \sigma} \, V^\lambda \, \eta^\sigma \rt \epsilon^\gamma +  \mathcal{O}^2
+    \hat{V}^\mu_2 (Q) = V^\mu - \Gamma\indices{^\mu_{\!\beta \gamma}}  \, V^\beta \, \eta^\gamma - \lt \Gamma\indices{^\mu_{\!\beta \gamma}} + \eta^\xi \pd_\xi \Gamma\indices{^\mu_{\!\beta \gamma}} \rt \lt V^\beta - \Gamma\indices{^\beta_{\!\lambda \sigma}} \, V^\lambda \, \eta^\sigma \rt \epsilon^\gamma +  \dots
 \end{equation} 
 \subsubsection{La différence entre les deux chemins}
-Définissons $\delta \hat{V}^\mu = \hat{V}^\mu_1 - \hat{V}^\mu_2$. Notons que les contribution en l'ordre 0 s'annulent. Les termes de premier ordre (non-croisées) s'écrivent :
+Définissons la différence entre les deux chemins $\delta \hat{V}^\mu = \hat{V}^\mu_1 - \hat{V}^\mu_2$. Notons que les contributions en l'ordre 0 s'annulent. Les termes de premier ordre (non-croisées) s'écrivent :
 \begin{equation}
-    \underbrace{-\Gamma^\mu_{\beta \gamma}  \, V^\beta \, \epsilon^\gamma -\Gamma^\mu_{\beta \gamma}V^\beta \eta^\gamma}_{1} + \underbrace{\Gamma^\mu_{\beta \gamma}  \, V^\beta \, \eta^\gamma + \Gamma^\mu_{\beta \gamma} V^\beta\epsilon^\gamma}_{2} = 0
+    \underbrace{-\Gamma\indices{^\mu_{\!\beta \gamma}}  \, V^\beta \, \epsilon^\gamma -\Gamma\indices{^\mu_{\!\beta \gamma}}V^\beta \eta^\gamma}_{\displaystyle \text{Chemin }1} + \underbrace{\Gamma\indices{^\mu_{\!\beta \gamma}}  \, V^\beta \, \eta^\gamma + \Gamma\indices{^\mu_{\!\beta \gamma}} V^\beta\epsilon^\gamma}_{\displaystyle \text{Chemin }2} = 0
 \end{equation}
 Ainsi, seuls les termes croisés en $\epsilon \eta$ survivent :
 \begin{align}
-    \delta \hat{V}^\mu &= \overbrace{\Gamma^\mu_{\beta \gamma}\Gamma^\beta_{\lambda \sigma} \, V^\lambda \, \epsilon^\sigma \eta^\gamma -  \epsilon^\xi \pd_\xi \Gamma^\mu_{\beta \gamma} V^\beta \eta^\gamma}^1 -\overbrace{\lt \Gamma^\mu_{\beta \gamma} \Gamma^\beta_{\lambda \sigma} \, V^\lambda \, \eta^\sigma \epsilon^\gamma - \eta^\xi \pd_\xi \Gamma^\mu_{\beta \gamma} V^\beta \epsilon^\gamma \rt}^2 
+    \delta \hat{V}^\mu &= \underbrace{\Gamma\indices{^\mu_{\!\beta \gamma}}\Gamma\indices{^\beta_{\!\lambda \sigma}} \, V^\lambda \, \epsilon^\sigma \eta^\gamma -  \epsilon^\xi \pd_\xi \Gamma\indices{^\mu_{\!\beta \gamma}} V^\beta \eta^\gamma}_{\displaystyle \text{Chemin } 1} -\underbrace{\lt \Gamma\indices{^\mu_{\!\beta \gamma}} \Gamma\indices{^\beta_{\!\lambda \sigma}} \, V^\lambda \, \eta^\sigma \epsilon^\gamma - \eta^\xi \pd_\xi \Gamma\indices{^\mu_{\!\beta \gamma}} V^\beta \epsilon^\gamma \rt}_{\displaystyle \text{Chemin } 2}
     \intertext{En renommant les indices :}
-    & = \varepsilon^{\sigma}\eta^{\gamma}V^{\beta}(\partial_{\gamma}\Gamma^{\mu}_{\beta \sigma} - \partial_{\sigma}\Gamma^{\mu}_{\beta \gamma} + \Gamma^{\mu}_{\beta \gamma}\Gamma^{\beta}_{\beta \sigma} - \Gamma^{\mu}_{\beta \sigma}\Gamma^{\beta}_{\beta \gamma})\\
-    &= \varepsilon^{\sigma}\eta^{\gamma}V^{\beta}R\indices{^{\mu}_{\beta \gamma \sigma}}
+    & = \varepsilon^{\sigma}\eta^{\gamma}V^{\beta}(\partial_{\gamma}\Gamma\indices{^{\mu}_{\!\beta \sigma}} - \partial_{\sigma}\Gamma\indices{^{\mu}_{\!\beta \gamma}} + \Gamma\indices{^{\mu}_{\!\nu \gamma}}\Gamma\indices{^{\nu}_{\!\beta \sigma}} - \Gamma\indices{^{\mu}_{\!\nu \sigma}}\Gamma\indices{^{\nu}_{\!\beta \gamma}})\\
+    &= 
+    \label{eq: courbure tenseur de riemann}\varepsilon^{\sigma}\eta^{\gamma}V^{\beta}R\indices{^{\mu}_{\!\beta \gamma \sigma}}
 \end{align}
 Le tenseurs de Riemann caractérise le transport parallèle entre 2  points. Plus précisément, il mesure l'écart d'un vecteur lorsque celui-ci est déformé d'un point à un autre le long de 2 chemins infinitésimalement différents de vecteurs tangents $\varepsilon^{\alpha}$ et $\eta^{\alpha}$. 
 
@@ -1016,18 +1012,18 @@ Le tenseurs de Riemann caractérise le transport parallèle entre 2  points. Plu
 Une manière alternative de définir le tenseur de Riemann est directement via le commutateur des dérivées covariantes. En effet, calculons
 \begin{align*}
     [\nabla_{\mu}, \nabla_{\nu}]V^{\rho} &= \nabla_{\mu}(\nabla_{\nu}V^{\rho}) - \nabla_{\nu}(\nabla_{\mu}V^{\rho})\\
-    \intertext{En développant la dérivée covariante externe :}
-    &= \partial_{\mu}(\nabla_{\nu}V^{\rho}) + \Gamma^{\rho}_{\alpha \mu}\nabla_{\nu}V^{\alpha}-\Gamma^{\alpha}_{\mu \nu}\nabla_{\alpha}V^{\rho} -(\partial_{\nu}(\nabla_{\mu}V^{\rho}) + \Gamma^{\rho}_{\alpha \nu}\nabla_{\mu}V^{\alpha}-\Gamma^{\alpha}_{\nu \mu}\nabla_{\alpha}V^{\rho})\\
-    \intertext{En développant la dérivée covariante interne :}
-    &= \partial_{\mu}(\textcolor{purple}{\partial_{\nu}V^{\rho}} + \Gamma^{\rho}_{\nu \xi}V^{\xi}) + \Gamma^{\rho}_{\alpha \mu}(\textcolor{purple}{\partial_{\nu}V^{\alpha}}+\Gamma^{\alpha}_{\nu \xi}V^{\xi}) - \textcolor{purple}{\Gamma^{\alpha}_{\mu \nu}(\partial_{\alpha}V^{\rho} + \Gamma^{\rho}_{\alpha \xi}V^{\xi})} \\
-    &-\partial_{\nu}(\textcolor{purple}{\partial_{\mu}V^{\rho}} + \Gamma^{\rho}_{\mu \xi}V^{\xi}) - \Gamma^{\rho}_{\alpha \nu}(\textcolor{purple}{\partial_{\mu}V^{\alpha}}+\Gamma^{\alpha}_{\mu \xi}V^{\xi}) +\textcolor{purple}{\Gamma^{\alpha}_{\nu \mu}(\partial_{\alpha}V^{\rho} + \Gamma^{\rho}_{\alpha \xi}V^{\xi})}
+    \intertext{En développant d'abord la dérivée covariante externe :}
+    &= \partial_{\mu}(\nabla_{\nu}V^{\rho}) + \Gamma\indices{^{\rho}_{\!\alpha \mu}}\nabla_{\nu}V^{\alpha}-\Gamma\indices{^{\alpha}_{\!\mu \nu}}\nabla_{\alpha}V^{\rho} -(\partial_{\nu}(\nabla_{\mu}V^{\rho}) + \Gamma\indices{^{\rho}_{\!\alpha \nu}}\nabla_{\mu}V^{\alpha} - \Gamma\indices{^{\alpha}_{\!\nu \mu}} \nabla_{\alpha}V^{\rho})\\
+    \intertext{Et puis la dérivée covariante interne :}
+    &= \partial_{\mu}(\textcolor{purple}{\partial_{\nu}V^{\rho}} + \Gamma\indices{^{\rho}_{\!\nu \xi}} V^{\xi}) + \Gamma\indices{^{\rho}_{\!\alpha \mu}}(\textcolor{purple}{\partial_{\nu}V^{\alpha}}+\Gamma\indices{^{\alpha}_{\!\nu \xi}} V^{\xi}) - \textcolor{purple}{\Gamma\indices{^{\alpha}_{\!\mu \nu}}(\partial_{\alpha}V^{\rho} + \Gamma\indices{^{\rho}_{\!\alpha \xi}} V^{\xi})} \\
+    &-\partial_{\nu}(\textcolor{purple}{\partial_{\mu}V^{\rho}} + \Gamma\indices{^{\rho}_{\!\mu \xi}}V^{\xi}) - \Gamma\indices{^{\rho}_{\!\alpha \nu}}(\textcolor{purple}{\partial_{\mu}V^{\alpha}}+\Gamma\indices{^{\alpha}_{\!\mu \xi}} V^{\xi}) +\textcolor{purple}{\Gamma\indices{^{\alpha}_{\!\nu \mu}}(\partial_{\alpha}V^{\rho} + \Gamma\indices{^{\rho}_{\!\alpha \xi}}V^{\xi})}
 \end{align*}
 Où les termes en rouge s'annulent mutuellement. Il reste donc
 \begin{align}
-    [\nabla_{\mu}, \nabla_{\nu}]V^{\rho} &= \partial_{\mu}\Gamma^{\rho}_{\nu \xi}V^{\xi} + \Gamma^{\rho}_{\alpha \mu}\Gamma^{\alpha}_{\nu \xi}V^{\xi} -\partial_{\nu}\Gamma^{\rho}_{\mu \xi}V^{\xi} -\Gamma^{\rho}_{\alpha \nu}\Gamma^{\alpha}_{\mu \xi}V^{\xi}\\
-    &= (\partial_{\mu}\Gamma^{\rho}_{\nu \xi} + \Gamma^{\rho}_{\alpha \mu}\Gamma^{\alpha}_{\nu \xi} - \partial_{\nu}\Gamma^{\rho}_{\mu \xi} - \Gamma^{\rho}_{\alpha \nu}\Gamma^{\alpha}_{\mu \xi})V^{\xi}\\
+    [\nabla_{\mu}, \nabla_{\nu}]V^{\rho} &= \partial_{\mu}\Gamma\indices{^{\rho}_{\!\nu \xi}}V^{\xi} + \Gamma\indices{^{\rho}_{\!\alpha \mu}}\Gamma\indices{^{\alpha}_{\!\nu \xi}}V^{\xi} -\partial_{\nu}\Gamma\indices{^{\rho}_{\!\mu \xi}}V^{\xi} -\Gamma\indices{^{\rho}_{\!\alpha \nu}}\Gamma\indices{^{\alpha}_{\!\mu \xi}}V^{\xi}\\
+    &= (\partial_{\mu}\Gamma\indices{^{\rho}_{\!\nu \xi}} + \Gamma\indices{^{\rho}_{\!\alpha \mu}}\Gamma\indices{^{\alpha}_{\!\nu \xi}} - \partial_{\nu}\Gamma\indices{^{\rho}_{\!\mu \xi}} - \Gamma\indices{^{\rho}_{\!\alpha \nu}}\Gamma\indices{^{\alpha}_{\!\mu \xi}})V^{\xi}\\
     \label{eq: Riemann commutateur}
-    &= R\indices{^{\rho}_{\xi \mu \nu}}V^{\xi}
+    &= R\indices{^{\rho}_{\!\xi \mu \nu}}V^{\xi}
 \end{align}
 \begin{exerc}
     Trouvez une généralisation de \ref{eq: Riemann commutateur} pour un tenseur $T$ arbitraire, i.e. calculer
@@ -1037,17 +1033,18 @@ Où les termes en rouge s'annulent mutuellement. Il reste donc
     Indice : commencez par calculer $[\nabla_\mu,\nabla_\nu] \omega_\rho$ et concluez en utilisant la définition \ref{def: connexion tenseur}.
 \end{exerc}
 \begin{theoremframe}
-    \begin{propri}
+    \begin{propri}[Symétries du tenseur de Riemann]
         \label{prop:tenseur de Riemann}
+        \,\\
         Le tenseur de Riemann vérifie les propriétés suivantes :
-        \begin{enumerate}[label=(\roman*)]
+        \begin{enumerate}[label=\roman*.]
             \item Il est antisymétrique en ses deux derniers indices :
             \begin{equation}
-                R\indices{^{\mu}_{\alpha \beta \gamma}} = -R\indices{^{\mu}_{\alpha \gamma \beta}}
+                R\indices{^{\mu}_{\!\alpha \beta \gamma}} = -R\indices{^{\mu}_{\!\alpha \gamma \beta}}
             \end{equation}
             \item Il vérifie \emph{la première identité de Bianchi} :
             \begin{equation}
-                R\indices{^{\alpha}_{[\beta \gamma \delta]}} = 0
+                R\indices{^{\alpha}_{\![\beta \gamma \delta]}} = 0
             \end{equation}
             \item Il est symétrique par bloc en ses deux premiers et deux derniers indices : 
             \begin{equation}
@@ -1064,68 +1061,66 @@ Où les termes en rouge s'annulent mutuellement. Il reste donc
     \end{propri}
 \end{theoremframe}
 \begin{proof}
-    Remarquons que la propriété \emph{(i)} découle directement de l'antisymétrie du crochet de Lie dans l'équation \ref{eq: Riemann commutateur}. De plus, la propriété \emph{(iv)} découle des propriétés \emph{(i)} et \emph{(iii)} (exercice !). Nous démontrerons les trois autres propriétés.
-    \subsubsection{Preuve de la propriété \emph{(ii)}}
+    Remarquons que la propriété \emph{i.} découle directement de l'antisymétrie du crochet de Lie dans l'équation \ref{eq: Riemann commutateur}. De plus, la propriété \emph{iv.} découle des propriétés \emph{i.} et \emph{iii.} (exercice !). Nous démontrerons les trois autres propriétés.
+    \subsubsection{Preuve de la propriété \emph{ii.}}
         Nous cherchons à montrer que 
         \begin{equation*}
-            R\indices{^{\mu}_{[\alpha \beta \gamma]}} = 0
+            R\indices{^{\mu}_{\![\alpha \beta \gamma]}} = 0
         \end{equation*}
         \begin{align}
-            R\indices{^{\mu}_{[\alpha \beta \gamma]}} &= \frac{1}{3!}(R\indices{^{\mu}_{\alpha \beta \gamma}} + R\indices{^{\mu}_{\beta \gamma \alpha }} + R\indices{^{\mu}_{\gamma \alpha \beta}} - R\indices{^{\mu}_{\beta \alpha \gamma }} - R\indices{^{\mu}_{\alpha \gamma \beta} }- R\indices{^{\mu}_{ \gamma \beta \alpha}})\\
+            R\indices{^{\mu}_{\![\alpha \beta \gamma]}} &= \frac{1}{3!}(R\indices{^{\mu}_{\!\alpha \beta \gamma}} + R\indices{^{\mu}_{\!\beta \gamma \alpha }} + R\indices{^{\mu}_{\!\gamma \alpha \beta}} - R\indices{^{\mu}_{\!\beta \alpha \gamma }} - R\indices{^{\mu}_{\!\alpha \gamma \beta} }- R\indices{^{\mu}_{\! \gamma \beta \alpha}})\\
             \label{eq:4.34a}
-            &= \frac{2}{3!}(R\indices{^{\mu}_{\alpha \beta \gamma}} + R\indices{^{\mu}_{\beta \gamma \alpha}} + R\indices{^{\mu}_{\gamma \alpha \beta}})
+            &= \frac{2}{3!}(R\indices{^{\mu}_{\!\alpha \beta \gamma}} + R\indices{^{\mu}_{\!\beta \gamma \alpha}} + R\indices{^{\mu}_{\!\gamma \alpha \beta}})
         \end{align}
-        Par la propriété \emph{(i)}. Comme le tenseur de Riemann est un tenseur, il suffit de montrer qu'à tout point $P\in \mathcal{M}$, il existe un référentiel dans lequel cette expression s'annule (elle s'annulera alors nécessairement dans tout système de coordonnées). Choisissons donc un RLI du point $P$. Dans ce référentiel, on sait que $\atP{\Gamma^{\alpha}_{\beta \gamma}} =0$.
-
-        Dans ce système de coordonée, on a alors au point $P$:
+        Par la propriété \emph{i.}. Comme le tenseur de Riemann est un tenseur, il suffit de montrer qu'à tout point $P\in \mathcal{M}$, il existe un référentiel dans lequel cette expression s'annule (elle s'annulera alors nécessairement dans tout système de coordonnées en ce point). Choisissons donc un RLI au point $P$ arbitraire. Dans ce référentiel, on sait que $\atP{\Gamma\indices{^{\alpha}_{\!\beta \gamma}}} =0$, et donc :
         \begin{align}
-            &R^{\alpha}_{\beta \gamma \gamma}= \textcolor{blue}{\partial_{\gamma}\Gamma^{\alpha}_{\beta \gamma}} - \textcolor{purple}{\partial_{\gamma}\Gamma^{\alpha}_{\beta \gamma}}\\
-            &R^{\alpha}_{\gamma \beta \gamma}= \textcolor{darkgray}{\partial_{\beta}\Gamma^{\alpha}_{\gamma \gamma }} - \textcolor{blue}{\partial_{\gamma}\Gamma^{\alpha}_{\gamma \beta}}\\
-            &R^{\alpha}_{\gamma \gamma \beta} =\textcolor{purple}{\partial_{\gamma}\Gamma^{\alpha}_{\gamma \beta}} - \textcolor{darkgray}{\partial_{\beta}\Gamma^{\alpha}_{ \gamma \gamma}}
+        \nonumber
+            &R\indices{^{\mu}_{\!\alpha \beta \gamma}}= \textcolor{blue}{\partial_{\beta}\Gamma\indices{^{\mu}_{\!\alpha \gamma}}} - \textcolor{darkgray}{\partial_{\gamma}\Gamma\indices{^{\mu}_{\!\alpha \beta}}}\\
+            &R\indices{^{\mu}_{\!\beta \gamma \alpha}}= \textcolor{darkgray}{\partial_{\gamma}\Gamma\indices{^{\mu}_{\!\beta \alpha }}} - \textcolor{purple}{\partial_{\alpha}\Gamma\indices{^{\mu}_{\!\beta \gamma}}}\\
+            \nonumber
+            &R\indices{^{\mu}_{\!\gamma \alpha \beta}} =\textcolor{purple}{\partial_{\alpha}\Gamma\indices{^{\mu}_{\!\gamma \beta}}} - \textcolor{blue}{\partial_{\beta}\Gamma\indices{^{\mu}_{\! \gamma \alpha}}}
         \end{align}
-        Lorsque ceux-ci sont injectés dans l'expression \ref{eq:4.34a}, ils s'annuleront deux à deux (comme le relèvent les couleurs). Ceci valant pour tout point $P$, on peut conclure.
-    \subsubsection{Preuve de la propriété \emph{(iii)}}
-        Soit $P\in \mathcal{M}$ On se place à nouveau dans un RLI de $P$, dans lequel $\atP{\Gamma^{\alpha}_{\beta \gamma}} = 0 = \atP{\partial_{\alpha}g_{\mu \nu}}$ (on sortira donc la métrique des dérivés partielles sans mention supplémentaire).
+        Lorsque ceux-ci sont injectés dans l'expression \ref{eq:4.34a}, ils s'annuleront deux à deux. Ceci valant alors dans un référentiel arbitraire pour tout point $P$, on peut conclure.
+    \subsubsection{Preuve de la propriété \emph{iii.}}
+        Soit $P\in \mathcal{M}$. On se place à nouveau dans un RLI de $P$, dans lequel $\atP{\Gamma\indices{^{\alpha}_{\!\beta \gamma}}} = 0 = \atP{\partial_{\alpha}g_{\mu \nu}}$.
         On se rappelle que $R_{\mu\nu \alpha \beta}$ est défini par :
         \begin{equation}
-            R_{\mu\nu\alpha\beta} = g_{\mu \rho} R\indices{^\rho_\nu_\alpha_\beta}
+            R_{\mu\nu\alpha\beta} = g_{\mu \rho} R\indices{^\rho_{\!\nu\alpha\beta}}
         \end{equation}
         Qu'on développe via l'expression \ref{Composantes du tenseur de Riemann} des composantes du tenseur de Riemann :
         \begin{align}
-            R_{\mu\nu\alpha\beta} = g_{\mu \rho}(\partial_{\alpha}\Gamma^{\rho}_{\nu \beta} - \partial_{\beta}\Gamma^{\rho}_{\nu \alpha})
+            R_{\mu\nu\alpha\beta} = g_{\mu \rho}(\partial_{\alpha}\Gamma\indices{^{\rho}_{\!\nu \beta}} - \partial_{\beta}\Gamma\indices{^{\rho}_{\!\nu \alpha}})
         \end{align}
-        Où les deux autres termes sont nuls par le choix de référentiel. On développe alors les coefficients de connexion via l'expression \ref{Connexion de Levi-Civita} d'une connexion de Levi-Civita :
-        \begin{align*}
-            R_{\mu\nu\alpha\beta} = \frac{1}{2}g_{\mu \rho} g^{\rho \xi} \Bigl( \partial_{\alpha}\bigl(\partial_{\nu}g_{\xi \beta} + \partial_{\beta}g_{\xi \nu} - \partial_{\xi}g_{\nu \beta}\bigr) - \partial_{\beta}\bigl(\partial_{\nu}g_{\alpha \xi} + \partial_{\alpha}g_{\nu \xi} - \partial_{\xi}g_{\nu \alpha}\bigr) \Bigr)
-        \end{align*}
-        En simplifiant le facteur global de la métrique, on obtient :
+        Où les deux autres termes sont à nouveau nuls par choix de référentiel. On développe alors les coefficients de connexion via l'expression \ref{Connexion de Levi-Civita} d'une connexion de Levi-Civita :
         \begin{align}
-            R_{\mu \nu \alpha \beta} &= \frac{1}{2}\Bigl(\partial_{\alpha}\partial_{\nu}g_{\mu \beta} \,\textcolor{purple}{+\, \partial_{\alpha}\partial_{\beta}g_{\mu \nu}} - \partial_{\alpha}\partial_{\mu}g_{\nu \beta} - \partial_{\beta}\partial_{\nu}g_{\alpha \mu} \,\textcolor{purple}{-\, \partial_{\beta}\partial_{\alpha}g_{\nu \mu}} + \partial_{\beta}\partial_{\mu}g_{\nu \alpha}\Bigr)\\
+            \nonumber
+            R_{\mu\nu\alpha\beta} &= \frac{1}{2}g_{\mu \rho} g^{\rho \xi} \Bigl( \partial_{\alpha}\bigl(\partial_{\nu}g_{\xi \beta} + \partial_{\beta}g_{\xi \nu} - \partial_{\xi}g_{\nu \beta}\bigr) - \partial_{\beta}\bigl(\partial_{\nu}g_{\alpha \xi} + \partial_{\alpha}g_{\nu \xi} - \partial_{\xi}g_{\nu \alpha}\bigr) \Bigr)\\
+            &= \frac{1}{2}\Bigl(\partial_{\alpha}\partial_{\nu}g_{\mu \beta} \,\textcolor{purple}{+\, \partial_{\alpha}\partial_{\beta}g_{\mu \nu}} - \partial_{\alpha}\partial_{\mu}g_{\nu \beta} - \partial_{\beta}\partial_{\nu}g_{\alpha \mu} \,\textcolor{purple}{-\, \partial_{\beta}\partial_{\alpha}g_{\nu \mu}} + \partial_{\beta}\partial_{\mu}g_{\nu \alpha}\Bigr)\\
             \label{eq:4.34e}
             &= \frac{1}{2}\Bigl(\partial_{\alpha}\partial_{\nu}g_{\mu \beta} - \partial_{\alpha}\partial_{\mu}g_{\nu \beta} - \partial_{\beta}\partial_{\nu}g_{\alpha \mu} + \partial_{\beta}\partial_{\mu}g_{\nu \alpha} \Bigr)
         \end{align}
-        Remarquons que dans cette forme, le tenseur de Riemann est manifestement symétrique par blocs.
+        Remarquons alors que dans cette forme, le tenseur de Riemann est manifestement symétrique par blocs.
         \begin{exerc}
-            Montrez explicitement que la propriété \emph{(iii)} est bien satisfaite pour l'expression \ref{eq:4.34e} du tenseur de Riemann.
+            Montrez que la propriété \emph{iii.} est bien satisfaite pour l'expression \ref{eq:4.34e} du tenseur de Riemann.
         \end{exerc}
-    \subsubsection{Preuve de la propriété \emph{(v)}}
+    \subsubsection{Preuve de la propriété \emph{v.}}
         Par antisymétrie en les deux premiers indices :
         \begin{equation}
             \nabla_{[\lambda}R_{\rho \sigma]\mu \nu} = \frac{2}{3!} \Bigl(\nabla_{\lambda}R_{\rho \sigma \mu \nu} + \nabla_{\rho}R_{\sigma \lambda \mu \nu} + \nabla_{\sigma}R_{\lambda \rho \mu \nu}\Bigr)
         \end{equation}
         De nouveau, on se place dans un RLI d'un point arbitraire $P$. Dans ce référentiel, $\nabla_\mu = \pd_\mu$. On trouve alors par l'expression \ref{eq:4.34e} du tenseur de Riemann dans un RLI :
         \begin{align}
-            \nabla_{[\lambda}R_{\rho \sigma]\mu \nu} =& \frac{1}{2}\Bigl(\partial_{\lambda}(\textcolor{blue}{\partial_{\mu}\partial_{\sigma}g_{\rho \nu}} - \partial_{\rho}\partial_{\mu}g_{\sigma \nu} - \textcolor{purple}{\partial_{\sigma}\partial_{\nu}g_{\rho \mu}} + \textcolor{violet}{\partial_{\rho}\partial_{\nu}g_{\sigma \mu}}) \\
-            &+ \partial_{\rho}(\partial_{\mu}\partial_{\lambda}g_{\sigma \nu} - \textcolor{teal}{\partial_{\sigma}\partial_{\mu}g_{\lambda \nu}} - \textcolor{violet}{\partial_{\lambda}\partial_{\nu}g_{\sigma \mu} }
+            \nabla_{[\lambda}R_{\rho \sigma]\mu \nu} =&\, \frac{1}{2}\Bigl(\partial_{\lambda}(\textcolor{blue}{\partial_{\mu}\partial_{\sigma}g_{\rho \nu}} - \partial_{\rho}\partial_{\mu}g_{\sigma \nu} - \textcolor{purple}{\partial_{\sigma}\partial_{\nu}g_{\rho \mu}} + \textcolor{violet}{\partial_{\rho}\partial_{\nu}g_{\sigma \mu}}) \\
+            & \quad+ \partial_{\rho}(\partial_{\mu}\partial_{\lambda}g_{\sigma \nu} - \textcolor{teal}{\partial_{\sigma}\partial_{\mu}g_{\lambda \nu}} - \textcolor{violet}{\partial_{\lambda}\partial_{\nu}g_{\sigma \mu} }
             + \textcolor{darkgray}{\partial_{\sigma}\partial_{\nu}g_{\lambda \mu}}) \\
-            &+\partial_{\sigma}(\textcolor{teal}{\partial_{\mu}\partial_{\rho}g_{\lambda \nu}} - \textcolor{blue}{\partial_{\lambda}\partial_{\mu}g_{\rho \nu}} - \textcolor{darkgray}{\partial_{\rho}\partial_{\nu}g_{\lambda \mu}} + \textcolor{purple}{\partial_{\lambda}\partial_{\mu}g_{\rho \mu}})\Bigr)\\
-            &=0
+            & \quad+\partial_{\sigma}(\textcolor{teal}{\partial_{\mu}\partial_{\rho}g_{\lambda \nu}} - \textcolor{blue}{\partial_{\lambda}\partial_{\mu}g_{\rho \nu}} - \textcolor{darkgray}{\partial_{\rho}\partial_{\nu}g_{\lambda \mu}} + \textcolor{purple}{\partial_{\lambda}\partial_{\mu}g_{\rho \mu}})\Bigr)\\
+            =& \,0
         \end{align}
         Où vous pouvez soit vous référez au code couleur pour vérifier que l'expression s'annule bien, ou passer une heure à faire le calcul :)
 \end{proof}
 Étant donné les contraintes sur le tenseur de Riemann imposées par la propriété précédente, il peut être intéressant de calculer le nombre de degrés de libertés de celui-ci. Comme il possède $4$ indices, il possède en $4$ dimensions un nombre total de $4^4 = 256$ composantes. 
 
-Les \textit{propriétés (i), (iii) et (iv)} impliquent qu'on peut voir le tenseur de Riemann $R_{\alpha \beta \gamma \delta}$ comme une matrice symétrique $R_{AB}$ avec $A = \alpha \beta$ et $B = \gamma \delta$ où $A$ et $B$ sont contraints par les propriétés \emph{(i)} et \emph{(iv)} (ce sont des matrices symétriques). En 4 dimensions, une matrice symétrique a
+Les \textit{propriétés i., iii. et iv.} impliquent qu'on peut voir le tenseur de Riemann $R_{\alpha \beta \gamma \delta}$ comme une matrice symétrique $R_{AB}$ avec $A = \alpha \beta$ et $B = \gamma \delta$ où $A$ et $B$ sont contraints par les propriétés \emph{i.} et \emph{iv.} (ce sont des matrices antisymétriques). En 4 dimensions, une matrice antisymétrique a
 \begin{equation*}
     \frac{4 \cdot (4-1)}{2} = 6
 \end{equation*}
@@ -1133,7 +1128,7 @@ composantes indépendantes. Ainsi, la matrice symétrique $R_{AB}$ possède
 \begin{equation*}
     \frac{6 \cdot (6+1)}{2} = 21
 \end{equation*}
-composantes indépendantes. Néanmoins, nous devons également considérer la propriété \emph{(ii)}\footnote{Notons que la propriété \emph{(v)} n'impose pas de condition algébrique. C'est une condition différentielle, impliquant donc une relation entre les composantes de points voisins.}.
+composantes indépendantes. Néanmoins, nous devons également considérer la propriété \emph{ii.}\footnote{Notons que la propriété \emph{v.} n'impose pas de condition algébrique. C'est une condition différentielle, impliquant donc une relation entre les composantes de points voisins.}.
 \begin{equation}
     \label{eq:Riemann2000}
     R_{\alpha \mu \nu \rho} + R_{\alpha \nu \rho \mu} + R_{\alpha \rho \mu \nu}= 3 R_{\alpha[\mu\nu\rho]} = 0
@@ -1170,48 +1165,25 @@ Les $21$ composantes sont ainsi soumis à une contrainte algébrique. Le tenseur
         R_{[\mu\nu\alpha\beta]} = 0
     \end{equation}
 \end{rmk}
-
+Nous avions vu qu'il était toujours possible, en tout point de l'espace-temps, de trouver un système de coordonnées tel que la métrique se ramène à celle de Minkowski et que ses premières dérivées s'annulent (cf. \ref{prop: PE}). Nous avions également conclut qu'il n'était pas possible d'annuler également les dérivées secondes de la métriques en toute généralité. $R_{\mu\nu\alpha\beta} \neq 0$ traduit l'impossibilité de globalement ramener la métrique à $\eta_{\mu\nu}$.
 \begin{theoremframe}
     \begin{theorem}
-        Une métrique Lorentzienne $g_{\mu \nu}$ peut être ramené à $\eta_{\mu \nu}$ globalement \emph{si et seulement si}\footnote{Pour être tout à fait rigoureux, une hypothèse supplémentaire est nécessaire : il faut que la région de l'espace-temps considérée soit \emph{simplement connexe}.} 
+        Une métrique Lorentzienne $g_{\mu \nu}$ peut être ramené à $\eta_{\mu \nu}$ globalement (dans une région simplement connexe de la variété) \emph{si et seulement si}
         \begin{equation}
             R_{\alpha \beta \gamma \delta} =0
         \end{equation}
+        en tout point de cette région.
     \end{theorem}
 \end{theoremframe}
-le sens inverse de ce théorème n'est pas évident à prouver, mais peut se faire de différentes manières :
-\begin{itemize}
-    \item Une approche par l'intégration de p-formes.
-    \item Une approche par les coordonnées normales de Riemann.
-    \item Une approche par la déviation des géodésiques.
-\end{itemize}
-Comme nous n'avons vu ni l'intégration ni (encore) la dérivation des géodésiques, nous montrerons ce résultat en utilisant les coordonnées normales de Riemann
-\begin{lemme}
-    Toute forme différentielle fermée dans un espace topologique simplement connexe est exacte. C'est à dire que 
-    \begin{equation*}
-        \td w = 0 \iff \exists \eta, \quad w = \td \eta
-    \end{equation*}
-\end{lemme}
 \begin{proof}
-    Le sens direct est trivial, car alors toutes les dérivées de la métrique s'annulent, et donc les coefficients de connexion et ses dérivées s'annulent également, ce qui implique que  on $R_{\mu \alpha \beta \gamma} = 0$ d'après \ref{Composantes du tenseur de Riemann}. Comme il s'agit d'une équation tensorielle, celle-ci sera valable dans n'importe quel référentiel.
-
-    Pour le sens inverse, on choisit un changement de coordonnée au point $\xi$ tel que $x^{\alpha} \rightarrow \xi^{\alpha}(x^{\alpha})$. 
-
-    Alors la métrique peut se réécrire comme
-
-    \begin{equation}
-        g_{\mu \nu}(\xi) = \eta_{\mu \nu} + R_{\mu \alpha \nu \beta}(\xi)\xi^\alpha \xi^{\beta} + \mathcal{O}(\xi^{3})
-    \end{equation}
-    Les termes d'ordre supérieures dépendent des dérivées covariantes du tenseur de Riemann et s'annulent donc également.
-    
-    Donc la métrique revient à la métrique plate. 
+    Le sens direct est immédiat, car alors toutes les dérivées de la métrique s'annulent, et donc les coefficients de connexion et ses dérivées s'annulent également, ce qui implique que $R_{\mu \alpha \beta \gamma} = 0$ d'après \ref{Composantes du tenseur de Riemann}. Comme il s'agit d'une équation tensorielle, celle-ci sera valable dans n'importe quel référentiel. Le sens inverse est plus difficile à montre, et demande de longs calculs étant donné les notions vus jusqu'à présent. Nous démontrerons ce résultat au prochain chapitre, une fois que nous aurons acquis les outils nécessaires.
 \end{proof}
 
 \subsection{Tenseur de Ricci}
-Il sera souvent utile de considérer les contractions du tenseur de Riemann. En vue des propriétés de celui-ci, il n'y a qu'une seule contraction utile : le tenseur de Ricci
+Nous souhaitons étudier quels autres tenseurs utiles il est possible de contruire à partir du tenseur de Riemann. Néanmoins, en vue des propriétés de symétries de celui-ci, il n'y a qu'une seule contraction non-triviale :
 \begin{theoremframe}
     \begin{defi}
-        Le \emph{tenseur} de Ricci est une contraction du tenseur de Riemann telle que 
+        Le \emph{tenseur de Ricci} est défini comme
         \begin{equation}
             \boxed{R_{\alpha \beta} \equiv R\indices{^{\mu}_{\alpha \mu \beta }}}
         \end{equation}
@@ -1228,16 +1200,16 @@ Celui-ci apparaît notamment dans les contractions du crochet de Lie de la conne
 \end{theoremframe}
 \begin{proof}
     \begin{align}
-        R_{\alpha \beta} &= R^{\lambda}_{\alpha \lambda \beta }\\
+        R_{\alpha \beta} &= R\indices{^{\lambda}_{\!\alpha \lambda \beta}}\\
         &= g^{\lambda \mu}R_{\mu \alpha \lambda \beta}\\
         &= g^{\lambda \mu}R_{ \lambda \beta \mu \alpha}\\
-        &= R^{\mu}_{\beta \mu \alpha }\\
+        &= R\indices{^{\mu}_{\!\beta \mu \alpha }}\\
         &= R_{\beta \alpha}
     \end{align}
 \end{proof}
 Il en suit que le tenseur de Ricci possède $\frac{4 \cdot (4+1)}{2} = 10$ composantes indépendantes.
 \begin{exerc}
-    Calculez le nombre de composantes indépendantes des tenseurs de Riemann et de Ricci en deux et trois dimensions. Qu'observez vous ? Une conséquence de ce résultat est que la gravitation a des propriétés dynamiques uniquement en dimension 4 ou plus (l'espace vide peut-être courbe, les ondes gravitationnelles peuvent exister).
+    Calculez le nombre de composantes indépendantes des tenseurs de Riemann et de Ricci en deux et trois dimensions. Qu'observez vous ? Une conséquence de ce résultat est que la gravitation a des propriétés dynamiques uniquement en dimension 4 ou plus (l'espace vide peut être courbe, les ondes gravitationnelles peuvent exister).
 \end{exerc}
 \begin{theoremframe}
     \begin{defi}
@@ -1247,11 +1219,11 @@ Il en suit que le tenseur de Ricci possède $\frac{4 \cdot (4+1)}{2} = 10$ compo
         \end{equation}
     \end{defi}
 \end{theoremframe}
-La courbure scalaire est la seule quantité scalaire non-trivial en premier ordre en la courbure. Il existe néanmoins d'autres scalaires utiles, comme le \emph{scalaire de Kretschmann}
+La courbure scalaire est la seule quantité scalaire non-triviale en premier ordre en la courbure. Il existe néanmoins d'autres scalaires utiles, comme le \emph{scalaire de Kretschmann}, qui est d'ordre 2 en la courbure :
 \begin{equation}
     K = R_{\mu\nu \alpha\beta} R^{\mu\nu\alpha\beta}
 \end{equation}
-Qu'on étudiera plus en détail dans le cadre de la métrique de Schwarzschild. On verra à ce moment également l'importance de ces différentes quantités scalaires dans l'étude d'une métrique donnée.
+et qu'on étudiera plus en détail dans le cadre de la métrique de Schwarzschild.
 
 Introduisons à présent un dernier tenseur important pour l'étude dynamique d'un système physique : le \emph{tenseur de Riemann}. Nous pouvons argumenter son introduction comme suit : la seconde identité de Bianchi du tenseur de Riemann s'écrit
 \begin{equation}
@@ -1261,6 +1233,7 @@ En contractant avec $g^{\rho \mu} $, on obtient
 \begin{align}
     \nabla_{\lambda}R_{ \sigma \nu} + \nabla_{\mu}R\indices{^\mu_\nu _\sigma _\lambda} - \nabla_{\sigma}R_{\lambda \nu}  &=0 
     \intertext{puis avec $g^{\nu \lambda}$ :}
+    \label{eq:tenseur d'einstein est symétrique}
     \nabla_{\lambda}R\indices{^\lambda _\sigma} + g^{\nu\lambda} \nabla_{\mu}R\indices{^\mu_{\nu \sigma \lambda}} - \nabla_{\sigma}R &= \nabla_\mu (2 R\indices{^\mu_\sigma} - \delta^\mu_\sigma R) = 0
 \end{align}
 Cette dernière identité est, par extension, également appelée l'identité de Bianchi (pour le tenseur d'Einstein).
@@ -1284,11 +1257,11 @@ On utilisera également la forme :
         Le tenseur d'Einstein est 
         \begin{enumerate}
             \item symétrique : $G_{\mu \nu} = G_{\nu \mu}$
-            \item vérifie l'identité de Bianchi (il est conservé) : $\nabla_{\mu}G\indices{^{\mu}_{\nu}} = 0$
+            \item vérifie l'identité de Bianchi (il est conservé) : $\nabla_{\mu}G\indices{^{\mu\nu}} = 0$
         \end{enumerate}
     \end{propri}
 \end{theoremframe}
 \begin{proof}
-    Le première propriété découle immédiatement de la définition du tenseur d'Einstein. La deuxième propriété a déjà été démontrée ci-dessus.
+    Le première propriété découle immédiatement de la définition du tenseur d'Einstein. La deuxième propriété a déjà été démontrée ci-dessus (\ref{eq:tenseur d'einstein est symétrique}).
 \end{proof}
-Notons qu'en 4 dimensions, le tenseur d'Einstein est l'unique combinaison non-triviale de la métrique (et de ses dérivées) qui est conservée \emph{identiquement}. C'est la raison pourquoi il sera important dans l'établissement du lien de la courbure avec le champ gravitationnel.
+Notons qu'en 4 dimensions, le tenseur d'Einstein est l'unique combinaison non-triviale de la métrique (et de ses dérivées) qui est conservée \emph{identiquement} (i.e. sous aucune condition supplémentaire). C'est la raison pourquoi il sera important dans l'établissement du lien de la courbure avec le champ gravitationnel.
