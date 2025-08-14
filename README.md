@@ -13,7 +13,7 @@ Les dernières mises à jour et plans sont disponibles [ici](https://github.com/
 Toute contribution est la bienvenue :
 
 - **Signaler une erreur** (typo, imprécision, confusion)
-- **Proposer une amélioration** (meilleure explication, reformulation, ajout d'exemples)
+- **Demander ou proposer une amélioration** (meilleure explication, reformulation, ajout d'exemples)
 - **Soumettre du contenu complémentaire** (annexes, encadrés, figures, etc.)
 
 Vous pouvez soit utiliser les différents outils disponibles sur GitHub (décrits ci-dessous), ou remplir le [formulaire de feedback](https://forms.office.com/e/tW1Ge8v6N8).
