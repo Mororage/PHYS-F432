@@ -7,7 +7,7 @@ L’objectif est de créer un support dactylographié rigoureux et librement acc
 ## Navigation
 Les dernières versions compilées (PDF) sont disponibles dans le dossier [Syllabus](https://github.com/Mororage/PHYS-F432/tree/main/Syllabus). Le reste des fichier correspond au dossier LaTeX. 
 
-Les dernières mises à jour et plans sont disponibles [ici](https://github.com/Mororage/PHYS-F432/issues/1).
+Les plans futurs sont disponibles [ici](https://github.com/Mororage/PHYS-F432/issues/1).
 
 ## Contribuer
 Toute contribution est la bienvenue :
@@ -39,3 +39,7 @@ Utilisez une **Pull Request** pour :
 
 ## Contact
 Vous pouvez me contacter par mail via moritzschnor@outlook.com
+
+## Change logs
+- Version 1.0 : relecture finie, première version utilisable.
+- Version 1.1 (18/9) : rajouté un exemple pédagogique dans la section 2.4.1
