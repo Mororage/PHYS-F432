@@ -41,7 +41,9 @@ Utilisez une **Pull Request** pour :
 Vous pouvez me contacter par mail via moritzschnor@outlook.com
 
 ## Change logs
+- Version 1.2 (A venir) :
+  - Correction dans la preuve de la propriété 2.7 (linéaire -> projectif).
 - Version 1.1 (18/9) :
-  - rajouté un exemple pédagogique dans la section 2.4.1 du Chapitre 1.
+  - Rajouté un exemple pédagogique dans la section 2.4.1 du Chapitre 1.
   - Corrigé une erreur dans l'exemple 2.29 (bien évidemment, une rotation conserve la métrique de Minkowski).
 - Version 1.0 : relecture finie, première version utilisable.
