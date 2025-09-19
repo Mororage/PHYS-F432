@@ -42,6 +42,7 @@ Vous pouvez me contacter par mail via moritzschnor@outlook.com
 
 ## Change logs
 - Version 1.2 (A venir) :
+  - Quelques clarifications dans l'introduction d'une variété abstraite.
   - Clarifié définition du groupe de Poincaré (via produit semi-direct).
   - Changé O(3,1) -> O(1,3) pour consistance.
   - Correction dans la preuve de la propriété 2.7 (linéaire -> projectif).
