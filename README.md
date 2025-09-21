@@ -47,8 +47,8 @@ Vous pouvez me contacter par mail via moritzschnor@outlook.com
   - Clarifié définition du groupe de Poincaré (via produit semi-direct).
   - Changé O(3,1) -> O(1,3) pour consistance.
   - Correction dans la preuve de la propriété 2.7 (linéaire -> projectif).
-  - Des corrections de typos diverse.
+  - Des corrections de typos diverses.
 - Version 1.1 (18/9) :
-  - Rajouté un exemple pédagogique dans la section 2.4.1 du Chapitre 1.
+  - Rajouté un exercice pédagogique dans la section 2.4.1 du Chapitre 1.
   - Corrigé une erreur dans l'exemple 2.29 (bien évidemment, une rotation conserve la métrique de Minkowski).
 - Version 1.0 : relecture finie, première version utilisable.
