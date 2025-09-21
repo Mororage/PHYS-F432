@@ -35,7 +35,7 @@ La définition précise d'un espace tangent sera donné après avoir introduit l
         \end{align}
     \end{defi}
 \end{theoremframe}
-Comme $T_P\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\overline{e}_\alpha\}_\alpha$ de $T_P\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_P\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \overline{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Remarquons donc que bien que $V$ ne dépend pas du choix de la base, $V^\alpha$ dépend bien de ce choix.
+Comme $T_P\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\mathrm{e}_\alpha\}_\alpha$ de $T_P\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_P\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \mathrm{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Remarquons donc que bien que $V$ ne dépend pas du choix de la base, $V^\alpha$ dépend bien de ce choix.
 \begin{theoremframe}
     \begin{defi}
         La donnée d'un vecteur $x_P \in T_P\M$ à tout point $P \in \M$ est un champ de vecteurs :
@@ -73,23 +73,23 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
     \begin{propri}
         Sous transformation de Poincaré, les vecteurs de base se transforment comme
         \begin{equation}
-            \overline{e}_{\mu'} = \Lambda\indices{_{\mu'}^{\mu}}\, \overline{e}_{\mu}
+            \mathrm{e}_{\mu'} = \Lambda\indices{_{\mu'}^{\mu}}\, \mathrm>{e}_{\mu}
         \end{equation}
     \end{propri}
 \end{theoremframe}
 \begin{proof}
     La décomposition d'un vecteur dans deux référentiels inertiels différents s'écrit
     \begin{equation}
-        V = V^{\mu} \, \overline{e}_{\mu} = V^{\alpha'} \,\overline{e}_{\alpha'}
+        V = V^{\mu} \, \mathrm{e}_{\mu} = V^{\alpha'} \,\mathrm{e}_{\alpha'}
     \end{equation}
     Ainsi,
     \begin{equation}
-        V^{\alpha'}\, \overline{e}_{\alpha'} = \Lambda\indices{^{\alpha'}_{\mu}} \, V^\mu \,\overline{e}_{\alpha'} = V^\mu \,\overline{e}_{\mu}
+        V^{\alpha'}\, \mathrm{e}_{\alpha'} = \Lambda\indices{^{\alpha'}_{\mu}} \, V^\mu \,\mathrm{e}_{\alpha'} = V^\mu \,\mathrm{e}_{\mu}
     \end{equation}
     Comme ceci est valable pour $V^\mu$ arbitraire, on conclut que 
     \begin{equation}
         \label{eq:preuve loi base vecteur}
-        \Lambda\indices{^{\alpha'}_{\mu}} \,\overline{e}_{\alpha'} = \overline{e}_{\mu}.
+        \Lambda\indices{^{\alpha'}_{\mu}} \,\mathrm{e}_{\alpha'} = \mathrm{e}_{\mu}.
     \end{equation}
     En remarquant que $\Lambda$ vérifie\footnote{Via $\Lambda \eta \Lambda^T = \eta$.}
     \begin{equation}
@@ -102,14 +102,14 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
     \end{equation}
     Ceci permet de conclure, en multipliant l'équation \ref{eq:preuve loi base vecteur} par $\Lambda\indices{_{\alpha'}^{\mu}}$ que
     \begin{equation}
-        \overline{e}_{\alpha'} = \Lambda\indices{_{\alpha'}^{\mu}}\, \overline{e}_{\mu}
+        \mathrm{e}_{\alpha'} = \Lambda\indices{_{\alpha'}^{\mu}}\, \mathrm{e}_{\mu}
     \end{equation}
 \end{proof}
 
 \subsection{Espace co-tangent}
 \begin{theoremframe}
     \begin{defi}
-        Une forme linéaire sur un espace vectoriel $(\mathcal{V},\mathbb{K})$ est une application linéaire $w:\mathcal{V} \to \mathbb{K}$. Pour $a,b\in \mathbb{K}$ et $X,Y \in \mathcal{V}$, on a donc
+        Une forme linéaire sur un espace vectoriel réel $(\mathcal{V},\R)$ est une application linéaire $w:\mathcal{V} \to \R$. Pour $a,b\in \R$ et $X,Y \in \mathcal{V}$, on a donc
         \begin{equation}
             w(aX+bY) = aw(X)+bw(y)
         \end{equation}
@@ -128,12 +128,12 @@ Nous appelons \textit{dual} d'un espace vectoriel $\mathcal{V}$ l'ensemble des f
 \end{theoremframe}
 On peut définir une base $\{\Theta^\mu\}_\mu$ sur l'espace co-tangent selon l'identité
 \begin{equation}
-    \Theta^\mu(\overline{e}_\nu)=\delta^\mu_\nu
+    \Theta^\mu(\mathrm{e}_\nu)=\delta^\mu_\nu
 \end{equation}
 Dans cette base, un covecteur $w\in T_P^*\mathcal{M}$ s'écrit $w = w_\alpha \theta^\alpha$. Soit $V \in T_P\mathcal{M}$:
 \begin{align}
-    w(V) &= w_{\alpha} \Theta^{\alpha}(V^{\mu} \overline{e}_\mu)\\
-    &=w_{\alpha} V^{\mu}\Theta^{\alpha} (\overline{e}_{\mu})\\
+    w(V) &= w_{\alpha} \Theta^{\alpha}(V^{\mu} \mathrm{e}_\mu)\\
+    &=w_{\alpha} V^{\mu}\Theta^{\alpha} (\mathrm{e}_{\mu})\\
     &= w_{\alpha} V^{\mu}\delta^{\alpha}_{\mu}\\
     &= w_{\alpha} V^{\alpha} \in \R
 \end{align}
@@ -211,13 +211,13 @@ alors on pourra voir le vecteur $V$ comme un tenseur $(1, 0)$. Similairement, on
     \begin{propri}
         L'ensemble des tenseurs de type $(k, l)$ en $P\in \mathcal{M}$ forme un espace vectoriel. Une base de cette espace vectoriel est donnée par 
         \begin{equation}
-        \overline{e}_{\alpha_1} \otimes \cdots \otimes \overline{e}_{\alpha_k} \otimes \Theta^{\mu _1}\otimes \cdots \otimes \Theta^{\mu _l}
+        \mathrm{e}_{\alpha_1} \otimes \cdots \otimes \mathrm{e}_{\alpha_k} \otimes \Theta^{\mu _1}\otimes \cdots \otimes \Theta^{\mu _l}
         \end{equation}
     \end{propri}
 \end{theoremframe}
 Un tenseur de type $(k,l)$ se décompose donc sur cette base comme
 \begin{equation}
-    T = T\indices{^{\alpha _1 \cdots \alpha _k}_{\nu_1 \cdots \nu_l}}\overline{e}_{\alpha_1} \otimes \cdots \otimes \overline{e}_{\alpha_k} \otimes \Theta^{\nu_1}\otimes \cdots \otimes \Theta^{\nu_l}
+    T = T\indices{^{\alpha _1 \cdots \alpha _k}_{\nu_1 \cdots \nu_l}}\mathrm{e}_{\alpha_1} \otimes \cdots \otimes \mathrm{e}_{\alpha_k} \otimes \Theta^{\nu_1}\otimes \cdots \otimes \Theta^{\nu_l}
 \end{equation}
 \begin{theoremframe}
     \begin{propri}
@@ -421,7 +421,7 @@ Notons qu'une (anti-)symétrisation partielle est également possible. Nous écr
     }
 \end{proof}
 \section{Variétés différentielles}
-Nous allons à présent considérer un espace-temps $\mathcal{M}$ avec courbure. Introduisons d'abord quelques notions périphériques, pour ensuite définir les \emph{variétés différentielles}. Nous verrons au chapitre suivant que ce formalisme abordera effectivement à une notion de courbure.
+Nous allons à présent considérer un espace-temps $\mathcal{M}$ avec courbure. Introduisons d'abord quelques notions périphériques, pour ensuite définir les \emph{variétés différentielles}. Nous verrons au chapitre suivant que ce formalisme donnera effectivement lieu à une notion de courbure.
 \begin{theoremframe}
     \begin{defi}
         Soit $X$, un ensemble non-vide. Une collection $\mathcal{T}_X$ de sous-ensembles de $X$ est une \textit{topologie sur $X$} si
@@ -433,7 +433,7 @@ Nous allons à présent considérer un espace-temps $\mathcal{M}$ avec courbure.
         Le couple $(X,\mathcal{T}_X)$ est un \textit{espace topologique}. Les éléments de $U\in \mathcal{T}_X$ sont les ouverts de l'espace topologique.\footnote{Voir p.ex. Nakahara p.81. pour plus de détails.}
     \end{defi}
 \end{theoremframe}
-Sur base de cette définition, il est possible de reconstruire les notions d'analyse comme la continuité et la différentiabilité comme approche alternative à la notion séquentielle (via des suites). Nous n'allons pas aller en détail dans cette approche et directement passer au sujet de la géométrie différentielle.
+Sur base de cette définition, il est possible de reconstruire les notions d'analyse comme la continuité, comme approche alternative à l'approche séquentielle (via des suites). Nous n'allons pas aller en détail dans cette approche et directement passer au sujet de la géométrie différentielle.
 \begin{theoremframe}
     \begin{defi}
         Une application sur des ouverts $f:U\to V$ est un \emph{homéomorphisme} si
@@ -444,7 +444,7 @@ Sur base de cette définition, il est possible de reconstruire les notions d'ana
         \end{enumerate} 
     \end{defi}
 \end{theoremframe}
-Notons que nous considérerons dans la suite que l'homéomorphisme sera lisse (c'est-à-dire $C^\infty$). L'utilité d'un homéomorphisme réside dans le fait qu'il préserve la structure topologique des espaces : une tasse de café et un donut sont homéomorphes, car l'un peut être transformé en l'autre continûment, sans coupures. 
+Sauf indication contraire, nous nous intéresserons dans la ce cours à des homéomorphismes lisses (c'est-à-dire $C^\infty$). L'utilité d'un homéomorphisme réside dans le fait qu'il préserve la structure topologique des espaces : une tasse de café et un donut sont homéomorphes, car l'un peut être transformé en l'autre continûment, sans coupures. 
 \begin{theoremframe}
     \begin{defi}
         Un \textit{atlas} (lisse) d'un espace topologique $(X,\mathcal{T}_X)$ est une collection de paires $(U_i,\varphi_i)_{i\in I}$ appelées \emph{cartes locales} telle que :
@@ -525,7 +525,7 @@ De manière équivalente, $f$ est un difféomorphisme si et seulement s'il exist
 \begin{equation}
     f \circ g = \mathrm{Id}_\mathcal{N} \quad \text{et} \quad g \circ f = \mathrm{Id}_\mathcal{M}
 \end{equation}
-Lorsqu'il existe un difféomorphisme entre $\mathcal{M}$ et $\mathcal{N}$, on dit qu'ils sont \emph{difféomorphes} (ou \emph{équivalentes}) : on peut les déformer l'un dans l'autre de manière lisse. Un difféomorphisme va, contrairement à l'homéomorphisme, préserver également la structure différentielle et non seulement la structure topologique de la variété. Ainsi, un cube est homéomorphe mais pas difféomorphe à la sphère, car on ne pourra pas se débarrasser des "coins" de manière lisse.
+Lorsqu'il existe un difféomorphisme entre $\mathcal{M}$ et $\mathcal{N}$, on dit que ces espaces sont \emph{difféomorphes} (ou \emph{équivalentes}) : on peut les déformer l'un dans l'autre de manière lisse. Un difféomorphisme va, contrairement à l'homéomorphisme, préserver également la structure différentielle et non seulement la structure topologique de la variété. Ainsi, un cube est homéomorphe mais pas difféomorphe à la sphère, car on ne pourra pas se débarrasser des "coins" de manière lisse.
 
 \begin{exmp}
     Le cercle $S^1$ et l'ellipse $E$ sont définis par
@@ -669,7 +669,6 @@ De manière plus concise, on notera
 \begin{equation*}
     X = \frac{\td}{\td \lambda }= \frac{\td x^{\mu}}{\td \lambda } \frac{\partial }{\partial x^{\mu}} = X^{\mu} \partial_{\mu}
 \end{equation*}
-
 où nous sous-entendons $x^{\mu} = x^{\mu}( \gamma(\lambda))$. Les vecteurs $X = \pd_\mu$ représentent un déplacement tangent à la direction $x^\mu$. Contrairement à la variété $\mathcal{M}$, qui n'est pas un espace vectoriel dans le cas général, l'espace tangent en est un (exercice !). 
 \begin{center}
 \includegraphics[scale=0.1]{Chapitres/3.Element de géométrie différentielle/Images/vecteur-fleche.jpg}
@@ -842,7 +841,7 @@ où $F_{\alpha \beta}$ sont les composantes du tenseurs $F$. Comme $F$ est antis
   Introduisons la notion de \emph{wedge-product}, généralisant le produit vectoriel à une dimension quelconque.
 \begin{theoremframe}
     \begin{defi}
-        Le wedge-product est défini comme l'opération 
+        Le wedge-product est l'opération 
         \begin{equation}
         \wedge : T_m\mathcal{M} \times T_m\mathcal{M} \to T_m \mathcal{M} \otimes T_m\mathcal{M}
         \end{equation}
@@ -883,9 +882,9 @@ La dimension de cette espace $\Omega^{p}_m$ correspond au nombre d'éléments de
 \end{equation*}
 Par exemple, pour $\dim \mathcal{M} = 3$, on trouve $\dim \Omega_m^2 = {2\choose 3} = 3$. Une base de cet espace est
 \begin{equation}
-    \{\td x \wedge \td y , \td x \wedge \td y , \td y \wedge \td z\}
+    \{\td x \wedge \td y , \td y \wedge \td z , \td z \wedge \td x\}
 \end{equation} 
-Remarquons qu'en conséquence,il est clair qu'il n'existe pas de p-formes pour $p>\dim \mathcal{M}$.
+Remarquons que par conséquence, il est clair qu'il n'existe pas de p-formes pour $p>\dim \mathcal{M}$.
 
 
 \subsection{Dérivée extérieur}
@@ -927,12 +926,12 @@ Remarquons qu'en considérant uniquement les transformations de Poincaré (entre
 \begin{equation}
     x^\mu \to x^{\mu'} = \Lambda\indices{^{\mu'}_\!_\alpha}\,x^\alpha +a^{\mu'}
 \end{equation}
-les objets de type $\pd_\mu \omega _\nu$ se transforme de manière covariante, car le deuxième terme de (\ref{eq: not a tensor}) s'annule nécessairement par linéarité de la transformation. Bien que ce n'est plus le cas sous changement général de coordonnées, la covariance reste assuré lorsqu'on se restreint à des $p$-formes. Par exemple, si une équation permet de se réécrire dans la forme
+les objets de type $\pd_\mu \omega _\nu$ se transforment bien de manière covariante, car le deuxième terme de (\ref{eq: not a tensor}) s'annule nécessairement par linéarité de la transformation. Bien que ce n'est plus le cas sous changement général de coordonnées, la covariance reste assuré lorsqu'on se restreint à des $p$-formes. Par exemple, si une équation permet de se réécrire (dans un référentiel inertiel) sous la forme
 \begin{equation}
     \td F = 0
 \end{equation}
-alors cette équation reste valable dans tout référentiel. Nous avons ainsi trouvé une manière d'écrire une équation de manière covariante sous changement général de coordonnées. Néanmoins, celle-ci n'est valable que dans le cas des $p$-formes. Dans le chapitre suivant, nous allons construire une théorie différentielle définie pour tout tenseur : la dérivée covariante.\\
-\\
+alors celle-ci reste valable dans tout référentiel. Nous avons ainsi trouvé une manière de généraliser une équation valable en relativité restreinte (espace-temps plat) vers une équation valable dans une variété courbe arbitraire (covariant sous changement général des coordonnées). Néanmoins, celle-ci n'est valable que dans le cas des $p$-formes. Dans le chapitre suivant, nous allons construire une théorie différentielle définie pour tout tenseur : la dérivée covariante.
+
 Terminons cette section par une introduction informelle à la théorie de cohomologie.
 \begin{theoremframe}
     \begin{defi}
@@ -997,5 +996,5 @@ On peut interpréter ce groupe comme une mesure de l'obstruction pour une $p$-fo
     \omega  \sim \omega ' \iff \exists \eta \in \Omega^{p-1}, \omega  = \omega ' + \td \eta
 \end{equation}
 Autrement dit, $\omega $ et $\omega '$ ne diffèrent que d'un élément de $B^p$. Lorsque $\mathcal{M}$ est tel que toute forme fermée est exacte, on a $H^p(\mathcal{M})=0$ (car alors toute $p$-forme est équivalente à la $p$-forme nulle). De manière générale, la dimension des classes de cohomologie (qui requiert usuellement la résolutions d'équations différentielles) ne dépend que de la topologie de $\mathcal{M}$. Par exemple, si la variété est homéomorphe à $\R^n$, alors $H^p(\mathcal{M}) = 0$ pour tout $p>0$.\\
-Nous invitons le lecteur à considérer le chapitre 6 de [Source].
+Nous invitons le lecteur à considérer le chapitre 6 de Nakahara.
 

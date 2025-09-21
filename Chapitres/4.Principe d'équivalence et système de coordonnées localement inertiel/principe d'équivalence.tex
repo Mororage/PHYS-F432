@@ -20,11 +20,9 @@ Notons que $g$ n'est \emph{pas} une $2$-forme. Dans une carte locale, les compos
 g(\partial_{\alpha}, \partial_{\beta}) = g_{\alpha \beta} = g_{\beta \alpha} = g(\partial_{\beta}, \partial_{\alpha})
 \end{equation}
 car le tenseur est symétrique. Dans cette base, la métrique peut donc être écrite comme:
-
  \begin{equation}
      g = g_{\alpha \beta}\, \td x^{\alpha}\td x^{\beta}
  \end{equation}
-
  Puisque $g$ est non-dégénérée, son déterminant est non-nul (toutes les valeurs propres de $g_{\mu \nu}$ sont non-nulles) et la matrice $g_{\mu \nu}$ est inversible. On note $g^{\mu \nu}$ la matrice inverse, qui satisfait à
  \begin{equation}
      \boxed{g^{\mu \nu}g_{\nu \rho} = \delta^{\mu}
@@ -32,13 +30,12 @@ car le tenseur est symétrique. Dans cette base, la métrique peut donc être é
  \end{equation}
 
 Précédemment, nous avions vu que la métrique de Minkowski permettait de descendre et monter les indices. Ce sera également le cas pour une variété générale. Elle permet d'établir un isomorphisme $T^*_P \mathcal{M} \simeq T_P \mathcal{M}$ car la métrique est non-dégénérée. Par abus de notation, nous noterons cette isomorphisme également
-
 \begin{equation}
     g_P:T_P \mathcal{M} \rightarrow T^*_P \mathcal{M}: X \mapsto g(X,\cdot\,)
 \end{equation}
 Pour un vecteur $X = X^\mu \pd_\mu$, on écrit donc
 \begin{equation}
-     g\indices{_\mu_\nu} X^\mu \equiv X_\nu
+     g(X) = g\indices{_\mu_\nu} X^\mu \, \td x^\nu \equiv X_\nu\, \td x^\nu \iff g\indices{_\mu_\nu} X^\mu \equiv X_\nu
 \end{equation}
 Comme dans le cas Minkowskien\footnote{Il est important à remarquer que la métrique forme l'exception de la règle de "monter les indices avec la métrique" : $g^{\mu\nu}$ n'est \emph{pas} obtenu de cette manière, mais est simplement la matrice inverse de la métrique $g_{\mu\nu}$. C'est pour cette raison que certaines références noterons la métrique inverse de manière distincte de la métrique, comme par exemple $\mathfrak{g}^{\mu\nu}$.}.
 
@@ -62,7 +59,7 @@ Comme la métrique définit une forme bilinéaire symétrique, sa signature (à 
 \end{rmk}
 
 \section{Système de coordonnées localement inertiel}
-D'après le principe d'équivalence, dans les régions suffisamment restreintes de l'espace-temps, on peut annuler les effets de la gravitation en se plaçant dans un référentiel en chute libre (qui est un système de coordonnées localement inertiel). Autrement dit, dans le formalisme de la géométrie différentielle, la métrique doit localement pouvoir être ramenée à celle de la relativité restreinte, la métrique plate de Minkowski $\eta_{\mu\nu}$ (qui décrit la physique en l'absence de gravitation). 
+D'après le principe d'équivalence, dans les régions suffisamment restreintes de l'espace-temps, on peut annuler les effets de la gravitation en se plaçant dans un référentiel en chute libre (qui est un système de coordonnées localement inertiel). Autrement dit, dans le formalisme de la géométrie différentielle, la métrique doit localement être réduite à celle de la relativité restreinte, la métrique plate de Minkowski $\eta_{\mu\nu}$ (qui décrit la physique en l'absence de gravitation). 
 
 \begin{theoremframe}
     \begin{propri}
@@ -105,7 +102,7 @@ Comme $g_{\hat{\mu}\hat{\nu}}$ est symétrique, elle possède $\frac{4 (4+1)}{2}
 \begin{exerc}
     Montrez qu'une matrice symétrique $n \times n$ possède au plus $\frac{n(n+1)}{2}$ composantes indépendantes. Déduisez-en qu'une matrice antisymétrique possède au plus $\frac{n(n-1)}{2}$ composantes indépendantes.
 \end{exerc}
-Pour pouvoir réduire $g_{\hat{\mu}\hat{\nu}}$ à la métrique de Minkowski, il faut pouvoir lui imposer 10 équations algébriques. Ces équations viennent de la loi de transformation tensorielle. La question revient donc à trouver le nombre de composantes indépendantes de $A$\footnote{Notons que bien que $A$ est une fonction des coordonnées $x^\mu$, il s'agit bien de coefficients constants lorsqu'on fixe le point $P\in \mathcal{M}$.}.\\
+Pour pouvoir réduire $g_{\hat{\mu}\hat{\nu}}$ à la métrique de Minkowski, il faut pouvoir lui imposer 10 équations algébriques. Ces équations viennent de la loi de transformation tensorielle. La question revient donc à trouver le nombre de composantes indépendantes de $A$.\footnote{Notons que bien que $A$ est une fonction des coordonnées $x^\mu$, il s'agit bien de coefficients constants lorsqu'on fixe le point $P\in \mathcal{M}$.}\\
 \\
 Comme $A\indices{^{\mu}_{\!\hat{\mu}}}$ est une matrice inversible, elle possède $n^2 = 16$ composantes indépendantes, ce qui est plus que suffisant pour fixer $g$. Notons que les 6 composantes non-utilisées peuvent êtres vues comme les 6 paramètres du groupe de Lorentz, qui préserve la forme de la métrique de Minkowski. Le surflux de conditions vient donc du fait que la métrique sous sa forme canonique (minkowskienne) possède quand même toute une classe de référentiels qui gardent sa forme invariante (les référentiels inertiels).
 \subsubsection{La condition ii.}
@@ -157,7 +154,7 @@ En y rajoutant les 4 degrés de libertés de l'indice contravariant, on trouve f
 \begin{equation}
     4\cdot (4+12+4)=80
 \end{equation}
-composantes indépendantes, ce qui n'est pas suffisant pour annuler la dérivée seconde de la métrique en toute généralité (bien qu'elle pourrait s'annuler "accidentellement").
+composantes indépendantes, ce qui n'est pas suffisant pour annuler la dérivée seconde de la métrique en toute généralité, bien qu'elle pourrait s'annuler "accidentellement" (voir le théorème \ref{thm:métrique globalement plate} et sa preuve à la section \ref{Preuve: thm4.42} du chapitre 5).
 \end{rmk}
 
 \section{Éléments de longueurs}
@@ -254,9 +251,12 @@ Qui est appelé le \emph{tenseur de Levi-Civita}. Une approche similaire permett
 \end{equation}
 Nous donnerons de plus une identité utile de sommation du tenseur de Levi-Civita :
 \begin{equation}
-    \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_n} ^{\alpha_1} ^\cdots ^{\alpha_{n-p}}} \varepsilon\indices{_{\mu_1} _\cdots _{\mu_n} _{\beta} _\cdots _{\alpha_{n-p}}} = (-1)^s \, p! \, (n-p)! \,\delta^{[\alpha_1}_{\beta_1} \cdots \delta^{\alpha_{n-p}]}_{\beta_{n-p}}
+    \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_p} ^{\alpha_1} ^\cdots ^{\alpha_{n-p}}} \varepsilon\indices{_{\mu_1} _\cdots _{\mu_p} _{\beta_1} _\cdots _{\beta_{n-p}}} = (-1)^s \, p! \, (n-p)! \,\delta^{[\alpha_1}_{\beta_1} \cdots \delta^{\alpha_{n-p}]}_{\beta_{n-p}}
 \end{equation}
-où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans le cas Lorentzien).
+où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans le cas Lorentzien). Pour $p = n - 1$ :
+\begin{equation}
+    \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_{n-1}} ^{\alpha}} \varepsilon\indices{_{\mu_1} _\cdots _{\mu_{n-1}} _{\beta}}= (-1)^s (n-1) ! \, \delta^\alpha_\beta
+\end{equation}
 \begin{exerc}
     D'après le théorème de changement de base, soit $U \in\R^n$ et un difféomorphisme $h:U \to V \in \R^n$. Alors :
     \begin{equation*}
