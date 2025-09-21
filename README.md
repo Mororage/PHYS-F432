@@ -41,7 +41,7 @@ Utilisez une **Pull Request** pour :
 Vous pouvez me contacter par mail via moritzschnor@outlook.com
 
 ## Change logs
-- Version 1.2 (A venir) :
+- Version 1.2 (21/9) :
   - Typo dans l'équation 3.107 et 4.36.
   - Quelques clarifications dans l'introduction d'une variété abstraite.
   - Clarifié définition du groupe de Poincaré (via produit semi-direct).
