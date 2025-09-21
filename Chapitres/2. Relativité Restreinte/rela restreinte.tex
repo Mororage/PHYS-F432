@@ -95,9 +95,7 @@ Mais comme aucune information ne peut propager plus vite que la vitesse,on concl
             \lt \frac{\Delta s'}{\Delta t'} \rt^2 = -c^2 + v'^2 = 0
         \end{equation}
         Il en découle que si l'intervalle s'annule dans un référentiel inertiel, il s'annule dans tout référentiel inertiel. \\
-        \item Montrons maintenant que peu importe valeur de $\Delta s$, on a que $\Delta s = \Delta s' $ pour tous référentiels inertiels.
-
-        Comme les deux référentiels sont inertiels, ils sont reliés par une transformation linéaire: 
+        \item Montrons maintenant que peu importe valeur de $\Delta s$, on a que $\Delta s = \Delta s' $ pour tous référentiels inertiels. Comme les deux référentiels sont inertiels, ils sont reliés par une transformation projective : 
         \begin{equation}
             x'^{\mu} = \Lambda\indices{^\mu_\alpha} \, x^{\alpha} + a^{\mu}
             \label{def:poincaré}
@@ -119,7 +117,7 @@ Mais comme aucune information ne peut propager plus vite que la vitesse,on concl
             \label{eq:intervalle4}
             (\Delta s)^2 = \kappa (\Delta s')^2.
         \end{equation}
-        L'espace-temps est isotrope, et $\kappa$ ne peut donc que dépendre de la norme de la vitesse relative entre les deux référentiels : $\kappa(\vect{v})=\kappa(\lVert \vect{v} \rVert)$\footnote{Etant une propriété des deux référentiels, $\kappa$ ne peut que dépendre $\vect{v}$. Nous invitons le lecteur à argumenter pourquoi celui-ci ne peut pas dépendre des coordonnées d'espace.}. En particulier, on trouve $\kappa(\Vec{v}) = \kappa(-\vect{v})$. En effectuant le changement de référentiel inverse, on trouve que
+        L'espace-temps est isotrope, et $\kappa$ ne peut donc que dépendre de la norme de la vitesse relative entre les deux référentiels : $\kappa(\vect{v})=\kappa(\lVert \vect{v} \rVert)$\footnote{Etant une propriété des deux référentiels, $\kappa$ ne peut que dépendre $\vect{v}$. Nous invitons le lecteur à argumenter pourquoi celui-ci ne peut pas dépendre des coordonnées d'espace.}. En particulier, on trouve $\kappa(\vect{v}) = \kappa(-\vect{v})$. En effectuant le changement de référentiel inverse, on trouve que
         \begin{equation}
             (\Delta s')^2 = \kappa(-\vect{v}) (\Delta s)^2
             \label{eq:intervalle5}
@@ -156,8 +154,10 @@ Comme vu dans la section précédente, en prenant $\kappa = 1$ dans la relation 
     \boxed{\Lambda ^{T} \eta \Lambda = \eta}
 \end{equation}
 
-L'ensemble des matrices satisfaisant à l'équation \ref{eq:Lorentz} est appelé le \textit{groupe de Lorentz} O$(3,1)$. L'ensemble des couples $(\Lambda,a)$ satisfaisant à \ref{eq:intervalle1} et donc à \ref{eq:Lorentz} est appelé \textit{groupe de Lorentz inhomogène} ou le \textit{groupe de Poincaré} $IO(3,1)$. 
-
+L'ensemble des matrices satisfaisant à l'équation \ref{eq:Lorentz} est appelé le \textit{groupe de Lorentz} O$(1,3)$. L'ensemble des couples $(\Lambda,a) \in \mathrm{O}(1,3) \ltimes \R^{1,3}$ est appelé \textit{groupe de Lorentz inhomogène} ou le \textit{groupe de Poincaré} $\mathrm{IO}(1,3)$. 
+\begin{rmk}
+    La notation $\ltimes$ représente le produit semi-direct. Nous n'allons pas s'en servir dans la suite, et n'allons donc pas l'introduire formellement (l'essentiel est qu'il s'agit d'une paire d'une matrice de Lorentz et d'un quadri-vecteur). Un lecteur intéressé est invité à consulter un cours de théorie des groupes dédié.
+\end{rmk}
 \begin{rmk}
 Lorsque $\eta = \text{diag}(-1,...,-1,1,...,1)$ avec $p$ fois -1 et $q$ fois +1, on appelle le groupe vérifiant \ref{eq:Lorentz} IO$(p,q)$
     
@@ -170,7 +170,7 @@ Les transformations telles que $\Lambda =  I$ appartiennent au groupe de transla
 
 \subsection{Groupe de Lorentz}
 
-Le groupe de Lorentz O(3,1) possède deux sous-groupes non-triviaux. En particulier, il possède quatre composantes non-connexes.
+Le groupe de Lorentz O(1,3) possède deux sous-groupes non-triviaux. En particulier, il possède quatre composantes non-connexes.
 
 \begin{enumerate}
     \item En reprenant la relation $\Lambda ^{T} \eta \Lambda = \eta$, et calculant le déterminant:
@@ -179,7 +179,7 @@ Le groupe de Lorentz O(3,1) possède deux sous-groupes non-triviaux. En particul
         \implies \det\Lambda = \pm 1
     \end{equation}
     Comme il est impossible de passer continûment d'un élément de $\det =1$ à un élément de $\det = -1$, le groupe possède deux composantes non-connexes. On note O$(3,1)_\pm$ la partie du groupe de Lorentz à $\det = \pm 1$.\\
-    Uniquement la composante O(3,1)$_+$ est un sous-groupe de O(3,1), appelé le groupe spécial de Lorentz noté SO(3,1)\footnote{En effet, c'est la seule des deux composantes qui inclut l'élément identité.}. \\
+    Uniquement la composante O(1,3)$_+$ est un sous-groupe de O(1,3), appelé le groupe spécial de Lorentz noté SO(1,3)\footnote{En effet, c'est la seule des deux composantes qui inclut l'élément identité.}. \\
 
     \item Réécrivons la relation de définition \ref{eq:Lorentz} du groupe de Lorentz. En composantes, on trouve
     \begin{equation}
@@ -192,9 +192,9 @@ Le groupe de Lorentz O(3,1) possède deux sous-groupes non-triviaux. En particul
         (\Lambda\indices{^0_0})^2 &= 1 + \sum_{k}(\Lambda\indices{^k_0})^2\\
         \implies (\Lambda\indices{^0_0})^2 &\geq 1
     \end{align}
-    On trouve donc de nouveau deux composantes non-connexes notées O(3,1)$^\uparrow$ (si $\Lambda\indices{^0_0} \geq 1$) et O(3,1)$^\downarrow$ (si $\Lambda\indices{^0_0} \leq - 1$). Uniquement O(3,1)$^\uparrow$ est un sous-groupe de O(3,1), appelé le sous-groupe orthochrone de Lorentz.
+    On trouve donc de nouveau deux composantes non-connexes notées O(1,3)$^\uparrow$ (si $\Lambda\indices{^0_0} \geq 1$) et O(1,3)$^\downarrow$ (si $\Lambda\indices{^0_0} \leq - 1$). Uniquement O(1,3)$^\uparrow$ est un sous-groupe de O(1,3), appelé le sous-groupe orthochrone de Lorentz.
 \end{enumerate}
-Le groupe O(3,1)$^\uparrow_+ \equiv$ SO(3,1)$^\uparrow$ est un sous-groupe normal de O(3,1), et pour simplifier le langage, nous l'appelerons également le groupe de Lorentz\footnote{Les transformations qui inversent l'orientation de l'espace ou du temps ne nous intéressent que rarement.} Nous renvoyons vers votre cours de théorie des groupes pour une étude détaillée du groupe de Lorentz.
+Le groupe O(1,3)$^\uparrow_+ \equiv$ SO(1,3)$^\uparrow$ est un sous-groupe normal de O(1,3), et pour simplifier le langage, nous l'appelerons également le groupe de Lorentz\footnote{Les transformations qui inversent l'orientation de l'espace ou du temps ne nous intéressent que rarement.} Nous renvoyons vers votre cours de théorie des groupes pour une étude détaillée du groupe de Lorentz.
 \subsection{Rappel : les transformations de Lorentz}
 
 \begin{exmp}
@@ -480,7 +480,7 @@ Pour le premier jumeau, comme $B'=(\frac{\Delta t}{2},\Delta x)$, on trouve
         (\Delta \tau_{AB'C})^2 &= (\Delta \tau_{AB'} + \Delta \tau_{B'C})^2\\
         &= 4(\Delta \tau_{AB'})\\
         &= 4 \left(\left(\frac{\Delta t}{2}\right)^2 - (\Delta x)^2\right)\\
-        &= 4 \left(\left(\frac{\Delta t^2}{4}\right) - (\Delta x)^2\right)
+        &= 4 \left(\frac{\Delta t^2}{4} - (\Delta x)^2\right)
     \end{align}
     On peut définir (graphiquement) $v = \dfrac{\Delta x}{(\Delta t/2)} = \dfrac{2 \Delta x}{\Delta t}$ qui est tel que $v^2 = \frac{4(\Delta x)^2}{(\Delta t)^2}$ et donc
     \begin{align*}
@@ -488,7 +488,7 @@ Pour le premier jumeau, comme $B'=(\frac{\Delta t}{2},\Delta x)$, on trouve
         &< (\Delta t)^2
     \end{align*}
 
-Le temps propre du premier jumeaux (voyageur) est plus petit que le temps propres du jumeau 2 (au repos). 
+Le temps propre du premier jumeau (voyageur) est plus petit que le temps propres du second jumeau (au repos). 
 \begin{center}
     \textit{Le temps s'écoule plus lentement quand on est en mouvement.}
 \end{center}
@@ -592,7 +592,7 @@ Or, comme $v^{\alpha}v_{\alpha} = -1$:
     \implies &v^{1} = \frac{v^{0}a^{0}}{v^{1}}
 \end{align}
 
-En adoptant temporairement des indices covariants pour améliorer la lisibilité (notons que comme seul des carrés interviennent, cela ne change rien aux calculs) :
+En adoptant temporairement des indices covariants pour améliorer la lisibilité (comme seuls des carrés interviennent, cela ne change rien aux calculs) :
 \begin{align}
     a_1^2 &= 1 \cdot a_1^2\\
     &= \lt v_0^2 - v_{1}^2 \rt a_{1}^2\\
