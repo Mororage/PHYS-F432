@@ -41,6 +41,8 @@ Utilisez une **Pull Request** pour :
 Vous pouvez me contacter par mail via moritzschnor@outlook.com
 
 ## Change logs
+- Version 1.3 (à venir) :
+  - Corrigé la section sur le paradoxe des jumeaux. Une écriture inclusive a été appliquée avant la détermination de leur genre.
 - Version 1.2 (21/9) :
   - Typo dans l'équation 3.107 et 4.36.
   - Quelques clarifications dans l'introduction d'une variété abstraite.
