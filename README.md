@@ -41,7 +41,7 @@ Utilisez une **Pull Request** pour :
 Vous pouvez me contacter par mail via moritzschnor@outlook.com
 
 ## Change logs
-- Version 1.3 (à venir) :
+- Version 1.3 (27/9) :
   - Les références à des équations sont à présent en parenthèses : 1.109 -> (1.109). De plus, tous les liens cliquables sont maintenant colorés.
   - Modifié quelques formulations dans l'exercice 4.11.
   - La métrique est bien un tenseur (0,2) (et non (2,0) comme il était indiqué à certains endroits).
