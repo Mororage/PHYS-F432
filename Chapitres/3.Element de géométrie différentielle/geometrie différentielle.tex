@@ -21,7 +21,7 @@ On se place encore dans l'espace-temps de Minkowski $\mathcal{M} \equiv \R^{1,3}
         Soit $P\in \mathcal{M}$. L'espace tangent à $\mathcal{M}$ au point $P$ est noté $T_P\mathcal{M}$. C'est un espace vectoriel réel de dimension 4.
     \end{notat}
 \end{theoremframe}
-La définition précise d'un espace tangent sera donné après avoir introduit les variétés. Les éléments de $T_P\mathcal{M}$ sont appelés \textit{vecteurs} au point $P$. 
+La définition précise d'un espace tangent sera donné après avoir introduit rigoureusement la notion de variété différentielle. Les éléments de $T_P\mathcal{M}$ sont appelés \textit{vecteurs} au point $P$. 
 \begin{rmk}
     La notion locale (au point $P$) de cette définition sera importante : un vecteur ne pourra pas être vu comme une flèche rejoignant le point $P$ à un autre point $Q \in \mathcal{M}$. Le vecteur \textit{ne vit pas} sur le même espace que les points $P$ et $Q$. Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_P\mathcal{M}$ coincident. On peut alors les voir comme des flèches rejoignant deux points distincts. Ce ne sera plus le cas si l'espace-temps est courbe.
 \end{rmk}
@@ -73,7 +73,7 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
     \begin{propri}
         Sous transformation de Poincaré, les vecteurs de base se transforment comme
         \begin{equation}
-            \mathrm{e}_{\mu'} = \Lambda\indices{_{\mu'}^{\mu}}\, \mathrm>{e}_{\mu}
+            \mathrm{e}_{\mu'} = \Lambda\indices{_{\mu'}^{\mu}}\, \mathrm{e}_{\mu}
         \end{equation}
     \end{propri}
 \end{theoremframe}
@@ -100,7 +100,7 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
         \label{eq:id lambda}
         \Lambda\indices{_{\alpha}^\mu} \, \Lambda\indices{^\beta_\mu} = \delta^\beta_{\alpha}
     \end{equation}
-    Ceci permet de conclure, en multipliant l'équation \ref{eq:preuve loi base vecteur} par $\Lambda\indices{_{\alpha'}^{\mu}}$ que
+    Ceci permet de conclure, en multipliant l'équation (\ref{eq:preuve loi base vecteur}) par $\Lambda\indices{_{\alpha'}^{\mu}}$ que
     \begin{equation}
         \mathrm{e}_{\alpha'} = \Lambda\indices{_{\alpha'}^{\mu}}\, \mathrm{e}_{\mu}
     \end{equation}
@@ -163,7 +163,7 @@ Cette expression ne dépend pas du choix de la base. De plus, elle ne comporte p
     \begin{equation}
         w_{\alpha}  = w_{\alpha'} \,\Lambda\indices{^{\alpha'}_{\alpha}}
     \end{equation}
-    Et on trouve le résultat recherché en utilisant l'identité \ref{eq:id lambda}.
+    Et on trouve le résultat recherché en utilisant l'identité (\ref{eq:id lambda}).
 \end{proof}
 
 En particulier, la base de l'espace co-tangent se transforme comme:
@@ -221,7 +221,7 @@ Un tenseur de type $(k,l)$ se décompose donc sur cette base comme
 \end{equation}
 \begin{theoremframe}
     \begin{propri}
-        Un vecteur de type $(k,l)$ se transforme sous transformation de Poincaré comme\footnote{Ici, $\times$ est utilisé pour la multiplication usuelle et non comme produit direct.}
+        Un tenseur de type $(k,l)$ se transforme sous transformation de Poincaré comme\footnote{Ici, $\times$ est utilisé pour la multiplication usuelle et non comme produit direct.}
         \begin{equation}
             T\indices{^{{\alpha}_1' \cdots {\alpha}_k'}_{{\nu_1'} \cdots {\nu_l'}}} = \Lambda\indices{^{\alpha_1'}_{\!\alpha _1 }} \times \cdots \times \Lambda\indices{^{\alpha_k'}_{\!\alpha_k}} \times \Lambda\indices{_{\nu_1' }^{\!\nu_1 }} \times \cdots \times \Lambda\indices{_{\nu_k'}^{\!\nu_k}} \times T\indices{^{\alpha _1 \cdots \alpha _k}_{\nu_1 \cdots \nu_l}}.
         \end{equation}
@@ -232,7 +232,7 @@ Un tenseur de type $(k,l)$ se décompose donc sur cette base comme
     Conséquence des propriétés précédentes.
 \end{proof}
 
-Revenons à la métrique de Minkowski. Celle-ci peut-être vue comme un tenseur $(2.0)$ symétrique.
+Revenons à la métrique de Minkowski. Celle-ci peut-être vue comme un tenseur $(0,2)$ symétrique.
 {
 \renewcommand\indexmarker{\cdot}
 \begin{equation*}
@@ -250,7 +250,7 @@ De plus, la métrique de Minkowski est un invariant de Lorentz : elle a les mêm
             (X,Y) & \mapsto & \eta(X,Y) = \eta_{\mu  \nu }X^{\mu}Y^{\nu}
         \end{pmatrix}.
         \end{align}
-        En particulier, $\eta$ est symétrique et biliéaire.
+        En particulier, $\eta$ est symétrique et bilinéaire.
     \end{defi}   
 \end{theoremframe}
 \begin{rmk}
@@ -387,12 +387,12 @@ Notons qu'une (anti-)symétrisation partielle est également possible. Nous écr
         F^{0i} = \eta ^{0 \alpha} \eta ^{i\beta} F_{\alpha \beta} = (-1)(+1)F_{0i} = -F_{0i} = E_i
         \label{Faraday}
     \end{equation}
-    En remplaçant ceci dans \ref{loi de Gauss}, on obtient:
+    En remplaçant ceci dans (\ref{loi de Gauss}), on obtient:
     \begin{equation}
         \partial_{i}F^{0i} = J^0
         \label{Loi de Gauss tensoirel}
     \end{equation}
-    Comme $F^{\mu \nu}$ est antisymétrique, on a que $F^{00} = 0$. On peut donc réécrire \ref{Loi de Gauss tensoirel} comme
+    Comme $F^{\mu \nu}$ est antisymétrique, on a que $F^{00} = 0$. On peut donc réécrire (\ref{Loi de Gauss tensoirel}) comme
     \begin{equation}
         \partial_{\alpha}F^{0\alpha} = J^0
     \end{equation}
@@ -404,7 +404,7 @@ Notons qu'une (anti-)symétrisation partielle est également possible. Nous écr
     \cutebreak
     {
     \renewcommand\indexmarker{\cdot}
-    Montrons que cette expression ne dépend effectivement pas du référentiel inertiel choisi. On sait que $x'^{\mu} = \Lambda\indices{^{\mu'}_{\alpha}}\,x^{\alpha}$. \ref{eq:faraday tot} peut donc se réécrire comme:
+    Montrons que cette expression ne dépend effectivement pas du référentiel inertiel choisi. On sait que $x'^{\mu} = \Lambda\indices{^{\mu'}_{\alpha}}\,x^{\alpha}$. (\ref{eq:faraday tot}) peut donc se réécrire comme:
     \begin{equation}
         \Lambda\indices{_{\mu}^{\nu '}}\, \partial_{\nu '}(\Lambda\indices{^{\mu}_{\alpha'}}\,\Lambda\indices{^{\nu}_{\beta '}}\,F^{\alpha ' \beta '} ) =  \Lambda\indices{^{\nu }_{\alpha'}}\, J^{\alpha '}
     \end{equation}
@@ -838,7 +838,7 @@ où $F_{\alpha \beta}$ sont les composantes du tenseurs $F$. Comme $F$ est antis
 
 \subsection{Wedge product}
 
-  Introduisons la notion de \emph{wedge-product}, généralisant le produit vectoriel à une dimension quelconque.
+  Introduisons la notion de \emph{wedge-product}\footnote{Dans certains milieux, également appelé \emph{wesh} product.}, généralisant le produit vectoriel à une dimension quelconque.
 \begin{theoremframe}
     \begin{defi}
         Le wedge-product est l'opération 
@@ -888,7 +888,7 @@ Remarquons que par conséquence, il est clair qu'il n'existe pas de p-formes pou
 
 
 \subsection{Dérivée extérieur}
-L'importance des p-formes différentielles réside notamment dans le fait qu'elles peuvent être intégrées et différenciées sans requérir plus de structure géométrique\footnote{Voir par exemple Carroll ou Nakahara.}. Elles permettent aussi de reformuler certaines lois physiques de manière tensorielle et compacte. Pour un champ de p-formes $\Omega^p$ (donnée d'une p-forme en tout point de la variété), on définit l'opérateur différentiel suivant :
+L'importance des p-formes différentielles réside notamment dans le fait qu'elles peuvent être intégrées et différenciées sans requérir plus de structure géométrique\footnote{Voir par exemple Carroll ou Nakahara.}. Elles permettent aussi de reformuler certaines lois physiques de manière tensorielle et compacte. Pour un champ lisse de p-formes $\Omega^p$ (donnée d'une p-forme en tout point de la variété), on définit l'opérateur différentiel suivant :
 \begin{theoremframe}
     \begin{defi}
         La \emph{dérivée extérieure} d'un champ de p-formes est une application
@@ -911,14 +911,13 @@ Où la première ligne est la définition de la dérivée extérieure, et la sec
     (\td \omega )_{\nu \mu_1 \cdots \mu_p} = (p+1)\partial_{[{\nu }}\omega _{\mu_1 \cdots \mu_p]}
 \end{equation}
 \begin{rmk}
-    Si $f $ est une 0-forme, alors $\td f$ est une 1-forme qui vaut
+    Si $f $ est une 0-forme, alors $\td f$ est la différentielle usuelle :
     \begin{equation} 
-    \td f = \frac{\partial f}{\partial x^{\mu}}\td x^{\mu}
+    \td f = \frac{\partial f}{\partial x^{\mu}}\td x^{\mu}.
     \end{equation}
-    qui est la différentielle usuelle.
 \end{rmk}
 \cutebreak
-L'utilité de la dérivée extérieur est que $\td \omega $ reste un tenseur. Elle est donc valable dans tout système de coordonnées.
+L'utilité de la dérivée extérieur réside dans le fait que $\td \omega $ reste un tenseur. Elle est donc valable dans tout système de coordonnées.
 \begin{exerc}
     Montrez à l'aide de (\ref{eq: not a tensor}) que si $\omega $ est une p-forme, alors $\td \omega $ se transforme comme un tenseur $(0,p+1)$.
 \end{exerc}

@@ -4,7 +4,7 @@ La géométrie générée à l'extérieur d'un corps massif à symétrie sphéri
     \label{TN:métrique schw}
     \td s^2 = - \lt 1 - \frac{2m}{r} \rt \td t^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \td r^2 + r^2 \td \theta^2 + r^2 \sin^2\theta \td \varphi^2
 \end{align}
-Nous avons vu qu'elle permettait de décrire certains phénomènes dans le système solaire, notamment l'avance du périhélie de Mercure. Nous avions déjà observé plus haut que la métrique de Schwarzschild semblait présenter une singularité au rayon de Schwarzschild $r=2m$, mais nous avions conclut qu'il s'agissait d'une singularité du système de coordonnées plutôt que d'une vraie singularité physique (contrairement à $r =0$, comme le montrait le scalaire de Kretschmann). En général, pour des astres usuels (planètes, soleil, etc.), $r=2m$ est bien inférieur à leur rayon, et donc cette singularité dans le système de coordonnées n'est pas un obstacle à l'utilisation de la métrique (qui n'est valable qu'à l'extérieur de l'astre dans tous les cas). Nous allons à présent étudier ce qui se passe pour des sources gravitationnelles où le rayon de Schwarzschild se trouve à l'extérieur du corps gravitant et peut donc (en principe) être bel et bien atteint. Nous allons mettre en évidence certains phénomènes se produisant à l'approche de $r=2m$ et en conclure que la métrique sous la forme \ref{TN:métrique schw} n'est pas adaptée à la description de la région dans un voisinage de $r=2m$. Nous introduirons ensuite un autre système de coordonnées qui permettra d'obtenir une description globale de la géométrie et de faire la connaissance avec le \emph{trou noir}.
+Nous avons vu qu'elle permettait de décrire certains phénomènes dans le système solaire, notamment l'avance du périhélie de Mercure. Nous avions déjà observé plus haut que la métrique de Schwarzschild semblait présenter une singularité au rayon de Schwarzschild $r=2m$, mais nous avions conclut qu'il s'agissait d'une singularité du système de coordonnées plutôt que d'une vraie singularité physique (contrairement à $r =0$, comme le montrait le scalaire de Kretschmann). En général, pour des astres usuels (planètes, soleil, etc.), $r=2m$ est bien inférieur à leur rayon, et donc cette singularité dans le système de coordonnées n'est pas un obstacle à l'utilisation de la métrique (qui n'est valable qu'à l'extérieur de l'astre dans tous les cas). Nous allons à présent étudier ce qui se passe pour des sources gravitationnelles où le rayon de Schwarzschild se trouve à l'extérieur du corps gravitant et peut donc (en principe) être bel et bien atteint. Nous allons mettre en évidence certains phénomènes se produisant à l'approche de $r=2m$ et en conclure que la métrique sous la forme (\ref{TN:métrique schw}) n'est pas adaptée à la description de la région dans un voisinage de $r=2m$. Nous introduirons ensuite un autre système de coordonnées qui permettra d'obtenir une description globale de la géométrie et de faire la connaissance avec le \emph{trou noir}.
 \section{L'approche de l'horizon des évènements selon Schwarzschild}
 \subsection{Orientation des cônes de lumière}
 Étudions les cônes de lumière dans le demi-plan $(t,r)$, limités par des géodésiques radiales ($\dot{\theta} = 0 = \dot{\varphi}$) nulles ($\td s^2=0$) :
@@ -100,7 +100,7 @@ Soit un observateur se situant à $r = r_\infty$ fixe, observant un corps en chu
 \begin{equation}
     \td s^2 = - \td \tau^2 = - \lt 1 - \frac{2m}{r} \rt \td t^2 \simeq - \td t^2
 \end{equation}
-Prenons un objet tombant radialement ($\dot{\varphi} = 0 = \dot \theta$) en chute libre dans la région $r=2m$. On obtient alors $a=0$ par la constante du mouvement de l'équation des géodésiques \ref{géodésiques de Schwarzschild}. Les autres constantes du mouvement donnent :
+Prenons un objet tombant radialement ($\dot{\varphi} = 0 = \dot \theta$) en chute libre dans la région $r=2m$. On obtient alors $a=0$ par la constante du mouvement de l'équation des géodésiques (\ref{géodésiques de Schwarzschild}). Les autres constantes du mouvement donnent :
 \begin{align}
     - \lt 1 - \frac{2m}{r} \rt \dot{t}^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \dot{r}^2 = - \lt 1 - \frac{2m}{r} \rt^2 b^2 + \lt 1 - \frac{2m}{r} \rt^{-1} \dot{r}^2 =-1
 \end{align}
@@ -122,7 +122,7 @@ On obtient directement
     \label{Ch8: chute libre t}
     \frac{\td t}{\td \lambda} = \frac{b}{1 - \frac{2m}{r}}
 \end{equation}
-En combinant \ref{Ch8: chute libre r} avec \ref{Ch8: chute libre t} :
+En combinant (\ref{Ch8: chute libre r}) avec (\ref{Ch8: chute libre t}) :
 \begin{align}
     \frac{\td r}{\td t} = - b^{-1} \lt 1 - \frac{2m}{r} \rt \ltc b^2 - \lt 1 - \frac{2m}{r} \rt \rtc^{1/2}
 \end{align}
@@ -135,7 +135,7 @@ Dont les solutions sont de la forme
 \begin{equation}
     (r-2m)(t) \propto e^{-t/2m}
 \end{equation}
-Du point de vue de l'observateur à l'infini, le corps en chute libre n'atteint $r=2m$ que pour $t \to \infty$. Il ne verrai jamais le corps traverser $r=2m$ ! Le corps restera figé vu de l'infini, comme le suggère également \ref{TN: signal vers infini}.
+Du point de vue de l'observateur à l'infini, le corps en chute libre n'atteint $r=2m$ que pour $t \to \infty$. Il ne verrai jamais le corps traverser $r=2m$ ! Le corps restera figé vu de l'infini, comme le suggère également (\ref{TN: signal vers infini}).
 
 Nous venons de voir avec ces quatre points que la région $r=2m$ de la géométrie de Schwarzschild semble posséder des propriétés surprenantes. D'autre part, nous savons que la métrique de Schwarzschild n'est pas adaptée pour décrire ce qui s'y passe, comme elle diverge en $r=2m$ : c'est une singularité de coordonnées de la métrique (mais pas une singularité physique, comme les invariants de la courbure y sont réguliers). En particulier le temps $t$ \emph{s'y écoule trop rapidement} lorsqu'on approche $r=2m$ (car alors, $t\to\infty$). \\
 Si un émetteur en chute libre vers $r=2m$ émettait des signaux à intervalles de temps propre régulier (dans son référentiel propre), les signaux seraient perçus à des intervalles de temps de plus en plus longs pour un observateur lointain.
@@ -173,7 +173,7 @@ L'observateur en chute libre atteint donc $r=2m$ en un temps (propre) fini.
 \section{La structure globale de la métrique de Schwarzschild}
 Pour pouvoir analyser ce qui se passe au passage du rayon de Schwarzschild $r=2m$, nous allons introduire de nouvelles coordonnées qui seront régulières à cet endroit. Ceci nous permettra d'avoir accès à la \emph{structure globale de la géométrie de Schwarzschild}.
 \subsection{Coordonnées d'Eddington-Finkelstein}
-Nous avions vu que les géodésiques radiales nulles étaient données par l'équation \ref{eq:géodésiques radiales nulles} :
+Nous avions vu que les géodésiques radiales nulles étaient données par l'équation (\ref{eq:géodésiques radiales nulles}) :
 \begin{equation}
     \frac{\td r}{\td t} = \pm \lt 1 - \frac{2m}{r} \rt
 \end{equation}
@@ -333,15 +333,15 @@ Cette région correspond donc au quadrant $\mathfrak{u} < \mathfrak{v}$ et $\mat
     \caption{La région \RNum{2} dans le demi-plan $(\mathfrak{u},\mathfrak{v})$.}
     \label{fig:KS2}
 \end{figure}
-L'image de $\{r>2m\} \bigcup \{r <2m \}$ est l'union de ces deux régions. Un point $(\mathfrak{u},\mathfrak{v})$ de cette région correspond à un point $(t,r)$ où $r$ s'obtient en résolvant \ref{coordonnées KS 3} et $t$ s'obtient en résolvant \ref{coordonnées KS 4} (l'une des deux équations, en fonction de la valeur de $r$). Les courbes $r = $cste forment des branches d'hyperboles d'après \ref{coordonnées KS 3}. Les courbes $t=$cste forment des droites par l'orgine d'après \ref{coordonnées KS 4}.
+L'image de $\{r>2m\} \bigcup \{r <2m \}$ est l'union de ces deux régions. Un point $(\mathfrak{u},\mathfrak{v})$ de cette région correspond à un point $(t,r)$ où $r$ s'obtient en résolvant (\ref{coordonnées KS 3}) et $t$ s'obtient en résolvant (\ref{coordonnées KS 4}) (l'une des deux équations, en fonction de la valeur de $r$). Les courbes $r = $cste forment des branches d'hyperboles d'après (\ref{coordonnées KS 3}). Les courbes $t=$cste forment des droites par l'orgine d'après (\ref{coordonnées KS 4}).
 
-Exprimons la métrique dans les coordonnées $(\mathfrak{u},\mathfrak{v},\theta,\varphi)$. Par la relation \ref{coordonnées KS 3} :
+Exprimons la métrique dans les coordonnées $(\mathfrak{u},\mathfrak{v},\theta,\varphi)$. Par la relation (\ref{coordonnées KS 3}) :
 \begin{align}
     2 \mathfrak{u} \,\td \mathfrak{u} - 2 \mathfrak{v} \,\td \mathfrak{v} = \frac{r}{2m} \frac{e^{r/2m}}{2m} \td r\\
     \label{coordonnées KS 5}
     \,\td r = \frac{8m^2}{r} e^{-r/2m} (\mathfrak{u} \,\td \mathfrak{u} - \mathfrak{v}\, \td \mathfrak{v})
 \end{align}
-Pour $r>2m$, on obtient par \ref{coordonnées KS 4} :
+Pour $r>2m$, on obtient par (\ref{coordonnées KS 4}) :
 \begin{align}
     \frac{\mathfrak{v} \,\td \mathfrak{u} - \mathfrak{u} \, \td \mathfrak{v}}{\mathfrak{v}^2} &= - \frac{\td t}{4m} \frac{1}{\sinh^2 \lt \frac{t}{4m}\rt}\\
     & = - \frac{\td t}{4m} \lt \frac{r}{2m} - 1 \rt \frac{e^{r/2m}}{\mathfrak{v}^2}\\
@@ -368,7 +368,7 @@ On obtient l'expresion finale pour la métrique dans les coordonnées de Kruskal
     \label{métrique KS}
     \boxed{\td s^2 = \frac{32 m^3}{r} e^{-r/2m} ( \td \mathfrak{u}^2 - \td \mathfrak{v}^2) + r^2 \td \Omega^2 }
 \end{align}
-avec $r = r(\mathfrak{u},\mathfrak{v})$ donné implicitement via l'équation \ref{coordonnées KS 3}. Cette métrique est régulière en $r=2m$, sa seule singularité étant $r=0$ (la \emph{vraie} singularité).\\
+avec $r = r(\mathfrak{u},\mathfrak{v})$ donné implicitement via l'équation (\ref{coordonnées KS 3}). Cette métrique est régulière en $r=2m$, sa seule singularité étant $r=0$ (la \emph{vraie} singularité).\\
 Dans le plan $(\mathfrak{u},\mathfrak{v})$, les rayons lumineux sont donnés par $\td \mathfrak{u}^2 = \td \mathfrak{v}^2$ donc $\td \mathfrak{u} = \pm \td \mathfrak{v}$ comme pour la métrique de Minkowski à 1+1 dimensions ! La métrique y est conformément plate (i.e. plate à un facteur près). Cette propriété est très utile pour étudier la structure causale de l'espace-temps.
 \begin{figure}[H]
     \centering
@@ -384,7 +384,7 @@ On a vu que $\mathfrak{u} + \mathfrak{v}>0$ couvrait les régions I et II. Mais 
     La région \RNum{3} n'est pas physique non-plus. Si on part de \RNum{1} (région asymptotiquement plate, loin du corps gravitant), on ne peut atteindre \RNum{3} qu'avec des géodésiques temporelles/rayons lumineux dirigés vers le passé. En théorie, la région \RNum{2} constitue un \emph{trou blanc} : des choses s'en échappent mais on ne peut pas y accéder. Néanmoins, dans des scénarios réalistes qui permettent d'obtenir la géométrie de Schwarzschild, cette région est exclue (voir \emph{effondrement gravitationnel} plus loin).
 \end{rmk}
 \begin{rmk}
-    Il existe un changement de coordonnées qui amène \ref{métrique KS} à la forme de Schwarzschild aussi dans la régions \RNum{3} :
+    Il existe un changement de coordonnées qui amène (\ref{métrique KS}) à la forme de Schwarzschild aussi dans la régions \RNum{3} :
     \begin{equation}
         \begin{dcases}
             \mathfrak{u} =  -\lt 1 - \frac{r}{2m} \rt^{1/2} e^{r/4m} \sinh \frac{t}{4m}\\

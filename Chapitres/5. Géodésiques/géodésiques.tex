@@ -64,7 +64,7 @@ C'est l'équation d'une droite Minkowskienne, c'est-à-dire une trajectoire du t
 \begin{equation}
     x^\alpha (\tau) = v^\alpha \tau + x_0^\alpha
 \end{equation}
-où $v,x_0 \in \R^{1,3}$. Ce sont également les trajectoires libres usuelles, en absence de gravitation et d'autres forces. En effet, l'équation \ref{eq:droite Minkowski} correspond aussi à la première loi de Newton transposée en relativité restreinte. Dans l'espace-temps de Minkowski, 
+où $v,x_0 \in \R^{1,3}$. Ce sont également les trajectoires libres usuelles, en absence de gravitation et d'autres forces. En effet, l'équation (\ref{eq:droite Minkowski}) correspond aussi à la première loi de Newton transposée en relativité restreinte. Dans l'espace-temps de Minkowski, 
 \begin{equation}
     \td \tau = \sqrt{\td t^2 - \td x^2 -\td y^2 - \td z^2}
 \end{equation}
@@ -84,15 +84,15 @@ notons $v=\lvert \vect{v} \rvert$, $\dot{v} = \frac{\td}{\td t} \lvert \vect{v} 
 \begin{equation}
     a^\alpha = \lt \frac{v \dot{v}}{(1-v^2)^2}, \frac{v \dot{v}}{(1-v^2)^2} \vect{v} + \frac{1}{1-v^2} \vect{a}\rt
 \end{equation}
-Les solutions de \ref{eq:droite Minkowski} sont ceux à $a^\alpha = \dfrac{\td^2 x^\alpha}{\td \tau^2} = 0$, soit :
+Les solutions de (\ref{eq:droite Minkowski}) sont ceux à $a^\alpha = \dfrac{\td^2 x^\alpha}{\td \tau^2} = 0$, soit :
 \begin{align}
     \begin{dcases}
         v = 0 \quad \text{ou} \quad \dot{v} = 0  \\
         \vect{a} = 0
     \end{dcases}
 \end{align}
-Autrement dit, la vitesse $\vect{v}$ de la particule est constante dans tout référentiel inertiel : la trajectoire d'une particule libre est un MRU. Ceci confirme donc notre discussion ci-avant. Remarquons à présent que conformément au principe d'équivalence, \ref{eq:droite Minkowski} représente (localement) une trajectoire libre en espace-temps courbe (donc en présence de gravitation), dans un référentiel localement inertiel. \\
-De la même manière, par le principe d'équivalence, \ref{eq:géodésique} représente (localement) autant la trajectoire libre dans un espace-temps courbe (donc en présence de gravitation), qu'une trajectoire libre dans un espace-temps plat, dans un référentiel non-inertiel.
+Autrement dit, la vitesse $\vect{v}$ de la particule est constante dans tout référentiel inertiel : la trajectoire d'une particule libre est un MRU. Ceci confirme donc notre discussion ci-avant. Remarquons à présent que conformément au principe d'équivalence, (\ref{eq:droite Minkowski}) représente (localement) une trajectoire libre en espace-temps courbe (donc en présence de gravitation), dans un référentiel localement inertiel. \\
+De la même manière, par le principe d'équivalence, (\ref{eq:géodésique}) représente (localement) autant la trajectoire libre dans un espace-temps courbe (donc en présence de gravitation), qu'une trajectoire libre dans un espace-temps plat, dans un référentiel non-inertiel.
 \subsection{L'équation des géodésiques en absence de gravitation dans un référentiel non-inertiel}
 Prenons la trajectoire d'une particule libre dans un espace-temps plat et dans un référentiel inertiel, dont l'équation du mouvement s'écrit 
 \begin{equation*}
@@ -140,7 +140,7 @@ Donnons un mode opératoire pour prouver cette égalité :
     \item On montre que les deux côtés se transforment de la même manière sous changement général de coordonnées.
 \end{enumerate}
 \subsection{Paramétrisation affine}
-Pour dériver l'équation des géodésiques, nous avions utilisés le temps propre comme paramétrisation de la courbe. Il s'avère que \ref{eq: Coefficients en dérivées} n'est pas invariant sous reparamétrisation de la courbe. Il est donc intéressant d'étudier une forme générale de l'équation des géodésiques où le temps propre est remplacé par un paramètre arbitraire $\lambda$. Considérons donc le changement de paramétrisation
+Pour dériver l'équation des géodésiques, nous avions utilisés le temps propre comme paramétrisation de la courbe. Il s'avère que (\ref{eq: Coefficients en dérivées}) n'est pas invariant sous reparamétrisation de la courbe. Il est donc intéressant d'étudier une forme générale de l'équation des géodésiques où le temps propre est remplacé par un paramètre arbitraire $\lambda$. Considérons donc le changement de paramétrisation
 \begin{equation*}
     x^\mu (\lambda) \to x^\mu(\tau) = x^\mu(\tau(\lambda))
 \end{equation*}
@@ -165,7 +165,7 @@ Une observation curieuse est que cette équation se ramène à l'équation des g
 \begin{equation*}
     \tau \to \lambda = a\tau+b
 \end{equation*}
-Un tel paramètre est appelé \emph{paramètre affine}. Notons également que seul avec un tel paramètre, les droites Minkowskiennes correspondant à des mouvements libres en relativité restreinte s'expriment sous la forme \ref{eq:droite Minkowski}.
+Un tel paramètre est appelé \emph{paramètre affine}. Notons également que seul avec un tel paramètre, les droites Minkowskiennes correspondant à des mouvements libres en relativité restreinte s'expriment sous la forme (\ref{eq:droite Minkowski}).
 \begin{theoremframe}
     \begin{theorem}
         Soit une courbe $x^\alpha (\lambda)$ à vecteur tangent $U^\alpha$ satisfaisant 
@@ -179,7 +179,7 @@ Un tel paramètre est appelé \emph{paramètre affine}. Notons également que se
     \end{theorem}
 \end{theoremframe}
 \begin{proof}
-    Il suffit de considérer le raisonnement inverse qui nous a emmené à \ref{eq:pour expliquer Morera v2}. Pour annulé le terme de droite, nous devons donc considérer une reparamétrisation $\lambda \to \lambda' = \lambda'(\lambda)$ telle que
+    Il suffit de considérer le raisonnement inverse qui nous a emmené à (\ref{eq:pour expliquer Morera v2}). Pour annulé le terme de droite, nous devons donc considérer une reparamétrisation $\lambda \to \lambda' = \lambda'(\lambda)$ telle que
     \begin{equation}
         g(\lambda) = \frac{\td^2 \lambda'}{\td \lambda^2} \frac{\td \lambda}{\td \lambda'}
     \end{equation}
@@ -263,7 +263,7 @@ Nous avions vu que la longueur Minkowskienne en espace-temps plat mesurée le lo
     \begin{equation}
         \delta \tau = \int -\frac{1}{2}(-f)^{-\frac{1}{2}}\delta f \td \lambda
     \end{equation}
-    Notons que l'action \ref{eq:principe variationnel géodésiques} est invariante sous reparamétrisation $\lambda \rightarrow \lambda'(\lambda)$. Choisissons donc comme paramétrisation le temps propre. On trouve alors
+    Notons que l'action (\ref{eq:principe variationnel géodésiques}) est invariante sous reparamétrisation $\lambda \rightarrow \lambda'(\lambda)$. Choisissons donc comme paramétrisation le temps propre. On trouve alors
     \begin{equation}
         f = g_{\mu \nu}\frac{\td x^{\mu}}{\td \tau}\frac{\td x^{\nu}}{\td \tau}= \frac{\td s^2}{\td \tau ^2}= -\frac{\td \tau^2}{\td \tau ^2} = -1
     \end{equation}
@@ -271,7 +271,7 @@ Nous avions vu que la longueur Minkowskienne en espace-temps plat mesurée le lo
     \begin{equation}
         \delta \tau = -\frac{1}{2}\int \delta f \td\tau \quad \text{donc} \quad \delta \tau = 0 \iff \delta f=0
     \end{equation}
-    Les points stationnaires de la fonctionnelle \ref{eq:principe variationnel géodésiques} sont donc les mêmes que ceux de la fonctionnelle suivante 
+    Les points stationnaires de la fonctionnelle (\ref{eq:principe variationnel géodésiques}) sont donc les mêmes que ceux de la fonctionnelle suivante 
 
     \begin{equation}
         \boxed{I[x^\mu] = \frac{1}{2}\int g_{\mu \nu} \frac{\td x^{\mu}}{\td \tau}\frac{\td x^{\nu}}{\td \tau} \td \tau \equiv \int L_t \td \tau}
@@ -303,17 +303,17 @@ Nous avions vu que la longueur Minkowskienne en espace-temps plat mesurée le lo
         \partial_{\textcolor{purple}{\alpha}}g_{\mu \textcolor{blue}{\nu}}\dot{x}^{\textcolor{purple}{\alpha}}\dot{x}^{\textcolor{blue}{\nu}} = \frac{1}{2} \lt\partial_{\textcolor{purple}{\alpha}}g_{\mu \textcolor{blue}{\nu}} \dot{x}^{\textcolor{purple}{\alpha}}\dot{x}^{\textcolor{blue}{\nu}} + \partial_{\textcolor{purple}{\nu}}g_{\mu \textcolor{blue}{\alpha}}\dot{x}^{\textcolor{blue}{\alpha}}\dot{x}^{\textcolor{purple}{\nu}} \rt
     \intertext{on peut contracter les équations du mouvement avec           $g^{\mu \beta}$ pour donner successivement}
         g^{\mu \beta} \left[\frac{1}{2}\partial_{\alpha}g_{\mu \nu} \dot{x}^{\alpha}\dot{x}^{\nu} + \frac{1}{2}\partial_{\nu}g_{\mu \alpha}\dot{x}^{\alpha}\dot{x}^{\nu} + g_{\mu \nu}\ddot{x}^{\nu} \right]  &- \frac{1}{2}\partial_{\mu}g_{\alpha \nu}\dot{x}^{\alpha}\dot{x}^{\nu} = 0\\
-        \ddot{x}^{\beta} + \frac{1}{2}g^{\mu \beta} \left(\partial_{\alpha}g_{\mu \nu} + \partial_{\nu}g_{\mu \alpha} - \partial_{\mu}g_{\alpha \beta}\right) \dot{x}^{\alpha}\dot{x}^{\nu} &= 0
+        \ddot{x}^{\beta} + \frac{1}{2}g^{\mu \beta} \left(\partial_{\alpha}g_{\mu \nu} + \partial_{\nu}g_{\mu \alpha} - \partial_{\mu}g_{\alpha \beta}\right) \dot{x}^{\alpha}\dot{x}^{\nu} &= 0.
     \end{align}
-    On peut remplacer par les coefficients de connexion via l'expression \ref{Connexion de Levi-Civita}.
+    Où on identifie les symboles de Christoffel via l'expression (\ref{Connexion de Levi-Civita}) :
     \begin{equation}
-        \frac{\td^2 x^{\alpha}}{\td\tau^2 } + \Gamma\indices{^{\mu}_{\!\alpha \beta}} \frac{\td x^{\alpha}}{\td\tau} \frac{\td x^{\beta}}{\td \tau} = 0
+        \frac{\td^2 x^{\alpha}}{\td\tau^2 } + \Gamma\indices{^{\mu}_{\!\alpha \beta}} \frac{\td x^{\alpha}}{\td\tau} \frac{\td x^{\beta}}{\td \tau} = 0.
     \end{equation}
     Les courbes auto-parallèles et les courbes qui extrémisent le temps propre sont les mêmes et sont valables pour tout $\Gamma$.
 \end{proof}
 Formulons une série de remarques sur cette propriété
 \begin{rmk}
-    La fonctionelle $\tau[x^\mu]$ est invariante sous reparamétrisation alors que $I[x^\mu]$ ne l'est pas. Ce n'est que lorsque les courbes sont paramétrés par un paramètre affine que les points stationnaires des actions [\ref{eq:temps propre}] et [\ref{eq:action I}] coïncident. En effet, si les courbes sont paramétrés par $\lambda = a\tau + b$  on obtient que  $\td\tau = a \td\lambda$ et 
+    La fonctionelle $\tau[x^\mu]$ est invariante sous reparamétrisation alors que $I[x^\mu]$ ne l'est pas. Ce n'est que lorsque les courbes sont paramétrés par un paramètre affine que les points stationnaires des actions (\ref{eq:temps propre}) et (\ref{eq:action I}) coïncident. En effet, si les courbes sont paramétrés par $\lambda = a\tau + b$  on obtient que  $\td\tau = a \td\lambda$ et 
     \begin{equation}
     \frac{\td}{\td\tau} = \frac{\td\lambda}{\td\tau}\frac{\td}{\td\lambda} = \frac{1}{a}\frac{\td}{\td\lambda}
     \end{equation}
@@ -354,11 +354,11 @@ On peut réécrire l'équation des géodésiques avec l'impulsion de la particul
 \begin{equation}
     m \dot{p}^\mu + \Gamma\indices{^\mu_{\!\alpha\beta}} \,p^\alpha p^\beta = 0
 \end{equation}
-On peut alors effectuer la reparamétrisation $\tau \to \lambda = \tau/m$ tel que
+En effectuant la reparamétrisation $\tau \to \lambda = \tau/m$ tel que
 \begin{equation}
     p^\mu = m \frac{\td x^\alpha}{\td \tau} = \frac{\td x^\alpha}{\td \lambda}
 \end{equation}
-et on retombe sur l'équation des géodésiques initiale :
+on retombe sur l'équation des géodésiques initiale :
 \begin{align}
     \frac{\td p^\mu}{\td \lambda} + \Gamma\indices{^\mu_{\!\alpha\beta}} \,p^\alpha p^\beta = 0
 \end{align}
@@ -434,7 +434,7 @@ Nous allons retravailler la formulation du principe d'équivalence dans le cadre
         \label{eq:PE géodésique ii1}
         \td \tau ^2 = -g_{0 0}\,(\Bar{x}^0, 0)\td \Bar{x}^{0} \td \Bar{x}^{0}
     \end{equation}
-    Donc $\tau = \tau(\Bar{x}^0)$. On cherche un nouveau système de coordonnées $x'^k$ tel que la propriété \emph{i.} reste satisfaite et l'équation \ref{eq:PE géodésique ii1} devient $(\td x'^0)^2$. Comme la métrique dépend uniquement de $\Bar{x}^0$, il suffit d'effectuer la transformation
+    Donc $\tau = \tau(\Bar{x}^0)$. On cherche un nouveau système de coordonnées $x'^k$ tel que la propriété \emph{i.} reste satisfaite et l'équation (\ref{eq:PE géodésique ii1}) devient $(\td x'^0)^2$. Comme la métrique dépend uniquement de $\Bar{x}^0$, il suffit d'effectuer la transformation
     \begin{equation}
         \begin{dcases}
             x'^0 = \tau(\Bar{x}^0)\\
@@ -514,7 +514,7 @@ Comme ceci vaut pour tout $v$ (i.e. pour n'importe quelle géodésique passant p
 \begin{equation}
     \pd_{(\gamma}\Gamma\indices{^\mu_{\alpha\beta)}}(0) = 0 
 \end{equation}
-Avec l'expression du tenseur de Riemann \ref{eq:preuve4.42,1}, on obtient alors
+Avec l'expression du tenseur de Riemann (\ref{eq:preuve4.42,1}), on obtient alors
 \begin{align}
     R_{\mu\nu\alpha\beta} + R_{\mu\alpha\nu\beta} = (\pd_\alpha \Gamma_{\mu\nu\beta}+ \pd_\nu \Gamma_{\mu\alpha\beta}) -2 \, \pd_\beta \Gamma_{\mu\nu\alpha} = - 3\,\pd_\beta \Gamma_{\mu\nu\alpha} 
 \end{align}
@@ -638,7 +638,7 @@ On réstore $c$ à travers $x^0 = ct$ :
    \frac{1}{c^2} \frac{\td ^2 x^{i}}{\td t^2} -\frac{1}{2}\partial^{i}h_{00}=0\implies \frac{\td ^2 x^{i}}{\td t^2} = \frac{c^2}{2}\partial^{i}h_{00}
 \end{align}
 
-En comparant avec \ref{eq:grav newt}, on doit donc imposer :
+En comparant avec (\ref{eq:grav newt}), on doit donc imposer :
 \begin{align}
     &h_{00} = -\frac{2}{c^2}\Phi\\
     &\boxed{g_{00} = -\left(1 + \frac{2\Phi}{c^2}\right)}
@@ -767,7 +767,7 @@ où $\frac{\td }{\td t} = T^{\mu}\partial_{\mu} \rightarrow \frac{\mathrm{D} }{\
     A^{\mu} = (\nabla_{T}V)^{\mu}\equiv\frac{\mathrm{D} ^2}{\td t^2}S^{\mu}
 \end{equation}
 Nous souhaiterions calculer une expression explicite pour $A^\mu$ et montrer que celle-ci est intrinsèque à la courbure et donc à la variété.
-Le résultat sera la généralisation covariante de l'équation [\ref{eq:forces de marées gravitationnelles}]. Notons déjà que lorsque $A^{\mu}=0$, la métrique est plate. 
+Le résultat sera la généralisation covariante de l'équation (\ref{eq:forces de marées gravitationnelles}). Notons déjà que lorsque $A^{\mu}=0$, la métrique est plate. 
 
 \subsubsection{Calcul de $A^\mu$}
 Notons d'abord que la famille de géodésiques $\gamma_{s}(t)$ balaye une surface bidimensionnelle (à paramètres $(s,t)$) sur la variété $\mathcal{M}$ qui forme une sous variété de dimensions $2$ de $\mathcal{M}$. L'espace tangent de cette sous variété a pour base les vecteurs $S$ et $T$ (en tout point $S$ et $T$ sont linéairement indépendant). C'est-à-dire que les champs de vecteurs $S^{\mu}$ et $T^{\mu}$ définissent localement une base de l'espace tangent à cette sous-variété. Autrement dit, chaque point de cette sous-variété est uniquement décrite par la donnée d'une paire $(s,t)$.
@@ -812,7 +812,7 @@ Ces deux propriétés impliquent
 On peut alors réécrire l'accélération relative comme
 \begin{align}
     A^{\mu} &= T^{\rho}\nabla_{\rho}(T^{\sigma}\nabla_{\sigma}S^{\mu})\\
-    \intertext{Par l'équation \ref{eq:champ de vecteur S et T} :}
+    \intertext{Par l'équation (\ref{eq:champ de vecteur S et T}) :}
     &= T^{\rho}\nabla_{\rho}(S^{\sigma}\nabla_{\sigma}T^{\mu})\\
     \intertext{Par la règle de Leibniz}
     &= \textcolor{purple}{T^{\rho}\nabla_{\rho}S^{\sigma}} \nabla_{\sigma}T^{\mu} + T^{\rho}S^{\sigma}(\textcolor{blue}{\nabla_{\rho}\nabla_{\sigma}}T^{\mu})\\

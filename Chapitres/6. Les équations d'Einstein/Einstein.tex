@@ -297,7 +297,7 @@ Ironiquement, des observateurs en 1998 ont mis en évidence une expansion accel�
     \intertext{soit, en montant l'indices à l'aide de la métrique :}
         &\nabla_{\mu} R^{\mu \nu } = \frac{1}{2}\nabla^{\nu}R
     \end{align}
-   Or, en prenant la trace de \ref{eq:einstein hypothétique}, on obtient 
+   Or, en prenant la trace de (\ref{eq:einstein hypothétique}), on obtient 
     \begin{equation}
         R = \alpha T
     \end{equation}
@@ -318,7 +318,7 @@ Retournons à l'équation d'Einstein et considérons une constante cosmologique 
 \end{exerc}
 
 \begin{rmk}
-    En passant la constante cosmologique de l'autre côté des équations d'Einstein \ref{eq: einstein FE}, on obtient dans le vide ($T^{\mu\nu} = 0$) :
+    En passant la constante cosmologique de l'autre côté des équations d'Einstein (\ref{eq: einstein FE}), on obtient dans le vide ($T^{\mu\nu} = 0$) :
     \begin{equation}
         G_{\mu\nu} = -\Lambda g_{\mu\nu}
     \end{equation}
@@ -367,11 +367,11 @@ On peut simplifier l'équation en gardant uniquement l'ordre dominant
     T& \simeq \eta^{00}T_{00} + \cdots\\
     &\simeq - T_{00}
 \end{align}
-En remplaçant ce résultat dans l'équation \ref{eq:Einstein pour trouver kappa 2}, on obtient
+En remplaçant ce résultat dans l'équation (\ref{eq:Einstein pour trouver kappa 2}), on obtient
 \begin{equation}
     R = \kappa T^{00}
 \end{equation}
-On peut alors prendre la composante $(0,0)$ de l'équation d'Einstein \ref{eq:Einstein pour kappa} qui s'écrit donc en négligeant l'ordre $h_{00}$ de la métrique :
+On peut alors prendre la composante $(0,0)$ de l'équation d'Einstein (\ref{eq:Einstein pour kappa}) qui s'écrit donc en négligeant l'ordre $h_{00}$ de la métrique :
 \begin{align}
     R_{00} - \frac{R}{2}(\eta_{00} + h_{00}) &= \kappa T_{00}\\
      &\simeq R_{00} - \frac{R}{2} \eta_{00} \simeq R_{00} + \frac{\kappa}{2} T_{00}
@@ -410,7 +410,7 @@ On développe :
     & = -\frac{1}{2}\pd_i \pd^i(-\frac{2 \Phi}{c^2})\\
     & = \frac{1}{c^2}\Delta\Phi
 \end{align}
-car le champ est statique. Par \ref{eq: kappa intermediar}, on obtient finalement
+car le champ est statique. Par (\ref{eq: kappa intermediar}), on obtient finalement
 \begin{equation}
     \frac{1}{c^2}\Delta\Phi = \frac{1}{2}\kappa T^{00} = \frac{1}{2}\kappa \rho c^2
 \end{equation}
@@ -695,7 +695,7 @@ Intéressons-nous à présent aux symboles de Christoffel
     &= \frac{1}{2}g^{\alpha \mu}(\cancel{\partial_{\mu} g_{ \alpha \lambda}} + \partial_{\lambda}g_{\mu\alpha} - \cancel{ \partial_{\mu}g_{\alpha \lambda}})\\
     &=\frac{1}{2}g^{\alpha \mu}\partial_{\lambda}g_{\mu\alpha}
 \end{align}  
-Par le premier résultat \ref{eq: métrique dérivée}, on peut directement conclure
+Par le premier résultat (\ref{eq: métrique dérivée}), on peut directement conclure
 \begin{align}
     \Gamma\indices{^{\alpha}_{\!\lambda \alpha}} &= \frac{1}{\sqrt{-g}}\partial_{\lambda}\sqrt{-g}
 \end{align}
@@ -828,14 +828,14 @@ Continuons avec le tenseur de Riemann
         &\delta ^{\gamma}_{\alpha }\delta(g^{\mu \alpha}) = - g^{\nu \gamma}g^{\mu \alpha} (\delta g_{\alpha \nu}) \\
         & \boxed{\delta g^{\mu \nu} =   -g^{\mu \alpha} g^{\nu \beta} \delta g_{\alpha \beta}}
     \end{align}
-    En remplaçant ce résultat dans l'équation \ref{eq:variation de R}, on obtient
+    En remplaçant ce résultat dans l'équation (\ref{eq:variation de R}), on obtient
     \begin{align}
         \delta R &= -g^{\mu \alpha}g^{\nu \beta} \delta g_{\mu \nu}R_{\alpha \beta} + g^{\mu \nu}(\delta R_{\mu \nu})\\
         &= -R^{\mu \nu}\delta g_{\mu \nu} + g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma\indices{^{\alpha}_{\!\mu \nu}} - \nabla_{\nu} \delta \Gamma\indices{^{\alpha}_{\!\mu \alpha}})
     \end{align}
 \end{proof}
 \subsubsection{3.4.3 La variation de l'action}
-En combinant les variations obtenues en \ref{eq:valeur de delta -g^(1/2)} et \ref{eq:valeur de delta R},
+En combinant les variations obtenues en (\ref{eq:valeur de delta -g^(1/2)}) et (\ref{eq:valeur de delta R}),
 \begin{align}
     \delta(R\sqrt{-g}) &= \delta R\sqrt{-g} + R\delta(\sqrt{-g})\\
     &= \sqrt{-g}\, \big( -R^{\mu \nu}\delta g_{\mu \nu} + g^{\mu \nu}(\nabla_{\alpha}\delta\Gamma\indices{^{\alpha}_{\!\mu \nu}} - \nabla_{\nu} \delta \Gamma\indices{^{\alpha}_{\!\mu \alpha}}) \big) +\frac{R}{2}\sqrt{-g}\,g^{\mu \nu}\delta g_{\mu \nu}\\
@@ -1009,7 +1009,7 @@ Sous une transformation générale des coordonnées $x^{\alpha } \to x'^{\alpha 
         g_{\mu \nu}(x) \rightarrow g'_{\mu \nu}(x')= \frac{\partial x^{\alpha}}{\partial x^{\mu}}\frac{\partial x^{\beta}}{\partial x^{\nu}}g_{ \alpha \beta}(x)
     \end{equation}
 \end{enumerate}
-Nous sommes familiers avec ces transformations. Néanmoins, elles relient des champs et leur transformés en des points différents: $\phi$ en $x$ à $\phi'$ en $x'$. Dans la variation de l'action \ref{eq:variation de l'action d'Einstein-Hilbert}, on intègre sur les coordonnées $x$. Nous voudrions donc comparer les champs et leurs transformés au même point pour pouvoir étudier le comportement de l'action sous variation par difféomorphisme. En effet, la variation \ref{eq:variation de l'action d'Einstein-Hilbert}, particularisée à une variation sous difféomorphisme s'écrit 
+Nous sommes familiers avec ces transformations. Néanmoins, elles relient des champs et leur transformés en des points différents: $\phi$ en $x$ à $\phi'$ en $x'$. Dans la variation de l'action (\ref{eq:variation de l'action d'Einstein-Hilbert}), on intègre sur les coordonnées $x$. Nous voudrions donc comparer les champs et leurs transformés au même point pour pouvoir étudier le comportement de l'action sous variation par difféomorphisme. En effet, la variation (\ref{eq:variation de l'action d'Einstein-Hilbert}), particularisée à une variation sous difféomorphisme s'écrit 
 \begin{equation}
     \delta_{\xi}S = - \int \td^4 x \sqrt{-g} \,G^{\mu \nu}\delta_{\xi}g_{\mu \nu}(x)
 \end{equation}
@@ -1196,7 +1196,7 @@ Or, remarquons que l'expression suivante est un terme de bord :
 \begin{equation}
     \int \td ^4x \sqrt{-g}\,\nabla_{\nu}(G^{\mu \nu} \xi_{\nu}) =  \int \td ^4x \, \partial_{\mu}(\sqrt{-g}\,G^{\mu \nu} \xi_{\nu}) = 0 
 \end{equation}
-Pour une telle transformation, on peut ainsi intégrer par parties l'expression \ref{eq:bianchi idk} sans se soucier du terme de bord :
+Pour une telle transformation, on peut ainsi intégrer par parties l'expression (\ref{eq:bianchi idk}) sans se soucier du terme de bord :
 \begin{equation}
     - 2\int \td ^4x \sqrt{-g} \, G^{\mu \nu}\nabla_{\mu}\xi_{\nu} =-  2\int \td ^4x \sqrt{-g}\, \xi_{\nu}\nabla_{\nu}G^{\mu \nu} = 0 
 \end{equation}
