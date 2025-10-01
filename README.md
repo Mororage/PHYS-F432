@@ -42,6 +42,7 @@ Vous pouvez me contacter par mail via moritzschnor@outlook.com
 
 ## Change logs
 - Version 1.4 (à venir) :
+  - Quelques corrections dans la section sur l'atlas de la sphère : typo dans l'éq. 3.68, clarification sur le domaine de définition de la fonction de transition.
   - Rajouté illustration manquante sur la transformation passive des coordonnées.
 - Version 1.3 (27/9) :
   - Les références à des équations sont à présent en parenthèses : 1.109 -> (1.109). De plus, tous les liens cliquables sont maintenant colorés.
