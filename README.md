@@ -17,24 +17,7 @@ Toute contribution est la bienvenue :
 
 Vous pouvez soit utiliser les différents outils disponibles sur GitHub (décrits ci-dessous), ou remplir le [formulaire de feedback](https://forms.office.com/e/tW1Ge8v6N8).
 
----
-
-### 📌 Issues
-Utilisez une **Issue** pour :
-- **Signaler une faute**, une incohérence ou un bug.
-- **Question ou suggestion** (forme, contenu, structure).
-- **Lancer une discussion** sur une section ou un point du cours.
-
-→ Les Issues permettent de discuter avant toute modification.
-
-### 📥 Pull Requests
-Utilisez une **Pull Request** pour :
-- **Proposer une nouvelle section ou contenu**.
-- Vous voulez que vos **modifications soient relues puis intégrées** au projet.
-
-→ Pensez à associer votre PR à une Issue existante si elle en découle.
-
----
+Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veuillez me contacter.
 
 ## Contact
 Vous pouvez me contacter par mail via moritzschnor@outlook.com
