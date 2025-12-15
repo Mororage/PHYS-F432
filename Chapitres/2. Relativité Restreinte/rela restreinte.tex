@@ -117,7 +117,7 @@ Mais comme aucune information ne peut propager plus vite que la vitesse,on concl
             \label{eq:intervalle4}
             (\Delta s)^2 = \kappa (\Delta s')^2.
         \end{equation}
-        L'espace-temps est isotrope, et $\kappa$ ne peut donc que dépendre de la norme de la vitesse relative entre les deux référentiels : $\kappa(\vect{v})=\kappa(\lVert \vect{v} \rVert)$\footnote{Etant une propriété des deux référentiels, $\kappa$ ne peut que dépendre $\vect{v}$. Nous invitons le lecteur à argumenter pourquoi celui-ci ne peut pas dépendre des coordonnées d'espace.}. En particulier, on trouve $\kappa(\vect{v}) = \kappa(-\vect{v})$. En effectuant le changement de référentiel inverse, on trouve que
+        L'espace-temps est isotrope, et $\kappa$ ne peut donc que dépendre de la norme de la vitesse relative entre les deux référentiels : $\kappa(\vect{v})=\kappa(\lVert \vect{v} \rVert)$\footnote{Etant une propriété des deux référentiels, $\kappa$ ne peut que dépendre $\vect{v}$. Nous invitons le lecteur à argumenter pourquoi il ne peut pas dépendre des coordonnées d'espace.}. En particulier, on trouve $\kappa(\vect{v}) = \kappa(-\vect{v})$. En effectuant le changement de référentiel inverse, on trouve que
         \begin{equation}
             (\Delta s')^2 = \kappa(-\vect{v}) (\Delta s)^2
             \label{eq:intervalle5}
@@ -136,7 +136,7 @@ Mais comme aucune information ne peut propager plus vite que la vitesse,on concl
             \label{eq:Lorentz pre}
             \eta = \kappa \,\eta'=\kappa \,\Lambda^T\eta \Lambda
         \end{equation}
-        Comme $\eta$ est une forme quadratique symétrique et $\eta'$ est un changement de base de $\eta$ ($\Lambda$ est inversible), le \textit{théorème de Sylvester}\footnote{c.f. votre cours d'algèbre de BA1.} impose que la signature de $\eta'$ ne change pas, et donc que $\kappa=1$. On peut ainsi conclure que $(\Delta s')^2 = (\Delta s)^2$.
+        Comme $\eta$ est une forme quadratique symétrique et $\eta'$ difère d'un changement de base de $\eta$ ($\Lambda$ est inversible), le \textit{théorème de Sylvester}\footnote{c.f. un cours de math} impose que la signature de $\eta'$ ne change pas, et donc que $\kappa=1$. On peut ainsi conclure que $(\Delta s')^2 = (\Delta s)^2$.
     \end{enumerate}
 \end{proof}
 
@@ -500,11 +500,13 @@ Le temps propre du premier jumeau (voyageur) est plus petit que le temps propre 
 Soit $\mathcal{S} \subset \R^{1,3}$  un sous-ensemble de Minkowski. 
 \begin{theoremframe}
     \begin{defi}
+        \label{def:futur chrono}
         Le \emph{futur chronologique} $I^{+}(\mathcal{S})$ est l'ensemble des points de $\R^{1,3}$ qui sont reliés à un point de $\mathcal{S}$ par une courbe causale de genre temps. 
     \end{defi}
 \end{theoremframe}
 \begin{theoremframe}
     \begin{defi}
+        \label{def:futur causal}
         Le \emph{futur causal} $J^{+}(\mathcal{S})$ est l'union de $\mathcal{S}$ avec tous les points de $\R^{1,3}$ qui sont reliés à un point de $\mathcal{S}$ par une courbe causale. 
     \end{defi}
 \end{theoremframe}
@@ -664,26 +666,26 @@ Cet ensemble de points $\mathcal{S}$ est la trajectoire d'un observateur accél�
 Illustrons à présent le lien entre référentiels et géométrie. Supposons que nous souhaitons nous placer dans le référentiel de l'observateur non-inertiel de Rindler, dont le changement de coordonnées est donné à partir de l'équation (\ref{eq:Rindler}) par\footnote{Pour une dérivation de ces coordonnées (et une étude plus détaillée), consultez par exemple la \href{https://youtu.be/O92pQXZaEnw}{vidéo d'Eigenchris} sur ce sujet.}
 \begin{align}
     \begin{dcases}
-        t = \tilde x \sinh (\alpha \tilde t) \\
-        x = \tilde x \cosh (\alpha \tilde t)
+        t = \rho \sinh (\alpha u) \\
+        x = \rho \cosh (\alpha u)
     \end{dcases}
 \end{align}
-où $(\tilde t, \tilde x)$ sont les coordonnées du point de vue d'un observateur accéléré à accélération constante $\alpha$ (et dont l'horizon se trouve à l'origine). La transformation inverse est donnée par :
+où $(u, \rho)$ sont les coordonnées du point de vue d'un observateur accéléré à accélération constante $\alpha$ (et dont l'horizon se trouve à l'origine). La transformation inverse est donnée par :
 \begin{align}
     \begin{dcases}
-        \tilde t = \frac{1}{\alpha} \, \mathrm{artanh}\lt \frac{t}{x} \rt \\
-        \tilde x = \sqrt{t^2 - x^2}
+        u = \frac{1}{\alpha} \, \mathrm{artanh}\lt \frac{t}{x} \rt \\
+        \rho = \sqrt{t^2 - x^2}
     \end{dcases}
 \end{align}
 En différenciant et en injectant ces équations dans la métrique de Minkowski, on obtient
 \begin{equation}
-    \td s^2 = - (\alpha \tilde x)^2 \td \tilde t^2 + \td \tilde x^2 + \td \tilde y^2 + \td \tilde z^2
+    \td s^2 = - (\alpha \rho)^2 \td u^2 + \td \rho^2 + \td  y^2 + \td  z^2
 \end{equation}
-Le changement d'un référentiel inertiel vers le référentiel hyperbolique a donc modifié la métrique $\eta_{\mu\nu}$ dans ces coordonnées, qui dépendra explicitement des coordonnées : $\tilde \eta_{\mu\nu} = \mathrm{diag} (-(\alpha \tilde x)^2, 1, 1,1)$. De plus, on remarque que ces coordonnées ne sont valables que pour $t^2>x^2$. Ainsi, ces coordonnées ne permettent que de décrire une partie de l'espace-temps.
+Le changement d'un référentiel inertiel vers le référentiel hyperbolique a donc modifié la métrique $\eta_{\mu\nu}$ dans ces coordonnées, qui dépendra explicitement des coordonnées : $\tilde \eta_{\mu\nu} = \mathrm{diag} (-(\alpha \tilde x)^2, 1, 1,1)$. De plus, on remarque que ces coordonnées ne sont valables que pour $t^2>x^2$. Ainsi, ces coordonnées ne permettent que de décrire une partie de l'espace-temps. 
 \begin{exmp}
     Dans le référentiel d'un observateur en rotation uniforme de vitesse angulaire constante $\Omega$ autour de l'axe $z$, la métrique de Minkowski devient
     \begin{equation}
-        \td s^2 = -\ltc c^2 - \Omega^2 (x'^2 + y'^2) \rtc \td t^2 + \td x'^2 +\td y'^2 + \td z'^2 - 2\Omega \,y' \td x \, \td t + 2\Omega\, x' \td y'\, \td t
+        \td s^2 = -\ltc c^2 - \Omega^2 (x'^2 + y'^2) \rtc \td t^2 + \td x'^2 +\td y'^2 + \td z'^2 - 2\Omega \,y' \td x' \, \td t + 2\Omega\, x' \td y'\, \td t
     \end{equation}
     Ou, en terme de la métrique :
     \begin{align}
@@ -696,23 +698,30 @@ Le changement d'un référentiel inertiel vers le référentiel hyperbolique a d
     \end{align}
 \end{exmp}
 \cutebreak
-De manière générale, dans un référentiel arbitraire (possiblement non-inertiel), l'intervalle s'écrit comme une forme quadratique :
+De manière générale, dans un référentiel arbitraire (possiblement non-inertiel), l'intervalle relativiste s'écrit comme une forme quadratique :
 \begin{equation}
     \td s^2 = g_{\mu\nu}\, \td x^\mu \, \td x^\nu
 \end{equation}
-L'intervalle (et donc la métrique) caractérisent la notion de \emph{distance} de l'espace-temps, et sont donc des propriétés de la géométrie de l'espace-temps considéré. Bien qu'ils dépendent du référentiel considéré, on peut toute fois extraire des quantités \emph{intrinsèques} à la géométrie considérée, donc indépendantes du référentiel. Un exemple d'une telle quantité sera la \emph{courbure}. 
+L'intervalle (et donc la métrique) caractérisent la notion de \emph{distance} de l'espace-temps, et sont donc des propriétés de la géométrie de l'espace-temps considéré. Bien qu'ils dépendent du référentiel considéré, on peut toute fois en extraire des quantités \emph{intrinsèques}, donc indépendantes du référentiel. Un exemple d'une telle quantité sera la \emph{courbure}. 
 \section{Hypersurfaces de Cauchy*}
-La notion d'hypersurface de Cauchy est importante afin que les problèmes aux limites soient bien posés\footnote{Selon Hadamard :)}.
+En relativité générale, la \emph{structure causale} est une caractéristique importante de l'espace-temps. Une question motivante est celle de la \emph{déterminabilité}, cest-à-dire si des \emph{données initiales} spécifiées déterminent l'évolution ultérieure (et passée) du système :
+\begin{itemize}
+    \item En mécanique classique, la solution d'un système d'équations différentielles dépend du choix des conditions initiales comme par example sa donnée sur le bord du domaine, ou à un moment initial. Cette dernière condition se traduit en relativité générale comme une condition sur une hypersurface spatiale $\mathcal{S}$ (à temps constant). Néanmoins, pour déterminer la solution au point $P$ de manière unique, il faut que $P$ dépende (causalement) uniquement de $\mathcal{S}$. En relativité générale, il faudra donc préciser quelles régions de l'espace-temps peuvent être déterminées par la condition initiale donnée.
+    \item Plus conceptuellement, on pourrait se demander s'il existe des espaces pour lesquelles la donnée initiale en un temps initial et partout dans l'espace\footnote{Une version du \emph{démon de Laplace}} ne suffit pas pour déterminer l'évolution du système ? 
+\end{itemize}
+On aimerait donc trouver des conditions suffisantes pour qu'un évènement soit complètement déterminé par une condition initiale donné. On introduira également la notion d'\emph{hypersurface de Cauchy} qui, quand elle existe, représente une condition initiale globale (l'évolution du système dans l'espace-temps entier est déterminé par la donnée du système sur cette hypersurface). Les définitions ci-dessous sont étroitement liés aux futurs (et passés) chronologiques $I^+$ et causals $J^+$ déjà définis précédemment.
 
+Soit un espace-temps $\mathcal{M}$ arbitraire, mais en gardant $\mathcal{M} = \R^{1,3}$ pour se faire une idée des notions.
 \begin{theoremframe}
     \begin{defi}
-        Le \textit{domaine de dépendance future} (ou \textit{développement futur}) d'une région $\mathcal{S}$ de l'espace-temps est l'ensemble des points $P \in \R^{1,3}$ tels que \emph{toute} courbe causale passant par $P$ intersecte $\mathcal{S}$. Il est noté $\mathcal{D}^+(\mathcal{S})$.
+        Le \textit{domaine de dépendance future} (ou \textit{développement futur}) d'un ensemble $\mathcal{S} \in \mathcal{M}$, noté $\mathcal{D}^+(\mathcal{S})$, est l'ensemble des points $p \in \R^{1,3}$ tel que \emph{toute} courbe causale passant par $p$ intersecte $\mathcal{S}$. La frontière future (bord) de $\mathcal{D}^+(\mathcal{S})$, notée $\mathcal{H}^+(\mathcal{S})$, est appelée \emph{horizon de Cauchy} de $\mathcal{S}$.
     \end{defi}
 \end{theoremframe}
+On définit de manière analogue le domaine de dépendance passée $\mathcal{D}^-(\mathcal{S})$.
 \begin{exmp}
     Soit $\mathcal{S} = $ un segment de droite à $t = \text{ cste}$ (voir Schéma). $P \in \mathcal{D}^+(\mathcal{S})$ (car toute courbe causale passe nécessairement par $\mathcal{S}$), mais $Q \notin \mathcal{D}^+(\mathcal{S})$ (car il existe des courbes causales ne passant pas par $\mathcal{S}$).
 \end{exmp}
-La frontière future (bord) de $\mathcal{D}^+(\mathcal{S})$, notée $\mathcal{H}^+(\mathcal{S})$, est appelée \emph{horizon de Cauchy} de $\mathcal{S}$. Ce qui se passe en $P \in \mathcal{D}^+(\mathcal{S})$ est complètement déterminé par ce qui s'est passé en $\mathcal{S}$. Plus généralement, connaissant ce qui s'est passé en $\mathcal{S}$, on ne peut prédire complètement ce qui se passera \emph{que} pour les événements de $\mathcal{D}^+(\mathcal{S})$.
+Ce qui se passe en $P \in \mathcal{D}^+(\mathcal{S})$ est complètement déterminé par ce qui s'est passé en $\mathcal{S}$. Plus généralement, connaissant ce qui s'est passé en $\mathcal{S}$, on ne peut prédire complètement ce qui se passera \emph{uniquement} pour les événements de $\mathcal{D}^\pm (\mathcal{S})$.
 
 \begin{rmk}
     $\mathcal{D}^+(\mathcal{D}^-(\mathcal{S})) \neq \mathcal{S}$ : il existe des points (voir Q dans schéma précédent) qui n'appartiennent pas à $\mathcal{D}^-(\mathcal{S})$ mais qui peuvent influencer $\mathcal{S}$. Autrement dit, connaître tout de $\mathcal{D}^-(\mathcal{S})$ ne suffit pas à tout connaître de $\mathcal{S}$.
@@ -722,14 +731,14 @@ La frontière future (bord) de $\mathcal{D}^+(\mathcal{S})$, notée $\mathcal{H}
 \end{rmk}
 \begin{theoremframe}
     \begin{defi}
-        Un \emph{ensemble acausal} est un ensemble $\mathcal{A}$ tel que $\forall P, Q \in \mathcal{A}$, l'intervalle $(\Delta s_{PQ})^2$ est de genre espace.
+        Un \emph{ensemble acausal} est un ensemble $\mathcal{A}\in \mathcal{M}$ tel que $\forall P, Q \in \mathcal{A}$, l'intervalle $(\Delta s_{PQ})^2$ est de genre espace.
     \end{defi}
 \end{theoremframe}
 \begin{theoremframe}
     \begin{defi}
         Une \emph{hypersurface de Cauchy} est une hypersurface acausale sans bord $\mathcal{S}$ telle que
         \begin{align}
-            \mathcal{D}(\mathcal{S}) \equiv \mathcal{D}^+(\mathcal{S}) \cup \mathcal{D}^-(\mathcal{S}) = \R^{1,3}
+            \mathcal{D}(\mathcal{S}) \equiv \mathcal{D}^+(\mathcal{S}) \cup \mathcal{D}^-(\mathcal{S}) = \M
         \end{align}
     \end{defi}
 \end{theoremframe}
@@ -738,4 +747,111 @@ Si on connait complètement une hypersurface de Cauchy, on peut prédire tout ce
 \begin{rmk}
     Un espace-temps possédant une hypersurface de Cauchy est dit \emph{globalement hyperbolique}. Par exemple, l'espace-temps plat de Minkowksi en est un. D'autres ne le sont pas, et nécéssitent de fixer des conditions au bord, comme par exemple l'espace Anti-de Sitter (AdS).
 \end{rmk}
-}
+Une propriété utile d'un espace globalement hyperbolique est qu'elle garantit un comportement causal sans pathologies (comme par exemple des courbes causales fermées).
+
+\section{Diagrammes de Penrose*}
+Un diagramme de Penrose est une représentation de la structure causale d'un espace-temps. Nous allons illustrer ici sa construction pour l'espace-temps de Minkowski $\R^{1,3}$. Il est recommandé de suivre la suite du cours pour se familiariser avec les notions de métrique et variété différentielle avant de revenir à cette section.
+\begin{theoremframe}
+    \begin{defi}
+        Soit un espace-temps $(\M,g)$. Soit $\Omega^2(x^\mu)$, une fonction lisse strictement positive. Une \emph{transformation conforme} est une transformation telle que
+        \begin{align}
+            g_{\mu\nu} \to \tilde{g}_{\mu\nu} = \Omega^2(x^\rho) g_{\mu\nu}.
+        \end{align}
+    \end{defi}
+\end{theoremframe}
+\begin{propri}
+    Une transformation conforme préserve la structure causale :
+    \begin{align}
+        g_{\mu\nu}X^\mu X^\nu = 0 \iff \tilde{g}_{\mu\nu}X^\mu X^\nu = 0 
+    \end{align}
+\end{propri}
+On souhaiterai que la représentation de l'espace-temps soit :
+\begin{itemize}
+    \item 2-dimensionnelle. De préférence, à valeurs de coordonnées bornées\footnote{Par exemple, $\theta \in [0,\pi]$.}.
+    \item Les cônes de lumières sont ceux de l'espace-temps de Minkowski 2-dimensionnel, $\R^{1,1}$. La structure causale globale est celle de $\mathcal{M}$.
+\end{itemize}
+La première condition impose que le diagramme résultant soit suffisamment simple ; La seconde condition impose qu'il soit représentatif.
+\subsection{Diagramme de $\R^{1,3}$}
+En coordonnées sphériques, la métrique de Minkowski s'écrit
+\begin{align}
+    \td s^2 = - \td t^2 + \td r^2 + r^2 \td \Omega^2
+\end{align}
+où $\td \Omega^2 = \td \theta^2 + \sin^2\theta \, \td \varphi^2$ n'est pas à confondre avec le facteur conforme du même nom. Ce choix de coordonnées est motivé par le fait que la partie angulaire est clairement moins importante que la partie temporelle et radiale. On choisira donc d'oublier la partie angulaire (en ne regardant que des trajectoires radiales). Ceci rend évident une limite des diagrammes de Penrose : l'espace-temps considéré doit contenir suffisamment de symétries pour éliminer les coordonnées moins importantes (p.ex. angulaires). Pour le moment, les paramètres sont définis sur 
+\begin{align}
+    (t,r) \in \R \times \R_+ 
+\end{align}
+nous aimerions bien ramener les bornes de $t,r$ à des valeurs finies. Pour ce, la procédure standard consiste à écrire pour un paramètre $u \in \R$
+\begin{align}
+    u = \tan U
+\end{align}
+où $U \in ]- \frac{\pi}{2},\frac{\pi}{2}[$. Un problème apparaît néanmoins si on tente d'effectuer cette transformation directement sur $t$ et $r$ : les intervalles radials nuls sont données par $\td t = \pm \td x$ (exactement les cônes de Lumières de $\R^{1,1}$), mais en comptactifiant :
+\begin{align}
+    \frac{1}{\cos^2T}\td T = \pm\frac{1}{\cos^2R} \td R
+\end{align}
+Or, la structure causale pré-compactification était justement l'une des conditions qu'on voulait imposer au diagramme résultant ! On va donc plutôt considérer des coordonnées adaptés aux intervalles nuls :
+\begin{align}
+    u = t - x \quad \text{(coordonnée entrante)}\\
+    v = t + x \quad \text{(coordonnée sortante)}
+\end{align}
+Où la nomenclature vient du fait qu'un rayon lumineux s'approchant de l'orgine est à $u=$cste (similairement pour $v$). En compactifiant ces coordonnées via
+\begin{align}
+    u = \tan U\\
+    v = \tan V
+\end{align}
+la structure causale reste adéquate : pour un intervalle nul entrant, $\td u = 0$ et donc 
+\begin{align}
+    \td U = \cos^2 U \td u = 0
+\end{align}
+On peut alors effectuer la même transformation pour obtenir de vraies coordonnées temporelles et radials compactes :
+\begin{align}
+    \begin{dcases}
+        U = T -R\\
+        V = T + R
+    \end{dcases} \iff \begin{dcases}
+        T = \frac{U+V}{2}\\
+        R = \frac{V - U}{2}
+    \end{dcases}
+\end{align}
+Montrons que cette procédure conduit bien à des cônes de lumières $\td T = \pm \td R$. La métrique dans les coordonnées successives utilisées s'écrit :
+\begin{align}
+    \td s^2 \big|_{\td \Omega^2=0} &= - \td t^2 +\td r^2\\
+    &= - \td u \td v \\
+    & = - \frac{1}{\cos^2U \cos^2V} \td U \td V\\
+    & = \frac{1}{\cos^2(T-R) \cos^2(T+R)} \lt - \td T^2 + \td R^2 \rt
+\end{align}
+On obtient donc, à un facteur conforme près, la même métrique que celle de départ en coordonnées $(t,r)$ :
+\begin{align}
+    \label{ref:mink conforme}
+    \td s^2 = \Omega^2(T,R) (- \td T^2+ \td R^2) \iff \td \tilde{s}^2 = - \td T^2+\td R^2
+\end{align}
+Ce qu'on a gagné, c'est que $(T,R)$ ne vont plus jusqu'à l'infini, tout en conservant la structure causal (en vertu d'être relié par une transformation conforme). On a clairement obtenu toutes les conditions qu'on avait énoncées. Il reste maintenant à étudier le domaine des paramètres. Une contrainte est imposée via :
+\begin{align}
+    \label{eq:pen cond coordonnées}
+    0 < 2r = v-u \iff V-U>0
+\end{align}
+soit $R>0$. L'espace-temps de Minkowski est donc entièrement paramétrisé par $(U,V)\in ]- \frac{\pi}{2},\frac{\pi}{2}[^2$ muni de la condition \ref{eq:pen cond coordonnées}, illustré à la Figure \ref{fig:UV Mink}. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\linewidth}
+        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/coordonnées penrose.jpg}
+        \caption{Espace de Minkowski (bleu) dans les coordonnées $(U,V)$.}
+        \label{fig:UV Mink}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/Diagramm penrose.jpg}
+        \caption{Diagramme de Penrose de $\R^{1,3}$.\\
+        \,}
+        \label{fig:Penrose Mink}
+    \end{subfigure}
+    \caption{Diagrammes de l'espace de Minkowski. Tout point sur ceux-ci représente une sphère $\mathcal{S}^2$.}
+    \label{fig:Penrose Mink tot}
+\end{figure}
+Expliquons finalement les quantités définies à la Figure \ref{fig:Penrose Mink}, notre diagramme de Penrose. La droite verticale à gauche est la ligne $R=0$. Lorqu'une courbe l'intersècte, celle-ci est réfléchie. Les autres lignes sont en fait inatteignables par des courbes causales en un temps fini (en vertu du facteur conforme de l'éq. \ref{ref:mink conforme}).
+\begin{itemize}
+    \item $i^\pm$ : l'infini temporel futur (resp. passé). Il représente là où les courbes de genre temps finissent (resp. débutent) lorsque $t \to \infty$ (resp. $-\infty$).
+    \item $i^0$ : l'infini spatial. Il représente là où les courbes de genre espace finissent en $r= \infty$.
+    \item $\mathcal{J}^\pm$ : infini nul futur (resp. passé). Il représente là où les courbes de genre lumière finissent (resp. débutent) lorsque $t \to \infty$ (resp. $-\infty$).
+\end{itemize}
+En effet, toute courbe nulle est une droite inclinée de 45°, partant de $\mathcal{J}^-$, étant réfléchi lorsqu'elle atteint $R=0$ et tendant vers $\mathcal{J}^+$. Une propriété de l'espace de Minkowski est donc que les infinis nuls sont, de fait, des surfaces de genre nul. Ceci n'est pas forcément le cas pour d'autres espaces (dont $\mathrm{AdS}_n$). Finalement, notons que le diagramme de Penrose apporte des informations sur la structure asymptotique sur des espaces-temps plus complexe. Par exemple, en vertu d'être asymptotiquement plat, le diagramme de Penrose de l'espace-temps de Schwarzschild (voir Chaiptre 7) doit être, pour $r\gg 2m$, celui de Minkowski (en ce compris, ayant les mêmes limites asymptotiques).
+\section*{Références}
