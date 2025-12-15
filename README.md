@@ -15,7 +15,7 @@ Toute contribution est la bienvenue :
 - **Demander ou proposer une amélioration** (meilleure explication, reformulation, ajout d'exemples)
 - **Soumettre du contenu complémentaire** (annexes, encadrés, figures, etc.)
 
-Vous pouvez soit utiliser les différents outils disponibles sur GitHub (décrits ci-dessous), ou remplir le [formulaire de feedback](https://forms.office.com/e/tW1Ge8v6N8).
+Vous pouvez soit utiliser les différents outils disponibles sur GitHub, ou remplir le [formulaire de feedback](https://forms.office.com/e/tW1Ge8v6N8).
 
 Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veuillez me contacter.
 
