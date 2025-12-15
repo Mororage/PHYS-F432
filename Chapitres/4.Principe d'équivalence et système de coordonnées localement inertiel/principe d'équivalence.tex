@@ -222,7 +222,7 @@ qui sera par abus de langage également appelé métrique.
 \section{Densités tensorielles}
 Nous verrons dans cette petite section une classe d'objets non-tensoriels appelée \emph{densités tensorielles}, que nous illustrerons à travers le \emph{symbole de Levi-Civita} complètement symétrique tel que
 \begin{align}
-    \tilde{\varepsilon}\indices{_{\mu_1} _\cdots _{\mu_n}} = \left\{
+    \tilde{\varepsilon}_{{\mu_1} \cdots {\mu_n}} = \left\{
     \begin{array}{cl}
         +1 & \text{si } \mathrm{sgn} \, (\mu_1\cdots \mu_n) =1 \\
         -1 & \text{si } \mathrm{sgn} \, (\mu_1\cdots \mu_n) =-1\\
@@ -231,11 +231,11 @@ Nous verrons dans cette petite section une classe d'objets non-tensoriels appel�
 \end{align}
 Les composantes du symbole de Levi-Civita sont ceux spécifiés ci-dessus dans tout référentiel : il ne se transforme donc pas de manière covariante (tensorielle). Remarquons néanmoins que par définition du déterminant d'une matrice $A\indices{^\mu_\nu}$ : 
 \begin{equation}
-    \tilde{\varepsilon}\indices{_{\nu_1} _\cdots _{\nu_n}} \lvert A \rvert = \tilde{\varepsilon}\indices{_{\mu_1} _\cdots _{\mu_n}} A\indices{^{\mu_1} _{\nu_1}} \cdots A\indices{^{\mu_n} _{\nu_n}}
+    \tilde{\varepsilon}_{{\nu_1} \cdots {\nu_n}} \lvert A \rvert = \tilde{\varepsilon}_{{\mu_1} \cdots {\mu_n}} A\indices{^{\mu_1} _{\nu_1}} \cdots A\indices{^{\mu_n} _{\nu_n}}
 \end{equation}
 Soit en posant $A\indices{^\mu_{\nu'}} = \frac{\pd x^\mu}{\pd x^{\nu'} }$, on trouve
 \begin{equation}
-    \tilde{\varepsilon}\indices{_{\nu'_1} _\cdots _{\nu'_n}} = \left| \frac{\pd x^{\mu'}}{\pd x^{\nu}} \right|  \tilde{\varepsilon}\indices{_{\mu_1} _\cdots _{\mu_n}} \frac{\pd x^{\mu_1}}{\pd x^{\nu_1'} } \cdots \frac{\pd x^{\mu_n}}{\pd x^{\nu'_n} }
+    \tilde{\varepsilon}_{{\nu'_1} \cdots {\nu'_n}} = \left| \frac{\pd x^{\mu'}}{\pd x^{\nu}} \right|  \tilde{\varepsilon}_{{\mu_1} \cdots {\mu_n}} \frac{\pd x^{\mu_1}}{\pd x^{\nu_1'} } \cdots \frac{\pd x^{\mu_n}}{\pd x^{\nu'_n} }
 \end{equation}
 Qui est \emph{prèsqu'une loi tensorielle}. Des quantités qui se transforment de manière tensorielle modulo une puissance de la jacobienne s'appellent \emph{densités tensorielles}. Un autre exemple est le déterminant de la métrique qui se transforme comme :
 \begin{equation}
@@ -243,15 +243,15 @@ Qui est \emph{prèsqu'une loi tensorielle}. Des quantités qui se transforment d
 \end{equation}
 Nous pouvons donc combiner ces deux densités pour construire un vrai tenseur : 
 \begin{equation}
-    \varepsilon\indices{_{\mu_1} _\cdots _{\mu_n}} = \sqrt{\lvert g\rvert} \tilde{\varepsilon}\indices{_{\nu'_1} _\cdots _{\nu'_n}}
+    \varepsilon_{{\mu_1} \cdots {\mu_n}} = \sqrt{\lvert g\rvert} \tilde{\varepsilon}_{{\nu'_1} \cdots {\nu'_n}}
 \end{equation}
 Qui est appelé le \emph{tenseur de Levi-Civita}. Une approche similaire permettra toujours de créer un tenseur à partir d'une densité tensorielle arbitraire en multipliant par une puissance adéquate de $\lvert g \rvert$ ($-g$ pour une variété Lorentzienne). Remarquons que la matrice inverse du tenseur de Levi-Civita s'écrit :
 \begin{equation}
-    \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_n}} = \frac{1}{\sqrt{\lvert g\rvert}}\tilde{\varepsilon}\indices{^{\nu'_1}  ^\cdots ^{\nu'_n}}
+    \varepsilon^{{\mu_1} \cdots {\mu_n}} = \frac{1}{\sqrt{\lvert g\rvert}} \, \tilde{\varepsilon}^{{\nu'_1}  \cdots {\nu'_n}}
 \end{equation}
 Nous donnerons de plus une identité utile de sommation du tenseur de Levi-Civita :
 \begin{equation}
-    \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_p} ^{\alpha_1} ^\cdots ^{\alpha_{n-p}}} \varepsilon\indices{_{\mu_1} _\cdots _{\mu_p} _{\beta_1} _\cdots _{\beta_{n-p}}} = (-1)^s \, p! \, (n-p)! \,\delta^{[\alpha_1}_{\beta_1} \cdots \delta^{\alpha_{n-p}]}_{\beta_{n-p}}
+    \varepsilon^{{\mu_1} \cdots {\mu_p} {\alpha_1} \cdots {\alpha_{n-p}}} \varepsilon_{{\mu_1} \cdots {\mu_p} {\beta_1} \cdots {\beta_{n-p}}} = (-1)^s \, p! \, (n-p)! \,\delta^{[\alpha_1}_{\beta_1} \cdots \delta^{\alpha_{n-p}]}_{\beta_{n-p}}
 \end{equation}
 où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans le cas Lorentzien). Pour $p = n - 1$ :
 \begin{equation}
