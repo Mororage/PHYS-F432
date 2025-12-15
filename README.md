@@ -1,7 +1,6 @@
 # Théorie de la gravitation
-Notes de cours dactylographiées du cours introductif sur la relativité générale, donné par Stéphane Detournay à l'ULB.
-Bienvenue dans ce dépôt collaboratif dédié à la rédaction du cours PHYS-F432 (Théorie de la gravitation) donné par Stéphane Detournay à l'ULB, et a été réalisé à l’initiative de Moritz Schnor et Victoria Spruyt. 
-L’objectif est de créer un support dactylographié rigoureux et librement accessible.
+Notes de cours dactylographiées du cours introductif sur la relativité générale, donné par Stéphane Detournay à l'ULB, et a été réalisé à l’initiative de Moritz Schnor et Victoria Spruyt. 
+L’objectif est de créer un support dactylographié (suffisamment) rigoureux et librement accessible.
 
 ---
 ## Navigation
