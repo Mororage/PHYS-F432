@@ -20,7 +20,7 @@ Vous pouvez soit utiliser les différents outils disponibles sur GitHub (décrit
 Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veuillez me contacter.
 
 ## Contact
-Vous pouvez me contacter par mail via moritzschnor@outlook.com
+Vous pouvez me contacter par mail via moritzschnor@ulb.be
 
 ## Change logs
 - Version 1.4 (15/12) :
