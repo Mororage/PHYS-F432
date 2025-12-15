@@ -544,13 +544,20 @@ Les difféomorphismes (et donc les changements de coordonnées) sur $\mathcal{M}
 
 \begin{enumerate}
     \item \textbf{Transformation active des coordonnées}\\Soit une carte locale $(U,\varphi)$ incluant un point $P$ et notons $\varphi(P) = x^\mu(P) \in \R^m$ (on dit que $x^\mu$ sont les \emph{coordonnées} de $P$ de la carte locale). Un difféomorphisme $f:\mathcal{M} \to \mathcal{M}$ envoie $P$ sur $f(P)$, et on notera $\varphi(f(P)) \equiv y^\mu(P) = x^\mu(f(P))$. La dénomination d'\emph{actif} origine du fait que le point $P$ change explicitement (en $f(P)$).
-    \begin{center}
-        \includegraphics[scale=0.15]{Chapitres/3.Element de géométrie différentielle/Images/transformation actives.jpg}
-        %\captionof{figure}{}
-        %\label{Parabolique 2}
-    \end{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{Chapitres/3.Element de géométrie différentielle/Images/transformation actives.jpg}
+        \caption{Représentation active d'une transformation des coordonnées.}
+        \label{fig:transf actives}
+    \end{figure}
 \item \textbf{Transformation passive des coordonnées}\\
-Soient deux cartes locales de $P$, notées $(U,\varphi)$ et $(V,\psi)$ et notons $\varphi(P) = x^\mu(P)$ et $\psi(P) = y^\mu(P)$. Remarquons que ces deux coordonnées ne coïncident pas nécessairement. Ils sont liés par la fonction de transition $f = \varphi \circ \psi^{-1}, \, y^\mu \mapsto x^\mu$, qui est un difféomorphisme. Cette représentation est nommée \emph{passive}, car le point $P$ reste le même : la différence vient des deux cartes distinctes utilisées.
+Soient deux cartes locales de $P$, notées $(U,\varphi)$ et $(V,\psi)$ et notons $\varphi(P) = x^\mu(P)$ et $\psi(P) = y^\mu(P)$. Remarquons que ces deux coordonnées ne coïncident pas nécessairement. Ils sont liés par la fonction de transition $f = \varphi \circ \psi^{-1}, \, y^\mu \mapsto x^\mu$, qui est lisse (c'est une fonction $\R^n \to \R^n$). Cette représentation est nommée \emph{passive}, car le point $P$ reste le même : la différence vient des deux cartes distinctes utilisées.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Chapitres/3.Element de géométrie différentielle/Images/transformation pastive.jpg}
+    \caption{Représentation passive d'une transformation de coordonnées.}
+    \label{fig:transf passives}
+\end{figure}
 \end{enumerate}
 
 \subsection{Un atlas pour $S^2$}
@@ -590,26 +597,30 @@ Montrons à présent que $\{ (S^2\backslash\{N\}, \varphi_N), (S^2\backslash\{S\
 \begin{equation}
     \varphi_S \circ \varphi_N^{-1} : \quad \R^2_0 \longrightarrow \R^2
 \end{equation}
-Dénotant les paramétrisations locales $\varphi^{-1}_N \equiv \psi_N$, nous allons déduire sa forme. Soit $\varphi_N^i = z^i$. Alors :
+Dénotant la paramétrisation locale $\varphi^{-1}_N \equiv \psi_N$, nous allons déduire sa forme. Soit $\varphi_N^i = z^i$. Alors :
 \begin{equation}
 \label{eq:1 altasS2}
     z^i = \frac{x^i}{1-x^3}
 \end{equation}
 Et, en utilisant la contrainte de $S^2$ :
 \begin{equation}
-    (z^1)^2 + (z^2)^2 = \frac{1 - (x^3)^2}{(1-x^3)^2} = \frac{1 + x^3}{1-x^3}
+    (z^1)^2 + (z^2)^2 = \frac{1 - (x^3)^2}{(1-x^3)^2} = \frac{1 + x^3}{1-x^3}.
 \end{equation}
 Ceci nous permet d'isoler et de réinjecter $x^3$ dans (\ref{eq:1 altasS2}) :
 \begin{align}
     \psi_N = \varphi_N^{-1}: \quad \R^2 &\longrightarrow S^2\backslash \{N\}\\
-    (u,v) &\longmapsto \frac{1}{1+u^2 +v^2} \lt 2 u,2v, -1 + u^2+v^2 \rt
+    (u,v) &\longmapsto \frac{1}{1+u^2 +v^2} \lt 2 u,2v, -1 + u^2+v^2 \rt.
 \end{align}
 La fonction de transition est alors
 \begin{align}
-    \varphi_S \circ \psi_N : \psi^{-1}_N \circ \varphi^{-1}_S :\quad \R^2_0 &\longrightarrow \R^2\\
+    \varphi_S \circ \psi_N :\quad \R^2_0 &\longrightarrow \R^2\\
     (u,v) &\longmapsto \frac{(u,v)}{u^2+v^2}
 \end{align}
-Qui est lisse sur $\R^2_0$. Remarquons que $\psi_N(0,0) = (0,0,-1)=S$, donc notre domaine de définition est bien correct (comme $\varphi_S$ n'est pas définie en $S$, nous devons exclure $(0,0)$ du domaine). Il s'agit ici d'une subtilité importante de la condition dans la définition d'un atlas : il faut être lisse seulement sur l'intersection de leurs domaines (excluant ici $(0,0)$, qui autrement aurait posé problème).
+qui est lisse sur $\R^2_0$. Remarquons que $\psi_N(0,0) = (0,0,-1)=S$, donc notre domaine de définition est bien correct (comme $\varphi_S$ n'est pas définie en $S$, nous devons exclure $(0,0)$ du domaine).
+\begin{align}
+    \psi_N ( S^2\backslash\{S\} \cap S^2\backslash\{N\}) = \psi_N ( S^2\backslash\{N,S\}) = \R^2_0.
+\end{align}
+Il s'agit ici d'une subtilité importante dans la définition d'un atlas : il faut être lisse seulement sur l'intersection de leurs domaines (excluant ici $(0,0)$, qui autrement aurait posé problème) :
 \begin{exerc}
     Dérivez l'expression (\ref{eq:stereoS}) pour $\varphi_S : S^2\backslash \{ S\} \to \R^2$. Calculez $\psi_S$ et montrez que $\varphi_N \circ \varphi_S^{-1}$ est bien lisse sur son domaine. 
 \end{exerc}
@@ -618,7 +629,7 @@ Nous avons donc trouvé un atlas lisse de $S^2$.
     Montrez qu'un atlas global de $S^2$ n'existe pas (indice : utiliser la compacticité de la sphère).
 \end{exerc}
 \section{Variétés différentielles et tenseurs}
-Nous devons retravailler la notion de tenseur introduite au chapitre précédent pour un espace-temps plat, afin qu'elle soit \emph{intrinsèque} à $\mathcal{M}$ : une variété arbitraire n'est pas un espace vectoriel et un vecteur ne peut donc être défini sur l'espace lui-même, il faut passer par les espaces tangents. Fixons un point $m\in \mathcal{M}$ (disons, à $\dim \mathcal{M} = n$) et une courbe $\gamma$ dans $\mathcal{M}$ telle que $\gamma(0)=m$.
+Nous devons retravailler la notion de tenseur introduite précédemment dans le cadre d'un espace-temps plat, afin qu'elle soit \emph{intrinsèque} à $\mathcal{M}$ : une variété arbitraire n'est pas un espace vectoriel et un vecteur ne peut donc pas être défini sur l'espace lui-même, il faut passer par les espaces tangents. Heureusement pour nous, la plupart des notions vues au début de ce chapitre se généralisent naturellement à une variété arbitraire. Il subsiste néanmoins quelques différences, dont nous discuterons dans cette section. Fixons un point $m\in \mathcal{M}$ (disons, à $\dim \mathcal{M} = n$) et une courbe $\gamma$ dans $\mathcal{M}$ telle que $\gamma(0)=m$.
 \begin{theoremframe}
     \begin{defi}
         Un \emph{vecteur tangent} $X_m$ à $\mathcal{M}$ en $m$ est un opérateur différentiel linéaire agissant sur les fonctions lisses dans un voisinage de $m$ tel que
@@ -649,7 +660,7 @@ Comme $f$ est arbitraire, nous trouvons
 \begin{equation}
     X_m = \left. \frac{\td x^\mu}{\td \lambda} \right|_{\lambda = 0} \frac{\pd}{\pd x^\mu}
 \end{equation}
-où les premiers termes sont les composantes du vecteur $X_m$ et les deuxièmes termes $\{\pd_\mu \}_\mu$ forment une base de l'espace $T_m\mathcal{M}$. Remarquons que donc, la dimension de $T_m\mathcal{M}$ est $n$ (la même que l'espace $\mathcal{M}$ correspondant).
+où les premiers termes sont les composantes du vecteur $X_m$ et les deuxièmes termes $\{\pd_\mu \}_\mu$ forment une base de l'espace $T_m\mathcal{M}$. Remarquons que la dimension de $T_m\mathcal{M}$ est $n$ (la même que l'espace $\mathcal{M}$ correspondant).
 \begin{center}
 \includegraphics[scale=0.1]{Chapitres/3.Element de géométrie différentielle/Images/vecteurs2.0.jpg}
 %\captionof{figure}{}
@@ -996,4 +1007,4 @@ On peut interpréter ce groupe comme une mesure de l'obstruction pour une $p$-fo
 \end{equation}
 Autrement dit, $\omega $ et $\omega '$ ne diffèrent que d'un élément de $B^p$. Lorsque $\mathcal{M}$ est tel que toute forme fermée est exacte, on a $H^p(\mathcal{M})=0$ (car alors toute $p$-forme est équivalente à la $p$-forme nulle). De manière générale, la dimension des classes de cohomologie (qui requiert usuellement la résolutions d'équations différentielles) ne dépend que de la topologie de $\mathcal{M}$. Par exemple, si la variété est homéomorphe à $\R^n$, alors $H^p(\mathcal{M}) = 0$ pour tout $p>0$.\\
 Nous invitons le lecteur à considérer le chapitre 6 de Nakahara.
-
+\section*{Références}
