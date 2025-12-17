@@ -23,9 +23,9 @@ Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veui
 Vous pouvez me contacter par mail via moritzschnor@ulb.be
 
 ## Change logs
--  Version 1.5 (à venir) :
+- Version 1.5 (à venir) :
   - Ajout d'une collection de graphes TikZ maison :)
--  Version 1.4 (15/12) :
+- Version 1.4 (15/12) :
   - Rajouté section facultative sur les diagrammes de Penrose (illustré avec Minkowski).
   - Clarifié la section facultative sur les hypersurfaces de Cauchy (toujours en attente du schéma).
   - Quelques corrections dans la section sur l'atlas de la sphère : typo dans l'éq. 3.68, clarification sur le domaine de définition de la fonction de transition.
