@@ -25,6 +25,7 @@ Vous pouvez me contacter par mail via moritzschnor@ulb.be
 ## Change logs
 - Version 1.5 (à venir) :
   - Ajout d'une collection de graphes TikZ maison :)
+  - Corrections typographiques dans le chapitre 2.
 - Version 1.4 (15/12) :
   - Rajouté section facultative sur les diagrammes de Penrose (illustré avec Minkowski).
   - Clarifié la section facultative sur les hypersurfaces de Cauchy (toujours en attente du schéma).
