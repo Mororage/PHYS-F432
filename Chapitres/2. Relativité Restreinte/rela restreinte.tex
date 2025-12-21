@@ -62,14 +62,11 @@ Nous verrons que l'intervalle est préservé par les transformations de Poincar�
 \begin{equation}
     \Delta s(x^\mu,y^\mu)=0 \centernot \implies x^\mu=y^\mu
 \end{equation}
-
 L'intervalle permet de construire une structure causale sur $\R^{1,3}$: les deux évènements $P$ et $Q$ ont un lien causal si et seulement si $(\Delta s)^2 < 0$. En effet, supposons par l'absurde que leur intervalle soit positif :
-
 \begin{align}
     (\Delta s)^2 > 0 &\implies -(c\Delta t)^2 + (\Delta \vect{x})^2 > 0\\
-    &\implies c^2 < \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2 \equiv v^2\\
+    &\implies c^2 < \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2 \equiv v^2
 \end{align}
-
 Mais comme aucune information ne peut propager plus vite que la vitesse,on conclut que les deux évènements ne sont pas causalement liés. 
 
 \begin{theoremframe}
@@ -87,8 +84,7 @@ Mais comme aucune information ne peut propager plus vite que la vitesse,on concl
         \item Supposons qu'un signal lumineux joigne $P$ à $Q$. On a donc $\lt \frac{\Delta \vect{x}}{\Delta t} \rt^2 = v^2 = c^2$. Calculons $(\Delta s )^2$:
         \begin{align}
             (\Delta s )^2  & = -(c\Delta t)^2 + (\Delta \vect{x})^2\\
-            \lt\frac{\Delta s}{\Delta t}\rt^2 & = -c^2 + \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2\\
-            & =0
+            \lt\frac{\Delta s}{\Delta t}\rt^2 & = -c^2 + \lt \frac{\Delta \vect{x}}{\Delta t} \rt^2=0
         \end{align}
         Ainsi, $\Delta s = 0$. Dans le référentiel $O'$, on aura également $\Delta s' = 0$  car la vitesse de la lumière est la même dans tout les référentiel inertiel.
         \begin{equation}
@@ -148,7 +144,6 @@ Soient deux référentiels inertiels $O$ et $O'$ qui ont respectivement comme co
 Comme les deux référentiels sont inertiels ils doivent être reliés par la transformation (\ref{def:poincaré}). 
 
 Comme vu dans la section précédente, en prenant $\kappa = 1$ dans la relation (\ref{eq:Lorentz pre}), on trouve que
-
 \begin{equation}
     \label{eq:Lorentz}
     \boxed{\Lambda ^{T} \eta \Lambda = \eta}
@@ -156,21 +151,21 @@ Comme vu dans la section précédente, en prenant $\kappa = 1$ dans la relation 
 
 L'ensemble des matrices satisfaisant à l'équation (\ref{eq:Lorentz}) est appelé le \textit{groupe de Lorentz} O$(1,3)$. L'ensemble des couples $(\Lambda,a) \in \mathrm{O}(1,3) \ltimes \R^{1,3}$ est appelé \textit{groupe de Lorentz inhomogène} ou le \textit{groupe de Poincaré} $\mathrm{IO}(1,3)$. 
 \begin{rmk}
-    La notation $\ltimes$ représente le produit semi-direct. Nous n'allons pas s'en servir dans la suite, et n'allons donc pas l'introduire formellement (l'essentiel est qu'il s'agit d'une paire d'une matrice de Lorentz et d'un quadri-vecteur). Un lecteur intéressé est invité à consulter un cours de théorie des groupes dédié.
+    La notation $\ltimes$ représente le produit semi-direct. Nous n'allons pas nous en servir dans la suite, et n'allons donc pas l'introduire formellement (l'essentiel est qu'il s'agit d'une paire d'une matrice de Lorentz et d'un quadri-vecteur). Un lecteur intéressé est invité à consulter un cours de théorie des groupes dédié.
 \end{rmk}
 \begin{rmk}
-Lorsque $\eta = \text{diag}(-1,...,-1,1,...,1)$ avec $p$ fois -1 et $q$ fois +1, on appelle le groupe vérifiant (\ref{eq:Lorentz}) IO$(p,q)$
+Lorsque $\eta = \text{diag}(-1,...,-1,1,...,1)$ avec $p$ fois -1 et $q$ fois +1, on appelle le groupe vérifiant (\ref{eq:Lorentz}) O$(p,q)$
     
 \end{rmk}
 \begin{rmk}
-    Dans le cas particulier $p =0$ et $q=3$, on a le groupe IO(3) c'est-à-dire avec $\Lambda ^{T} \Lambda = I_{3x3}$. 
+    Dans le cas particulier $p =0$ et $q=3$, on a le groupe O(3) c'est-à-dire avec $\Lambda ^{T} \Lambda = I_{3x3}$. 
 \end{rmk}
 
 Les transformations telles que $\Lambda =  I$ appartiennent au groupe de translation.
 
 \subsection{Groupe de Lorentz}
 
-Le groupe de Lorentz O(1,3) possède deux sous-groupes non-triviaux. En particulier, il possède quatre composantes non-connexes.
+Le groupe de Lorentz O(1,3) possède deux sous-groupes non-triviaux (ainsi que leur intersection). En particulier, il possède quatre composantes non-connexes.
 
 \begin{enumerate}
     \item En reprenant la relation $\Lambda ^{T} \eta \Lambda = \eta$, et calculant le déterminant:
@@ -178,7 +173,7 @@ Le groupe de Lorentz O(1,3) possède deux sous-groupes non-triviaux. En particul
         \det \Lambda^{T} \det \eta \det\Lambda = \det \eta \\
         \implies \det\Lambda = \pm 1
     \end{equation}
-    Comme il est impossible de passer continûment d'un élément de $\det =1$ à un élément de $\det = -1$, le groupe possède deux composantes non-connexes. On note O$(3,1)_\pm$ la partie du groupe de Lorentz à $\det = \pm 1$.\\
+    Comme il est impossible de passer continûment d'un élément de $\det \Lambda =1$ à un élément de $\det\Lambda = -1$, le groupe possède deux composantes non-connexes. On note O$(3,1)_\pm$ la partie du groupe de Lorentz à $\det\Lambda = \pm 1$.\\
     Uniquement la composante O(1,3)$_+$ est un sous-groupe de O(1,3), appelé le groupe spécial de Lorentz noté SO(1,3)\footnote{En effet, c'est la seule des deux composantes qui inclut l'élément identité.}. \\
 
     \item Réécrivons la relation de définition (\ref{eq:Lorentz}) du groupe de Lorentz. En composantes, on trouve
@@ -189,8 +184,7 @@ Le groupe de Lorentz O(1,3) possède deux sous-groupes non-triviaux. En particul
     \begin{align}
         \eta_{0 0} &= \eta_{\alpha \beta} \,\Lambda\indices{^\alpha_{0}} \, \Lambda\indices{^\beta_{0}} \\
         -1 &= -(\Lambda\indices{^0_{0}})^2 + \sum_{k}(\Lambda\indices{^k_0})^2\\
-        (\Lambda\indices{^0_0})^2 &= 1 + \sum_{k}(\Lambda\indices{^k_0})^2\\
-        \implies (\Lambda\indices{^0_0})^2 &\geq 1
+        (\Lambda\indices{^0_0})^2 &= 1 + \sum_{k}(\Lambda\indices{^k_0})^2 \geq 1
     \end{align}
     On trouve donc de nouveau deux composantes non-connexes notées O(1,3)$^\uparrow$ (si $\Lambda\indices{^0_0} \geq 1$) et O(1,3)$^\downarrow$ (si $\Lambda\indices{^0_0} \leq - 1$). Uniquement O(1,3)$^\uparrow$ est un sous-groupe de O(1,3), appelé le sous-groupe orthochrone de Lorentz.
 \end{enumerate}
@@ -384,12 +378,12 @@ Si $P$ et $Q$ représentent une particule ponctuelle à des temps différents, l
     \end{rap}
 \end{theoremframe}
 \begin{theoremframe}
-    \begin{propri}
+    \begin{defi}
         Le champ $v^\mu$ de vecteurs tangents à la courbe est défini par
         \begin{equation}
             v^\mu = \frac{\td x^\mu}{\td \lambda}
         \end{equation}
-    \end{propri}
+    \end{defi}
 \end{theoremframe}
 La courbe est dite de genre 
 \begin{align*}
@@ -465,7 +459,7 @@ En effet, le temps propre de deux courbes causales distinctes reliant deux évé
 \begin{exmp}[Paradoxe des jumeaux\footnote{Disclaimer: il s'agit d'une expérience de pensée. Aucune fusée n'a été blessée au cours de cette expérience.}]
     Supposons que deux jumelles$\cdot$eaux sur Terre possèdent chacun$\cdot$e une horloge atomique qui affiche la même heure. Posons leur genre = homme. L'un des jumeaux est envoyé dans l'espace à une vitesse proche de celle de la lumière avec cette horloge. Quand il revient sur Terre, en comparant les deux horloges, le jumeaux étant resté sur terre est plus jeune que celui parti dans l'espace. 
 \end{exmp}
-Pour expliquer ce "paradoxe" (ce n'en est pas réellement un\footnote{\href{https://www.youtube.com/watch?v=ppX7Qjbe6BM}{Vidéo intéressante sur le sujet}.}), intéressons-nous à la situation simplifiée suivante, où un jumeau passe directement de $A$ à $C$, et l'autre jumeau fait un détour par $B'$.
+Pour expliquer ce "paradoxe" (ce n'en est pas réellement un), intéressons-nous à la situation simplifiée suivante, où un jumeau passe directement de $A$ à $C$, et l'autre jumeau fait un détour par $B'$.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Chapitres/2. Relativité Restreinte/Images/Deux jumeaux.jpg}
@@ -479,17 +473,19 @@ Calculons le temps propre des deux chemins. Dans le référentiel $O$, on a pour
 \end{equation} 
 Pour le premier jumeau, comme $B'=(\frac{\Delta t}{2},\Delta x)$, on trouve
 \begin{align}
+        \nonumber
         (\Delta \tau_{AB'C})^2 &= (\Delta \tau_{AB'} + \Delta \tau_{B'C})^2\\
-        &= 4(\Delta \tau_{AB'})\\
+        \nonumber
+        &= 4(\Delta \tau_{AB'})^2 \\
+        \nonumber
         &= 4 \left(\left(\frac{\Delta t}{2}\right)^2 - (\Delta x)^2\right)\\
+        \nonumber
         &= 4 \left(\frac{\Delta t^2}{4} - (\Delta x)^2\right)
     \end{align}
-    On peut définir (graphiquement) $v = \dfrac{\Delta x}{(\Delta t/2)} = \dfrac{2 \Delta x}{\Delta t}$ qui est tel que $v^2 = \frac{4(\Delta x)^2}{(\Delta t)^2}$ et donc
-    \begin{align*}
-        (\Delta \tau_{AB'C})^2 &= (\Delta t)^2(1 - v^2)\\
-        &< (\Delta t)^2
-    \end{align*}
-
+    On peut définir (graphiquement) la quantité $v = \dfrac{\Delta x}{(\Delta t/2)} = \dfrac{2 \Delta x}{\Delta t}$ qui est tel que $v^2 = \frac{4(\Delta x)^2}{(\Delta t)^2}$ et donc
+    \begin{align}
+        (\Delta \tau_{AB'C})^2 &= (\Delta t)^2(1 - v^2) < (\Delta t)^2
+    \end{align}
 Le temps propre du premier jumeau (voyageur) est plus petit que le temps propre du second jumeau (au repos). 
 \begin{center}
     \textit{Le temps s'écoule plus lentement quand on est en mouvement.}
@@ -540,7 +536,7 @@ Considérons maintenant le cas d'un observateur accéléré uniformément\footno
         \begin{equation}
             v^\alpha v_\alpha = -1
         \end{equation}
-        De plus, cette paramétrisation est le temps propre de la courbe.
+        De plus, une telle paramétrisation est le temps propre de la courbe.
     \end{propri}
 \end{theoremframe}
 \begin{proof}
@@ -586,16 +582,13 @@ muni des conditions
     v^{\alpha}v_{\alpha} & = -1 = -(v^{0})^2 + (v^{1})^2\\
     a^{\alpha}a_{\alpha} & = a^2 = -(a^{0})^2 + (a^{1})^2 = \mathrm{cste}
 \end{align}
-
 Or, comme $v^{\alpha}v_{\alpha} = -1$:
-
 \begin{align}
     \frac{\td v^\alpha v_\alpha}{\td \tau} &= 2 a^{\alpha}v_{\alpha} = 0 \\
     \implies &-a^{0}v^{0} + a^{1}v^{1} = 0\\
     \label{eq:2.57}
-    \implies &a^{1} = \frac{v^{0}a^{0}}{v^{1}}
+    \implies &v^{1} = \frac{v^{0}a^{0}}{a^{1}}
 \end{align}
-
 En adoptant temporairement des indices covariants pour améliorer la lisibilité (comme seuls des carrés interviennent, cela ne change rien aux calculs) :
 \begin{align}
     a_1^2 &= 1 \cdot a_1^2\\
@@ -655,7 +648,7 @@ Cet ensemble de points $\mathcal{S}$ est la trajectoire d'un observateur accél�
 \end{enumerate}
 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.1]{Chapitres/2. Relativité Restreinte/Images/Courbe hyperbole 2.jpg}
     \caption{}
@@ -681,7 +674,7 @@ En différenciant et en injectant ces équations dans la métrique de Minkowski,
 \begin{equation}
     \td s^2 = - (\alpha \rho)^2 \td u^2 + \td \rho^2 + \td  y^2 + \td  z^2
 \end{equation}
-Le changement d'un référentiel inertiel vers le référentiel hyperbolique a donc modifié la métrique $\eta_{\mu\nu}$ dans ces coordonnées, qui dépendra explicitement des coordonnées : $\tilde \eta_{\mu\nu} = \mathrm{diag} (-(\alpha \tilde x)^2, 1, 1,1)$. De plus, on remarque que ces coordonnées ne sont valables que pour $t^2>x^2$. Ainsi, ces coordonnées ne permettent que de décrire une partie de l'espace-temps. 
+Le changement d'un référentiel inertiel vers le référentiel accéléré a donc modifié la métrique $\eta_{\mu\nu}$ dans ces coordonnées, qui dépendra explicitement des coordonnées : $ \eta_{\mu\nu} = \mathrm{diag} (-(\alpha \rho)^2, 1, 1,1)$. De plus, on remarque que ces coordonnées ne sont valables que pour $t^2>x^2$. Ainsi, ces coordonnées ne permettent que de décrire une partie de l'espace-temps. 
 \begin{exmp}
     Dans le référentiel d'un observateur en rotation uniforme de vitesse angulaire constante $\Omega$ autour de l'axe $z$, la métrique de Minkowski devient
     \begin{equation}
@@ -704,6 +697,7 @@ De manière générale, dans un référentiel arbitraire (possiblement non-inert
 \end{equation}
 L'intervalle (et donc la métrique) caractérisent la notion de \emph{distance} de l'espace-temps, et sont donc des propriétés de la géométrie de l'espace-temps considéré. Bien qu'ils dépendent du référentiel considéré, on peut toute fois en extraire des quantités \emph{intrinsèques}, donc indépendantes du référentiel. Un exemple d'une telle quantité sera la \emph{courbure}. 
 \section{Hypersurfaces de Cauchy*}
+\label{sec:hypersurfaces cauchy}
 En relativité générale, la \emph{structure causale} est une caractéristique importante de l'espace-temps. Une question motivante est celle de la \emph{déterminabilité}, cest-à-dire si des \emph{données initiales} spécifiées déterminent l'évolution ultérieure (et passée) du système :
 \begin{itemize}
     \item En mécanique classique, la solution d'un système d'équations différentielles dépend du choix des conditions initiales comme par example sa donnée sur le bord du domaine, ou à un moment initial. Cette dernière condition se traduit en relativité générale comme une condition sur une hypersurface spatiale $\mathcal{S}$ (à temps constant). Néanmoins, pour déterminer la solution au point $P$ de manière unique, il faut que $P$ dépende (causalement) uniquement de $\mathcal{S}$. En relativité générale, il faudra donc préciser quelles régions de l'espace-temps peuvent être déterminées par la condition initiale donnée.
@@ -719,21 +713,24 @@ Soit un espace-temps $\mathcal{M}$ arbitraire, mais en gardant $\mathcal{M} = \R
 \end{theoremframe}
 On définit de manière analogue le domaine de dépendance passée $\mathcal{D}^-(\mathcal{S})$.
 \begin{exmp}
-    Soit $\mathcal{S} = $ un segment de droite à $t = \text{ cste}$ (voir Schéma). $P \in \mathcal{D}^+(\mathcal{S})$ (car toute courbe causale passe nécessairement par $\mathcal{S}$), mais $Q \notin \mathcal{D}^+(\mathcal{S})$ (car il existe des courbes causales ne passant pas par $\mathcal{S}$).
+    Soit $\mathcal{S} = $ un segment de droite à $t = \text{cste}$ (voir Figure \ref{fig:exemple Cauchy}). $P \in \mathcal{D}^+(\mathcal{S})$ (car toute courbe causale passe nécessairement par $\mathcal{S}$), mais $Q \notin \mathcal{D}^+(\mathcal{S})$ (car il existe des courbes causales ne passant pas par $\mathcal{S}$).
 \end{exmp}
 Ce qui se passe en $P \in \mathcal{D}^+(\mathcal{S})$ est complètement déterminé par ce qui s'est passé en $\mathcal{S}$. Plus généralement, connaissant ce qui s'est passé en $\mathcal{S}$, on ne peut prédire complètement ce qui se passera \emph{uniquement} pour les événements de $\mathcal{D}^\pm (\mathcal{S})$.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Chapitres/2. Relativité Restreinte/Images/Cauchy1.pdf}
+    \caption{}
+    \label{fig:exemple Cauchy}
+\end{figure}
 \begin{rmk}
-    $\mathcal{D}^+(\mathcal{D}^-(\mathcal{S})) \neq \mathcal{S}$ : il existe des points (voir Q dans schéma précédent) qui n'appartiennent pas à $\mathcal{D}^-(\mathcal{S})$ mais qui peuvent influencer $\mathcal{S}$. Autrement dit, connaître tout de $\mathcal{D}^-(\mathcal{S})$ ne suffit pas à tout connaître de $\mathcal{S}$.
-\end{rmk}
-\begin{rmk}
-    Le schéma précédent est laissé comme exercice au lecteur.
+    $\mathcal{D}^+(\mathcal{D}^-(\mathcal{S})) \neq \mathcal{S}$ : il existe des points qui n'appartiennent pas à $\mathcal{D}^-(\mathcal{S})$ mais qui peuvent influencer $\mathcal{S}$. Autrement dit, connaître tout de $\mathcal{D}^-(\mathcal{S})$ ne suffit pas à tout connaître de $\mathcal{S}$.
 \end{rmk}
 \begin{theoremframe}
     \begin{defi}
         Un \emph{ensemble acausal} est un ensemble $\mathcal{A}\in \mathcal{M}$ tel que $\forall P, Q \in \mathcal{A}$, l'intervalle $(\Delta s_{PQ})^2$ est de genre espace.
     \end{defi}
 \end{theoremframe}
+Une hypersurface à temps constant sera toujours un ensemble acausal.
 \begin{theoremframe}
     \begin{defi}
         Une \emph{hypersurface de Cauchy} est une hypersurface acausale sans bord $\mathcal{S}$ telle que
@@ -742,7 +739,7 @@ Ce qui se passe en $P \in \mathcal{D}^+(\mathcal{S})$ est complètement détermi
         \end{align}
     \end{defi}
 \end{theoremframe}
-Si on connait complètement une hypersurface de Cauchy, on peut prédire tout ce qui se passera, et on peut reconstruire tout ce qui s'est passé. On peut déterminer, à l'aide de la dynamique (des équations du mouvement) de la théorie considérée (contrainte par le fait que tout signal se propage à vitesse $v \leq c$), l'état de l'espace-temps tout entier à partir de l'information spécifiée sur $\mathcal{S}$. Comme en outre, l'hypersurface est acausale, ses divers évènements sont indépendants : il n'y a pas de redondance d'information.
+Si on connait complètement l'Univers sur une hypersurface de Cauchy, on peut prédire tout ce qui se passera, et on peut reconstruire tout ce qui s'est passé. On peut déterminer, à l'aide de la dynamique (des équations du mouvement) de la théorie considérée (contrainte par le fait que tout signal se propage à vitesse $v \leq c$), l'état de l'espace-temps tout entier à partir de l'information spécifiée sur $\mathcal{S}$. Comme en outre, l'hypersurface est acausale, ses divers évènements sont indépendants : il n'y a pas de redondance d'information.
 
 \begin{rmk}
     Un espace-temps possédant une hypersurface de Cauchy est dit \emph{globalement hyperbolique}. Par exemple, l'espace-temps plat de Minkowksi en est un. D'autres ne le sont pas, et nécéssitent de fixer des conditions au bord, comme par exemple l'espace Anti-de Sitter (AdS).
@@ -750,7 +747,12 @@ Si on connait complètement une hypersurface de Cauchy, on peut prédire tout ce
 Une propriété utile d'un espace globalement hyperbolique est qu'elle garantit un comportement causal sans pathologies (comme par exemple des courbes causales fermées).
 
 \section{Diagrammes de Penrose*}
-Un diagramme de Penrose est une représentation de la structure causale d'un espace-temps. Nous allons illustrer ici sa construction pour l'espace-temps de Minkowski $\R^{1,3}$. Il est recommandé de suivre la suite du cours pour se familiariser avec les notions de métrique et variété différentielle avant de revenir à cette section.
+Un diagramme de Penrose est une représentation de la structure causale et asymptotique d'un espace-temps. Nous allons illustrer ici sa construction pour l'espace-temps de Minkowski $\R^{1,3}$. Il est recommandé de suivre la suite du cours pour se familiariser avec les notions de métrique avant de revenir à cette section. Un diagramme de Penrose vérifiera :
+\begin{itemize}
+    \item Représentation 2-dimensionnelle. Préférer autant que possible des coordonnées à valeurs bornées\footnote{Par exemple, $\theta \in [0,\pi[$ plutôt que $u \in \R$. Ce n'est néanmoins pas toujours possible (comme par exemple pour $\mathrm{AdS}_n$).}.
+    \item Les cônes de lumières sont ceux de l'espace-temps de Minkowski 2-dimensionnel, $\R^{1,1}$. La structure causale globale est celle de $\mathcal{M}$.
+\end{itemize}
+La première condition impose que le diagramme résultant soit suffisamment simple ; La seconde condition impose qu'il soit représentatif. Pour obtenir ces diagrammes, nous utiliserons systématiquement des transformations conformes :
 \begin{theoremframe}
     \begin{defi}
         Soit un espace-temps $(\M,g)$. Soit $\Omega^2(x^\mu)$, une fonction lisse strictement positive. Une \emph{transformation conforme} est une transformation telle que
@@ -765,18 +767,12 @@ Un diagramme de Penrose est une représentation de la structure causale d'un esp
         g_{\mu\nu}X^\mu X^\nu = 0 \iff \tilde{g}_{\mu\nu}X^\mu X^\nu = 0 
     \end{align}
 \end{propri}
-On souhaiterai que la représentation de l'espace-temps soit :
-\begin{itemize}
-    \item 2-dimensionnelle. De préférence, à valeurs de coordonnées bornées\footnote{Par exemple, $\theta \in [0,\pi]$.}.
-    \item Les cônes de lumières sont ceux de l'espace-temps de Minkowski 2-dimensionnel, $\R^{1,1}$. La structure causale globale est celle de $\mathcal{M}$.
-\end{itemize}
-La première condition impose que le diagramme résultant soit suffisamment simple ; La seconde condition impose qu'il soit représentatif.
 \subsection{Diagramme de $\R^{1,3}$}
 En coordonnées sphériques, la métrique de Minkowski s'écrit
 \begin{align}
     \td s^2 = - \td t^2 + \td r^2 + r^2 \td \Omega^2
 \end{align}
-où $\td \Omega^2 = \td \theta^2 + \sin^2\theta \, \td \varphi^2$ n'est pas à confondre avec le facteur conforme du même nom. Ce choix de coordonnées est motivé par le fait que la partie angulaire est clairement moins importante que la partie temporelle et radiale. On choisira donc d'oublier la partie angulaire (en ne regardant que des trajectoires radiales). Ceci rend évident une limite des diagrammes de Penrose : l'espace-temps considéré doit contenir suffisamment de symétries pour éliminer les coordonnées moins importantes (p.ex. angulaires). Pour le moment, les paramètres sont définis sur 
+où $\td \Omega^2 = \td \theta^2 + \sin^2\theta \, \td \varphi^2$ est la métrique de la sphère $\mathcal{S}^2$, et n'est pas à confondre avec le facteur conforme du même nom. Ce choix de coordonnées est motivé par le fait que la partie angulaire est clairement moins importante que la partie temporelle et radiale. On choisira donc d'oublier la partie angulaire (en ne regardant que des trajectoires radiales). Ceci rend évident une limite des diagrammes de Penrose : l'espace-temps considéré doit contenir suffisamment de symétries pour éliminer les coordonnées moins importantes (p.ex. angulaires). Pour le moment, les paramètres sont définis sur 
 \begin{align}
     (t,r) \in \R \times \R_+ 
 \end{align}
@@ -790,13 +786,17 @@ où $U \in ]- \frac{\pi}{2},\frac{\pi}{2}[$. Un problème apparaît néanmoins s
 \end{align}
 Or, la structure causale pré-compactification était justement l'une des conditions qu'on voulait imposer au diagramme résultant ! On va donc plutôt considérer des coordonnées adaptés aux intervalles nuls :
 \begin{align}
-    u = t - x \quad \text{(coordonnée entrante)}\\
-    v = t + x \quad \text{(coordonnée sortante)}
+    \begin{dcases}
+        u = t - r \quad \text{(coordonnée entrante)}\\
+        v = t + r \quad \text{(coordonnée sortante)}
+    \end{dcases}
 \end{align}
-Où la nomenclature vient du fait qu'un rayon lumineux s'approchant de l'orgine est à $u=$cste (similairement pour $v$). En compactifiant ces coordonnées via
+Où la nomenclature vient du fait qu'un rayon lumineux s'approchant de l'origine est à $u=$cste (similairement pour $v$). En compactifiant ces coordonnées via
 \begin{align}
-    u = \tan U\\
-    v = \tan V
+    \begin{dcases}
+        u = \tan U\\
+        v = \tan V
+    \end{dcases}
 \end{align}
 la structure causale reste adéquate : pour un intervalle nul entrant, $\td u = 0$ et donc 
 \begin{align}
@@ -824,7 +824,7 @@ On obtient donc, à un facteur conforme près, la même métrique que celle de d
     \label{ref:mink conforme}
     \td s^2 = \Omega^2(T,R) (- \td T^2+ \td R^2) \iff \td \tilde{s}^2 = - \td T^2+\td R^2
 \end{align}
-Ce qu'on a gagné, c'est que $(T,R)$ ne vont plus jusqu'à l'infini, tout en conservant la structure causal (en vertu d'être relié par une transformation conforme). On a clairement obtenu toutes les conditions qu'on avait énoncées. 
+Ce qu'on a gagné, c'est que dans $\td \tilde{s}^2$, $(T,R)$ ne vont plus jusqu'à l'infini, tout en conservant la structure causale de $\td s^2$ (en vertu d'être relié par une transformation conforme). On a clairement obtenu toutes les conditions qu'on avait énoncé. 
 \begin{rmk}
     Pour pouvoir identifier $\Omega^2$ comme un facteur conforme, il faut se convaincre qu'elle ne s'annule pas sur $\R^{1,3}$. En effet, elle s'annulera en $U,V = \pm \frac{\pi}{2}$, qui correspond aux bords \emph{à l'infini} de $\R^{1,3}$ (voir Figure \ref{fig:UV Mink}). Ceci traduit le fait que la distance physique (ou de manière équivalente, le temps propre des courbes causales) pour atteindre ces bords est infini, même s'il est représentée à une distance finie dans le diagramme.
 \end{rmk}
@@ -837,20 +837,24 @@ soit $R\geq 0$. L'espace-temps de Minkowski est donc entièrement paramétrisé 
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.5\linewidth}
+    \begin{subfigure}[b]{0.55\linewidth}
         \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/coordonnées penrose.jpg}
-        \caption{Espace de Minkowski (bleu) dans les coordonnées $(U,V)$. Note : les coordonnées $(T,R)$ sont ici changés d'un facteur $2$.}
+        \caption{Espace (conformellement) de Minkowski (bleu) dans les coordonnées $(U,V)$. Note : les coordonnées $(T,R)$ sont ici changés d'un facteur $2$.}
         \label{fig:UV Mink}
     \end{subfigure}
-    \begin{subfigure}[b]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/Diagramm penrose.jpg}
+    \quad \quad
+    \begin{subfigure}[b]{0.32\linewidth}
+        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/Diagramme Penrose.pdf}
         \caption{Diagramme de Penrose de $\R^{1,3}$.\\
         \,}
         \label{fig:Penrose Mink}
     \end{subfigure}
-    \caption{Diagrammes de l'espace de Minkowski. Tout point sur ceux-ci représente une sphère $\mathcal{S}^2$.}
+    \caption{Diagrammes de l'espace-temps de Minkowski. Tout point sur ceux-ci représente une sphère $\mathcal{S}^2$. Sur le diagramme de Penrose ont été indiquées des courbes causales à $r=\text{cste}$ (bleu) et des courbes à $t=\text{cste}$ (rouge). Ont également été illustrés les cônes de lumière en deux points. Les quantités indiqués sur le bord sont définies ci-dessous.}
     \label{fig:Penrose Mink tot}
 \end{figure}
+\begin{rmk}
+    Le diagramme de Penrose de $\R^{1,1}$ est composé de deux copies de la Figure \ref{fig:Penrose Mink} pour former le carré complet de la Figure \ref{fig:UV Mink}. Ceci vient par l'échange de $r\geq 0$ par $x\in \R$, qui supprime la condition \ref{eq:pen cond coordonnées}.
+\end{rmk}
 Expliquons finalement les quantités définies à la Figure \ref{fig:Penrose Mink}, notre diagramme de Penrose. La droite verticale à gauche est la ligne $R=0$. Lorqu'une courbe l'intersècte, celle-ci est réfléchie. Les autres lignes sont en fait inatteignables par des courbes causales en un temps fini (en vertu du facteur conforme de l'éq. \ref{ref:mink conforme}).
 \begin{itemize}
     \item $i^\pm$ : l'infini temporel futur (resp. passé). Il représente là où les courbes de genre temps finissent (resp. débutent) lorsque $t \to \infty$ (resp. $-\infty$).
@@ -859,4 +863,16 @@ Expliquons finalement les quantités définies à la Figure \ref{fig:Penrose Min
 \end{itemize}
 En effet, toute courbe nulle est une droite inclinée de 45°, partant de $\mathcal{J}^-$, étant réfléchi lorsqu'elle atteint $R=0$ et tendant vers $\mathcal{J}^+$. Une propriété de l'espace de Minkowski est donc que les infinis nuls sont, de fait, des surfaces de genre nul. Ceci n'est pas forcément le cas pour d'autres espaces (dont $\mathrm{AdS}_n$). Finalement, notons que le diagramme de Penrose apporte des informations sur la structure asymptotique sur des espaces-temps plus complexe. Par exemple, en vertu d'être asymptotiquement plat, le diagramme de Penrose de l'espace-temps de Schwarzschild (voir Chaiptre 7) doit être, pour $r\gg 2m$, celui de Minkowski (en ce compris, ayant les mêmes limites asymptotiques).
 }
+\begin{exerc}
+    L'espace \emph{de Sitter} en 3 dimensions est un sous-espace maximalement symétrique de Minkowski et à courbure constante positive :
+    \begin{align}
+        \mathrm{dS}_3 = \{x \in \R^{1,3} \mid \eta_{\mu\nu} x^\mu x^\nu = l^2\}.
+    \end{align}
+    Construisez le diagramme de Penrose associé.
+\end{exerc}
 \section*{Références}
+Coming soon...
+\begin{center}
+    \includegraphics[width=0.2\linewidth]{qr.png}\\
+    \footnotesize Feedback : \url{https://forms.office.com/e/tW1Ge8v6N8}
+\end{center}

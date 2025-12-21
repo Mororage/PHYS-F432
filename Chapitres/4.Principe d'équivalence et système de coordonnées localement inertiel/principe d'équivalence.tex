@@ -258,6 +258,7 @@ où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans 
     \varepsilon\indices{^{\mu_1} ^\cdots ^{\mu_{n-1}} ^{\alpha}} \varepsilon\indices{_{\mu_1} _\cdots _{\mu_{n-1}} _{\beta}}= (-1)^s (n-1) ! \, \delta^\alpha_\beta
 \end{equation}
 \begin{exerc}
+    \label{ex:densités}
     D'après le théorème de changement de base, soit $U \in\R^n$ et un difféomorphisme $h:U \to V \in \R^n$. Alors :
     \begin{equation*}
         \int_U \td^n x f(\vect{x}) = \int_V \td^n y \, f \circ h (\vect{y}) \, \vert \det h(\vect{y})\vert
@@ -272,7 +273,7 @@ où $s$ est le nombre de valeurs propres négatives de la métrique ($s=1$ dans 
             \td^n x = \td x^0 \wedge \cdots \wedge \td x^{n-1}
         \end{equation*}
         se transforme comme une densité tensorielle.
-        \item À partir du résultat précédent, construisez un élément infinitésimal tensoriel (plus précisément, une $n$-forme).
+        \item Construisez un élément infinitésimal tensoriel (plus précisément, une $n$-forme).
     \end{enumerate}
     L'application
     \begin{equation}
@@ -583,9 +584,9 @@ En égalisant, on peut simplifier le terme covariant (rouge) et on obtient :
 \label{eq: Connexion tenseur1}
     &\frac{\partial x^{\nu}}{\partial x^{\nu '}}\frac{\partial^2 x^{\mu'}}{\partial x^{\nu} \partial x^{\alpha}}X^{\alpha} + \Gamma\indices{^{\mu '}_{\!\!\nu '\alpha '}}\frac{\partial x^{\alpha '}}{\partial x^{\alpha }} X^{\alpha} = \frac{\partial x^{\mu'}}{\partial x^{\mu}}\frac{\partial x^{\nu}}{\partial x^{\nu '}}\Gamma\indices{^{\mu }_{\!\nu \alpha}}X^{\alpha }
 \end{align}
-Comme cette expression est valable pour tout $X$, nous pouvons le laisser tomber. En multipliant des deux côtés par $\dfrac{\pd x^\alpha}{\pd x^{\beta'}}$, on peut simplifier le premier terme via la règle de la chaîne :
+Comme cette expression est valable pour tout $X$, nous pouvons le supprimer. En multipliant des deux côtés par $\dfrac{\pd x^\alpha}{\pd x^{\beta'}}$, on peut simplifier le premier terme via la règle de la chaîne :
 \begin{align}
-    \frac{\partial x^{\alpha}}{\partial x^{\beta '}}  \frac{\partial x^{\nu}}{\partial x^{\nu '}} \frac{\pd}{\pd x^\nu} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}} = \frac{\partial x^{\alpha}}{\partial x^{\beta '}} \frac{\pd}{\pd x^{\nu'}} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}}
+    \frac{\partial x^{\alpha}}{\partial x^{\beta '}}  \lt \frac{\partial x^{\nu}}{\partial x^{\nu '}} \frac{\pd}{\pd x^\nu} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}} \rt = \frac{\partial x^{\alpha}}{\partial x^{\beta '}}  \lt \frac{\pd}{\pd x^{\nu'}} \frac{\partial x^{\mu'}}{ \partial x^{\alpha}}\rt 
 \end{align}
 Une intégration par parties donne alors :
 \begin{align}
@@ -602,15 +603,15 @@ En recombinant dans (\ref{eq: Connexion tenseur1}) :
 \end{equation}
 On observe donc que les coefficients de connexion ne se transforment pas de manière covariante à cause du terme en la dérivée seconde. La partie antisymétrique des coefficients de connexion
 \begin{equation}
-    T^\mu_{\alpha\beta} = \Gamma\indices{^\mu_{\![\alpha\beta]}}
+    T\indices{^\mu_{\!\alpha\beta}} = \Gamma\indices{^\mu_{\![\alpha\beta]}}
 \end{equation}
-se transforme bien comme un tenseur et est appelé le \emph{tenseur des torsions}\footnote{Pour une visualisation des effets de ce tenseurs, le lecteur est invité à consulter la\href{https://www.youtube.com/watch?v=SfOiOPuS2_U}{vidéo d'Eigenchris} à ce sujet.}. Dans la suite du cours, nous supposerons que nos connexions sont \emph{sans torsion}, c'est à dire que le tenseur des torsions s'annule identiquement (en effet, muni d'une connexion avec torsion, le principe d'équivalence n'est pas vérifié). Pour une telle connexion sans torsion, nous aurons donc
+se transforme bien comme un tenseur et est appelé le \emph{tenseur des torsions}\footnote{Pour une visualisation des effets de ce tenseurs, le lecteur est invité à consulter la \href{https://www.youtube.com/watch?v=SfOiOPuS2_U}{vidéo d'Eigenchris} à ce sujet.}. Dans la suite du cours, nous supposerons que nos connexions sont \emph{sans torsion}, c'est à dire que le tenseur des torsions s'annule identiquement (en effet, muni d'une connexion avec torsion, le principe d'équivalence n'est pas vérifié). Pour une telle connexion sans torsion, nous aurons donc
 \begin{equation}
     \Gamma\indices{^\mu_{\!\alpha\beta}} = \Gamma\indices{^\mu_{\!\beta \alpha}}
 \end{equation}
 Sous cette condition, la connexion affine est une dérivée covariante au sens de la définition \ref{def:covariant der}.
 \begin{rmk}
-    Il est important de noter que les coefficients de connexion, même sans torsion, ne se transforment pas de manière covariante sous transformation générale de coordonnées : c'est donc toujours pas un tenseur. 
+    Même sans torsion, les coefficients de connexion ne se transforment pas de manière covariante sous transformation générale des coordonnées : ce ne sont donc toujours pas un tenseur. 
 \end{rmk}
 
 
@@ -834,7 +835,7 @@ La dérivée covariante $\nabla_{\mu}$ permet de formuler les lois de la physiqu
     \item Elles soient tensorielles (valables pour tout observateur),
     \item Elles satisfont au principe d'équivalence, c'est-à-dire qu'elles se ramènent localement aux lois de la physique sans gravitation.
 \end{enumerate}
-Illustrons ce procédé avec les équations de Maxwell. En relativité restreinte en l'absence de gravitation, (une partie des) équations de Maxwell s'écrit
+Illustrons ce procédé avec les équations de Maxwell. En relativité restreinte, i.e. en l'absence de gravitation, les équations de Maxwell s'écrivent
 \begin{equation}
     \partial_{\mu}F^{\mu \nu} = J^{\nu}
 \label{équation de Mawell 2}
@@ -859,10 +860,17 @@ Nous verrons au prochain chapitre que les coefficients de connexion encodent les
 \begin{rmk}
     Justifions cette procédure, qui peut, à première vue, sembler arbitraire. Etant donné un vecteur $A$ dans un certain référentiel, la forme de celui-ci est donné uniquement par la transformation \emph{tensorielle} de celui-ci. Autrement dit, étant donné un objet $A$ dans un certain référentiel, il existe une unique généralisation covariante, c'est-à-dire qui se transforme de manière tensorielle et qui se réduit à $A$ dans le référentiel donné.
 \end{rmk}
-\subsection{Interprétation géométrique de la torsion*}
-\href{https://youtu.be/nJpONHO_X5o?si=w-2czEDmyKMmQp6x}{WIP}
-\section{Sur le lien entre la dérivée covariante et la dérivée extérieure*}
-\href{https://youtu.be/SfOiOPuS2_U?si=J1I-q-oWcudEWOLY}{WIP}
+\begin{rmk}
+    Nuançons à présent la procédure présentée. Celle-ci ne permet en effet uniquement à la généralisation d'une seule dérivée covariante :
+    \begin{align}
+        \pd_\mu \pd_\nu \:\cancel{\to}\: \nabla_\mu \nabla_\nu
+    \end{align}
+    en raison de termes de dérivées secondes en la métrique apparaissant dans le terme de droite. Ceux-ci ne pourront donc en général pas être annulés, même dans un RLI. La raison pourquoi les équations de Maxwell sous la forme \ref{équation de Mawell vallablle dans tout les réf} sont bien tensorielles, alors que $F_{\mu\nu}$ comporte un autre jeu de dérivées, est que la combinaison précise donne bien un tenseur $F_{\mu\nu}$ (en vertu d'être une $2$-forme).
+\end{rmk}
+%\subsection{Interprétation géométrique de la torsion*}
+%\href{https://youtu.be/nJpONHO_X5o?si=w-2czEDmyKMmQp6x}{WIP}
+%\section{Sur le lien entre la dérivée covariante et la dérivée extérieure*}
+%\href{https://youtu.be/SfOiOPuS2_U?si=J1I-q-oWcudEWOLY}{WIP}
 \section{Courbure}
 Dans un espace-temps plat, si on transporte parallèlement un vecteur d'un point à un autre le long de deux chemins distincts, on obtient le même vecteur. Ce n'est plus nécessairement vrai dans une variété arbitraire : il n'y a pas moyen de comparer des vecteurs en différents points, ou en particulier calculer la variation d'un champ de tenseurs dans une direction donnée. C'est ce qui nous a amené à définir la notion de \emph{connexion affine} $\nabla$. L'avantage de travailler dans une variété (pseudo-)Riemannienne est l'existence et unicité d'une connexion privilégiée, appelée \emph{connexion de Levi-Civita}. Le tenseur de Riemann permettra de quantifier la courbure d'une variété munie d'une connexion de Levi-Civita.
 \begin{exmp}
@@ -884,6 +892,7 @@ Le tenseur de Riemann nous fournira une description locale de la courbure en tou
         telle que
         \begin{align}
             R(X,Y,Z) &=\nabla_{X}\nabla_{Y}Z - \nabla_{Y}\nabla_{X}Z - \nabla_{[X, Y]}Z\\
+            \nonumber
             &= \lt [\nabla_X,\nabla_Y] - \nabla_{[X,Y]} \rt Z
         \end{align}
     \end{defi}
@@ -893,13 +902,13 @@ où $[X, Y]$ est le crochet de Lie de deux champs de vecteurs défini comme
      [\, \cdot \,,\, \cdot \,]:\Zhe(\mathcal{M})\times \Zhe(\mathcal{M}) \rightarrow \Zhe(\mathcal{M}) : (X, Y) \mapsto [X, Y]= XY -YX
 \end{equation}
 ses composantes sont
-\begin{align}
+\begin{align*}
     [X, Y]f &= X(Y(f)) - Y(X(f))\\
     &= X^{\alpha}\partial_{\alpha}(Y^{\mu}\partial_{\mu}f) - Y^{\alpha}\partial_{\alpha}(X^{\mu}\partial_{\mu}f)\\
     &= X^{\alpha}\partial_{\alpha}Y^{\mu}\partial_{\mu}f + \cancel{X^{\alpha}Y^{\mu}\partial_{\alpha}\partial_{\mu}f} - Y^{\alpha}\partial_{\alpha}X^{\mu}\partial_{\mu}f - \cancel{Y^{\alpha}X^{\mu}\partial_{\alpha}\partial_{\mu}f}\\
     &= (X^{\alpha}\partial_{\alpha}Y^{\mu} - Y^{\alpha}\partial_{\alpha}X^{\mu} )\partial_{\mu}f\\
     &= [X, Y]^{\mu}\partial_{\mu}f
-\end{align}
+\end{align*}
 \begin{exerc}
     Montrer que $[X, Y]^{\mu}$ se transforme comme un vecteur.
 \end{exerc}
@@ -1271,3 +1280,8 @@ On utilisera également la forme :
 \end{proof}
 Notons qu'en 4 dimensions, le tenseur d'Einstein est l'unique combinaison non-triviale de la métrique (et de ses dérivées) qui est conservée \emph{identiquement} (i.e. sous aucune condition supplémentaire). C'est la raison pourquoi il sera important dans l'établissement du lien de la courbure avec le champ gravitationnel.
 \section*{Références}
+Coming soon...
+\begin{center}
+    \includegraphics[width=0.2\linewidth]{qr.png}\\
+    \footnotesize Feedback : \url{https://forms.office.com/e/tW1Ge8v6N8}
+\end{center}
