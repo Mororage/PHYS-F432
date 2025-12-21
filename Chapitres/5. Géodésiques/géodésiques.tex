@@ -376,7 +376,7 @@ On peut alors prendre la limite $m \to 0$ tel que
 \section{Observateurs localement inertiels revisités}
 Nous allons retravailler la formulation du principe d'équivalence dans le cadre des géodésiques.
 \begin{theoremframe}
-    \begin{theorem}
+    \begin{theorem}[d'existence de coordonnées normales]
         Soit une géodésique de genre temps. Il existe au moins un système de coordonnée $\{x^{\mu}\} = \{x^0 , x^k\}$ tel que le long de la géodésique :
         \begin{enumerate}[label = \roman*.]
             \item $x^k = 0$
@@ -508,7 +508,7 @@ L'équation des géodésiques donne alors
 \end{align}
 Et en développant les symboles de Christoffel autour de l'origine :
 \begin{align}
-    \pd_\gamma\Gamma\indices{^\mu_{\alpha\beta}}(0) v^\alpha v^\beta v^\gamma = 0
+    \cancel{\Gamma\indices{^\mu_{\!\alpha\beta}}(0)} v^\alpha v^\beta + \pd_\gamma\Gamma\indices{^\mu_{\alpha\beta}}(0) v^\alpha v^\beta v^\gamma + \dots = 0
 \end{align}
 Comme ceci vaut pour tout $v$ (i.e. pour n'importe quelle géodésique passant par $P$), on déduit que
 \begin{equation}
@@ -843,3 +843,8 @@ On remarque que l'accélération relative est complètement capturée par le ten
 où $C$ et $D$ sont des constantes. Ainsi $S^{\mu}$ est une fonction linéaire du temps. On retrouve les axiomes d'Euclide qui dit que deux lignes droites s'intersectent au plus une fois et que deux droites parallèles ne peuvent pas s'intersecter.
 \end{exmp}
 \section*{Références}
+Coming soon...
+\begin{center}
+    \includegraphics[width=0.2\linewidth]{qr.png}\\
+    \footnotesize Feedback : \url{https://forms.office.com/e/tW1Ge8v6N8}
+\end{center}

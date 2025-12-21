@@ -2,35 +2,37 @@
 \renewcommand\indexmarker{\cdot}
 
 \chapter{Éléments de Géométrie Différentielle}
-La relativité générale repose sur le PE qui stipule que, dans des régions suffisamment restreintes de l'espace-temps, un observateur ne peut distinguer un champ de gravitation d'une accélération constante. Il lui est donc impossible de détecter l'existence d'un champ de gravitation par le biais d'expériences locales : les lois de la physique doivent se réduire dans ces régions à celles de la relativité restreinte, dont nous avons revu quelques éléments-clefs. Une conséquence directe du PE est le décalage vers le rouge (redshift) de photons s'élevant dans un champ de gravitation, ce qui a suggéré que ceux-ci se déplaçaient dans un espace-temps courbe.
+La relativité générale repose sur le PE qui stipule que, dans des régions suffisamment restreintes de l'espace-temps, un observateur ne peut distinguer un champ de gravitation d'une accélération constante. Il lui est donc impossible de détecter l'existence d'un champ de gravitation par le biais d'expériences locales : les lois de la physique doivent se réduire dans ces régions à celles de la relativité restreinte, dont nous avons revu quelques éléments-clefs. Une conséquence directe du PE est le décalage vers le rouge (redshift) de photons s'élevant dans un champ de gravitation, ce qui nous avait suggéré que ceux-ci se déplaçaient dans un espace-temps courbe.
 
-Nous sommes donc amenés à décrire l'espace-temps par une structure mathématique qui ressemble localement à $\R^{1,3}$, mais qui peut posséder une \emph{courbure} non-triviale sur des régions étendues\footnote{De la même manière que le principe de relativité, et l'invariance de la vitesse de la lumière dans le vide pour tout référentiel inertiel, ont amené à unifier l'espace et le temps dans une structure commune via les transformations de Lorentz, à l'invariance de l'intervalle et à l'espace-temps de Minkowski.}
+Nous sommes donc amené\!·\!es à décrire l'espace-temps par une structure mathématique qui ressemble localement à $\R^{1,3}$, mais qui peut posséder une \emph{courbure} non-triviale sur des régions étendues\footnote{De la même manière que le principe de relativité, et l'invariance de la vitesse de la lumière dans le vide pour tout référentiel inertiel, ont amené à unifier l'espace et le temps dans une structure commune via les transformations de Lorentz, à l'invariance de l'intervalle et à l'espace-temps de Minkowski.}.
 
 Le type d'objet capturant ici ces propriétés est une \emph{variété}, qui est l'objet d'étude d'un domaine mathématique appelée la \emph{géométrie différentielle}. 
 
-Nous allons introduire en premier lieu la notion de \emph{tenseur} dans l'espace-temps plat (section 1), pour ensuite s'intéresser aux \emph{variétés} (section 2) qui nous permettrons de généraliser les définitions de tenseurs à des espace-temps courbes (section 3). Finalement, nous verrons à la section 4 une classe de tenseurs particulièrement utile, appelées \emph{formes différentielles}.
+Nous allons introduire en premier lieu la notion de \emph{tenseur} dans l'espace-temps plat (section \ref{sec:tenseurs plats}), pour ensuite s'intéresser aux \emph{variétés} (section \ref{sec:variétés}) qui nous permettrons de généraliser les définitions de tenseurs à des espace-temps courbes (section \ref{sec:tenseurs variétés}). Finalement, nous verrons à la section \ref{sec:formes} une classe de tenseurs particulièrement utile, appelées \emph{formes différentielles}.
 
-Une attention particulière sera portée à l'ordre des indices des matrices $\Lambda\indices{^\mu_\nu}$, qui n'est incluse que pour une raison de rigeur. Celui-ci pourra souvent être ignoré dans les calculs.
+Une attention particulière sera portée à l'ordre des indices des matrices $\Lambda\indices{^\mu_\nu}$, qui n'est inclus que pour une raison de rigeur. En pratique, ce détail est sans importance et peut être omis.
 \section{Tenseurs dans un espace-temps plat}
-
+\label{sec:tenseurs plats}
 \subsection{Espace tangent}
 On se place encore dans l'espace-temps de Minkowski $\mathcal{M} \equiv \R^{1,3}$ avant de généraliser les concepts à une variété différentielle $\mathcal{M}$ arbitraire.
 
 \begin{theoremframe}
     \begin{notat}
-        Soit $P\in \mathcal{M}$. L'espace tangent à $\mathcal{M}$ au point $P$ est noté $T_P\mathcal{M}$. C'est un espace vectoriel réel de dimension 4.
+        Soit $P\in \mathcal{M}$. L'espace tangent à $\mathcal{M}$ au point $P$ est noté $T_P\mathcal{M}$. C'est un espace vectoriel réel de dimension 4. Les éléments de $T_P\mathcal{M}$ sont appelés \textit{vecteurs} de $\M$ au point $P$. 
     \end{notat}
 \end{theoremframe}
-La définition précise d'un espace tangent sera donné après avoir introduit rigoureusement la notion de variété différentielle. Les éléments de $T_P\mathcal{M}$ sont appelés \textit{vecteurs} au point $P$. 
+La définition (mathématiquement) précise d'un espace tangent ne pourra être donné qu'après avoir introduit la notion de variété différentielle. 
 \begin{rmk}
-    La notion locale (au point $P$) de cette définition sera importante : un vecteur ne pourra pas être vu comme une flèche rejoignant le point $P$ à un autre point $Q \in \mathcal{M}$. Le vecteur \textit{ne vit pas} sur le même espace que les points $P$ et $Q$. Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_P\mathcal{M}$ coincident. On peut alors les voir comme des flèches rejoignant deux points distincts. Ce ne sera plus le cas si l'espace-temps est courbe.
+    La notion locale (au point $P$) de cette définition sera importante : un vecteur ne pourra pas être vu comme une flèche rejoignant le point $P$ à un autre point $Q \in \mathcal{M}$. Le vecteur \textit{ne vit pas} sur le même espace que les points $P$ et $Q$. Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_P\mathcal{M}$ coincident (en vertu du fait que $\R^{1,3}$ est lui-même un espace vectoriel) : on peut alors les voir comme des flèches rejoignant deux points distincts. Ce ne sera plus le cas si l'espace-temps est courbe.
 \end{rmk}
 \begin{theoremframe}
     \begin{defi}
-        L'union disjointe de tous les espaces tangents de $\mathcal{M}$ noté $T\mathcal{M}$ est appelé \textit{fibré tangent} de $\mathcal{M}$ :
+        L'union disjointe de tous les espaces tangents de $\mathcal{M}$, noté $T\mathcal{M}$, est appelé le \textit{fibré tangent} de $\mathcal{M}$ :
         \begin{align}
+            \nonumber
             T\M &= \bigsqcup_P T_P\mathcal{M} \\
             & = \bigcup_{P \in \M} \{ P\} \times T_P \M \\
+            \nonumber
             & = \{ (P,V) \mid P \in \M, \, V \in T_P\M\}
         \end{align}
     \end{defi}
@@ -38,11 +40,11 @@ La définition précise d'un espace tangent sera donné après avoir introduit r
 Comme $T_P\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\mathrm{e}_\alpha\}_\alpha$ de $T_P\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_P\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \mathrm{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Remarquons donc que bien que $V$ ne dépend pas du choix de la base, $V^\alpha$ dépend bien de ce choix.
 \begin{theoremframe}
     \begin{defi}
-        La donnée d'un vecteur $x_P \in T_P\M$ à tout point $P \in \M$ est un champ de vecteurs :
-        \begin{align}
-            U : \quad & \M \longrightarrow T_P\M \\
-            & P \longmapsto U(P)
-        \end{align}
+        La donnée d'un vecteur $x_P \in T_P\M$ en tout point $P \in \M$ est un champ de vecteurs :
+        \begin{align*}
+            U : \quad  \M &\longrightarrow T_P\M \\
+             P& \longmapsto U(P)
+        \end{align*}
     \end{defi}
 \end{theoremframe}
 L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
@@ -61,13 +63,13 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
 \end{propri}
 \end{theoremframe}
 \begin{proof}
-    Soit une courbe lisse $x^\mu(\lambda)$. Sous transformation de Poincaré $(\Lambda,a)$, cette courbe se transforme comme $x^{\mu'} = \Lambda\indices{^{\mu'}_{\mu}} \, x^\mu + a^{\mu'}$. Notons $V^\mu$ le vecteur tangent à la courbe au point $P$. Alors, par définition de $V$, on trouve
+    Soit un vecteur $V \in T_P\M$ et une courbe lisse $x^\mu(\lambda)$ telle que le vecteur tangent à la courbe au point $P$ est $V$. Sous transformation de Poincaré $(\Lambda,a)$, cette courbe se transforme comme $x^{\mu'} = \Lambda\indices{^{\mu'}_{\mu}} \, x^\mu + a^{\mu'}$. Alors, par définition de $V$, on trouve
     \begin{align}
         V^{\mu'} = \frac{\td x^{\mu'}}{\td \lambda} = \Lambda\indices{^{\mu'}_{\mu}} \, \frac{\td x^{\mu}}{\td \lambda} = \Lambda\indices{^{\mu'}_{\mu}}\, V^\mu
     \end{align}
 \end{proof}
 \begin{notat}
-    Dans la suite du cours, nous expliciterons des changements de référentiels par des indices (usuellement une barre dans ce syllabus), et non sur les quantités elles-mêmes. Par exemple : le vecteur $V$ peut s'écrire $V^\alpha$ dans un référentiel et $V^{\alpha'}$ dans un autre référentiel (à la place de $V'^{\alpha}$). Cette notation permet de facilement distinguer quel indice provient de quel référentiel.\footnote{Nous avons opté pour cette convention plutôt que celle des "primes" du cours magistral pour des raisons typographiques.} Il n'y a par ailleurs aucun lien entre la notation des vecteurs de base et les indices.
+    Dans la suite du cours, nous expliciterons des changements de référentiels par des indices (usuellement un prime dans ce syllabus), et non sur les quantités elles-mêmes. Par exemple : le vecteur $V$ peut s'écrire $V^\alpha$ dans un référentiel et $V^{\alpha'}$ dans un autre référentiel (à la place de $V'^{\alpha}$). Cette notation permet de facilement distinguer quel indice provient de quel référentiel. Il n'y a par ailleurs aucun lien entre la notation des vecteurs de base et les indices.
 \end{notat}
 \begin{theoremframe}
     \begin{propri}
@@ -79,13 +81,13 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
 \end{theoremframe}
 \begin{proof}
     La décomposition d'un vecteur dans deux référentiels inertiels différents s'écrit
-    \begin{equation}
+    \begin{equation*}
         V = V^{\mu} \, \mathrm{e}_{\mu} = V^{\alpha'} \,\mathrm{e}_{\alpha'}
-    \end{equation}
+    \end{equation*}
     Ainsi,
-    \begin{equation}
+    \begin{equation*}
         V^{\alpha'}\, \mathrm{e}_{\alpha'} = \Lambda\indices{^{\alpha'}_{\mu}} \, V^\mu \,\mathrm{e}_{\alpha'} = V^\mu \,\mathrm{e}_{\mu}
-    \end{equation}
+    \end{equation*}
     Comme ceci est valable pour $V^\mu$ arbitraire, on conclut que 
     \begin{equation}
         \label{eq:preuve loi base vecteur}
@@ -93,16 +95,17 @@ L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
     \end{equation}
     En remarquant que $\Lambda$ vérifie\footnote{Via $\Lambda \eta \Lambda^T = \eta$.}
     \begin{equation}
-        \Lambda\indices{_{\alpha}^\mu}\, \eta_{\mu\nu} \,\Lambda\indices{_{\beta}^\nu} = \eta_{\alpha\beta}
+    \nonumber\Lambda\indices{_{\alpha}^\mu}\, \eta_{\mu\nu} \,\Lambda\indices{_{\beta}^\nu} = \eta_{\alpha\beta}
     \end{equation}
     on trouve la propriété
     \begin{equation}
         \label{eq:id lambda}
         \Lambda\indices{_{\alpha}^\mu} \, \Lambda\indices{^\beta_\mu} = \delta^\beta_{\alpha}
     \end{equation}
-    Ceci permet de conclure, en multipliant l'équation (\ref{eq:preuve loi base vecteur}) par $\Lambda\indices{_{\alpha'}^{\mu}}$ que
+    Ceci permet de conclure, en multipliant l'équation (\ref{eq:preuve loi base vecteur}) par $\Lambda\indices{_{\mu'}^{\mu}}$ que
     \begin{equation}
-        \mathrm{e}_{\alpha'} = \Lambda\indices{_{\alpha'}^{\mu}}\, \mathrm{e}_{\mu}
+    \nonumber
+        \mathrm{e}_{\mu'} = \Lambda\indices{_{\mu'}^{\mu}}\, \mathrm{e}_{\mu}
     \end{equation}
 \end{proof}
 
@@ -131,12 +134,12 @@ On peut définir une base $\{\Theta^\mu\}_\mu$ sur l'espace co-tangent selon l'i
     \Theta^\mu(\mathrm{e}_\nu)=\delta^\mu_\nu
 \end{equation}
 Dans cette base, un covecteur $w\in T_P^*\mathcal{M}$ s'écrit $w = w_\alpha \theta^\alpha$. Soit $V \in T_P\mathcal{M}$:
-\begin{align}
+\begin{align*}
     w(V) &= w_{\alpha} \Theta^{\alpha}(V^{\mu} \mathrm{e}_\mu)\\
     &=w_{\alpha} V^{\mu}\Theta^{\alpha} (\mathrm{e}_{\mu})\\
     &= w_{\alpha} V^{\mu}\delta^{\alpha}_{\mu}\\
     &= w_{\alpha} V^{\alpha} \in \R
-\end{align}
+\end{align*}
 Cette expression ne dépend pas du choix de la base. De plus, elle ne comporte pas d'indices libres. Un tel terme est appelé \emph{scalaire de Lorentz}. On peut l'écrire de manière équivalente comme $w(V) = w_{\alpha} V^{\alpha} = w_{\alpha '} V^{\alpha '} $.
 \begin{rmk}
     \label{rmk:tangent^2}
@@ -152,17 +155,17 @@ Cette expression ne dépend pas du choix de la base. De plus, elle ne comporte p
 \end{theoremframe}
 \begin{proof}
     On vient de voir que $w(V)$ est un scalaire de Lorentz:
-    \begin{equation}
+    \begin{equation*}
         w(V) = w_{\alpha} V^{\alpha} = w_{\alpha'} V^{\alpha'} 
-    \end{equation}
+    \end{equation*}
     Et donc par la loi de transformation d'un vecteur, on a
-    \begin{equation}
+    \begin{equation*}
         w_{\alpha} V^{\alpha} = w_{\alpha'}\, \Lambda\indices{^{\alpha'}_{\mu}} V^\mu
-    \end{equation}
+    \end{equation*}
     Comme ceci est valable pour tout vecteur $V$, on peut écrire
-    \begin{equation}
+    \begin{equation*}
         w_{\alpha}  = w_{\alpha'} \,\Lambda\indices{^{\alpha'}_{\alpha}}
-    \end{equation}
+    \end{equation*}
     Et on trouve le résultat recherché en utilisant l'identité (\ref{eq:id lambda}).
 \end{proof}
 
@@ -194,11 +197,11 @@ On peut généraliser les notions de vecteur et covecteur à un tenseur.
     \end{defi}
 \end{theoremframe}
 \begin{exmp}
-    Si on considère un vecteur comme un élément du duel de l'espace cotangent (équivalent d'après la remarque \ref{rmk:tangent^2}) :
-\begin{align}
+    Si on considère un vecteur comme un élément du dual de l'espace cotangent (équivalent d'après la remarque \ref{rmk:tangent^2}) :
+\begin{align*}
     V \in T_{p}\mathcal{M} : \quad &T^*_{p}\mathcal{M} \longrightarrow \mathbb{R}\\
     & \omega \longmapsto V(\omega)
-\end{align}
+\end{align*}
 alors on pourra voir le vecteur $V$ comme un tenseur $(1, 0)$. Similairement, on pourra voir le covecteur $w$ comme un tenseur $(0, 1)$. 
 \end{exmp}
 \begin{exmp}
@@ -223,7 +226,7 @@ Un tenseur de type $(k,l)$ se décompose donc sur cette base comme
     \begin{propri}
         Un tenseur de type $(k,l)$ se transforme sous transformation de Poincaré comme\footnote{Ici, $\times$ est utilisé pour la multiplication usuelle et non comme produit direct.}
         \begin{equation}
-            T\indices{^{{\alpha}_1' \cdots {\alpha}_k'}_{{\nu_1'} \cdots {\nu_l'}}} = \Lambda\indices{^{\alpha_1'}_{\!\alpha _1 }} \times \cdots \times \Lambda\indices{^{\alpha_k'}_{\!\alpha_k}} \times \Lambda\indices{_{\nu_1' }^{\!\nu_1 }} \times \cdots \times \Lambda\indices{_{\nu_k'}^{\!\nu_k}} \times T\indices{^{\alpha _1 \cdots \alpha _k}_{\nu_1 \cdots \nu_l}}.
+            T\indices{^{{\alpha}_1' \cdots {\alpha}_k'}_{{\nu_1'} \cdots {\nu_l'}}} = \Lambda\indices{^{\alpha_1'}_{\!\alpha _1 }} \times \cdots \times \Lambda\indices{^{\alpha_k'}_{\!\alpha_k}} \times \Lambda\indices{_{\nu_1' }^{\!\nu_1 }} \times \cdots \times \Lambda\indices{_{\nu_l'}^{\!\nu_l}} \times T\indices{^{\alpha _1 \cdots \alpha _k}_{\nu_1 \cdots \nu_l}}.
         \end{equation}
         La transformation implique donc $k+l$ matrices de Lorentz.
     \end{propri}
@@ -294,7 +297,7 @@ Les équations de Maxwell sont:
         \vect{\nabla} \times \vect{B} -\partial_{t} \vect{E} = \vect{J}  \\
         \vect{\nabla} \cdot \vect{E} = \rho\\
         \vect{\nabla} \cdot \vect{B} = 0\\
-        \vect{\nabla} \times \partial_t \vect{B} = \vect{0}
+        \vect{\nabla} \times E + \partial_t \vect{B} = \vect{0}
     \end{dcases}
 \end{align}
 L'objet qui nous permettra d'écrire ces équations sous forme tensorielle est le tenseur de Faraday :
@@ -306,8 +309,8 @@ L'objet qui nous permettra d'écrire ces équations sous forme tensorielle est l
     E_2 & -B_3 & 0 & B_1\\
     E_3 & B_2 & -B_1 & 0
     \end{pmatrix} \quad \iff \quad \begin{dcases}
-        F^{0i} = E^i\\
-        F^{ij} = - \varepsilon^{ijk}B_k
+        F_{0i} = -E_i\\
+        F_{ij} =  \varepsilon_{ijk}B^k
     \end{dcases}
 \end{align}
 Ce tenseur est anti-symétrique $F_{\mu \nu} = - F_{\nu \mu}$. Introduisons les notations de \emph{symétrisation} et \emph{anti-symétrisation} :
@@ -331,7 +334,6 @@ où $S_n$ est le groupe des permutations à r-éléments. Ce groupe contient $n!
         1 & 2 & 3 & \cdots & n 
     \end{pmatrix}
 \end{equation*}
-
 En comparant à la permutation suivante :
 \begin{equation*}
     s = 
@@ -379,10 +381,10 @@ Notons qu'une (anti-)symétrisation partielle est également possible. Nous écr
         On peut monter et descendre les indices spatiaux sans conséquences $E^{i} = \eta^{ij}E_{j} = E_{i}$.
     \end{rmk}
     Par définition du tenseur de Faraday, on a
-    \begin{equation}
+    \begin{equation*}
         F_{0i} = -E_i
-    \end{equation}
-    Remarquons que alors
+    \end{equation*}
+    Remarquons qu'alors
     \begin{equation}
         F^{0i} = \eta ^{0 \alpha} \eta ^{i\beta} F_{\alpha \beta} = (-1)(+1)F_{0i} = -F_{0i} = E_i
         \label{Faraday}
@@ -393,9 +395,9 @@ Notons qu'une (anti-)symétrisation partielle est également possible. Nous écr
         \label{Loi de Gauss tensoirel}
     \end{equation}
     Comme $F^{\mu \nu}$ est antisymétrique, on a que $F^{00} = 0$. On peut donc réécrire (\ref{Loi de Gauss tensoirel}) comme
-    \begin{equation}
+    \begin{equation*}
         \partial_{\alpha}F^{0\alpha} = J^0
-    \end{equation}
+    \end{equation*}
     De manière similaire, il est possible d'y intégrer la loi d'Ampère pour donner
     \begin{equation}
         \label{eq:faraday tot}
@@ -409,18 +411,19 @@ Notons qu'une (anti-)symétrisation partielle est également possible. Nous écr
         \Lambda\indices{_{\mu}^{\nu '}}\, \partial_{\nu '}(\Lambda\indices{^{\mu}_{\alpha'}}\,\Lambda\indices{^{\nu}_{\beta '}}\,F^{\alpha ' \beta '} ) =  \Lambda\indices{^{\nu }_{\alpha'}}\, J^{\alpha '}
     \end{equation}
     par la loi de transformation tensorielle. Comme les matrices $\Lambda ^{\mu}_{\alpha'}$ et $\Lambda ^{\nu}_{\beta '}$ sont constantes, on peut les sortir de la dérivée. 
-    \begin{align}
+    \begin{align*}
         \overbrace{\Lambda\indices{_\mu^{\nu '}}\, \Lambda\indices{^{\mu}_{\alpha'}}}^{\displaystyle\delta^{\nu '}_{\alpha' }}\Lambda\indices{^{\nu}_{\beta '}}\, \partial_{\nu '} F^{\alpha ' \beta '} & =  \Lambda\indices{^{\nu }_{\alpha'}}\,J^{\alpha '} \\
         \implies \Lambda\indices{^{\nu}_{\beta '}}\, \partial_{\nu '} F^{\nu ' \beta '}  &=  \Lambda\indices{^{\nu }_{\alpha'}}\, J^{\alpha '}
-    \end{align}
+    \end{align*}
     Et en multipliant des deux côtés par $\displaystyle\Lambda\indices{_\nu^{\gamma'}}$, on obtient bien
     \begin{equation}
         \partial_{\alpha '}F^{\alpha ' \gamma '} = J^{\gamma '}
     \end{equation}
-    Ceci montre bien que dans l'exemple des lois de Maxwell, l'expression tensorielle dans un système inertiel est en effet valable pour tout référentiel.
+    Ceci montre bien que dans l'exemple des lois de Maxwell, son expression reste la même dans tout référentiel inertiel, en vertu de se transformer sous une loi de transformation covariante (sous Poincaré).
     }
 \end{proof}
 \section{Variétés différentielles}
+\label{sec:variétés}
 Nous allons à présent considérer un espace-temps $\mathcal{M}$ avec courbure. Introduisons d'abord quelques notions périphériques, pour ensuite définir les \emph{variétés différentielles}. Nous verrons au chapitre suivant que ce formalisme donnera effectivement lieu à une notion de courbure.
 \begin{theoremframe}
     \begin{defi}
@@ -585,12 +588,14 @@ ou de manière équivalente
 \begin{align}
 \label{eq:stereoN}
     \varphi_N : \quad S^2\backslash\{N\} &\longrightarrow \R^2 \\ 
+    \nonumber
     (x^1,x^2,x^3) &\longmapsto \frac{1}{1-x^3} (x^1,x^2)
 \end{align}
 Similairement, la projection stéréographique par rapport au pôle sud est
 \begin{align}
     \label{eq:stereoS}
     \varphi_S: \quad S^2\backslash \{S\} &\longrightarrow \R^2 \\
+    \nonumber
     (y^1,y^2,y^3) &\longmapsto \frac{1}{1+y^3} (y^1,y^2)
 \end{align}
 Montrons à présent que $\{ (S^2\backslash\{N\}, \varphi_N), (S^2\backslash\{S\}, \varphi_S)\}$ est un atlas lisse de $S^2$. Pour ce, nous devons principalement montrer que les fonctions de transitions sont lisses\footnote{En effet, l'atlas couvre $S^2$ et les cartes locales sont des homéomorphismes (exercice).}. On cherche à calculer
@@ -607,15 +612,15 @@ Et, en utilisant la contrainte de $S^2$ :
     (z^1)^2 + (z^2)^2 = \frac{1 - (x^3)^2}{(1-x^3)^2} = \frac{1 + x^3}{1-x^3}.
 \end{equation}
 Ceci nous permet d'isoler et de réinjecter $x^3$ dans (\ref{eq:1 altasS2}) :
-\begin{align}
+\begin{align*}
     \psi_N = \varphi_N^{-1}: \quad \R^2 &\longrightarrow S^2\backslash \{N\}\\
     (u,v) &\longmapsto \frac{1}{1+u^2 +v^2} \lt 2 u,2v, -1 + u^2+v^2 \rt.
-\end{align}
+\end{align*}
 La fonction de transition est alors
-\begin{align}
+\begin{align*}
     \varphi_S \circ \psi_N :\quad \R^2_0 &\longrightarrow \R^2\\
     (u,v) &\longmapsto \frac{(u,v)}{u^2+v^2}
-\end{align}
+\end{align*}
 qui est lisse sur $\R^2_0$. Remarquons que $\psi_N(0,0) = (0,0,-1)=S$, donc notre domaine de définition est bien correct (comme $\varphi_S$ n'est pas définie en $S$, nous devons exclure $(0,0)$ du domaine).
 \begin{align}
     \psi_N ( S^2\backslash\{S\} \cap S^2\backslash\{N\}) = \psi_N ( S^2\backslash\{N,S\}) = \R^2_0.
@@ -628,7 +633,8 @@ Nous avons donc trouvé un atlas lisse de $S^2$.
 \begin{exerc}
     Montrez qu'un atlas global de $S^2$ n'existe pas (indice : utiliser la compacticité de la sphère).
 \end{exerc}
-\section{Variétés différentielles et tenseurs}
+\section{Tenseurs revisités}
+\label{sec:tenseurs variétés}
 Nous devons retravailler la notion de tenseur introduite précédemment dans le cadre d'un espace-temps plat, afin qu'elle soit \emph{intrinsèque} à $\mathcal{M}$ : une variété arbitraire n'est pas un espace vectoriel et un vecteur ne peut donc pas être défini sur l'espace lui-même, il faut passer par les espaces tangents. Heureusement pour nous, la plupart des notions vues au début de ce chapitre se généralisent naturellement à une variété arbitraire. Il subsiste néanmoins quelques différences, dont nous discuterons dans cette section. Fixons un point $m\in \mathcal{M}$ (disons, à $\dim \mathcal{M} = n$) et une courbe $\gamma$ dans $\mathcal{M}$ telle que $\gamma(0)=m$.
 \begin{theoremframe}
     \begin{defi}
@@ -641,16 +647,16 @@ Nous devons retravailler la notion de tenseur introduite précédemment dans le 
 \end{theoremframe}
 Un vecteur tangent peut donc être vu comme une dérivée directionnelle s'appliquant sur les fonctions le long d'une courbe en $\lambda=0$. Nous abuserons parfois de cette notation en écrivant $X = \frac{\td}{\td \lambda}$. Notons que (\ref{eq: vectvar}) s'écrit en composantes :
 \begin{equation}
-    X_i f = \left. \frac{\td}{\td \lambda}\right|_{\lambda=0}  f \circ \gamma_i(\lambda).
+    X^i_m f = \left. \frac{\td}{\td \lambda}\right|_{\lambda=0}  f \circ \gamma^i(\lambda).
 \end{equation}
 Soit une carte locale $(U,\varphi)$ de $\mathcal{M}$ au point $m$. Notons $F = f \circ \varphi^{-1} : \R^m\to \R$ et $x^\mu(\gamma) = \varphi \circ \gamma: \R \to \R^m$ les représentations en coordonnées de $f$ et $\gamma$ dans cette carte locale. On trouve alors
-\begin{align}
+\begin{align*}
     X_m f = \left. \frac{\td}{\td \lambda}\right|_{\lambda=0}  f \circ \gamma(\lambda) &= \left. \frac{\td}{\td \lambda}\right|_{\lambda=0}  f \circ \varphi^{-1} \circ \varphi \circ \gamma(\lambda)\\
     & = \left. \frac{\td}{\td \lambda}\right|_{\lambda=0}  F \circ x^\mu(\gamma((\lambda))
-\end{align}
+\end{align*}
 S'agissant à présent de fonctions dans des espaces euclidiens, nous pouvons appliquer la règle de la chaine.
 \begin{align}
-    X_mf = \left. \frac{\pd F}{\pd x^\mu} \right|_{x^\mu=x^\mu(m)} \left. \frac{\pd x^\mu}{\pd \lambda} \right|_{\lambda = 0} (\gamma(\lambda))
+    X_mf = \left. \frac{\pd x^\mu}{\pd \lambda} (\gamma(\lambda))\right|_{\lambda = 0} \left. \frac{\pd F}{\pd x^\mu} \right|_{x^\mu=x^\mu(0)}
 \end{align}
 En omettant la différence entre la fonction $f$ et sa représentation locale $F$, nous écrirons
 \begin{align}
@@ -687,8 +693,8 @@ où nous sous-entendons $x^{\mu} = x^{\mu}( \gamma(\lambda))$. Les vecteurs $X =
 %\label{Parabolique 2}
 \end{center}
 \cutebreak
-\subsubsection{Loi de transformation des vecteurs}
-Les vecteurs sont indépendants de la base et du choix de la carte locale. Sous changement général de coordonnées (difféomorphisme), les composantes $X_\mu$ d'un vecteur se transforment selon
+\subsection{Loi de transformation des vecteurs}
+Les vecteurs sont indépendants de la base et du choix de la carte locale. Sous changement général de coordonnées (difféomorphisme) $x^\mu \to x^{\mu'}$, les composantes $X_\mu$ d'un vecteur se transforment selon
     \begin{align}
         \boxed{X^\mu \to X^{\mu'} = \frac{\td x^{\mu'}}{\td \lambda} = \frac{\pd x^{\mu'}}{\pd x^\alpha} \frac{\td x^\alpha}{\td \lambda} = \frac{\pd x^{\mu'}}{\pd x^\alpha} X^\alpha}
     \end{align}
@@ -711,10 +717,10 @@ de sorte que $X$ soit invariant sous difféomorphisme. Remarquons qu'il s'agit i
     Démontrez ces égalités.
 \end{exerc}
 Pour récapituler, nous avons trouvé qu'un vecteur dans $T_m\mathcal{M}$ peut être vu comme une application
-\begin{align}
+\begin{align*}
     X_m : \quad C^\infty(U) &\longrightarrow \quad\R\\
     f \quad&\longmapsto X_m f = \left. X^\mu_m \pd_\mu f \right|_{x^\mu(m)}
-\end{align}
+\end{align*}
 où $U$ est un voisinage de $m$. Nous définirons par ailleurs un champ de vecteurs comme la donnée d'un vecteur en tout point $m \in \mathcal{M}$.
 \begin{equation}
     \chi: \M \to T\M
@@ -732,10 +738,10 @@ où pour rappel l'espace $T^*_m \mathcal{M}$ est le dual de $T_m\mathcal{M}$, é
 
 \begin{exmp}
     Soit $f\in C^\infty(\mathcal{M})$. La différentielle $\td f$ de $f$ au point $m\in \mathcal{M}$ est un covecteur. Son action est définie par
-    \begin{align}
+    \begin{align*}
         \left. \td f \right|_m : \quad T_m \mathcal{M} &\longrightarrow \quad  \R \\
         X \quad&\longmapsto \td f (X) = X(f) = \left. X^\mu_m \pd_\mu f \right|_m.
-    \end{align}
+    \end{align*}
     On se souviendra qu'une base de l'espace cotangent est donnée par $\{ \td x^\nu\}$. Nous avions également trouvé que la relation entre la base de l'espace tangent et de l'espace co-tangent est
     \begin{equation}
         \td  x^\mu (\pd_\nu) = \delta\indices*{^\mu_\nu}
@@ -750,11 +756,11 @@ où pour rappel l'espace $T^*_m \mathcal{M}$ est le dual de $T_m\mathcal{M}$, é
     \end{equation}
 \end{exmp}
 \cutebreak
-Montrons à présent que selon notre définition, $w(X)$ est bien scalaire. Dans une carte locale, on a
+Cherchons à présent la loi de transformation d'un covecteur. Par définition, $w(X) \in \R$ est bien scalaire. Dans une carte locale, on a
 \begin{equation}
     w(X) = w_\mu \td x^\mu (X^\nu \pd_\nu ) = w_\mu X^\nu \td x^\mu (\pd_\nu) = w_\mu X^\nu \delta\indices*{^\mu_\nu} = w_\mu X^\mu
 \end{equation}
-Où nous avons utilisé la linéarité de $\td x^\mu$. On conclut que $w(X)$ est bien un scalaire. Sous changements de coordonnées général (difféomorphisme), on trouve donc via l'invariance de $w(X)$ et la loi de transformation de $X$ que
+Où nous avons utilisé la linéarité de $\td x^\mu$. Sous transformation générale de coordonnées, on trouve donc via l'invariance de $w(X)$ et la loi de transformation de $X$ que
 \begin{equation}
     w_\mu X^\mu = w_{\mu'} X^{\mu'} = w_{\mu'} \frac{\pd x^{\mu'}}{\pd x^\mu} X^\mu
 \end{equation}
@@ -810,6 +816,7 @@ Comme nous nous intéresserons exclusivement à des espaces à dimension finie, 
     \end{enumerate}
 \end{exmp}
 \section{Les p-formes différentielles}
+\label{sec:formes}
 Nous souhaitons pouvoir définir une structure différentielle sur notre variété, c'est-à-dire construire une manière de différencier un tenseur quelconque sur notre variété, ce qui nous permettrait d'étudier des systèmes dynamiques (i.e. des équations différentielles). Or, un problème apparaît lorsqu'on s'intéresse à la quantité $\pd_\mu w_\nu$. Sous changement général de coordonnées, cette quantité varie selon
 \begin{align}
 \nonumber
@@ -942,7 +949,8 @@ les objets de type $\pd_\mu \omega _\nu$ se transforment bien de manière covari
 \end{equation}
 alors celle-ci reste valable dans tout référentiel. Nous avons ainsi trouvé une manière de généraliser une équation valable en relativité restreinte (espace-temps plat) vers une équation valable dans une variété courbe arbitraire (covariant sous changement général des coordonnées). Néanmoins, celle-ci n'est valable que dans le cas des $p$-formes. Dans le chapitre suivant, nous allons construire une théorie différentielle définie pour tout tenseur : la dérivée covariante.
 
-Terminons cette section par une introduction informelle à la théorie de cohomologie.
+\subsection{Cohomologie}
+Terminons cette section par une introduction informelle à la théorie de cohomologie. Nous invitons le (la) lecteur(ice) intéressé(e) à suivre le cours de Géométrie Différentielle II.
 \begin{theoremframe}
     \begin{defi}
         Une $p$-forme $\omega $ est dite \emph{fermée} si $\td \omega  = 0$. Elle est dite \emph{exacte} s'il existe une $(p-1)$-forme $\eta$ telle que $\omega =\td \eta$.
@@ -1006,5 +1014,9 @@ On peut interpréter ce groupe comme une mesure de l'obstruction pour une $p$-fo
     \omega  \sim \omega ' \iff \exists \eta \in \Omega^{p-1}, \omega  = \omega ' + \td \eta
 \end{equation}
 Autrement dit, $\omega $ et $\omega '$ ne diffèrent que d'un élément de $B^p$. Lorsque $\mathcal{M}$ est tel que toute forme fermée est exacte, on a $H^p(\mathcal{M})=0$ (car alors toute $p$-forme est équivalente à la $p$-forme nulle). De manière générale, la dimension des classes de cohomologie (qui requiert usuellement la résolutions d'équations différentielles) ne dépend que de la topologie de $\mathcal{M}$. Par exemple, si la variété est homéomorphe à $\R^n$, alors $H^p(\mathcal{M}) = 0$ pour tout $p>0$.\\
-Nous invitons le lecteur à considérer le chapitre 6 de Nakahara.
 \section*{Références}
+Coming soon...
+\begin{center}
+    \includegraphics[width=0.2\linewidth]{qr.png}\\
+    \footnotesize Feedback : \url{https://forms.office.com/e/tW1Ge8v6N8}
+\end{center}

@@ -3,7 +3,7 @@
 \usepackage[T2A,T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{csquotes}
-\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
+% \usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
 
 % Mathématiques et symboles
 \usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools, bm}
@@ -29,11 +29,6 @@
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*, label=\textbullet}
 
-\usepackage[colorlinks=true,
-            linkcolor=blue,   % color of internal links (sections, equations)
-            citecolor=red,    % color of citations
-            urlcolor=magenta  % color of URLs
-           ]{hyperref}
 \usepackage{fullpage}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -105,3 +100,10 @@
     \advance\mytemplen #2\relax
     \dp\mytempbox\mytemplen
     \colorbox{myblue}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}
+
+
+\usepackage[colorlinks=true,
+            linkcolor=blue,   % color of internal links (sections, equations)
+            citecolor=red,    % color of citations
+            urlcolor=magenta  % color of URLs
+           ]{hyperref}
