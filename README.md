@@ -23,11 +23,12 @@ Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veui
 Vous pouvez me contacter par mail via moritzschnor@ulb.be
 
 ## Change logs
-- Version 1.5 (à venir) :
+- Version 1.5 (21/12) :
   - Ajout d'une collection de graphes TikZ maison :)
+  - Ajout d'une section facultative sur le terme de bord de l'action EH.
   - Chapitre 2 et 3 :corrections typographiques et d'erreurs mineures.
   - Correction dans la loi de transformation des covecteur : w(X) est par définition scalaire, la loi des covecteurs en est déduite.
-  - Chapitre 6 : corrections typographiques, rework mineure de l'ordre des propriétés. Le plan sera probablement de rajouter dans ce chapitre deux sections sur le formalisme Hamiltonien et le terme de bord de l'action d'EH.
+  - Chapitre 6 : corrections typographiques, rework mineure de l'ordre des propriétés. 
 - Version 1.4 (15/12) :
   - Rajouté section facultative sur les diagrammes de Penrose (illustré avec Minkowski).
   - Clarifié la section facultative sur les hypersurfaces de Cauchy (toujours en attente du schéma).
