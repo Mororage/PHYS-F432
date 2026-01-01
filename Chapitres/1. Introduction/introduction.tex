@@ -117,7 +117,7 @@ Cette similarité soulève une question importante : pourquoi l'électromagnéti
     Le champ électromagnétique peut donc être complètement décrit par les potentiels $(\vect{A},\phi)$. 
 \end{rap}
 \begin{rap}
-    Le \emph{tenseur de Faraday} (également appelé le \emph{tenseur d'intensité du champ EM}) est un tenseur complètement anti-symmétrique donné par
+    Le \emph{tenseur de Faraday} (également appelé le \emph{field strength tensor}) est un tenseur complètement anti-symmétrique donné par
     \begin{equation}
     \label{eq:Farady intro}
         F\indices{_\mu_\nu} \deq \pd_\mu A_\nu - \pd_\nu A_\mu
@@ -129,13 +129,17 @@ Cette similarité soulève une question importante : pourquoi l'électromagnéti
 \cutebreak
 Armé de ces définitions, les équations de Maxwell peuvent être exprimées sous une forme tensorielle\footnote{Nous reviendrons sur cette formulation plus en détail dans la suite du cours. En particulier, la notation $[]$ sur les indices peut être ignorée pour le moment.} :
 \begin{align}
+    \label{eq:maxwell ch1}
     \begin{dcases}
         \pd\indices{_\mu} F\indices{^\mu^\nu} = J\indices{^\nu} \\
         \partial\indices{_[ _\alpha} F\indices{_\mu_\nu _]} = 0
     \end{dcases}
 \end{align}
 où $J^\mu = (c \rho,\vect{A})$ est le quadri-courant. Dans cette forme, les équations de Maxwell sont manifestement invariantes de Lorentz\footnote{Pour être tout à fait exact, il s'agit d'une covariance. De nouveau, nous y reviendrons plus tard.}.
-\\
+\begin{exerc}
+    \label{exercice:maxwell1}
+    Montrez que la seconde équation de (\ref{eq:maxwell ch1}) est identiquement satisfaite par (\ref{eq:Farady intro}). En effet, la description par un potentiel implique directement les équations de Maxwell homogènes ($\vect{\nabla} \times \vect{E} + \pd_t \vect{B}= 0$ et $\vect{\nabla} \cdot \vect{B} = 0$). 
+\end{exerc}
 Vu qu'il s'agit d'équations tensorielles (pour des transformations de Lorentz), elles sont valables dans n'importe quel référentiel inertiel, et leur covariance est immédiate (voir ci-dessous).
 \begin{itemize}
     \item \textbf{Loi de transformation de la force de Coulomb}\\

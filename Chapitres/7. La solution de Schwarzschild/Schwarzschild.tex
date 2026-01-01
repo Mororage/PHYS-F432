@@ -614,7 +614,7 @@ Soit une planète de masse $m$ dans le champ de gravitation d'un corps de masse 
 \begin{equation}
     \frac{\td^2 \vect{x}}{\td t^2} = - \vect{\nabla} \Phi, \quad \Phi = - \frac{GM}{r}
 \end{equation}
-On peut supposer que le mouvement se fait dans le plan $\theta = \frac{\pi}{2}$, résultant de la conservation de la direction du vecteur moment angulaire, qui est une constante du mouvement pour un potentiel central. Le mouvement s'effectue donc dans un plan, qu'on choisi être $\frac{\pi}{2}$. Le système possède deux (autres) intégrales premières :
+On peut supposer que le mouvement du corps se fait dans le plan $\theta = \frac{\pi}{2}$, résultant de la conservation de la direction du vecteur moment angulaire, qui est une constante du mouvement pour un potentiel central. Le mouvement s'effectue donc dans un plan, qu'on fixe à $\frac{\pi}{2}$. Le système possède deux (autres) intégrales premières :
 \begin{enumerate}
     \item Conservation de l'amplitude du moment angulaire :
     \begin{equation}
@@ -631,12 +631,12 @@ Comme en coordonnées polaires, la vitesse s'écrit $\vect{v} = \dot{r} \vect{u}
 \begin{equation}
     \frac{1}{2} (\dot{r}^2+r^2\dot{\varphi}^2) - \frac{GM}{r} = E
 \end{equation}
-Par la première constante du mouvement, $r^2 \dot{\varphi}^2 = a^2/r^2$, on obtient l'équation
+Par la première constante du mouvement, $r^2 \dot{\varphi}^2 = a^2/r^2$ et on obtient finalement
 \begin{equation}
     \label{eq:kepler newton}
     \frac{1}{2} \dot{r}^2 = E - V_\text{eff}(r), \quad V_\text{eff}(r) \equiv \frac{a^2}{2r^2} - \frac{GM}{r}
 \end{equation}
-le premier terme étant associé au potentiel centrifuge et le deuxième au potentiel gravitationnel. Les trajectoires possibles d'une particule sont obtenues en comparant l'énergie $E$ à $V_\text{eff}(r)$, dont la forme dépend de $a$. En effet, si pour $r=\mathfrak{r}$, $E < V_\text{eff}(\mathfrak{r})$ alors $\dot{\mathfrak{r}}^2 < 0$ : la trajectoire est impossible.\\
+le premier terme étant associé au potentiel centrifuge et le deuxième au potentiel gravitationnel. Les trajectoires possibles d'une particule sont obtenues en comparant l'énergie $E$ à $V_\text{eff}(r)$, dont la forme dépend de $a$. En effet, si  $E < V_\text{eff}(r)$ alors $\dot{r}^2 < 0$ : la trajectoire est impossible.\\
 \\
 Les orbites circulaires sont les géodésiques vérifiant $r = $ cste et $\dot{r} = 0$ correspondent aux solutions de $V'_\text{eff}(r) = 0$
 \begin{equation}
@@ -646,7 +646,7 @@ Elles existent donc pour tout $a\neq 0$.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{Chapitres/7. La solution de Schwarzschild/Images/orbites newtoniens.pdf}
-    \caption{Représentation du potentiel pour deux valeurs de $a$ (et $GM=1$). Différentes valeurs d'énergie des particules vont déterminer le type de mouvement suivi. Deux énergies y sont illustrés, pour lesquelles la particule suit soit une ellipse $(E_1$) ou une hyperbole ($E_2$).}
+    \caption{Représentation du potentiel pour deux valeurs de $a$ (et $GM=1$). Différentes valeurs d'énergie des particules vont déterminer le type de mouvement suivi. Deux énergies y sont illustrés, pour lesquelles la particule suit soit une ellipse $(E_1$) ou une hyperbole ($E_2$). Pour une énergie donnée, sont permis uniquement les rayons tels que $V<E$. Lorsque la trajectoire arrive en $V=E$, elle est réfléchie.}
     \label{fig:potentiel keplerien classique}
 \end{figure}
 Que devient cette analyse en relativité générale ? L'ensemble d'équations différentielles (\ref{eq: géodésiques pour la métrique de Schw}) sont des EDOs couplées du second ordre. Heureusement, dans le cas de Schwarzschild (et aussi pour d'autres métriques avec un certain degré de symétrie), on peut exploiter les symétries du problème pour en tirer des \emph{constantes du mouvement}. L'équation des géodésiques dérive d'un principe variationnel pour

@@ -38,8 +38,7 @@ Un \emph{référentiel inertiel} est une référentiel dans lequel le principe d
 \end{theoremframe}
 Étant donné un référentiel inertiel $O$, le principe d'inertie ne peut trivialement pas être vérifié dans des repères accélérés par rapport à $O$. 
 
-\begin{exmp}
-    \textbf{Un référentiel non-inertiel} :\\
+\begin{exmp}[Un référentiel non-inertiel]
     Un carrousel qui tourne sur lui-même. Dans celui-ci, si une personne lance une balle à une personne en face de lui lorsque le carrousel est au repos la balle suit une trajectoire en ligne droite (le principe d'inertie est donc respecté). Quand le carrousel commence à tourner, la personne n'arrivera pas a attraper la balle car elle n'aura pas un mouvement rectiligne (le principe d'inertie n'est pas respecté donc on n'est pas dans un référentiel inertiel).
 \end{exmp}
 
@@ -55,7 +54,7 @@ L'intervalle (relativiste) est la contrepartie pour l'espace-temps plat $\R^{1,3
             (\Delta s)^2 &\equiv -(c\Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2\\
             &= \eta _{\mu \nu} \, \Delta x^{\mu} \Delta x^{\nu}
         \end{align}
-        où $\Delta x^{\mu}=x^\mu_Q-x^\mu_P$ est la séparation entre les deux événements et où $\eta _{\mu \nu} \equiv \textrm{diag}(-1, 1, 1, 1)$ est la métrique de Minkowski\footnote{Contrairement à la QFT, nous utiliserons dans l'ensemble de ce cours la convention \emph{mostly positive} de la métrique de Minkowski, comme il est d'usage en RG et cosmologie.}. La sommation est sous-entendue sur les indices répétés.
+        où $\Delta x^{\mu}=x^\mu_Q-x^\mu_P$ est la séparation entre les deux événements et où $\eta _{\mu \nu} \equiv \textrm{diag}(-1, 1, 1, 1)$ est la métrique de Minkowski\footnote{Contrairement à la convention utilisée en QFT, nous utiliserons dans l'ensemble de ce cours la convention \emph{mostly positive} de la métrique de Minkowski, comme il est d'usage en RG et cosmologie.}. La sommation est sous-entendue sur les indices répétés.
     \end{defi}
 \end{theoremframe}
 Nous verrons que l'intervalle est préservé par les transformations de Poincaré propre octocrone $\ISO (3,1)^\uparrow$. L'intervalle définit une pseudo-métrique (au sens mathématique) sur $\R^{1,3}$ : contrairement à une métrique usuelle, elle n'est pas définie positive, et 
@@ -749,7 +748,7 @@ Une propriété utile d'un espace globalement hyperbolique est qu'elle garantit 
 \section{Diagrammes de Penrose*}
 Un diagramme de Penrose est une représentation de la structure causale et asymptotique d'un espace-temps. Nous allons illustrer ici sa construction pour l'espace-temps de Minkowski $\R^{1,3}$. Il est recommandé de suivre la suite du cours pour se familiariser avec les notions de métrique avant de revenir à cette section. Un diagramme de Penrose vérifiera :
 \begin{itemize}
-    \item Représentation 2-dimensionnelle. Préférer autant que possible des coordonnées à valeurs bornées\footnote{Par exemple, $\theta \in [0,\pi[$ plutôt que $u \in \R$. Ce n'est néanmoins pas toujours possible (comme par exemple pour $\mathrm{AdS}_n$).}.
+    \item Représentation 2-dimensionnelle : une échelle de temps et une échelle d'espace. On préfèrera autant que possible des coordonnées à valeurs bornées\footnote{Par exemple, $\theta \in [0,\pi[$ plutôt que $u \in \R$. Ce n'est néanmoins pas toujours possible (comme par exemple pour $\mathrm{AdS}_n$).}.
     \item Les cônes de lumières sont ceux de l'espace-temps de Minkowski 2-dimensionnel, $\R^{1,1}$. La structure causale globale est celle de $\mathcal{M}$.
 \end{itemize}
 La première condition impose que le diagramme résultant soit suffisamment simple ; La seconde condition impose qu'il soit représentatif. Pour obtenir ces diagrammes, nous utiliserons systématiquement des transformations conformes :
@@ -761,12 +760,15 @@ La première condition impose que le diagramme résultant soit suffisamment simp
         \end{align}
     \end{defi}
 \end{theoremframe}
+Une transformation conforme est essentiellement un changement local d'échelle. L'une des propriétés centrales des transformations conformes est la suivante :
 \begin{propri}
     Une transformation conforme préserve la structure causale :
     \begin{align}
         g_{\mu\nu}X^\mu X^\nu = 0 \iff \tilde{g}_{\mu\nu}X^\mu X^\nu = 0 
     \end{align}
+    Ce qui implique également la conservation de l'ouverture des cônes de lumière.
 \end{propri}
+Notons néanmoins qu'il ne s'agit pas d'une transformation des coordonnées : la géométrie de l'espace résultante sera en général différente. 
 \subsection{Diagramme de $\R^{1,3}$}
 En coordonnées sphériques, la métrique de Minkowski s'écrit
 \begin{align}
@@ -826,6 +828,13 @@ On obtient donc, à un facteur conforme près, la même métrique que celle de d
 \end{align}
 Ce qu'on a gagné, c'est que dans $\td \tilde{s}^2$, $(T,R)$ ne vont plus jusqu'à l'infini, tout en conservant la structure causale de $\td s^2$ (en vertu d'être relié par une transformation conforme). On a clairement obtenu toutes les conditions qu'on avait énoncé. 
 \begin{rmk}
+    En fait, en incluant également la partie angulaire, la métrique s'écrit 
+    \begin{align}
+        \td \tilde{s}^2 = -\td T^2+\td R^2 + \sin^2 R \,\td \Omega^2
+    \end{align}
+    qui est distinct de la métrique de départ. C'est un espace de topologie $\R \times \mathcal{S}^3$, à courbure non-nulle. Il est solution des équations d'Einstein à constante cosmologique positive et appelé \emph{l'espace statique d'Einstein}. 
+\end{rmk}
+\begin{rmk}
     Pour pouvoir identifier $\Omega^2$ comme un facteur conforme, il faut se convaincre qu'elle ne s'annule pas sur $\R^{1,3}$. En effet, elle s'annulera en $U,V = \pm \frac{\pi}{2}$, qui correspond aux bords \emph{à l'infini} de $\R^{1,3}$ (voir Figure \ref{fig:UV Mink}). Ceci traduit le fait que la distance physique (ou de manière équivalente, le temps propre des courbes causales) pour atteindre ces bords est infini, même s'il est représentée à une distance finie dans le diagramme.
 \end{rmk}
 Il reste maintenant à étudier le domaine des paramètres. Une contrainte est imposée via :
@@ -834,23 +843,27 @@ Il reste maintenant à étudier le domaine des paramètres. Une contrainte est i
     0 \leq 2r = v-u \iff V-U\geq 0
 \end{align}
 soit $R\geq 0$. L'espace-temps de Minkowski est donc entièrement paramétrisé par $(U,V)\in ]- \frac{\pi}{2},\frac{\pi}{2}[^2$ muni de la condition \ref{eq:pen cond coordonnées}, illustré à la Figure \ref{fig:UV Mink}. 
-
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.55\linewidth}
-        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/coordonnées penrose.jpg}
-        \caption{Espace (conformellement) de Minkowski (bleu) dans les coordonnées $(U,V)$. Note : les coordonnées $(T,R)$ sont ici changés d'un facteur $2$.}
-        \label{fig:UV Mink}
+    \begin{subfigure}[b]{0.37\linewidth}
+        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/Espace static embedding.pdf}
+        \caption{Plongement conforme de Minkowski dans l'espace statique d'Einstein (cylindre).}
+        \label{fig:embedding}
     \end{subfigure}
     \quad \quad
-    \begin{subfigure}[b]{0.32\linewidth}
-        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/Diagramme Penrose.pdf}
-        \caption{Diagramme de Penrose de $\R^{1,3}$.\\
-        \,}
-        \label{fig:Penrose Mink}
+    \begin{subfigure}[b]{0.55\linewidth}
+        \includegraphics[width=\linewidth]{Chapitres/2. Relativité Restreinte/Images/coordonnées penrose.jpg}
+        \caption{Espace de Minkowski (bleu) dans les coordonnées $(U,V)$. Note : les coordonnées $(T,R)$ sont ici changés d'un facteur $2$.}
+        \label{fig:UV Mink}
     \end{subfigure}
-    \caption{Diagrammes de l'espace-temps de Minkowski. Tout point sur ceux-ci représente une sphère $\mathcal{S}^2$. Sur le diagramme de Penrose ont été indiquées des courbes causales à $r=\text{cste}$ (bleu) et des courbes à $t=\text{cste}$ (rouge). Ont également été illustrés les cônes de lumière en deux points. Les quantités indiqués sur le bord sont définies ci-dessous.}
+    \caption{Diagrammes de l'espace-temps de Minkowski. Tout point sur ceux-ci représente une sphère $\mathcal{S}^2$. Les bords (autres que $R=0$) ne sont pas inclus dans l'espace.}
     \label{fig:Penrose Mink tot}
+\end{figure}
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.40\linewidth]{Chapitres/2. Relativité Restreinte/Images/Diagramme Penrose.pdf}
+        \caption{Diagramme de Penrose de $\R^{1,3}$. Ont été indiquées des courbes à $r=\text{cste}$ (bleu) et des courbes à $t=\text{cste}$ (rouge). Ont également été illustrés les cônes de lumière en deux points. Les quantités indiqués sur le bord sont définies ci-dessous, et ne sont pas incluses dans Minkowski.}
+        \label{fig:Penrose Mink}
 \end{figure}
 \begin{rmk}
     Le diagramme de Penrose de $\R^{1,1}$ est composé de deux copies de la Figure \ref{fig:Penrose Mink} pour former le carré complet de la Figure \ref{fig:UV Mink}. Ceci vient par l'échange de $r\geq 0$ par $x\in \R$, qui supprime la condition \ref{eq:pen cond coordonnées}.
@@ -859,16 +872,44 @@ Expliquons finalement les quantités définies à la Figure \ref{fig:Penrose Min
 \begin{itemize}
     \item $i^\pm$ : l'infini temporel futur (resp. passé). Il représente là où les courbes de genre temps finissent (resp. débutent) lorsque $t \to \infty$ (resp. $-\infty$).
     \item $i^0$ : l'infini spatial. Il représente là où les courbes de genre espace finissent en $r= \infty$.
-    \item $\mathcal{J}^\pm$ : infini nul futur (resp. passé). Il représente là où les courbes de genre lumière finissent (resp. débutent) lorsque $t \to \infty$ (resp. $-\infty$).
+    \item $\scri^\pm$ : infini nul futur (resp. passé). Il représente là où les courbes de genre lumière finissent (resp. débutent) lorsque $t \to \infty$ (resp. $-\infty$).
 \end{itemize}
 En effet, toute courbe nulle est une droite inclinée de 45°, partant de $\mathcal{J}^-$, étant réfléchi lorsqu'elle atteint $R=0$ et tendant vers $\mathcal{J}^+$. Une propriété de l'espace de Minkowski est donc que les infinis nuls sont, de fait, des surfaces de genre nul. Ceci n'est pas forcément le cas pour d'autres espaces (dont $\mathrm{AdS}_n$). Finalement, notons que le diagramme de Penrose apporte des informations sur la structure asymptotique sur des espaces-temps plus complexe. Par exemple, en vertu d'être asymptotiquement plat, le diagramme de Penrose de l'espace-temps de Schwarzschild (voir Chaiptre 7) doit être, pour $r\gg 2m$, celui de Minkowski (en ce compris, ayant les mêmes limites asymptotiques).
 }
 \begin{exerc}
-    L'espace \emph{de Sitter} en 3 dimensions est un sous-espace maximalement symétrique de Minkowski et à courbure constante positive :
+    L'espace \emph{de Sitter} en 3 dimensions est un sous-espace maximalement symétrique de $\R^{1,3}$ à courbure constante positive :
     \begin{align}
-        \mathrm{dS}_3 = \{x \in \R^{1,3} \mid \eta_{\mu\nu} x^\mu x^\nu = l^2\}.
+        \mathrm{dS}_3 = \Big\{x \in \R^{1,3} \,\big| \, \eta_{\mu\nu} x^\mu x^\nu = -t^2 +x^2+y^2+z^2= l^2\Big\}.
     \end{align}
-    Construisez le diagramme de Penrose associé.
+    \begin{enumerate}[label = (\roman*).]
+        \item Posons $l=1$. Par un changement de variables approprié, montrez que la métrique de $\mathrm{dS}_3$ peut se ramener à 
+        \begin{align}
+            \td s^2 = - \td t^2 + l^2 \cosh^2 (t/l) \,\td \Omega^2.
+        \end{align}
+        Argumentez que $\mathrm{dS}_3$ est spatialement compact. 
+        \item Construisez le diagramme de Penrose associé. Quels bords sont des bords \emph{asymptotiques} ? Pour ceux qui le sont, quel est leur genre ? Comparez avec Minkowski.
+        \item Pouvez-vous trouver une paire d'observateurs inertiels qui ne pourront jamais échanger de l'information ? 
+    \end{enumerate}
+\end{exerc}
+\begin{exerc}
+    L'espace \emph{Anti-de Sitter} en 3 dimensions est un sous-espace maximalement symétrique de $\R^{2,2}$ et à courbure constante négative :
+    \begin{align}
+        \mathrm{AdS}_3 = \Big\{(u,v,x,y) \in \R^{2,2} \,\big| \, -u^2 - v^2 + x^2 + y^2= -l^2\Big\}.
+    \end{align}
+    où la métrique est
+    \begin{align}
+        \td s^2 = -\td u^2 - \td v^2 + \td x^2 + \td y^2
+    \end{align}
+    \begin{enumerate}[label=(\roman*).]
+        \item Posons $l=1$. Par un changement de variables approprié, montrez que la métrique de $\mathrm{AdS}_3$ peut s'écrire comme
+        \begin{align}
+            \td s^2 = l^2 \Big(- \cosh^2\rho \,\td \lambda^2 +\td\rho^2 + \sinh^2 \rho \,\td \phi^2 \Big).
+        \end{align}
+        Pour ne pas obtenir des boucles fermées, on considèrera dans la suite que le paramètre temporel n'est pas périodique et varie dans $\R$.
+        \item Contruisez le diagramme de Penrose associé.
+        \item Cet espace est-il globalement hyperbolique ? Étudiez les bords et comparez avec Minkowski. [Indication : cherchez une surface de Cauchy, i.e. une ligne dans le diagramme par laquelle tout courbe causale "inextensible" doit passer.]
+        \item En supposant à présent un bord réfléchissant en $r = \infty$, représentez-y des trajectoires à $r= \text{cste}$ et des rayons lumineux.
+    \end{enumerate}
 \end{exerc}
 \section*{Références}
 Coming soon...

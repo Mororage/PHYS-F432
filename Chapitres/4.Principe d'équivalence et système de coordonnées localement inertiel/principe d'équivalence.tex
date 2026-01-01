@@ -25,8 +25,8 @@ car le tenseur est symétrique. Dans cette base, la métrique peut donc être é
  \end{equation}
  Puisque $g$ est non-dégénérée, son déterminant est non-nul (toutes les valeurs propres de $g_{\mu \nu}$ sont non-nulles) et la matrice $g_{\mu \nu}$ est inversible. On note $g^{\mu \nu}$ la matrice inverse, qui satisfait à
  \begin{equation}
-     \boxed{g^{\mu \nu}g_{\nu \rho} = \delta^{\mu}
-     _{\rho} = g_{\rho \nu}g^{\nu \mu}}
+     \boxed{g^{\mu \nu}g_{\nu \rho} = \delta\indices*{^{\mu}
+     _{\rho}} = g_{\rho \nu}g^{\nu \mu}}
  \end{equation}
 
 Précédemment, nous avions vu que la métrique de Minkowski permettait de descendre et monter les indices. Ce sera également le cas pour une variété générale. Elle permet d'établir un isomorphisme $T^*_P \mathcal{M} \simeq T_P \mathcal{M}$ car la métrique est non-dégénérée. Par abus de notation, nous noterons cette isomorphisme également
@@ -73,7 +73,7 @@ D'après le principe d'équivalence, dans les régions suffisamment restreintes 
        \label{localement métrique de Minkowski}
     \end{propri}    
 \end{theoremframe}
-On dit alors que dans ce système de coordonnées, $g_{\hat{\mu}\hat{\nu}}$ prend sa forme canonique (au point $P$). Ce système de coordonnées est appelé \textit{référentiel localement inertielles} (RLI). Dans ces coordonnées, la métrique en un point $P$ ressemble à celle de l'espace-temps plat \emph{au premier ordre}. C'est la formulation mathématiquement rigoureuse de la caractérisation \emph{locale} du principe d'équivalence (c'est-à-dire valable jusqu'au premier ordre).
+On dit alors que dans ce système de coordonnées, $g_{\hat{\mu}\hat{\nu}}$ prend sa forme canonique (au point $P$). Ce système de coordonnées est appelé \textit{référentiel localement inertiel} (RLI). Dans ces coordonnées, la métrique en un point $P$ ressemble à celle de l'espace-temps plat \emph{au premier ordre}. C'est la formulation mathématiquement rigoureuse de la caractérisation \emph{locale} du principe d'équivalence (c'est-à-dire valable jusqu'au premier ordre).
 
 Nous n'allons pas donner une preuve constructive de cette propriété (mais qui existe, voir Blau p.102), on montrera uniquement l'existence de ce système de coordonnées. 
 \begin{proof}
@@ -336,7 +336,7 @@ il est possible de réécrire les équations de Maxwell dans le cadre de la thé
 \end{array}
 \right.
 \end{align}
-Comme ces objets sont des $p$-\emph{formes}, ils se transforment de manière tensorielle. Cette expression des équations de Maxwell est donc valable dans un référentiel arbitraire, et donc en présence de gravition. Un lecteur intéressé pourra s'intéresser d'avantage dans cette partie de la \emph{topologie algébrique} dans [Source].\\
+Comme ces objets sont des $p$-\emph{formes}, ils se transforment de manière tensorielle. Cette expression des équations de Maxwell est donc valable dans un référentiel arbitraire, et donc en présence de gravition. Un lecteur intéressé pourra s'intéresser d'avantage dans cette partie de la \emph{topologie algébrique} dans [bibliographie à compléter].\\
 \\
 Argumentons que ces équations font bien intervenir les mêmes objets des deux côtés : 
 \begin{itemize}
@@ -345,7 +345,9 @@ Argumentons que ces équations font bien intervenir les mêmes objets des deux c
     \item $\td (*F)$ est une $(2+1) = 3$-forme.
 \end{itemize}
 Ainsi, nous trouvons une 3-forme des deux côtés ce qui rend l'expression consistante.
-
+\begin{exerc}
+    Refaites l'exercice \ref{exercice:maxwell1} dans le formalisme des $p$-formes.
+\end{exerc}
 \subsection{Monopoles de Dirac}
 La dualité de Hodge est lié à une caractéristique remarquable de certaines théories des champs : la dualité entre \emph{couplage fort} et \emph{couplage faible}. Dirac remarqua que les équations de Maxwell sans sources ($J^\mu =0$) sont invariantes sous la \emph{transformation de dualité EM}
 \begin{align}
@@ -1270,8 +1272,8 @@ On utilisera également la forme :
     \begin{propri}
         Le tenseur d'Einstein est 
         \begin{enumerate}
-            \item symétrique : $G_{\mu \nu} = G_{\nu \mu}$
-            \item vérifie l'identité de Bianchi (il est conservé) : $\nabla_{\mu}G\indices{^{\mu\nu}} = 0$
+            \item Symétrique : $G_{\mu \nu} = G_{\nu \mu}$
+            \item Conservé (identité de Bianchi) : $\nabla_{\mu}G\indices{^{\mu\nu}} = 0$
         \end{enumerate}
     \end{propri}
 \end{theoremframe}

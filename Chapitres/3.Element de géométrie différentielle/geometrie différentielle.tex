@@ -21,10 +21,12 @@ On se place encore dans l'espace-temps de Minkowski $\mathcal{M} \equiv \R^{1,3}
         Soit $P\in \mathcal{M}$. L'espace tangent à $\mathcal{M}$ au point $P$ est noté $T_P\mathcal{M}$. C'est un espace vectoriel réel de dimension 4. Les éléments de $T_P\mathcal{M}$ sont appelés \textit{vecteurs} de $\M$ au point $P$. 
     \end{notat}
 \end{theoremframe}
-La définition (mathématiquement) précise d'un espace tangent ne pourra être donné qu'après avoir introduit la notion de variété différentielle. 
-\begin{rmk}
-    La notion locale (au point $P$) de cette définition sera importante : un vecteur ne pourra pas être vu comme une flèche rejoignant le point $P$ à un autre point $Q \in \mathcal{M}$. Le vecteur \textit{ne vit pas} sur le même espace que les points $P$ et $Q$. Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_P\mathcal{M}$ coincident (en vertu du fait que $\R^{1,3}$ est lui-même un espace vectoriel) : on peut alors les voir comme des flèches rejoignant deux points distincts. Ce ne sera plus le cas si l'espace-temps est courbe.
-\end{rmk}
+Pour le moment, nous nous abstenons de définir rigoureusement ce qu'est exactement un \emph{vecteur}. Pour $\R^{1,3}$, on peut en effet se fier à la notion usuelle, avec deux exceptions :
+\begin{enumerate}[label=(\roman*).]
+    \item Un vecteur n'est plus défini sur l'espace $\M$ lui-même, mais sur son \emph{espace tangent}. Le vecteur \textit{ne vit pas} dans le même espace que les points de $\M$.
+    \item Le vecteur est défini \emph{par rapport} à un point $P\in \M$ : c'est donc une notion locale. On pourra donc par exemple additionner deux vecteurs issus du même espace tangent $T_P\M$, mais pas s'ils appartiennent à des espaces tangents distincts.
+\end{enumerate}
+Lorsque $\mathcal{M} = \R^{1,3}$, il n'y a pas de problème car les ensembles $\mathcal{M}$ et $T_P\mathcal{M}$ coincident (en vertu du fait que $\R^{1,3}$ est lui-même un espace vectoriel) : on peut alors les voir comme des flèches rejoignant deux points distincts. Ce ne sera plus le cas si l'espace-temps est courbe.
 \begin{theoremframe}
     \begin{defi}
         L'union disjointe de tous les espaces tangents de $\mathcal{M}$, noté $T\mathcal{M}$, est appelé le \textit{fibré tangent} de $\mathcal{M}$ :
@@ -37,19 +39,24 @@ La définition (mathématiquement) précise d'un espace tangent ne pourra être 
         \end{align}
     \end{defi}
 \end{theoremframe}
-Comme $T_P\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\mathrm{e}_\alpha\}_\alpha$ de $T_P\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_P\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \mathrm{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Remarquons donc que bien que $V$ ne dépend pas du choix de la base, $V^\alpha$ dépend bien de ce choix.
+Comme $T_P\mathcal{M}$ est un espace vectoriel à 4 dimensions, il existe une base de vecteurs $\{\mathrm{e}_\alpha\}_\alpha$ de $T_P\mathcal{M}$ où $\alpha = \{0,1,2,3\}$. Un vecteur $V \in T_P\mathcal{M}$ peut donc être décomposé sur cette base selon $V = V^\alpha \mathrm{e}_\alpha$, où $V^\alpha$ sont les composantes du vecteur $V$. Bien que $V$ ne dépend pas du choix de la base, $V^\alpha$ dépend bien de ce choix.
 \begin{theoremframe}
     \begin{defi}
         La donnée d'un vecteur $x_P \in T_P\M$ en tout point $P \in \M$ est un champ de vecteurs :
         \begin{align*}
-            U : \quad  \M &\longrightarrow T_P\M \\
-             P& \longmapsto U(P)
+            U : \begin{pmatrix}
+                \M & \longrightarrow& T\M \\
+             P &\longmapsto&  (P,U(P))
+            \end{pmatrix}
         \end{align*}
     \end{defi}
 \end{theoremframe}
-L'exemple canonique de vecteurs est le vecteur tangent à une courbe :
+\begin{rmk}
+    L'utilisation du fibré tangent se justifie donc par la notion locale d'un vecteur : pour chaque vecteur, il faut spécifier le point par rapport auquel il est défini. Comme avant, ceci reste superflu pour $\R^{1,3}$ et plus généralement, on admettera l'abus de notation en omettant la première composante du champ, $U: P \to U(P)$.
+\end{rmk}
+L'exemple canonique de champ de vecteur est le champ tangent à une courbe :
 \begin{exmp}
-    Soit une courbe lisse $\R \to \mathcal{M}: \lambda \mapsto x^\mu (\lambda)$. Le vecteur tangent à la courbe est
+    Soit une courbe lisse $\gamma :\R \to \mathcal{M}: \lambda \mapsto x^\mu (\lambda)$. Le vecteur tangent à la courbe est
     \begin{equation}
         V^\alpha = \frac{\td x^\alpha}{\td \lambda}
     \end{equation}
@@ -635,7 +642,9 @@ Nous avons donc trouvé un atlas lisse de $S^2$.
 \end{exerc}
 \section{Tenseurs revisités}
 \label{sec:tenseurs variétés}
-Nous devons retravailler la notion de tenseur introduite précédemment dans le cadre d'un espace-temps plat, afin qu'elle soit \emph{intrinsèque} à $\mathcal{M}$ : une variété arbitraire n'est pas un espace vectoriel et un vecteur ne peut donc pas être défini sur l'espace lui-même, il faut passer par les espaces tangents. Heureusement pour nous, la plupart des notions vues au début de ce chapitre se généralisent naturellement à une variété arbitraire. Il subsiste néanmoins quelques différences, dont nous discuterons dans cette section. Fixons un point $m\in \mathcal{M}$ (disons, à $\dim \mathcal{M} = n$) et une courbe $\gamma$ dans $\mathcal{M}$ telle que $\gamma(0)=m$.
+Nous devons retravailler la notion de tenseur introduite précédemment dans le cadre d'un espace-temps plat, afin qu'elle soit \emph{intrinsèque} à $\mathcal{M}$ : une variété arbitraire n'est pas un espace vectoriel et un vecteur ne peut donc pas être défini sur l'espace lui-même, il faut passer par les espaces tangents. Heureusement pour nous, la plupart des notions vues au début de ce chapitre se généralisent naturellement à une variété arbitraire. Il subsiste néanmoins quelques différences, dont nous discuterons dans cette section. 
+\subsection{Espace tangent}
+Fixons un point $m\in \mathcal{M}$ (disons, à $\dim \mathcal{M} = n$) et une courbe $\gamma$ dans $\mathcal{M}$ telle que $\gamma(0)=m$.
 \begin{theoremframe}
     \begin{defi}
         Un \emph{vecteur tangent} $X_m$ à $\mathcal{M}$ en $m$ est un opérateur différentiel linéaire agissant sur les fonctions lisses dans un voisinage de $m$ tel que
@@ -666,7 +675,16 @@ Comme $f$ est arbitraire, nous trouvons
 \begin{equation}
     X_m = \left. \frac{\td x^\mu}{\td \lambda} \right|_{\lambda = 0} \frac{\pd}{\pd x^\mu}
 \end{equation}
-où les premiers termes sont les composantes du vecteur $X_m$ et les deuxièmes termes $\{\pd_\mu \}_\mu$ forment une base de l'espace $T_m\mathcal{M}$. Remarquons que la dimension de $T_m\mathcal{M}$ est $n$ (la même que l'espace $\mathcal{M}$ correspondant).
+où les premiers termes sont les composantes du vecteur $X_m$ et les deuxièmes termes $\{\pd_\mu \}_\mu$ forment une base de l'espace $T_m\mathcal{M}$.
+\begin{propri}
+    L'ensemble des vecteurs $T_m\M$ en un point $m\in \M$ est appelé espace tangent de $\M$ au point $m$. C'est un espace vectoriel et 
+    \begin{align}
+        \dim (\M) = \dim (T_m\M)
+    \end{align}
+\end{propri}
+\begin{proof}
+    Exercice.
+\end{proof}
 \begin{center}
 \includegraphics[scale=0.1]{Chapitres/3.Element de géométrie différentielle/Images/vecteurs2.0.jpg}
 %\captionof{figure}{}
@@ -679,14 +697,11 @@ où les premiers termes sont les composantes du vecteur $X_m$ et les deuxièmes 
 %\captionof{figure}{}
 %\label{Parabolique 2}
 \end{center}
-
-
 De manière plus concise, on notera
-
 \begin{equation*}
     X = \frac{\td}{\td \lambda }= \frac{\td x^{\mu}}{\td \lambda } \frac{\partial }{\partial x^{\mu}} = X^{\mu} \partial_{\mu}
 \end{equation*}
-où nous sous-entendons $x^{\mu} = x^{\mu}( \gamma(\lambda))$. Les vecteurs $X = \pd_\mu$ représentent un déplacement tangent à la direction $x^\mu$. Contrairement à la variété $\mathcal{M}$, qui n'est pas un espace vectoriel dans le cas général, l'espace tangent en est un (exercice !). 
+où nous sous-entendons $x^{\mu} = x^{\mu}( \gamma(\lambda))$. Les vecteurs $X = \pd_\mu$ représentent un déplacement tangent à la direction $x^\mu$.
 \begin{center}
 \includegraphics[scale=0.1]{Chapitres/3.Element de géométrie différentielle/Images/vecteur-fleche.jpg}
 %\captionof{figure}{}

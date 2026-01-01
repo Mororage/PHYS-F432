@@ -955,6 +955,20 @@ Ce tenseur d'énergie-impulsion dit \emph{microscopique} est nécessairement con
     \end{equation}
      Il coïncide avec le tenseur énergie-impulsion pour un champ de matière scalaire (KG), mais cesse de coïncider pour des champs à spin supérieur. Généralement ne sera pas nécessairement symétrique ni invariant de jauge (bien qu'il puisse être modifié pour devenir symétrique en rajoutant des termes de bord), on lui préfère donc le tenseur d'énergie-impulsion $T^{\mu\nu}$ défini à travers l'action.\footnote{Voir Blau p.170-182, Caroroll p.165, Di Francesco "Conformal Field Theory" p. 46 pour détails.}
 \end{rmk}
+\begin{exerc}
+    Considérons un système décrivant la dynamique d'une métrique $g$ et d'une 3-forme $C$ exacte (il existe $F$ telle que $F = \td C$), constituant un secteur de la supergravité en $1+10$ dimensions d'espace-temps. L'action de ce système est donnée par 
+    \begin{align}
+        S = \int \td^{11}x \sqrt{-g} \, \lt R - \frac{1}{48}F^2 \rt
+    \end{align}
+    \begin{enumerate}[label = (\roman*).]
+        \item Montrez que les équations du mouvement pour la métrique peuvent se ramener à 
+        \begin{align}
+            R_{\mu\nu} = A \, F\indices{_\mu^{\alpha\beta \gamma}} F\indices{_{\nu\alpha\beta\gamma}} + B\,  g_{\mu\nu} \,F^2
+        \end{align}
+        pour $A,B \in \R$. 
+        \item Déterminez ces constantes.
+    \end{enumerate}
+\end{exerc}
 \cutebreak
 \begin{rmk}
     On considère les unités tel que $\hbar = 1$, $c = 1$. Comme la dimension de l'action $[S]$ est $\hbar$, dans ce système d'unités,  l'action est sans unités. 
@@ -1156,6 +1170,7 @@ On notera donc qu'une invariance est une propriété plus forte qu'une covarianc
     Formellement, nous parlerons de \emph{covariance} dans le cadre de la covariance de Poincaré dans un espace-temps plat et de \emph{covariance généralisée} pour une transformation générale de coordonnées en présence de gravitation. Néanmoins, nous confondrons souvent ces deux notions.
 \end{rmk}
 \subsection{Identités de Bianchi}
+\label{sec:bianchi}
 Dans cette section, nous considérerons une transformation 
 \begin{equation}
     x^\mu \to x'^\mu = x^\mu + \xi^\mu
@@ -1208,7 +1223,7 @@ Comme ceci vaut pour tout difféomorphisme $\xi$ à l'intérieur du domaine, on 
 \begin{equation}
     \boxed{\nabla_{\mu}G^{\mu \nu} = 0}
 \end{equation}
-Les identités de Bianchi sont une conséquence de la covariance généralisée de l'action d'Einstein-Hilbert ou encore de son invariance sous difféomorphisme s'annulant au bord. 
+Les identités de Bianchi peuvent donc être vues comme une conséquence de l'invariance de l'action d'Einstein-Hilbert sous difféomorphisme s'annulant au bord. 
 
 \subsubsection{4.3.3 Signification des identités de Bianchi}
 
@@ -1228,32 +1243,41 @@ La covariance généralisée des équations d'Einstein est reflétée par le fai
 \end{align}
 Le côté droit comporte des objets qui sont au plus des dérivées secondes temporelles de la métrique. Ainsi, au côté gauche $G^{t \beta}$ ne peut contenir qu'au plus les dérivées premières par rapport au temps en la métriques. Les quatre équations $G^{t \beta} = 0$ ne sont pas des équations d'évolution de la métrique : ce sont seulement des contraintes sous les conditions initiales $g_{\mu\nu}$ et $\pd_t g_{\mu\nu}$.\footnote{Voir aussi formalisme Hamiltonien de la relativité générale, Blau [illisible].} Les vecteurs de Killing sont associé à ces équations du champ.
 \section{Le terme de bord de GHY*}
-Cette section est inspirée principalement du Wald (Chapitre 9,10 et appendice E) et du Padmanabhan (Chapitre 6.2). Nous avions précédemment argumenté que l'action Einstein-Hilbert nécessite d'imposer l'annulation des variations du champ et de ses dérivées sur le bord du domaine. Ceci rend le problème mal posé, on aimerait devoir uniquement imposer des conditions de type Dirichlet ($\delta g_{\mu\nu} |_{\pd \M} = 0$). En mécanique analytique, les conditions initiales sont fixées par $q(t_i) = q_i$ et $q(t_f) = q_f$, sans nécessiter conditions sur les dérivées.
+Cette section est inspirée principalement du Wald (Chapitre 9,10 et appendice E), du Padmanabhan (Chapitre 6.2) et du Carroll (Appendice D). Nous avions précédemment argumenté que l'action Einstein-Hilbert nécessite d'imposer l'annulation des variations du champ et de ses dérivées sur le bord du domaine. Ceci rend le problème mal posé, on aimerait devoir uniquement imposer des conditions de type Dirichlet ($\delta g_{\mu\nu} |_{\pd \M} = 0$). En mécanique analytique, les conditions initiales sont fixées par $q(t_i) = q_i$ et $q(t_f) = q_f$, sans nécessiter conditions sur les dérivées.
 
 \subsection{Formulation du problème}
 Ce qui rend l'action d'EH particulière, est le fait qu'elle contient des dérivées secondes en le champ dynamique $g_{\mu\nu}$. Néanmoins, il n'est pas souhaitable que cette dépendance survive dans les équations de champ, comme la variation de l'action entrainerait alors une dérivée par rapport à ces termes, soit des contributions en la dérivée troisième. 
 
 Il peut être vérifié aisément que ceci est en fait une nécessité : en vertu du principe d'équivalence, un scalaire ne dépendant que de la métrique et ses dérivées premières est constante. Heureusement, il existe une solution : en imposant que la dérivée seconde n'est présente que linéairement, sa contribution dans les équations de champ sera un terme de surface (ce qui exactement le cas dans l'action d'EH). Dans ce cas, il faut alors imposer des conditions aux bords à la fois sur $\delta g_{\mu\nu}$ et sur $\pd_\rho \delta g_{\mu\nu}$. Le problème avec cette démarche s'illustre le plus facilement par un analogue avec le mouvement d'une particule classique.
 \begin{exmp}
-    Usuellement, une le principe variationnel d'une particule classique se donne sous la forme d'un Lagrangien $L(q,\dot{q})$ et pour lequel les équations du mouvement seront des équations du second ordre en le temps. Il faut donc imposer deux conditions aux bords comme par exemple $q(t_i) = q_i$ et $q(t_f) = q_f$ (ou alternativement $q(t_i) = q_i$ et $\dot{q}(t_i) = \dot{q}_i$). Si on considère à présent un Lagrangien de la form $L(q,\dot{q},\ddot{q})$ mais dont l'équation du mouvement est toujours de second ordre, on doit à présent imposer $q_i$, $q_f$, $\dot{q}_i$ et $\dot{q}_f$. On impose donc plus de conditions qu'on n'a de libertés : il n'y a aucune garantie que la solution existe !
+    Usuellement, un principe variationnel d'une particule classique se caractérise sous la forme d'un Lagrangien $L(q,\dot{q})$ et pour lequel les équations du mouvement seront des équations du second ordre en le temps. Il faut donc imposer deux conditions aux bords comme par exemple $q(t_i) = q_i$ et $q(t_f) = q_f$ (ou alternativement $q(t_i) = q_i$ et $\dot{q}(t_i) = \dot{q}_i$). Si on considère à présent un Lagrangien de la form $L(q,\dot{q},\ddot{q})$, on doit à présent imposer $q_i$, $q_f$, $\dot{q}_i$ et $\dot{q}_f$. Mais l'équation du mouvement est toujours du second ordre : on impose donc plus de conditions qu'on n'a de libertés : il n'y a aucune garantie que la solution existe !
 \end{exmp}
 On montrera que l'ajout d'un terme de bord résoud ce problème et nous permet de devoir fixer uniquement $\delta g$ sur le bord.
 \subsection{Courbure extrinsèque}
-Soit $(\M,g)$, une hypersurface non-nulle lisse\footnote{Une sous-variété 3-dimensionnelle de genre espace ou temps.} $\Sigma$ et son champ normal (unitaire) $n^\alpha$. La métrique induite sur $\Sigma$ est
+Soit $(\M,g)$, une hypersurface non-nulle lisse\footnote{Une sous-variété 3-dimensionnelle de genre espace ou temps.} $\Sigma$ et son champ normal (unitaire) $n^\alpha$. La métrique induite sur $\Sigma$ (ou \emph{première forme fondamentale} de $\Sigma$) est
 \begin{align}
-    h_{\alpha\beta} = g_{\alpha\beta} \pm n_\alpha n_\beta
+    h_{\mu\nu} = g_{\mu\nu} \pm n_\mu n_\nu
 \end{align}
 où le signe dépend du genre de l'hypersurface. Argumentons cette définition (disons pour une hypersurface acausale) : comme $n^\alpha v_\alpha = 0$ pour tout vecteur tangent à $\Sigma$, la métrique induite coïncide avec $g$ sur le plan tangent. Pour un vecteur normal à la surface :
 \begin{align}
-    v^\alpha = k n_\alpha \implies v^\alpha v_\alpha |_{\Sigma_t}= k^2 ( g_{\alpha\beta} n^\alpha n^\beta + (n_\alpha n^\alpha)^2) = k^2 (-1 +1) = 0 
+    v^\mu = k n_\mu \implies v^\mu v_\mu |_{\Sigma_t}= k^2 ( g_{\mu\nu} n^\alpha n^\nu + (n_\mu n^\mu)^2) = k^2 (-1 +1) = 0 
 \end{align}
-La courbure extrinsèque est définie (sur $\Sigma$) comme
+\begin{theoremframe}
+\begin{defi}
+    La \emph{courbure extrinsèque} (ou \emph{seconde forme fondamentale}) est un tenseur symétrique tangent à $\Sigma$ :
+    \begin{align}
+        K_{\mu\nu} &= \frac{1}{2} \mathcal{L}_n h_{\mu \nu}\\
+        &= \nabla_\mu n_\nu \pm n_\mu \nabla_n n^\mu
+    \end{align}
+\end{defi}
+\end{theoremframe}
+Le caractère tangent se traduit par le fait que $K_{\mu\nu} n^\nu = 0$. On considèrera dans la suite que le champ normal est une géodésique partout, et donc 
 \begin{align}
-    K_{\alpha\beta} = \nabla_\alpha n_\beta
+    K_{\mu\nu} = \nabla_{\mu} n_\nu
 \end{align}
-notons que $K_{\alpha\beta} n^\beta = 0$ (comme $n_\alpha n^\alpha = -1$) et que $K_{\alpha\beta}$ est symétrique. La courbure moyenne est la trace de la courbure extrinsèque :
+Ceci est possible dans les problèmes à condition initiale : on se donne une surface (représentant la condition initiale) et on choisit une foliation telle que le champ normal est géodésique (donc en résolvant l'équation des géodésiques pour $n$). Ce n'est néanmoins pas possible si la foliation est imposée, et on doit alors revenir sur la définition générale. La courbure moyenne est la trace de la courbure extrinsèque :
 \begin{align}
-    K \equiv K\indices{^\alpha_{\! \alpha}} = h^{\alpha\beta} K_{\alpha\beta}
+    K \equiv K\indices{^\mu_{\! \alpha}} = h^{\mu\nu} K_{\mu\nu}
 \end{align}
 \subsection{Correction à l'action}
 Considérons à présent le terme de bord de l'action d'EH sous variation de la métrique :
@@ -1286,6 +1310,114 @@ Il suffit donc d'ajouter un terme proportionnel à la courbure moyenne à l'acti
     S = \boxed{S_{\text{EH}} + S_{\text{GHY}} = \frac{1}{16\pi G} \int_\M \td^4x \sqrt{-g} \, R + \frac{1}{8\pi G} \int_{\partial \M} \td^3x \sqrt{h} \, K}
 \end{align}
 Le prix à payer est que sous cette forme, le Lagrangien n'est plus covariant (bien que ses variations le sont toujours) : il ne l'est plus que pour des conditions aux bords fixées. 
+
+\begin{exerc}
+    L'action de Palatini est définie par
+    \begin{align}
+        S[g,\Gamma] = \frac{1}{16\pi G} \int_\M \td^4 x \sqrt{-g} \, g^{\mu\nu} R_{\mu\nu}(\Gamma)
+    \end{align}
+    où à présent, les coefficients de connexion sont sans torsion mais pas nécessairement métriques. Il ne s'agira donc pas nécessairement d'une connexion de Levi-Civita et les coefficients de connexion sont alors des variables dynamiques indépendantes de la métrique.
+    \begin{enumerate}[label = (\roman*).]
+        \item Dérivez les équations du mouvement par rapport à la métrique, puis par rapport aux coefficients de connexion.
+        \item Montrez que ces équations sont équivalente aux équations d'Einstein munie d'une connexion de Levi-Civita.
+    \end{enumerate}
+    Cette action ne nécessite pas l'ajout d'un terme de bord car l'action ne contient plus de dérivée seconde en la métrique. Néanmoins, ses équations de champ ne coïncident plus lorsque de la matière couple à la connexion (par exemple, avec un champ spinoriel).
+\end{exerc}
+\section{Formulation Hamiltonienne de la relativité générale*}
+Une fois la formulation lagrangienne acquise, il est utile pour de nombreuses raisons de la transposer dans une formulation hamiltonienne. Exposons-en quelques-unes :
+\begin{itemize}
+    \item Comme nous l'avions vu à la fin de la section \ref{sec:bianchi}, toutes les équations d'Einstein ne sont pas des équations d'évolution : 4 d'entre-elles représentent des \emph{contraintes} (sur les conditions initiales). Il est donc intéressant de chercher une formulation qui fait apparaître explicitement ces contraintes.
+    \item Elle apporte une interprétation concrète à l'évolution dans le temps en relativité générale, et permet ainsi de formuler rigoureusement le problème des conditions initiales discuté brièvement au \hyperref[sec:hypersurfaces cauchy]{Chapitre 2.\ref*{sec:hypersurfaces cauchy}}.
+    \item Le formalisme Hamiltonien est le point de départ vers une quantification de la théorie.
+\end{itemize}
+\subsection{Foliation de l'espace-temps}
+Le formalisme hamiltonien distingue explicitement le temps et l'espace, notamment à travers la définition de ses moments conjugués $\pi_i$. À ce but, étant donné une fonction globale de temps $t$ (représentant la coordonnée temporelle\footnote{On suppose de nouveau l'espace-temps globalement hyperbolique, dans lequel une hypersurface de Cauchy existe ainsi qu'une telle fonction de temps.}), on découpe l'espace-temps en une famille continue d'hypersurfaces spatiales $\Sigma_t$ à $t$ constant. Cette procédure est également appelée \emph{foliation}. On définit alors un champ normal à $\Sigma_t$ :
+\begin{align}
+    n_\mu = N \nabla_\mu t
+\end{align}
+où $N$ assure la normalisation de ce vecteur $n_\mu n^\mu=-1$.
+\begin{theoremframe}
+    \begin{defi}
+        Un champ de vecteur $t^\mu$ vérifiant
+        \begin{align}
+            t^\mu\nabla_\mu t = 1
+        \end{align}
+        est appelé le \emph{champ d'évolution temporelle}.
+    \end{defi}
+\end{theoremframe}
+Ce champ relie les différentes hypersurfaces entre-elles en générant un difféomorphisme local entre $\Sigma_t$ et $\Sigma_{t+\td t}$ via ses courbes intégrales. Comme la fonction de temps est scalaire, ceci revient à $t^\mu \pd_\mu t = 1$, i.e. un avancement régulier du temps le long des courbes intégrales de $t^\mu$. Sa projection normale aux $\Sigma_t$ est :
+\begin{align}
+    t^\mu n_\mu = N 
+\end{align}
+En définissant la projection tangente aux $\Sigma_t$ comme $N^\mu$, on obtient :
+\begin{align}
+    t^\mu = N n^\mu + N^\mu \iff n^\mu = \frac{t^\mu - N^\mu}{N}
+\end{align}
+On appelle donc $N$ la \emph{fonction de laps} (représentant le temps propre écoulé entre deux feuilles) et $N^i$ le \emph{vecteur de décalage} (représentant le déplacement spatial entre deux feuilles). La métrique induite sur $\Sigma_t$ est
+\begin{align}
+    h_{\alpha \beta} = g_{\alpha\beta} + n_\alpha n_\beta \iff g_{\alpha \beta} = h_{\alpha\beta} - n_\alpha n_\beta 
+\end{align}
+La métrique peut donc être décrite sur une feuille par les variables $(N,N_\mu,h_{\mu\nu})$. Le déplacement entre les feuilles se faisant de manière lisse (grâce à $t^\mu$), ces variables décrivent l'espace-temps dans son ensemble. Ceux-cis peuvent donc être utilisées comme variables alternatives à $g_{\mu\nu}$. C'est en fait évident du point de vue de la métrique, qui se décompose alors comme
+\begin{align}
+    \td s^2 = - N^2 \td t^2 + h_{ij}(\td x^i + N^i\td t)(\td x^j + N^j\td t)
+\end{align}
+On conserve également le nombre de degrés de liberté : 4 pour $N,N^i$ et $\frac{3\cdot (3+1)}{2}=6$ pour $h_{ij}$ (notons que les composantes temporelles $N^0$ et $h_{0\mu}$ n'apportent aucune nouvelle information). Les différentes composantes de la métrique sont donc :
+\begin{align}
+    g_{\mu\nu} = \begin{pmatrix}
+        -N^2 + N^i N_i & N_j\\
+        N_i & h_{ij}
+    \end{pmatrix}
+    \iff
+    g^{\mu\nu} = \begin{pmatrix}
+        - \frac{1}{N^2} & N^j/N^2\\
+        N^i/N^2 & h^{ij} - N^i N^j/N^2
+    \end{pmatrix}
+\end{align} 
+où $N_i = h_{ij}N^j$. L'élément de volume de $\Sigma_t$ est $\sqrt{h}$ alors que l'élément de volume de l'espace-temps devient
+\begin{align}
+    \sqrt{-g} = N \sqrt{h}
+\end{align}
+\subsection{Hamiltonien ADM}
+On doit exprimer le Langrangien en termes des nouvelles variables et en particulier en séparant la partie spatiale de la métrique. La courbure scalaire s'écrit alors
+\begin{align}
+    \tensor*[^{(4)}]{R}{} = \tensor*[^{(3)}]{R}{} + K^2 - K\indices{^i^j}K\indices{_i_j} + \text{dérivée totale}
+\end{align}
+Et le Lagrangien est donc 
+\begin{align}
+    L_\text{ADM} = \int \td^3 x \, N \sqrt{h} \, (\tensor*[^{(3)}]{R}{} + K^{ij} K_{ij} - K^2 - 2\Lambda ) +
+    \text{termes de bord}
+\end{align}
+Le moment canonique associé à $g_{ij}$ sera alors
+\begin{align}
+    \pi^{ij} = \frac{\pd \mathcal{L}_\text{ADM}}{\pd \dot{h}_{ij}} = \sqrt{h} (K^{ij} - h^{ij} K)
+\end{align}
+En omettant les détails, on calcule la transformée de Legendre pour obtenir le Hamiltonien
+\begin{align}
+    H_\text{ADM}(h,\pi,N,N^i) &= \pi^{ij} \dot{h}_{ij}(\pi)- L_\text{ADM}(h,\dot{h}(\pi),N,N^i)\\
+    &=  \int \td^3 x \, (N \mathcal{H} + N^i\mathcal{H}_i) + \text{termes de bord}
+\end{align}
+avec
+\begin{align}
+    \label{eq:hamiltonien ADM}
+    \begin{dcases}
+        \mathcal{H} = \frac{1}{\sqrt{h}} (\pi^{ij} \pi_{ij} - \frac{\pi^2}{2}) - \sqrt{h} (\tensor*[^{(3)}]{R}{} - 2 \Lambda)\\
+        \mathcal{H}_i = - 2 D_j \pi\indices{^j_i}
+    \end{dcases}
+\end{align}
+où $D$ est la dérivée covariante spatiale précédemment introduite. Les variables $N$ et $N^i$ n'ont pas de moment canonique associé comme leurs dérivées ne sont pas présentes dans le Lagrangien (ce qui se ramène à la discussion portée à la section \ref{sec:bianchi}). Ils agissent donc \emph{de facto} comme des multiplicateurs de Lagrange, c'est à dire que leurs équations ne sont pas des équations d'évolution, mais des contraintes :
+\begin{align}
+    \mathcal{H} &= 0\\
+    \mathcal{H}_i &= 0
+\end{align}
+Les équations de $(g_{ij}, \pi^{ij})$ donnent les 6 équations d'évolution.
+\begin{rmk}
+    Pour écrire la contrainte (\ref{eq:hamiltonien ADM}) sous une forme de type $\pi^{ij} \pi_{ij}$, nous devons introduire une \emph{supermétrique} (appelée la supermétrique de DeWitt) : 
+    \begin{align}
+        \frac{1}{\sqrt{h}} (\pi^{ij} \pi_{ij} - \frac{\pi^2}{2}) \equiv G_{ijkl} \pi^{ij} \pi^{kl} \quad ; \quad  G_{ijkl} = \frac{1}{2 \sqrt{h}} (h_{ik}h_{jl} + h_{il}h_{jk} - h_{ij} h_{kl})
+    \end{align}
+    Sous cette forme, le moment conjugué s'écrit plus simplement comme $\pi^{ij} = G^{ijkl} K_{kl}$.
+\end{rmk}
+Notons également que comme pour l'action d'Einstein-Hilbert, il est nécessaire d'inclure les termes de bord omis dans ce texte pour que la système soit bien défini.
 \section*{Références}
 Coming soon...
 \begin{center}
