@@ -23,6 +23,9 @@ Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veui
 Vous pouvez me contacter par mail via moritzschnor@ulb.be
 
 ## Change logs
+- Version 1.6 (01/01) :
+  - Diverses corrections d'erreures mineures et clarifications.
+  - Ajout d'une section facultative sur le formalisme Hamiltonien de la RG.
 - Version 1.5 (21/12) :
   - Ajout d'une collection de graphes TikZ maison :)
   - Ajout d'une section facultative sur le terme de bord de l'action EH.
