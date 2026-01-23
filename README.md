@@ -26,6 +26,8 @@ Vous pouvez me contacter par mail via moritzschnor@ulb.be
 - Version 1.7 (à venir) :
   - Ajout de références en fin de chapitre. Une bibliographie formelle sera disponible à la fin du syllabus dans les prochaines mises à jours.
   - Suppression de l'exercice 5.2 qui est faux.
+  - Une série de corrections mineures.
+  - En cours : chapitres complémentaires sur la cosmologie et les ondes gravitationnelles.
 - Version 1.6 (01/01) :
   - Diverses corrections d'erreures mineures et clarifications.
   - Ajout d'une section facultative sur le formalisme Hamiltonien de la RG.
