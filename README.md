@@ -23,6 +23,9 @@ Pour m'aider activement dans l'écriture et l'amélioration de ce syllabus, veui
 Vous pouvez me contacter par mail via moritzschnor@ulb.be
 
 ## Change logs
+- Version 1.7 (à venir) :
+  - Ajout de références en fin de chapitre. Une bibliographie formelle sera disponible à la fin du syllabus dans les prochaines mises à jours.
+  - Suppression de l'exercice 5.2 qui est faux.
 - Version 1.6 (01/01) :
   - Diverses corrections d'erreures mineures et clarifications.
   - Ajout d'une section facultative sur le formalisme Hamiltonien de la RG.
